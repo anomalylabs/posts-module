@@ -1,4 +1,4 @@
-<?php namespace Addon\Module\Blog\Controller\Admin;
+<?php namespace Streams\Addon\Module\Blog\Controller\Admin;
 
 use Addon\Module\Blog\Model\PostEntryModel;
 use Streams\Core\Controller\AdminController;

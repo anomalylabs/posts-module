@@ -1,4 +1,4 @@
-<?php namespace Addon\Module\Blog\Model;
+<?php namespace Streams\Addon\Module\Blog\Model;
 
 use McCool\LaravelAutoPresenter\PresenterInterface;
 use Streams\Core\Model\Blog\BlogPostsEntryModel;

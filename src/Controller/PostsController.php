@@ -1,4 +1,4 @@
-<?php namespace Addon\Module\Blog\Controller;
+<?php namespace Streams\Addon\Module\Blog\Controller;
 
 use Streams\Core\Controller\PublicController;
 
