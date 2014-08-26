@@ -1,8 +1,7 @@
 {
-    "name": "streams/blog-module",
+    "name": "anomalylabs/blog-module",
+    "type": "module",
     "description": "Blog module for Streams Platform",
-    "type": "streams-module",
-    "version" : "1.0.0",
     "authors": [
         {
             "name": "AnomalyLabs",
@@ -14,10 +13,5 @@
         "url" : "git@github.com:anomalylabs/blog-module.git",
         "reference" : "master"
     },
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    }
+    "minimum-stability": "stable",
 }
