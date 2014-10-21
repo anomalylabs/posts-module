@@ -1,4 +1,4 @@
-<?php namespace Streams\Addon\Module\Blog\Model;
+<?php namespace Anomaly\Streams\Module\Blog\Model;
 
 use Streams\Core\Model\Blog\BlogCategoriesEntryModel;
 

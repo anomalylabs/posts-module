@@ -1,4 +1,4 @@
-<?php namespace Streams\Addon\Module\Blog\Controller;
+<?php namespace Anomaly\Streams\Module\Blog\Controller;
 
 use Streams\Core\Controller\PublicController;
 

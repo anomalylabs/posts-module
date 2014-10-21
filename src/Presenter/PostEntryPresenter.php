@@ -1,4 +1,4 @@
-<?php namespace Streams\Addon\Module\Blog\Presenter;
+<?php namespace Anomaly\Streams\Module\Blog\Presenter;
 
 use Streams\Core\Presenter\EntryPresenter;
 
