@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
     'name'        => 'Blog',
-    'description' => 'Write a blog.',
-);
+    'description' => 'Blog management.',
+];
