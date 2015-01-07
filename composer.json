@@ -1,7 +1,7 @@
 {
     "name": "anomaly/blog-module",
     "type": "streams-addon",
-    "description": "Pages management.",
+    "description": "Blog management.",
     "keywords": ["streams-addon", "blog", "pyrocms", "laravel"],
     "homepage": "http://anomaly.is/",
     "license": "MIT",

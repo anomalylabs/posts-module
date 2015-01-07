@@ -13,4 +13,10 @@ use Anomaly\Streams\Platform\Addon\Module\Module;
 class BlogModule extends Module
 {
 
+    /**
+     * The module's navigation group.
+     *
+     * @var null
+     */
+    protected $navigation = 'streams::navigation.content';
 }
