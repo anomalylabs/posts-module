@@ -12,6 +12,6 @@ class PostEntryModel extends BlogPostsEntryModel implements PresenterInterface
      */
     public function getPresenter()
     {
-        return 'Addon\Module\Blog\Presenter\PostEntryPresenter';
+        return 'Streams\Addon\Module\Blog\Presenter\PostEntryPresenter';
     }
 }

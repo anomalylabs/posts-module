@@ -50,7 +50,7 @@ class BlogModuleInstallerAbstract extends ModuleInstallerAbstractAbstract
         'category'     => [
             'type'     => 'relationship',
             'settings' => [
-                'relation' => 'Addon\Module\Blog\Model\CategoryEntryModel',
+                'relation' => 'Streams\Addon\Module\Blog\Model\CategoryEntryModel',
             ],
         ],
         'keywords'     => [
