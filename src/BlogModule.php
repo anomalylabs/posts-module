@@ -19,4 +19,5 @@ class BlogModule extends Module
      * @var null
      */
     protected $navigation = 'streams::navigation.content';
+
 }
