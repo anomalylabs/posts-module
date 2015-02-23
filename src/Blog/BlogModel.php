@@ -21,4 +21,13 @@ class BlogModel extends BlogsBlogsEntryModel implements BlogInterface
      */
     protected $cacheMinutes = 99999;
 
+    /**
+     * Get the slug.
+     *
+     * @return string.
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }

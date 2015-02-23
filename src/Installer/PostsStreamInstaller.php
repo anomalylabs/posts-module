@@ -33,9 +33,6 @@ class PostsStreamInstaller extends StreamInstaller
         'title'    => [
             'required' => true
         ],
-        'blog'     => [
-            'required' => true
-        ],
         'category' => [
             'required' => true
         ]

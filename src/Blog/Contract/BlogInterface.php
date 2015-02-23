@@ -11,4 +11,10 @@
 interface BlogInterface
 {
 
+    /**
+     * Get the slug.
+     *
+     * @return string.
+     */
+    public function getSlug();
 }

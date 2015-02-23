@@ -1,5 +1,7 @@
 <?php namespace Anomaly\BlogsModule\Blog\Contract;
 
+use Anomaly\Streams\Platform\Entry\EntryCollection;
+
 /**
  * Interface BlogRepositoryInterface
  *
@@ -11,4 +13,10 @@
 interface BlogRepositoryInterface
 {
 
+    /**
+     * Return all enabled blogs.
+     *
+     * @return EntryCollection
+     */
+    public function enabled();
 }

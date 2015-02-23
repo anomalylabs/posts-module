@@ -1,5 +1,8 @@
 <?php namespace Anomaly\BlogsModule\Post;
 
+use Anomaly\BlogsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\Streams\Platform\Entry\EntryCollection;
+
 /**
  * Class PostRepository
  *
@@ -26,5 +29,15 @@ class PostRepository implements PostRepositoryInterface
     public function __construct(PostModel $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Get posts for a blog.
+     *
+     * @return EntryCollection
+     */
+    public function get()
+    {
+        return $this->model->get();
     }
 }

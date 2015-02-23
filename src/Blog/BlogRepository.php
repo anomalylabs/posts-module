@@ -1,6 +1,7 @@
 <?php namespace Anomaly\BlogsModule\Blog;
 
 use Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface;
+use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
  * Class BlogRepository
@@ -28,5 +29,15 @@ class BlogRepository implements BlogRepositoryInterface
     public function __construct(BlogModel $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Return all enabled blogs.
+     *
+     * @return EntryCollection
+     */
+    public function enabled()
+    {
+        return $this->model->get();
     }
 }

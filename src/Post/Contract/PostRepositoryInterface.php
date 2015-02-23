@@ -1,4 +1,6 @@
-<?php namespace Anomaly\BlogsModule\Post;
+<?php namespace Anomaly\BlogsModule\Post\Contract;
+
+use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
  * Interface PostRepositoryInterface
@@ -11,4 +13,10 @@
 interface PostRepositoryInterface
 {
 
+    /**
+     * Get posts for a blog.
+     *
+     * @return EntryCollection
+     */
+    public function get();
 }

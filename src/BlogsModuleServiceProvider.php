@@ -23,5 +23,7 @@ class BlogsModuleServiceProvider extends ServiceProvider
         $this->app->register('Anomaly\BlogsModule\Blog\BlogServiceProvider');
         $this->app->register('Anomaly\BlogsModule\Post\PostServiceProvider');
         $this->app->register('Anomaly\BlogsModule\Category\CategoryServiceProvider');
+
+        $this->app->register('Anomaly\BlogsModule\BlogModuleRouteProvider');
     }
 }
