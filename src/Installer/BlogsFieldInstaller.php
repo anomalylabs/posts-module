@@ -1,16 +1,16 @@
-<?php namespace Anomaly\BlogModule\Installer;
+<?php namespace Anomaly\BlogsModule\Installer;
 
 use Anomaly\Streams\Platform\Field\FieldInstaller;
 
 /**
- * Class BlogFieldInstaller
+ * Class BlogsFieldInstaller
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Installer
+ * @package       Anomaly\BlogsModule\Installer
  */
-class BlogFieldInstaller extends FieldInstaller
+class BlogsFieldInstaller extends FieldInstaller
 {
 
     /**

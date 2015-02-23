@@ -1,10 +1,10 @@
 {
-    "name": "anomaly/blog-module",
+    "name": "anomaly/blogs-module",
     "type": "streams-addon",
-    "description": "Blog management.",
+    "description": "Blogs management.",
     "keywords": [
         "streams-addon",
-        "blog",
+        "blogs",
         "pyrocms",
         "laravel"
     ],
@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Anomaly\\BlogModule\\": "src/"
+            "Anomaly\\BlogsModule\\": "src/"
         }
     },
     "extra": {

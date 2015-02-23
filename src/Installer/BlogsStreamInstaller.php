@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Installer;
+<?php namespace Anomaly\BlogsModule\Installer;
 
 use Anomaly\Streams\Platform\Stream\StreamInstaller;
 
@@ -8,7 +8,7 @@ use Anomaly\Streams\Platform\Stream\StreamInstaller;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Installer
+ * @package       Anomaly\BlogsModule\Installer
  */
 class BlogsStreamInstaller extends StreamInstaller
 {

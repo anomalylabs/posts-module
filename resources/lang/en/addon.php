@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'name'        => 'Blog',
-    'description' => 'Blog management.'
+    'name'        => 'Blogs',
+    'description' => 'Blogs management.'
 ];
