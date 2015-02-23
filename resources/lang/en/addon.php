@@ -2,5 +2,5 @@
 
 return [
     'name'        => 'Blog',
-    'description' => 'Blog management.',
+    'description' => 'Blog management.'
 ];
