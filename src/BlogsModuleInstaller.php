@@ -21,6 +21,7 @@ class BlogsModuleInstaller extends ModuleInstaller
     protected $installers = [
         'Anomaly\BlogsModule\Installer\BlogsFieldInstaller',
         'Anomaly\BlogsModule\Installer\BlogsStreamInstaller',
+        'Anomaly\BlogsModule\Installer\PostsStreamInstaller',
         'Anomaly\BlogsModule\Installer\CategoriesStreamInstaller',
     ];
 

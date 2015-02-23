@@ -15,5 +15,8 @@ return [
     ],
     'blog'        => [
         'name' => 'Blog'
+    ],
+    'category'    => [
+        'name' => 'Category'
     ]
 ];
