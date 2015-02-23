@@ -19,7 +19,9 @@ class CategoriesStreamInstaller extends StreamInstaller
      * @var array
      */
     protected $stream = [
-        'slug' => 'categories'
+        'slug'         => 'categories',
+        'title_column' => 'title',
+        'locked'       => true
     ];
 
     /**
@@ -35,6 +37,9 @@ class CategoriesStreamInstaller extends StreamInstaller
         'slug'        => [
             'required' => true,
             'unique'   => true
+        ],
+        'blog'        => [
+            'required' => true
         ],
         'description' => []
     ];

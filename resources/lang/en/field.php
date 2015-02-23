@@ -12,5 +12,8 @@ return [
     ],
     'description' => [
         'name' => 'Description'
+    ],
+    'blog'        => [
+        'name' => 'Blog'
     ]
 ];

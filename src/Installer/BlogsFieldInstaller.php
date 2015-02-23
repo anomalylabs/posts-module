@@ -23,6 +23,12 @@ class BlogsFieldInstaller extends FieldInstaller
         'name'        => 'anomaly.field_type.text',
         'title'       => 'anomaly.field_type.text',
         'description' => 'anomaly.field_type.textarea',
+        'blog'        => [
+            'type'   => 'anomaly.field_type.relationship',
+            'config' => [
+                'related' => 'Anomaly\BlogsModule\Blog\BlogModel'
+            ]
+        ],
     ];
 
 }

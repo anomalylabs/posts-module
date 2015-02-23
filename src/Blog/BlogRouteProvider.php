@@ -21,8 +21,19 @@ class BlogRouteProvider extends RouteServiceProvider
      */
     public function map(Router $router)
     {
-        $router->any('admin/blogs', 'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@index');
-        $router->any('admin/blogs/create', 'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@create');
-        $router->any('admin/blogs/edit/{id}', 'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@edit');
+        $router->any(
+            'admin/blogs',
+            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@index'
+        );
+
+        $router->any(
+            'admin/blogs/create',
+            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@create'
+        );
+
+        $router->any(
+            'admin/blogs/edit/{id}',
+            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@edit'
+        );
     }
 }

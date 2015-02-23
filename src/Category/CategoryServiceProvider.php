@@ -1,16 +1,16 @@
-<?php namespace Anomaly\BlogsModule;
+<?php namespace Anomaly\BlogsModule\Category;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class BlogsModuleServiceProvider
+ * Class CategoryServiceProvider
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule
+ * @package       Anomaly\BlogsModule\Category
  */
-class BlogsModuleServiceProvider extends ServiceProvider
+class CategoryServiceProvider extends ServiceProvider
 {
 
     /**
@@ -20,7 +20,6 @@ class BlogsModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register('Anomaly\BlogsModule\Blog\BlogServiceProvider');
-        $this->app->register('Anomaly\BlogsModule\Category\CategoryServiceProvider');
+        $this->app->register('Anomaly\BlogsModule\Category\CategoryRouteProvider');
     }
 }
