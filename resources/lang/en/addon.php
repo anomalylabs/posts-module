@@ -2,5 +2,10 @@
 
 return [
     'name'        => 'Blogs',
-    'description' => 'Blogs management.'
+    'description' => 'Blogs management.',
+    'section'     => [
+        'blogs'      => 'Blogs',
+        'posts'      => 'Posts',
+        'categories' => 'Categories'
+    ]
 ];

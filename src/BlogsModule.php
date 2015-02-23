@@ -20,4 +20,27 @@ class BlogsModule extends Module
      */
     protected $navigation = 'streams::navigation.content';
 
+    /**
+     * The module sections.
+     *
+     * @var array
+     */
+    protected $sections = [
+        'blogs'      => [
+            'buttons' => [
+                'create'
+            ]
+        ],
+        'posts'      => [
+            'buttons' => [
+                'create'
+            ]
+        ],
+        'categories' => [
+            'buttons' => [
+                'create'
+            ]
+        ]
+    ];
+
 }

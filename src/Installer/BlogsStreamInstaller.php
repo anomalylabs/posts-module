@@ -19,7 +19,8 @@ class BlogsStreamInstaller extends StreamInstaller
      * @var array
      */
     protected $stream = [
-        'slug' => 'blogs'
+        'slug'   => 'blogs',
+        'locked' => true
     ];
 
     /**
