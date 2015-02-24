@@ -35,5 +35,10 @@ class BlogRouteProvider extends RouteServiceProvider
             'admin/blogs/edit/{id}',
             'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@edit'
         );
+
+        $router->any(
+            'admin/blogs/choose',
+            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@choose'
+        );
     }
 }

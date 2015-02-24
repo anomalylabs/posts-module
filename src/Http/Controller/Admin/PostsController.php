@@ -21,7 +21,7 @@ class PostsController extends AdminController
      * @param PostTableBuilder $table
      * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      */
-    public function index(PostTableBuilder $table)
+    public function index(PostTableBuilder $table, $blog = null)
     {
         return $table->render();
     }

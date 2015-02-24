@@ -28,7 +28,8 @@ class BlogFormBuilder extends FormBuilder
     protected $fields = [
         'name',
         'slug',
-        'description'
+        'description',
+        'allowed_roles'
     ];
 
 }

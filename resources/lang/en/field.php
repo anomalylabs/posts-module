@@ -1,22 +1,29 @@
 <?php
 
 return [
-    'name'        => [
+    'name'          => [
         'name' => 'Name'
     ],
-    'title'       => [
+    'title'         => [
         'name' => 'Title'
     ],
-    'slug'        => [
+    'slug'          => [
         'name' => 'Slug'
     ],
-    'description' => [
+    'description'   => [
         'name' => 'Description'
     ],
-    'blog'        => [
+    'blog'          => [
         'name' => 'Blog'
     ],
-    'category'    => [
+    'category'      => [
         'name' => 'Category'
+    ],
+    'allowed_roles' => [
+        'name'         => 'Allowed Roles',
+        'instructions' => 'Which user roles are allowed to access this blog?'
+    ],
+    'tags'          => [
+        'name' => 'Tags'
     ]
 ];

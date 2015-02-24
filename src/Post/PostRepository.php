@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlogsModule\Post;
 
+use Anomaly\BlogsModule\Post\Contract\PostInterface;
 use Anomaly\BlogsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
@@ -39,5 +40,16 @@ class PostRepository implements PostRepositoryInterface
     public function get()
     {
         return $this->model->get();
+    }
+
+    /**
+     * Find a post by it's slug.
+     *
+     * @param $post
+     * @return PostInterface
+     */
+    public function findBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
     }
 }

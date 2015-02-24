@@ -37,7 +37,12 @@ class BlogTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
-        'edit'
+        'edit',
+        [
+            'button' => 'view',
+            'href'   => '/{entry.slug}',
+            'target' => '_blank'
+        ]
     ];
 
 }

@@ -1,16 +1,16 @@
-{% extends blog.layout ?: "streams::blank" %}
+{% extends "streams::blank" %}
 
 {% block content %}
 
     <h1>
-        {{ blog.name }}
+        {{ category.title }}
         <br>
-        <small>{{ blog.description }}</small>
+        <small>{{ category.description }}</small>
     </h1>
 
     <br>
 
-    {% for post in blog.posts %}
+    {% for post in category.posts %}
 
         <h1>
             <a href="{{ post.getUrl() }}">

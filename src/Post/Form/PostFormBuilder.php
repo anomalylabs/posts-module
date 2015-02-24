@@ -28,7 +28,9 @@ class PostFormBuilder extends FormBuilder
     protected $fields = [
         'blog',
         'category',
-        'title'
+        'title',
+        'slug',
+        'tags'
     ];
 
 }

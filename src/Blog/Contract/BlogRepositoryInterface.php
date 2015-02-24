@@ -19,4 +19,12 @@ interface BlogRepositoryInterface
      * @return EntryCollection
      */
     public function enabled();
+
+    /**
+     * Find a blog by it's slug.
+     *
+     * @param $slug
+     * @return null|BlogInterface
+     */
+    public function findBySlug($slug);
 }

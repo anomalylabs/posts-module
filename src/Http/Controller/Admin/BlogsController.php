@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlogsModule\Http\Controller\Admin;
 
+use Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface;
 use Anomaly\BlogsModule\Blog\Form\BlogFormBuilder;
 use Anomaly\BlogsModule\Blog\Table\BlogTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
@@ -47,5 +48,12 @@ class BlogsController extends AdminController
     public function edit(BlogFormBuilder $form, $id)
     {
         return $form->render($id);
+    }
+
+    public function choose(BlogRepositoryInterface $blogs)
+    {
+        $blogs = $blogs->enabled();
+
+        return view('module::admin/blogs/choose', compact('blogs'));
     }
 }

@@ -33,7 +33,14 @@ class BlogsModule extends Module
         ],
         'posts'      => [
             'buttons' => [
-                'create'
+                [
+                    'button'     => 'create',
+                    'href'       => 'admin/blogs/choose',
+                    'attributes' => [
+                        'data-toggle' => 'modal',
+                        'data-target' => '#modal'
+                    ]
+                ]
             ]
         ],
         'categories' => [

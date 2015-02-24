@@ -27,12 +27,12 @@ class PostRouteProvider extends RouteServiceProvider
         );
 
         $router->any(
-            'admin/blogs/posts/create',
+            'admin/blogs/posts/create/{blog}',
             'Anomaly\BlogsModule\Http\Controller\Admin\PostsController@create'
         );
 
         $router->any(
-            'admin/blogs/posts/edit/{id}',
+            'admin/blogs/posts/edit/{blog}/{id}',
             'Anomaly\BlogsModule\Http\Controller\Admin\PostsController@edit'
         );
     }

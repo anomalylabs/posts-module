@@ -20,6 +20,16 @@ class CategoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(
+            'Anomaly\BlogsModule\Category\CategoryModel',
+            'Anomaly\BlogsModule\Category\CategoryModel'
+        );
+
+        $this->app->bind(
+            'Anomaly\BlogsModule\Category\Contract\CategoryRepositoryInterface',
+            'Anomaly\BlogsModule\Category\CategoryRepository'
+        );
+
         $this->app->register('Anomaly\BlogsModule\Category\CategoryRouteProvider');
     }
 }

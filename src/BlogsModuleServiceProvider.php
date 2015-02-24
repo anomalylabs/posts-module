@@ -24,6 +24,9 @@ class BlogsModuleServiceProvider extends ServiceProvider
         $this->app->register('Anomaly\BlogsModule\Post\PostServiceProvider');
         $this->app->register('Anomaly\BlogsModule\Category\CategoryServiceProvider');
 
-        $this->app->register('Anomaly\BlogsModule\BlogModuleRouteProvider');
+        // TODO: Improve this - need to reorganize addon state
+        if ($this->app->make('Anomaly\Streams\Platform\Application\Application')->isInstalled()) {
+            $this->app->register('Anomaly\BlogsModule\BlogsModuleRouteProvider');
+        }
     }
 }

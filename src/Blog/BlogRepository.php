@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlogsModule\Blog;
 
+use Anomaly\BlogsModule\Blog\Contract\BlogInterface;
 use Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
@@ -39,5 +40,16 @@ class BlogRepository implements BlogRepositoryInterface
     public function enabled()
     {
         return $this->model->get();
+    }
+
+    /**
+     * Find a blog by it's slug.
+     *
+     * @param $slug
+     * @return null|BlogInterface
+     */
+    public function findBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
     }
 }

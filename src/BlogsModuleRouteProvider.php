@@ -5,14 +5,14 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
 
 /**
- * Class BlogModuleRouteProvider
+ * Class BlogsModuleRouteProvider
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\BlogsModule
  */
-class BlogModuleRouteProvider extends RouteServiceProvider
+class BlogsModuleRouteProvider extends RouteServiceProvider
 {
 
     /**
@@ -37,6 +37,19 @@ class BlogModuleRouteProvider extends RouteServiceProvider
      */
     protected function mapBlog(Router $router, BlogInterface $blog)
     {
-        $router->get($blog->getSlug(), 'Anomaly\BlogsModule\Http\Controller\BlogsController@index');
+        $router->get(
+            $blog->getSlug(),
+            'Anomaly\BlogsModule\Http\Controller\BlogsController@index'
+        );
+
+        $router->get(
+            $blog->getSlug() . '/category/{category}',
+            'Anomaly\BlogsModule\Http\Controller\CategoriesController@posts'
+        );
+
+        $router->get(
+            $blog->getSlug() . '/{year}/{month}/{day}/{post}',
+            'Anomaly\BlogsModule\Http\Controller\PostsController@show'
+        );
     }
 }

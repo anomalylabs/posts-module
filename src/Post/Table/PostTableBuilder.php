@@ -1,6 +1,7 @@
 <?php namespace Anomaly\BlogsModule\Post\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
+use Illuminate\Http\Request;
 
 /**
  * Class PostTableBuilder
@@ -29,15 +30,6 @@ class PostTableBuilder extends TableBuilder
         'title',
         'category',
         'blog'
-    ];
-
-    /**
-     * The table buttons.
-     *
-     * @var array
-     */
-    protected $buttons = [
-        'edit'
     ];
 
 }

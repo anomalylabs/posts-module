@@ -1,7 +1,5 @@
 <?php namespace Anomaly\BlogsModule\Post\Contract;
 
-use Anomaly\Streams\Platform\Entry\EntryCollection;
-
 /**
  * Interface PostRepositoryInterface
  *
@@ -14,9 +12,10 @@ interface PostRepositoryInterface
 {
 
     /**
-     * Get posts for a blog.
+     * Find a post by it's slug.
      *
-     * @return EntryCollection
+     * @param $post
+     * @return PostInterface
      */
-    public function get();
+    public function findBySlug($slug);
 }

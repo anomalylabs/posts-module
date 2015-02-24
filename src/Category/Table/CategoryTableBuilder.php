@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlogsModule\Category\Table;
 
+use Anomaly\Streams\Platform\Ui\Table\Table;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
 /**
@@ -40,5 +41,4 @@ class CategoryTableBuilder extends TableBuilder
     protected $buttons = [
         'edit'
     ];
-
 }

@@ -30,15 +30,16 @@ class BlogsStreamInstaller extends StreamInstaller
      * @var array
      */
     protected $assignments = [
-        'name'        => [
+        'name'          => [
             'required' => true,
             'unique'   => true
         ],
-        'slug'        => [
+        'slug'          => [
             'required' => true,
             'unique'   => true
         ],
-        'description' => []
+        'description'   => [],
+        'allowed_roles' => []
     ];
 
 }
