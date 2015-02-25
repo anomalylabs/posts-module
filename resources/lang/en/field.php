@@ -25,5 +25,8 @@ return [
     ],
     'tags'          => [
         'name' => 'Tags'
+    ],
+    'theme_layout'  => [
+        'name' => 'Theme Layout'
     ]
 ];

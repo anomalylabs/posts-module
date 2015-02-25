@@ -41,6 +41,12 @@ class BlogsFieldInstaller extends FieldInstaller
             'config' => [
                 'related' => 'Anomaly\UsersModule\Role\RoleModel'
             ]
+        ],
+        'theme_layout' => [
+            'type'   => 'anomaly.field_type.select',
+            'config' => [
+                'handler' => 'Anomaly\BlogsModule\FieldType\ThemeLayout\ThemeLayoutOptions@handle'
+            ]
         ]
     ];
 

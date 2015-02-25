@@ -29,7 +29,8 @@ class BlogFormBuilder extends FormBuilder
         'name',
         'slug',
         'description',
-        'allowed_roles'
+        'allowed_roles',
+        'theme_layout'
     ];
 
 }

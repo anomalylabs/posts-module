@@ -38,6 +38,9 @@ class BlogsStreamInstaller extends StreamInstaller
             'required' => true,
             'unique'   => true
         ],
+        'theme_layout'  => [
+            'required' => true
+        ],
         'description'   => [],
         'allowed_roles' => []
     ];
