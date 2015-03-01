@@ -24,6 +24,12 @@ class AnomalyModuleBlogsCreateBlogsFields extends Migration
         'tags'          => 'anomaly.field_type.tags',
         'description'   => 'anomaly.field_type.textarea',
         'allowed_roles' => [
+            'en'     => [
+                'name' => 'English',
+            ],
+            'fr'     => [
+                'name' => 'French',
+            ],
             'type'   => 'anomaly.field_type.multiple',
             'config' => [
                 'related' => 'Anomaly\UsersModule\Role\RoleModel'
