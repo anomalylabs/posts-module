@@ -47,6 +47,11 @@ class BlogsModule extends Module
             'buttons' => [
                 'create'
             ]
+        ],
+        'post_types' => [
+            'buttons' => [
+                'create'
+            ]
         ]
     ];
 

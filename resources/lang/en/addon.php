@@ -6,6 +6,7 @@ return [
     'section'     => [
         'blogs'      => 'Blogs',
         'posts'      => 'Posts',
-        'categories' => 'Categories'
+        'categories' => 'Categories',
+        'post_types' => 'Post Types'
     ]
 ];
