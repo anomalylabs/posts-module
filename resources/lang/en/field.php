@@ -13,15 +13,12 @@ return [
     'description'   => [
         'name' => 'Description'
     ],
-    'blog'          => [
-        'name' => 'Blog'
-    ],
     'category'      => [
         'name' => 'Category'
     ],
     'allowed_roles' => [
         'name'         => 'Allowed Roles',
-        'instructions' => 'Which user roles are allowed to access this blog?'
+        'instructions' => 'Which user roles are allowed to access this category?'
     ],
     'tags'          => [
         'name' => 'Tags'

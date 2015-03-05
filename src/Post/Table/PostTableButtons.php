@@ -24,7 +24,7 @@ class PostTableButtons
             [
                 [
                     'button' => 'edit',
-                    'href'   => '/admin/blog/posts/edit/{entry.blog_id}/{entry.id}',
+                    'href'   => '/admin/blog/posts/edit/{entry.id}',
                 ],
                 [
                     'button' => 'view',

@@ -22,12 +22,6 @@ class PostFormFields
     {
         $builder->setFields(
             [
-                'blog' => [
-                    'value'    => function (Request $request) {
-                        return 2;
-                    },
-                    'disabled' => true
-                ],
                 'category',
                 'title',
                 'slug',

@@ -26,21 +26,9 @@ class BlogModule extends Module
      * @var array
      */
     protected $sections = [
-        'blog'      => [
-            'buttons' => [
-                'create'
-            ]
-        ],
         'posts'      => [
             'buttons' => [
-                [
-                    'button'     => 'create',
-                    'href'       => 'admin/blog/choose',
-                    'attributes' => [
-                        'data-toggle' => 'modal',
-                        'data-target' => '#modal'
-                    ]
-                ]
+                'create'
             ]
         ],
         'categories' => [

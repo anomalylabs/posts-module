@@ -28,8 +28,7 @@ class PostTableBuilder extends TableBuilder
      */
     protected $columns = [
         'title',
-        'category',
-        'blog'
+        'category'
     ];
 
 }

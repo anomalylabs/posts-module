@@ -1,6 +1,5 @@
 <?php namespace Anomaly\BlogModule\Post;
 
-use Anomaly\BlogModule\Blog\Contract\BlogInterface;
 use Anomaly\BlogModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Model\Blog\BlogPostsEntryModel;
 
@@ -33,22 +32,12 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
     }
 
     /**
-     * Get the related blog.
-     *
-     * @return BlogInterface
-     */
-    public function getBlog()
-    {
-        return $this->blog;
-    }
-
-    /**
      * Get the URL.
      *
      * @return string
      */
     public function getUrl()
     {
-        return url($this->blog->slug . '/' . $this->created_at->format('Y/m/d') . '/' . $this->slug);
+        return url($this->created_at->format('Y/m/d') . '/' . $this->slug);
     }
 }

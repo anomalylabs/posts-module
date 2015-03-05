@@ -1,6 +1,7 @@
 <?php namespace Anomaly\BlogModule\Post;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Router;
 
 /**
@@ -22,17 +23,24 @@ class PostRouteProvider extends RouteServiceProvider
     public function map(Router $router)
     {
         $router->any(
+            'admin/blog',
+            function (Redirector $redirector) {
+                return $redirector->to('admin/blog/posts');
+            }
+        );
+
+        $router->any(
             'admin/blog/posts',
             'Anomaly\BlogModule\Http\Controller\Admin\PostsController@index'
         );
 
         $router->any(
-            'admin/blog/posts/create/{blog}',
+            'admin/blog/posts/create',
             'Anomaly\BlogModule\Http\Controller\Admin\PostsController@create'
         );
 
         $router->any(
-            'admin/blog/posts/edit/{blog}/{id}',
+            'admin/blog/posts/edit/{id}',
             'Anomaly\BlogModule\Http\Controller\Admin\PostsController@edit'
         );
     }

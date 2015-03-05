@@ -26,7 +26,6 @@ class CategoryFormBuilder extends FormBuilder
      * @var array
      */
     protected $fields = [
-        'blog',
         'title',
         'slug',
         'description'
