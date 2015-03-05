@@ -39,9 +39,6 @@ class AnomalyModuleBlogCreateCategoriesStream extends Migration
             'required' => true,
             'unique'   => true
         ],
-        'blog'        => [
-            'required' => true
-        ],
         'description' => [
             'translatable' => true
         ]

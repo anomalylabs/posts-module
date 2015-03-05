@@ -30,9 +30,6 @@ class AnomalyModuleBlogCreatePostsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'blog'     => [
-            'required' => true
-        ],
         'title'    => [
             'translatable' => true,
             'required'     => true
