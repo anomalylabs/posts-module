@@ -8,10 +8,10 @@
 
 <div class="modal-body">
     <ul class="nav nav-pills nav-stacked">
-        {% for blog in blogs %}
+        {% for blog in blog %}
 
             <li>
-                <a href="{{ url_to('admin/blogs/posts/create/' ~ blog.id) }}">
+                <a href="{{ url_to('admin/blog/posts/create/' ~ blog.id) }}">
                     <strong>{{ blog.name }}</strong>
                     <br>
                     <small>{{ blog.description }}</small>

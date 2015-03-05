@@ -1,16 +1,16 @@
-<?php namespace Anomaly\BlogsModule;
+<?php namespace Anomaly\BlogModule;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class BlogsModuleServiceProvider
+ * Class BlogModuleServiceProvider
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule
+ * @package       Anomaly\BlogModule
  */
-class BlogsModuleServiceProvider extends ServiceProvider
+class BlogModuleServiceProvider extends ServiceProvider
 {
 
     /**
@@ -20,13 +20,13 @@ class BlogsModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register('Anomaly\BlogsModule\Blog\BlogServiceProvider');
-        $this->app->register('Anomaly\BlogsModule\Post\PostServiceProvider');
-        $this->app->register('Anomaly\BlogsModule\Category\CategoryServiceProvider');
+        $this->app->register('Anomaly\BlogModule\Blog\BlogServiceProvider');
+        $this->app->register('Anomaly\BlogModule\Post\PostServiceProvider');
+        $this->app->register('Anomaly\BlogModule\Category\CategoryServiceProvider');
 
         // TODO: Improve this - need to reorganize addon state
         if ($this->app->make('Anomaly\Streams\Platform\Application\Application')->isInstalled()) {
-            //$this->app->register('Anomaly\BlogsModule\BlogsModuleRouteProvider');
+            //$this->app->register('Anomaly\BlogModule\BlogModuleRouteProvider');
         }
     }
 }

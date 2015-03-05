@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Blog;
+<?php namespace Anomaly\BlogModule\Blog;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
@@ -9,36 +9,36 @@ use Illuminate\Routing\Router;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Blog
+ * @package       Anomaly\BlogModule\Blog
  */
 class BlogRouteProvider extends RouteServiceProvider
 {
 
     /**
-     * Map blogs routes.
+     * Map blog routes.
      *
      * @param Router $router
      */
     public function map(Router $router)
     {
         $router->any(
-            'admin/blogs',
-            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@index'
+            'admin/blog',
+            'Anomaly\BlogModule\Http\Controller\Admin\BlogController@index'
         );
 
         $router->any(
-            'admin/blogs/create',
-            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@create'
+            'admin/blog/create',
+            'Anomaly\BlogModule\Http\Controller\Admin\BlogController@create'
         );
 
         $router->any(
-            'admin/blogs/edit/{id}',
-            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@edit'
+            'admin/blog/edit/{id}',
+            'Anomaly\BlogModule\Http\Controller\Admin\BlogController@edit'
         );
 
         $router->any(
-            'admin/blogs/choose',
-            'Anomaly\BlogsModule\Http\Controller\Admin\BlogsController@choose'
+            'admin/blog/choose',
+            'Anomaly\BlogModule\Http\Controller\Admin\BlogController@choose'
         );
     }
 }

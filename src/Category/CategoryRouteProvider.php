@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Category;
+<?php namespace Anomaly\BlogModule\Category;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
@@ -9,7 +9,7 @@ use Illuminate\Routing\Router;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Category
+ * @package       Anomaly\BlogModule\Category
  */
 class CategoryRouteProvider extends RouteServiceProvider
 {
@@ -22,18 +22,18 @@ class CategoryRouteProvider extends RouteServiceProvider
     public function map(Router $router)
     {
         $router->any(
-            'admin/blogs/categories',
-            'Anomaly\BlogsModule\Http\Controller\Admin\CategoriesController@index'
+            'admin/blog/categories',
+            'Anomaly\BlogModule\Http\Controller\Admin\CategoriesController@index'
         );
 
         $router->any(
-            'admin/blogs/categories/create',
-            'Anomaly\BlogsModule\Http\Controller\Admin\CategoriesController@create'
+            'admin/blog/categories/create',
+            'Anomaly\BlogModule\Http\Controller\Admin\CategoriesController@create'
         );
 
         $router->any(
-            'admin/blogs/categories/edit/{id}',
-            'Anomaly\BlogsModule\Http\Controller\Admin\CategoriesController@edit'
+            'admin/blog/categories/edit/{id}',
+            'Anomaly\BlogModule\Http\Controller\Admin\CategoriesController@edit'
         );
     }
 }

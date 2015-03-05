@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Post\Contract;
+<?php namespace Anomaly\BlogModule\Post\Contract;
 
 /**
  * Interface PostRepositoryInterface
@@ -6,7 +6,7 @@
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Post
+ * @package       Anomaly\BlogModule\Post
  */
 interface PostRepositoryInterface
 {

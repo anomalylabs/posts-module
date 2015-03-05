@@ -1,8 +1,8 @@
-<?php namespace Anomaly\BlogsModule\Post;
+<?php namespace Anomaly\BlogModule\Post;
 
-use Anomaly\BlogsModule\Blog\Contract\BlogInterface;
-use Anomaly\BlogsModule\Post\Contract\PostInterface;
-use Anomaly\Streams\Platform\Model\Blogs\BlogsPostsEntryModel;
+use Anomaly\BlogModule\Blog\Contract\BlogInterface;
+use Anomaly\BlogModule\Post\Contract\PostInterface;
+use Anomaly\Streams\Platform\Model\Blog\BlogPostsEntryModel;
 
 /**
  * Class PostModel
@@ -10,9 +10,9 @@ use Anomaly\Streams\Platform\Model\Blogs\BlogsPostsEntryModel;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Post
+ * @package       Anomaly\BlogModule\Post
  */
-class PostModel extends BlogsPostsEntryModel implements PostInterface
+class PostModel extends BlogPostsEntryModel implements PostInterface
 {
 
     /**

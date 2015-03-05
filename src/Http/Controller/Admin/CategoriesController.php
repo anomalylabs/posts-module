@@ -1,7 +1,7 @@
-<?php namespace Anomaly\BlogsModule\Http\Controller\Admin;
+<?php namespace Anomaly\BlogModule\Http\Controller\Admin;
 
-use Anomaly\BlogsModule\Category\Form\CategoryFormBuilder;
-use Anomaly\BlogsModule\Category\Table\CategoryTableBuilder;
+use Anomaly\BlogModule\Category\Form\CategoryFormBuilder;
+use Anomaly\BlogModule\Category\Table\CategoryTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
@@ -10,7 +10,7 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Http\Controller\Admin
+ * @package       Anomaly\BlogModule\Http\Controller\Admin
  */
 class CategoriesController extends AdminController
 {

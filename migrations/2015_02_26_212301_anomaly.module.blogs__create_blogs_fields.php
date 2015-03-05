@@ -3,13 +3,13 @@
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class AnomalyModuleBlogsCreateBlogsFields
+ * Class AnomalyModuleBlogCreateBlogFields
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  */
-class AnomalyModuleBlogsCreateBlogsFields extends Migration
+class AnomalyModuleBlogCreateBlogFields extends Migration
 {
 
     /**
@@ -32,19 +32,19 @@ class AnomalyModuleBlogsCreateBlogsFields extends Migration
         'blog'          => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'related' => 'Anomaly\BlogsModule\Blog\BlogModel'
+                'related' => 'Anomaly\BlogModule\Blog\BlogModel'
             ]
         ],
         'category'      => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'related' => 'Anomaly\BlogsModule\Category\CategoryModel'
+                'related' => 'Anomaly\BlogModule\Category\CategoryModel'
             ]
         ],
         'theme_layout'  => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
-                'handler' => 'Anomaly\BlogsModule\FieldType\ThemeLayout\ThemeLayoutOptions@handle'
+                'handler' => 'Anomaly\BlogModule\FieldType\ThemeLayout\ThemeLayoutOptions@handle'
             ]
         ]
     ];

@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Blog\Contract;
+<?php namespace Anomaly\BlogModule\Blog\Contract;
 
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
@@ -8,13 +8,13 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Blog\Contract
+ * @package       Anomaly\BlogModule\Blog\Contract
  */
 interface BlogRepositoryInterface
 {
 
     /**
-     * Return all enabled blogs.
+     * Return all enabled blog.
      *
      * @return EntryCollection
      */

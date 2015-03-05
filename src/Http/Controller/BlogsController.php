@@ -1,31 +1,31 @@
-<?php namespace Anomaly\BlogsModule\Http\Controller;
+<?php namespace Anomaly\BlogModule\Http\Controller;
 
-use Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface;
+use Anomaly\BlogModule\Blog\Contract\BlogRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 use Illuminate\Http\Request;
 
 /**
- * Class BlogsController
+ * Class BlogController
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Http\Controller
+ * @package       Anomaly\BlogModule\Http\Controller
  */
-class BlogsController extends PublicController
+class BlogController extends PublicController
 {
 
     /**
      * Return an index of existing blog posts.
      *
-     * @param BlogRepositoryInterface $blogs
+     * @param BlogRepositoryInterface $blog
      * @param Request                 $request
      * @return \Illuminate\View\View
      */
-    public function index(BlogRepositoryInterface $blogs, Request $request)
+    public function index(BlogRepositoryInterface $blog, Request $request)
     {
-        $blog = $blogs->findBySlug($request->segment(1));
+        $blog = $blog->findBySlug($request->segment(1));
 
-        return view('anomaly.module.blogs::blogs/index', compact('blog'));
+        return view('anomaly.module.blog::blog/index', compact('blog'));
     }
 }

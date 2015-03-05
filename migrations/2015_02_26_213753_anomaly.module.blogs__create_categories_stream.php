@@ -3,13 +3,13 @@
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class AnomalyModuleBlogsCreateCategoriesStream
+ * Class AnomalyModuleBlogCreateCategoriesStream
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  */
-class AnomalyModuleBlogsCreateCategoriesStream extends Migration
+class AnomalyModuleBlogCreateCategoriesStream extends Migration
 {
 
     /**
@@ -20,6 +20,7 @@ class AnomalyModuleBlogsCreateCategoriesStream extends Migration
     protected $stream = [
         'slug'         => 'categories',
         'title_column' => 'title',
+        'translatable' => true,
         'locked'       => true
     ];
 
@@ -30,8 +31,9 @@ class AnomalyModuleBlogsCreateCategoriesStream extends Migration
      */
     protected $assignments = [
         'title'       => [
-            'required' => true,
-            'unique'   => true
+            'translatable' => true,
+            'required'     => true,
+            'unique'       => true
         ],
         'slug'        => [
             'required' => true,
@@ -40,7 +42,9 @@ class AnomalyModuleBlogsCreateCategoriesStream extends Migration
         'blog'        => [
             'required' => true
         ],
-        'description' => []
+        'description' => [
+            'translatable' => true
+        ]
     ];
 
 }

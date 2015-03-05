@@ -1,8 +1,8 @@
-<?php namespace Anomaly\BlogsModule\Blog;
+<?php namespace Anomaly\BlogModule\Blog;
 
-use Anomaly\BlogsModule\Blog\Contract\BlogInterface;
+use Anomaly\BlogModule\Blog\Contract\BlogInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
-use Anomaly\Streams\Platform\Model\Blogs\BlogsBlogsEntryModel;
+use Anomaly\Streams\Platform\Model\Blog\BlogBlogEntryModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Blog
+ * @package       Anomaly\BlogModule\Blog
  */
-class BlogModel extends BlogsBlogsEntryModel implements BlogInterface
+class BlogModel extends BlogBlogEntryModel implements BlogInterface
 {
 
     /**
-     * Cache the blogs.
+     * Cache the blog.
      *
      * @var int
      */
@@ -60,6 +60,6 @@ class BlogModel extends BlogsBlogsEntryModel implements BlogInterface
      */
     public function posts()
     {
-        return $this->hasMany('Anomaly\BlogsModule\Post\PostModel', 'blog_id');
+        return $this->hasMany('Anomaly\BlogModule\Post\PostModel', 'blog_id');
     }
 }

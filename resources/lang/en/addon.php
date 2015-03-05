@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name'        => 'Blogs',
-    'description' => 'Blogs management.',
+    'name'        => 'Blog',
+    'description' => 'Blog management.',
     'section'     => [
-        'blogs'      => 'Blogs',
+        'blog'      => 'Blog',
         'posts'      => 'Posts',
         'categories' => 'Categories',
         'post_types' => 'Post Types'

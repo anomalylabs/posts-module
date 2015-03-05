@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Post\Table;
+<?php namespace Anomaly\BlogModule\Post\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Post\Table
+ * @package       Anomaly\BlogModule\Post\Table
  */
 class PostTableBuilder extends TableBuilder
 {
@@ -19,7 +19,7 @@ class PostTableBuilder extends TableBuilder
      *
      * @var string
      */
-    protected $model = 'Anomaly\BlogsModule\Post\PostModel';
+    protected $model = 'Anomaly\BlogModule\Post\PostModel';
 
     /**
      * The table columns.

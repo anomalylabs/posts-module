@@ -1,18 +1,18 @@
-<?php namespace Anomaly\BlogsModule;
+<?php namespace Anomaly\BlogModule;
 
-use Anomaly\BlogsModule\Blog\Contract\BlogInterface;
+use Anomaly\BlogModule\Blog\Contract\BlogInterface;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
 
 /**
- * Class BlogsModuleRouteProvider
+ * Class BlogModuleRouteProvider
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule
+ * @package       Anomaly\BlogModule
  */
-class BlogsModuleRouteProvider extends RouteServiceProvider
+class BlogModuleRouteProvider extends RouteServiceProvider
 {
 
     /**
@@ -22,9 +22,9 @@ class BlogsModuleRouteProvider extends RouteServiceProvider
      */
     public function map(Router $router)
     {
-        $blogs = $this->app->make('Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface');
+        $blog = $this->app->make('Anomaly\BlogModule\Blog\Contract\BlogRepositoryInterface');
 
-        foreach ($blogs->enabled() as $blog) {
+        foreach ($blog->enabled() as $blog) {
             $this->mapBlog($router, $blog);
         }
     }
@@ -39,17 +39,17 @@ class BlogsModuleRouteProvider extends RouteServiceProvider
     {
         $router->get(
             $blog->getSlug(),
-            'Anomaly\BlogsModule\Http\Controller\BlogsController@index'
+            'Anomaly\BlogModule\Http\Controller\BlogController@index'
         );
 
         $router->get(
             $blog->getSlug() . '/category/{category}',
-            'Anomaly\BlogsModule\Http\Controller\CategoriesController@posts'
+            'Anomaly\BlogModule\Http\Controller\CategoriesController@posts'
         );
 
         $router->get(
             $blog->getSlug() . '/{year}/{month}/{day}/{post}',
-            'Anomaly\BlogsModule\Http\Controller\PostsController@show'
+            'Anomaly\BlogModule\Http\Controller\PostsController@show'
         );
     }
 }

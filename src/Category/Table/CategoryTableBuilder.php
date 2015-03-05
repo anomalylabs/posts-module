@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Category\Table;
+<?php namespace Anomaly\BlogModule\Category\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\Table;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
@@ -9,7 +9,7 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Category\Table
+ * @package       Anomaly\BlogModule\Category\Table
  */
 class CategoryTableBuilder extends TableBuilder
 {
@@ -19,7 +19,7 @@ class CategoryTableBuilder extends TableBuilder
      *
      * @var string
      */
-    protected $model = 'Anomaly\BlogsModule\Category\CategoryModel';
+    protected $model = 'Anomaly\BlogModule\Category\CategoryModel';
 
     /**
      * The table columns.

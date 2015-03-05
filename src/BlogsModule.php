@@ -1,16 +1,16 @@
-<?php namespace Anomaly\BlogsModule;
+<?php namespace Anomaly\BlogModule;
 
 use Anomaly\Streams\Platform\Addon\Module\Module;
 
 /**
- * Class BlogsModule
+ * Class BlogModule
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule
+ * @package       Anomaly\BlogModule
  */
-class BlogsModule extends Module
+class BlogModule extends Module
 {
 
     /**
@@ -26,7 +26,7 @@ class BlogsModule extends Module
      * @var array
      */
     protected $sections = [
-        'blogs'      => [
+        'blog'      => [
             'buttons' => [
                 'create'
             ]
@@ -35,7 +35,7 @@ class BlogsModule extends Module
             'buttons' => [
                 [
                     'button'     => 'create',
-                    'href'       => 'admin/blogs/choose',
+                    'href'       => 'admin/blog/choose',
                     'attributes' => [
                         'data-toggle' => 'modal',
                         'data-target' => '#modal'

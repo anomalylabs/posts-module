@@ -1,23 +1,23 @@
-<?php namespace Anomaly\BlogsModule\Http\Controller\Admin;
+<?php namespace Anomaly\BlogModule\Http\Controller\Admin;
 
-use Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface;
-use Anomaly\BlogsModule\Blog\Form\BlogFormBuilder;
-use Anomaly\BlogsModule\Blog\Table\BlogTableBuilder;
+use Anomaly\BlogModule\Blog\Contract\BlogRepositoryInterface;
+use Anomaly\BlogModule\Blog\Form\BlogFormBuilder;
+use Anomaly\BlogModule\Blog\Table\BlogTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
- * Class BlogsController
+ * Class BlogController
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Http\Controller\Admin
+ * @package       Anomaly\BlogModule\Http\Controller\Admin
  */
-class BlogsController extends AdminController
+class BlogController extends AdminController
 {
 
     /**
-     * Return an index of existing blogs.
+     * Return an index of existing blog.
      *
      * @param BlogTableBuilder $table
      * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
@@ -50,10 +50,10 @@ class BlogsController extends AdminController
         return $form->render($id);
     }
 
-    public function choose(BlogRepositoryInterface $blogs)
+    public function choose(BlogRepositoryInterface $blog)
     {
-        $blogs = $blogs->enabled();
+        $blog = $blog->enabled();
 
-        return view('module::admin/blogs/choose', compact('blogs'));
+        return view('module::admin/blog/choose', compact('blog'));
     }
 }

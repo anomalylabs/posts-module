@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Category\Form;
+<?php namespace Anomaly\BlogModule\Category\Form;
 
 use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 
@@ -8,7 +8,7 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Category\Form
+ * @package       Anomaly\BlogModule\Category\Form
  */
 class CategoryFormBuilder extends FormBuilder
 {
@@ -18,7 +18,7 @@ class CategoryFormBuilder extends FormBuilder
      *
      * @var string
      */
-    protected $model = 'Anomaly\BlogsModule\Category\CategoryModel';
+    protected $model = 'Anomaly\BlogModule\Category\CategoryModel';
 
     /**
      * The form fields.

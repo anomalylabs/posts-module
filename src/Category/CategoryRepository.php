@@ -1,7 +1,7 @@
-<?php namespace Anomaly\BlogsModule\Category;
+<?php namespace Anomaly\BlogModule\Category;
 
-use Anomaly\BlogsModule\Category\Contract\CategoryInterface;
-use Anomaly\BlogsModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\BlogModule\Category\Contract\CategoryInterface;
+use Anomaly\BlogModule\Category\Contract\CategoryRepositoryInterface;
 
 /**
  * Class CategoryRepository
@@ -9,7 +9,7 @@ use Anomaly\BlogsModule\Category\Contract\CategoryRepositoryInterface;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Category
+ * @package       Anomaly\BlogModule\Category
  */
 class CategoryRepository implements CategoryRepositoryInterface
 {

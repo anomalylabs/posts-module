@@ -1,7 +1,7 @@
-<?php namespace Anomaly\BlogsModule\Post;
+<?php namespace Anomaly\BlogModule\Post;
 
-use Anomaly\BlogsModule\Post\Contract\PostInterface;
-use Anomaly\BlogsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\BlogModule\Post\Contract\PostInterface;
+use Anomaly\BlogModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
@@ -10,7 +10,7 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Post
+ * @package       Anomaly\BlogModule\Post
  */
 class PostRepository implements PostRepositoryInterface
 {

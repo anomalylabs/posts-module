@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Post;
+<?php namespace Anomaly\BlogModule\Post;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Post
+ * @package       Anomaly\BlogModule\Post
  */
 class PostServiceProvider extends ServiceProvider
 {
@@ -21,15 +21,15 @@ class PostServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'Anomaly\BlogsModule\Post\PostModel',
-            'Anomaly\BlogsModule\Post\PostModel'
+            'Anomaly\BlogModule\Post\PostModel',
+            'Anomaly\BlogModule\Post\PostModel'
         );
 
         $this->app->bind(
-            'Anomaly\BlogsModule\Post\Contract\PostRepositoryInterface',
-            'Anomaly\BlogsModule\Post\PostRepository'
+            'Anomaly\BlogModule\Post\Contract\PostRepositoryInterface',
+            'Anomaly\BlogModule\Post\PostRepository'
         );
 
-        $this->app->register('Anomaly\BlogsModule\Post\PostRouteProvider');
+        $this->app->register('Anomaly\BlogModule\Post\PostRouteProvider');
     }
 }

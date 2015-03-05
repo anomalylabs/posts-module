@@ -1,7 +1,7 @@
-<?php namespace Anomaly\BlogsModule\Blog;
+<?php namespace Anomaly\BlogModule\Blog;
 
-use Anomaly\BlogsModule\Blog\Contract\BlogInterface;
-use Anomaly\BlogsModule\Blog\Contract\BlogRepositoryInterface;
+use Anomaly\BlogModule\Blog\Contract\BlogInterface;
+use Anomaly\BlogModule\Blog\Contract\BlogRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
@@ -10,7 +10,7 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Blog
+ * @package       Anomaly\BlogModule\Blog
  */
 class BlogRepository implements BlogRepositoryInterface
 {
@@ -33,7 +33,7 @@ class BlogRepository implements BlogRepositoryInterface
     }
 
     /**
-     * Return all enabled blogs.
+     * Return all enabled blog.
      *
      * @return EntryCollection
      */

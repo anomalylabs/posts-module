@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Post;
+<?php namespace Anomaly\BlogModule\Post;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
@@ -9,7 +9,7 @@ use Illuminate\Routing\Router;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Post
+ * @package       Anomaly\BlogModule\Post
  */
 class PostRouteProvider extends RouteServiceProvider
 {
@@ -22,18 +22,18 @@ class PostRouteProvider extends RouteServiceProvider
     public function map(Router $router)
     {
         $router->any(
-            'admin/blogs/posts',
-            'Anomaly\BlogsModule\Http\Controller\Admin\PostsController@index'
+            'admin/blog/posts',
+            'Anomaly\BlogModule\Http\Controller\Admin\PostsController@index'
         );
 
         $router->any(
-            'admin/blogs/posts/create/{blog}',
-            'Anomaly\BlogsModule\Http\Controller\Admin\PostsController@create'
+            'admin/blog/posts/create/{blog}',
+            'Anomaly\BlogModule\Http\Controller\Admin\PostsController@create'
         );
 
         $router->any(
-            'admin/blogs/posts/edit/{blog}/{id}',
-            'Anomaly\BlogsModule\Http\Controller\Admin\PostsController@edit'
+            'admin/blog/posts/edit/{blog}/{id}',
+            'Anomaly\BlogModule\Http\Controller\Admin\PostsController@edit'
         );
     }
 }

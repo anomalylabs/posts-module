@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\Blog\Form;
+<?php namespace Anomaly\BlogModule\Blog\Form;
 
 use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 
@@ -8,7 +8,7 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\Blog\Form
+ * @package       Anomaly\BlogModule\Blog\Form
  */
 class BlogFormBuilder extends FormBuilder
 {
@@ -18,7 +18,7 @@ class BlogFormBuilder extends FormBuilder
      *
      * @var string
      */
-    protected $model = 'Anomaly\BlogsModule\Blog\BlogModel';
+    protected $model = 'Anomaly\BlogModule\Blog\BlogModel';
 
     /**
      * The form fields.

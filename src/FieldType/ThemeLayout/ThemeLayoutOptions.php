@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogsModule\FieldType\ThemeLayout;
+<?php namespace Anomaly\BlogModule\FieldType\ThemeLayout;
 
 use Anomaly\Streams\Platform\Addon\Theme\ThemeCollection;
 use Illuminate\Filesystem\Filesystem;
@@ -9,7 +9,7 @@ use Illuminate\Filesystem\Filesystem;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogsModule\FieldType\ThemeLayout
+ * @package       Anomaly\BlogModule\FieldType\ThemeLayout
  */
 class ThemeLayoutOptions
 {
