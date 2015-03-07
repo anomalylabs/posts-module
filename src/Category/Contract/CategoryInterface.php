@@ -15,6 +15,13 @@ interface CategoryInterface
 {
 
     /**
+     * Get the ID.
+     *
+     * @return integer
+     */
+    public function getId();
+
+    /**
      * Get the related posts.
      *
      * @return EntryCollection

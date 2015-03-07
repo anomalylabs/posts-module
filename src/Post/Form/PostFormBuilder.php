@@ -27,6 +27,7 @@ class PostFormBuilder extends FormBuilder
      */
     protected $fields = [
         'category',
+        'status',
         'title',
         'slug',
         'content',

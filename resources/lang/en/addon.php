@@ -5,8 +5,8 @@ return [
     'description' => 'Blog management.',
     'section'     => [
         'posts'      => 'Posts',
+        'types'      => 'Types',
         'categories' => 'Categories',
-        'fields'     => 'Fields',
         'settings'   => 'Settings'
     ]
 ];

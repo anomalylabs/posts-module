@@ -25,7 +25,7 @@ class BlogModuleRouteProvider extends RouteServiceProvider
 
         $router->any(
             'admin/blog/settings',
-            'Anomaly\BlogModule\Http\Controller\SettingsController@edit'
+            'Anomaly\BlogModule\Http\Controller\Admin\SettingsController@edit'
         );
 
         $router->get(
@@ -40,7 +40,7 @@ class BlogModuleRouteProvider extends RouteServiceProvider
 
         $router->get(
             $settings->get('anomaly.module.blog::tag_base', 'tag') . '/{tag}',
-            'Anomaly\BlogModule\Http\Controller\CategoriesController@posts'
+            'Anomaly\BlogModule\Http\Controller\TagsController@posts'
         );
 
         $router->get(

@@ -2,6 +2,10 @@
 
 {% block content %}
 
+    <h1>{{ category.title }}</h1>
+
+    <p>{{ category.description|raw }}</p>
+
     {% include "anomaly.module.blog::partials/posts" %}
 
 {% endblock %}

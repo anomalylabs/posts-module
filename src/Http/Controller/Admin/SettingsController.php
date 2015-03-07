@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Http\Controller;
+<?php namespace Anomaly\BlogModule\Http\Controller\Admin;
 
 use Anomaly\SettingsModule\Setting\Form\SettingFormBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;

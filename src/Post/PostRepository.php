@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlogModule\Post;
 
+use Anomaly\BlogModule\Category\Contract\CategoryInterface;
 use Anomaly\BlogModule\Post\Contract\PostInterface;
 use Anomaly\BlogModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
@@ -50,7 +51,29 @@ class PostRepository implements PostRepositoryInterface
      */
     public function findBySlug($slug)
     {
-        return $this->model->where('slug', $slug)->first();
+        return $this->model->orderBy('created_at', 'DESC')->where('slug', $slug)->first();
+    }
+
+    /**
+     * Find man posts by tag.
+     *
+     * @param $tag
+     * @return EntryCollection
+     */
+    public function findManyByTag($tag)
+    {
+        return $this->model->where('tags', 'LIKE', '%' . $tag . '%')->get();
+    }
+
+    /**
+     * Find many posts by category.
+     *
+     * @param CategoryInterface $category
+     * @return EntryCollection
+     */
+    public function findManyByCategory(CategoryInterface $category)
+    {
+        return $this->model->orderBy('created_at', 'DESC')->where('category_id', $category->getId())->limit(15)->get();
     }
 
     /**

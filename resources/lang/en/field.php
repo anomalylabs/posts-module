@@ -25,5 +25,13 @@ return [
     ],
     'theme_layout'  => [
         'name' => 'Theme Layout'
+    ],
+    'status'        => [
+        'name'   => 'Status',
+        'option' => [
+            'draft'   => 'Draft',
+            'pending' => 'Pending',
+            'live'    => 'Live'
+        ]
     ]
 ];

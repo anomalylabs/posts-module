@@ -28,17 +28,15 @@ class BlogModule extends Module
     protected $sections = [
         'posts'      => [
             'buttons' => [
-                'new' => 'module::button.new_post'
+                'new_modal' => [
+                    'text' => 'module::button.new_post',
+                    'href' => 'admin/blog/types/choose'
+                ]
             ]
         ],
         'categories' => [
             'buttons' => [
                 'new' => 'module::button.new_category'
-            ]
-        ],
-        'fields' => [
-            'buttons' => [
-                'new' => 'module::button.new_field'
             ]
         ],
         'settings'

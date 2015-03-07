@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlogModule\Post\Contract;
 
+use Anomaly\BlogModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
@@ -20,6 +21,22 @@ interface PostRepositoryInterface
      * @return PostInterface
      */
     public function findBySlug($slug);
+
+    /**
+     * Find many posts by tag.
+     *
+     * @param $tag
+     * @return EntryCollection
+     */
+    public function findManyByTag($tag);
+
+    /**
+     * Find many posts by category.
+     *
+     * @param CategoryInterface $category
+     * @return EntryCollection
+     */
+    public function findManyByCategory(CategoryInterface $category);
 
     /**
      * Get recent posts.
