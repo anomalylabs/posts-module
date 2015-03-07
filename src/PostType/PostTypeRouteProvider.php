@@ -22,7 +22,12 @@ class PostTypeRouteProvider extends RouteServiceProvider
     public function map(Router $router)
     {
         $router->get(
-            'admin/blog/types/choose',
+            'admin/blog/post_types',
+            'Anomaly\BlogModule\Http\Controller\Admin\PostTypesController@index'
+        );
+
+        $router->get(
+            'admin/blog/post_types/choose',
             'Anomaly\BlogModule\Http\Controller\Admin\PostTypesController@choose'
         );
     }

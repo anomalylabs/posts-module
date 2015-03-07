@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        {{ trans('module::admin.choose_post_type') }}
+        <br>
+        <small>{{ trans('module::admin.choose_post_type_instructions') }}</small>
+    </h4>
+</div>
+
+<div class="modal-body">
+    <ul class="nav nav-pills nav-stacked">
+        {% for type in types %}
+
+            <li>
+                <a href="{{ url_to('admin/blog/posts/create/' ~ type.namespace) }}">
+                    <strong>{{ trans(type.name) }}</strong>
+                    <br>
+                    <small>{{ trans(type.description) }}</small>
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
+</div>

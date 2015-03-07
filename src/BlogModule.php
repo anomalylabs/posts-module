@@ -30,7 +30,7 @@ class BlogModule extends Module
             'buttons' => [
                 'new_modal' => [
                     'text' => 'module::button.new_post',
-                    'href' => 'admin/blog/types/choose'
+                    'href' => 'admin/blog/post_types/choose'
                 ]
             ]
         ],
@@ -39,6 +39,7 @@ class BlogModule extends Module
                 'new' => 'module::button.new_category'
             ]
         ],
+        'post_types',
         'settings'
     ];
 

@@ -2,5 +2,6 @@
 
 return [
     'new_category' => 'New Category',
-    'new_post'     => 'New Post'
+    'new_post'     => 'New Post',
+    'customize'    => 'Customize'
 ];
