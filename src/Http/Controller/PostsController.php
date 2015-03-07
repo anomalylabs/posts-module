@@ -18,7 +18,9 @@ class PostsController extends PublicController
 
     public function index(PostRepositoryInterface $posts)
     {
-        die('Posts');
+        $posts = $posts->getRecent();
+
+        return view('anomaly.module.blog::posts/index', compact('posts'));
     }
 
     /**

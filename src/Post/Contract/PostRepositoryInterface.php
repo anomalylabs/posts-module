@@ -1,5 +1,7 @@
 <?php namespace Anomaly\BlogModule\Post\Contract;
 
+use Anomaly\Streams\Platform\Entry\EntryCollection;
+
 /**
  * Interface PostRepositoryInterface
  *
@@ -18,4 +20,11 @@ interface PostRepositoryInterface
      * @return PostInterface
      */
     public function findBySlug($slug);
+
+    /**
+     * Get recent posts.
+     *
+     * @return EntryCollection
+     */
+    public function getRecent();
 }

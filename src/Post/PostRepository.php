@@ -52,4 +52,14 @@ class PostRepository implements PostRepositoryInterface
     {
         return $this->model->where('slug', $slug)->first();
     }
+
+    /**
+     * Get recent posts.
+     *
+     * @return EntryCollection
+     */
+    public function getRecent()
+    {
+        return $this->model->orderBy('created_at', 'DESC')->limit(15)->get();
+    }
 }

@@ -20,4 +20,17 @@ class PostFormBuilder extends FormBuilder
      */
     protected $model = 'Anomaly\BlogModule\Post\PostModel';
 
+    /**
+     * The post fields.
+     *
+     * @var array
+     */
+    protected $fields = [
+        'category',
+        'title',
+        'slug',
+        'content',
+        'tags'
+    ];
+
 }
