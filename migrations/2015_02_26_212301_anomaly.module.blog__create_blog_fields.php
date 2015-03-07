@@ -18,20 +18,29 @@ class AnomalyModuleBlogCreateBlogFields extends Migration
      * @var array
      */
     protected $fields = [
-        'slug'        => 'anomaly.field_type.slug',
-        'name'        => 'anomaly.field_type.text',
-        'title'       => 'anomaly.field_type.text',
-        'type'        => 'anomaly.field_type.text',
-        'tags'        => 'anomaly.field_type.tags',
-        'content'     => 'anomaly.field_type.wysiwyg',
-        'description' => 'anomaly.field_type.wysiwyg',
-        'category'    => [
+        'slug'           => 'anomaly.field_type.slug',
+        'name'           => 'anomaly.field_type.text',
+        'title'          => 'anomaly.field_type.text',
+        'type'           => 'anomaly.field_type.text',
+        'tags'           => 'anomaly.field_type.tags',
+        'content'        => 'anomaly.field_type.wysiwyg',
+        'excerpt'        => 'anomaly.field_type.textarea',
+        'description'    => 'anomaly.field_type.wysiwyg',
+        'published_at'   => 'anomaly.field_type.datetime',
+        'allow_comments' => 'anomaly.field_type.boolean',
+        'author'         => [
+            'type'   => 'anomaly.field_type.relationship',
+            'config' => [
+                'related' => 'Anomaly\UserModule\User\UserModel'
+            ]
+        ],
+        'category'       => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
                 'related' => 'Anomaly\BlogModule\Category\CategoryModel'
             ]
         ],
-        'status'      => [
+        'status'         => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
                 'options' => [

@@ -30,24 +30,32 @@ class AnomalyModuleBlogCreatePostsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'title'    => [
+        'title'        => [
             'translatable' => true,
             'required'     => true
         ],
-        'content'  => [
+        'content'      => [
             'required' => true
         ],
-        'status'   => [
+        'status'       => [
             'required' => true
         ],
-        'slug'     => [
+        'slug'         => [
             'required' => true
         ],
-        'type'     => [
+        'type'         => [
             'required' => true
         ],
-        'category' => [],
-        'tags'     => []
+        'published_at' => [
+            'required' => true
+        ],
+        'author'       => [
+            'required' => true
+        ],
+        'allow_comments',
+        'excerpt',
+        'category',
+        'tags'
     ];
 
 }

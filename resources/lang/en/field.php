@@ -23,8 +23,8 @@ return [
     'tags'          => [
         'name' => 'Tags'
     ],
-    'theme_layout'  => [
-        'name' => 'Theme Layout'
+    'content'       => [
+        'name' => 'Content'
     ],
     'status'        => [
         'name'   => 'Status',
