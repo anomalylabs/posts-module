@@ -1,6 +1,7 @@
 <?php namespace Anomaly\BlogModule\Http\Controller\Admin;
 
 use Anomaly\BlogModule\PostType\Table\PostTypeTableBuilder;
+use Anomaly\SettingsModule\Setting\Form\SettingFormBuilder;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
@@ -24,6 +25,18 @@ class PostTypesController extends AdminController
     public function index(PostTypeTableBuilder $table)
     {
         return $table->render();
+    }
+
+    /**
+     * Customize a post type.
+     *
+     * @param SettingFormBuilder $form
+     * @param                    $extension
+     * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
+     */
+    public function customize(SettingFormBuilder $form, $extension)
+    {
+        return $form->render($extension);
     }
 
     /**

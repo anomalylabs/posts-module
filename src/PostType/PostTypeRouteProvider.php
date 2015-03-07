@@ -27,6 +27,11 @@ class PostTypeRouteProvider extends RouteServiceProvider
         );
 
         $router->get(
+            'admin/blog/post_types/customize/{extension}',
+            'Anomaly\BlogModule\Http\Controller\Admin\PostTypesController@customize'
+        );
+
+        $router->get(
             'admin/blog/post_types/choose',
             'Anomaly\BlogModule\Http\Controller\Admin\PostTypesController@choose'
         );
