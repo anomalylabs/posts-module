@@ -40,4 +40,13 @@ class CategoryTableBuilder extends TableBuilder
         'edit'
     ];
 
+    /**
+     * The table actions.
+     *
+     * @var array
+     */
+    protected $actions = [
+        'delete'
+    ];
+
 }

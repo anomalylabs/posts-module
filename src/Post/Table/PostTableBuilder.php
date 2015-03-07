@@ -1,7 +1,6 @@
 <?php namespace Anomaly\BlogModule\Post\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
-use Illuminate\Http\Request;
 
 /**
  * Class PostTableBuilder
@@ -29,6 +28,15 @@ class PostTableBuilder extends TableBuilder
     protected $columns = [
         'title',
         'category'
+    ];
+
+    /**
+     * The table actions.
+     *
+     * @var array
+     */
+    protected $actions = [
+        'delete'
     ];
 
 }

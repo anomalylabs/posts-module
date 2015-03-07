@@ -1,6 +1,6 @@
 <?php namespace Anomaly\BlogModule;
 
-use Anomaly\BlogModule\Blog\Contract\BlogInterface;
+use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -20,35 +20,31 @@ class BlogModuleRouteProvider extends RouteServiceProvider
      *
      * @param Router $router
      */
-    public function map(Router $router)
+    public function map(Router $router, SettingRepositoryInterface $settings)
     {
-        $blog = $this->app->make('Anomaly\BlogModule\Blog\Contract\BlogRepositoryInterface');
 
-        foreach ($blog->enabled() as $blog) {
-            $this->mapBlog($router, $blog);
-        }
-    }
-
-    /**
-     * Map a blog's routes.
-     *
-     * @param Router        $router
-     * @param BlogInterface $blog
-     */
-    protected function mapBlog(Router $router, BlogInterface $blog)
-    {
-        $router->get(
-            $blog->getSlug(),
-            'Anomaly\BlogModule\Http\Controller\BlogController@index'
+        $router->any(
+            'admin/blog/settings',
+            'Anomaly\BlogModule\Http\Controller\SettingsController@edit'
         );
 
         $router->get(
-            $blog->getSlug() . '/category/{category}',
+            $settings->get('anomaly.module.blog::archive_base', 'blog'),
+            'Anomaly\BlogModule\Http\Controller\PostsController@index'
+        );
+
+        $router->get(
+            $settings->get('anomaly.module.blog::category_base', 'category') . '/{category}',
             'Anomaly\BlogModule\Http\Controller\CategoriesController@posts'
         );
 
         $router->get(
-            $blog->getSlug() . '/{year}/{month}/{day}/{post}',
+            $settings->get('anomaly.module.blog::tag_base', 'tag') . '/{tag}',
+            'Anomaly\BlogModule\Http\Controller\CategoriesController@posts'
+        );
+
+        $router->get(
+            $settings->get('anomaly.module.blog::permalink_structure', '{year}/{month}/{day}/{post}'),
             'Anomaly\BlogModule\Http\Controller\PostsController@show'
         );
     }

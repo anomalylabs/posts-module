@@ -25,9 +25,14 @@ class PostServiceProvider extends ServiceProvider
             'Anomaly\BlogModule\Post\PostModel'
         );
 
-        $this->app->bind(
+        $this->app->singleton(
             'Anomaly\BlogModule\Post\Contract\PostRepositoryInterface',
             'Anomaly\BlogModule\Post\PostRepository'
+        );
+
+        $this->app->singleton(
+            'Anomaly\BlogModule\Post\PostUrlGenerator',
+            'Anomaly\BlogModule\Post\PostUrlGenerator'
         );
 
         $this->app->register('Anomaly\BlogModule\Post\PostRouteProvider');

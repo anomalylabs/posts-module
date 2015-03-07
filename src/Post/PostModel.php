@@ -38,6 +38,6 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
      */
     public function getUrl()
     {
-        return url($this->created_at->format('Y/m/d') . '/' . $this->slug);
+        return app('Anomaly\BlogModule\Post\PostUrlGenerator')->generate($this);
     }
 }

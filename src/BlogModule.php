@@ -28,19 +28,20 @@ class BlogModule extends Module
     protected $sections = [
         'posts'      => [
             'buttons' => [
-                'create'
+                'new' => 'module::button.new_post'
             ]
         ],
         'categories' => [
             'buttons' => [
-                'create'
+                'new' => 'module::button.new_category'
             ]
         ],
-        'post_types' => [
+        'fields' => [
             'buttons' => [
-                'create'
+                'new' => 'module::button.new_field'
             ]
-        ]
+        ],
+        'settings'
     ];
 
 }
