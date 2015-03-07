@@ -29,7 +29,7 @@
 
                     {% if post.tags %}
                         <span class="tags">
-                            {% for tag in post.tags %}
+                            {% for tag in post.tags.getValue() %}
                                 {% if not loop.first %}, {% endif %}
                                 <span class="tag">{{ tag }}</span>
                             {% endfor %}
