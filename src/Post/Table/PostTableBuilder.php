@@ -21,16 +21,6 @@ class PostTableBuilder extends TableBuilder
     protected $model = 'Anomaly\BlogModule\Post\PostModel';
 
     /**
-     * The table columns.
-     *
-     * @var array
-     */
-    protected $columns = [
-        'title',
-        'category'
-    ];
-
-    /**
      * The table actions.
      *
      * @var array

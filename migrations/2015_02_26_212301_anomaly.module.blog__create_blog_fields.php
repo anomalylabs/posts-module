@@ -21,6 +21,7 @@ class AnomalyModuleBlogCreateBlogFields extends Migration
         'slug'        => 'anomaly.field_type.slug',
         'name'        => 'anomaly.field_type.text',
         'title'       => 'anomaly.field_type.text',
+        'type'        => 'anomaly.field_type.text',
         'tags'        => 'anomaly.field_type.tags',
         'content'     => 'anomaly.field_type.wysiwyg',
         'description' => 'anomaly.field_type.wysiwyg',

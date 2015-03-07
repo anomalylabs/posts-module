@@ -1,5 +1,7 @@
 <?php namespace Anomaly\BlogModule\Post\Contract;
 
+use Anomaly\BlogModule\PostType\PostTypeExtension;
+
 /**
  * Interface PostInterface
  *
@@ -24,4 +26,25 @@ interface PostInterface
      * @return string
      */
     public function getUrl();
+
+    /**
+     * Get the post type.
+     *
+     * @return PostTypeExtension
+     */
+    public function getType();
+
+    /**
+     * Get the post type name.
+     *
+     * @return string
+     */
+    public function getTypeName();
+
+    /**
+     * Get the post type description.
+     *
+     * @return string
+     */
+    public function getTypeDescription();
 }

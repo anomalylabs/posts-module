@@ -13,4 +13,8 @@ use Anomaly\Streams\Platform\Addon\Extension\Extension;
 class PostTypeExtension extends Extension
 {
 
+    public function output()
+    {
+        return 'FOO';
+    }
 }
