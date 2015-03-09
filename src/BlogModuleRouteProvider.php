@@ -23,7 +23,7 @@ class BlogModuleRouteProvider extends RouteServiceProvider
     public function map(Router $router, SettingRepositoryInterface $settings)
     {
 
-        $router->any(
+        /*$router->any(
             'admin/blog/settings',
             'Anomaly\BlogModule\Http\Controller\Admin\SettingsController@edit'
         );
@@ -46,6 +46,6 @@ class BlogModuleRouteProvider extends RouteServiceProvider
         $router->get(
             $settings->get('anomaly.module.blog::permalink_structure', '{year}/{month}/{day}/{post}'),
             'Anomaly\BlogModule\Http\Controller\PostsController@show'
-        );
+        );*/
     }
 }
