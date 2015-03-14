@@ -20,12 +20,33 @@ class BlogModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register('Anomaly\BlogModule\Post\PostServiceProvider');
-        $this->app->register('Anomaly\BlogModule\PostType\PostTypeServiceProvider');
-        $this->app->register('Anomaly\BlogModule\Category\CategoryServiceProvider');
+        // Category services.
+        $this->app->bind(
+            'Anomaly\BlogModule\Category\CategoryModel',
+            'Anomaly\BlogModule\Category\CategoryModel'
+        );
 
-        if (env('INSTALLED')) {
-            $this->app->register('Anomaly\BlogModule\BlogModuleRouteProvider');
-        }
+        $this->app->bind(
+            'Anomaly\BlogModule\Category\Contract\CategoryRepositoryInterface',
+            'Anomaly\BlogModule\Category\CategoryRepository'
+        );
+
+        // Post services.
+        $this->app->bind(
+            'Anomaly\BlogModule\Post\PostModel',
+            'Anomaly\BlogModule\Post\PostModel'
+        );
+
+        $this->app->singleton(
+            'Anomaly\BlogModule\Post\Contract\PostRepositoryInterface',
+            'Anomaly\BlogModule\Post\PostRepository'
+        );
+
+        $this->app->singleton(
+            'Anomaly\BlogModule\Post\PostUrlGenerator',
+            'Anomaly\BlogModule\Post\PostUrlGenerator'
+        );
+
+        $this->app->register('Anomaly\BlogModule\BlogModuleRouteProvider');
     }
 }
