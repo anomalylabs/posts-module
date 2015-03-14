@@ -28,9 +28,13 @@ class BlogModule extends Module
     protected $sections = [
         'posts'      => [
             'buttons' => [
-                'new_modal' => [
-                    'text' => 'module::button.new_post',
-                    'href' => 'admin/blog/post_types/choose'
+                [
+                    'button'     => 'new',
+                    'text'       => 'module::button.new_post',
+                    'href'       => 'admin/blog/post_types/choose',
+                    'attributes' => [
+                        'data-modal' => 'standard'
+                    ]
                 ]
             ]
         ],
