@@ -26,7 +26,7 @@ class AnomalyModuleBlog_1_0_0_CreateBlogFields extends Migration
         'content'        => 'anomaly.field_type.wysiwyg',
         'excerpt'        => 'anomaly.field_type.textarea',
         'description'    => 'anomaly.field_type.wysiwyg',
-        'published_at'   => 'anomaly.field_type.datetime',
+        'publish_at'     => 'anomaly.field_type.datetime',
         'allow_comments' => 'anomaly.field_type.boolean',
         'author'         => [
             'type'   => 'anomaly.field_type.relationship',

@@ -37,7 +37,7 @@ class PostFormOptions
                         'tags',
                         'enabled',
                         //'author',
-                        //'published_at',
+                        'publish_at',
                         //'allow_comments'
                     ]
                 ]

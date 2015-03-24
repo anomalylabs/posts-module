@@ -31,6 +31,7 @@ class PostFormBuilder extends FormBuilder
         'title',
         'slug',
         'content',
+        'publish_at',
         'tags'
     ];
 

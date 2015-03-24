@@ -29,5 +29,9 @@ return [
     'enabled'       => [
         'name' => 'Enabled',
         'text' => 'Yes, this post is enabled.'
+    ],
+    'publish_at'    => [
+        'name'         => 'Publish At',
+        'instructions' => 'Set the date/time when you want the post to publish itself.'
     ]
 ];

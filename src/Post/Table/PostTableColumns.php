@@ -29,8 +29,8 @@ class PostTableColumns
                         return trans($entry->getTypeName());
                     }
                 ],
-                'entry.enabled.icon',
-                'entry.category.slug'
+                'entry.category.slug',
+                'entry.enabled.icon'
             ]
         );
     }

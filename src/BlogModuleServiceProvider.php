@@ -89,13 +89,7 @@ class BlogModuleServiceProvider extends AddonServiceProvider
         $this->routes[$base . '/' . $settings->get(
             $this->addon->getNamespace('permalink_structure'),
             '{year}/{month}/{day}/{post}'
-        )] = [
-            'Anomaly\BlogModule\Http\Controller\PostsController@show' => [
-                'year'  => '[0-9]{4}+',
-                'month' => '[0-9]{2}+',
-                'day'   => '[0-9]{2}+'
-            ]
-        ];
+        )] = 'Anomaly\BlogModule\Http\Controller\PostsController@show';
 
         return parent::getRoutes();
     }
