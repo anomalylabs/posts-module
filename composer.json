@@ -2,6 +2,7 @@
     "name": "anomaly/blog-module",
     "type": "streams-addon",
     "description": "Blog management.",
+    "version": "1.0.0",
     "keywords": [
         "streams-addon",
         "blog",

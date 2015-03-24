@@ -14,12 +14,12 @@
 
             <p class="meta">
                     <span class="date">
-                        {{ post.created_at }}
+                        {{ post.created_at|date(config_get('streams.date_format')) }}
                     </span>
 
                 {% if post.category_id %}
                     <span class="date">
-                            {{ post.category_id }}
+                            {{ post.category.slug }}
                         </span>
                 {% endif %}
 

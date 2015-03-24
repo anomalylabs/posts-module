@@ -16,6 +16,12 @@ use Illuminate\Http\Request;
 class PostsController extends PublicController
 {
 
+    /**
+     * Display recent posts.
+     *
+     * @param PostRepositoryInterface $posts
+     * @return \Illuminate\View\View
+     */
     public function index(PostRepositoryInterface $posts)
     {
         $posts = $posts->getRecent();

@@ -29,7 +29,7 @@ class PostTableColumns
                         return trans($entry->getTypeName());
                     }
                 ],
-                'category'
+                'entry.category.slug'
             ]
         );
     }

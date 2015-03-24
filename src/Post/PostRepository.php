@@ -83,6 +83,6 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getRecent()
     {
-        return $this->model->orderBy('created_at', 'DESC')->limit(15)->get();
+        return $this->model->with(['category'])->orderBy('created_at', 'DESC')->limit(15)->get();
     }
 }

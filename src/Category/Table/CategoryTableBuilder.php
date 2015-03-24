@@ -14,13 +14,6 @@ class CategoryTableBuilder extends TableBuilder
 {
 
     /**
-     * The table model.
-     *
-     * @var string
-     */
-    protected $model = 'Anomaly\BlogModule\Category\CategoryModel';
-
-    /**
      * The table columns.
      *
      * @var array
@@ -29,15 +22,6 @@ class CategoryTableBuilder extends TableBuilder
         'title',
         'slug',
         'description'
-    ];
-
-    /**
-     * The table buttons.
-     *
-     * @var array
-     */
-    protected $buttons = [
-        'edit'
     ];
 
     /**

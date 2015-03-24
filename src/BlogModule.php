@@ -33,7 +33,7 @@ class BlogModule extends Module
                     'text'       => 'module::button.new_post',
                     'href'       => 'admin/blog/post_types/choose',
                     'attributes' => [
-                        'data-modal' => 'standard'
+                        'data-modal' => 'small'
                     ]
                 ]
             ]

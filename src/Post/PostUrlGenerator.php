@@ -3,7 +3,7 @@
 use Anomaly\BlogModule\Post\Contract\PostInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Support\Parser;
-use Illuminate\Html\HtmlBuilder;
+use Collective\Html\HtmlBuilder;
 
 /**
  * Class PostUrlGenerator

@@ -2,6 +2,7 @@
 
 use Anomaly\BlogModule\Category\Contract\CategoryInterface;
 use Anomaly\BlogModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
  * Class CategoryRepository
@@ -29,6 +30,16 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function __construct(CategoryModel $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Return all categories.
+     *
+     * @return EntryCollection
+     */
+    public function all()
+    {
+        return $this->model->all();
     }
 
     /**

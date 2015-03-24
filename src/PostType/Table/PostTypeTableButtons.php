@@ -24,7 +24,7 @@ class PostTypeTableButtons extends TableBuilder
         $builder->setButtons(
             [
                 [
-                    'icon' => 'gears',
+                    'icon' => 'settings',
                     'text' => 'module::button.customize',
                     'href' => function (Addon $entry) {
                         return url('admin/blog/post_types/customize/' . $entry->getNamespace());
