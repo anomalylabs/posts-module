@@ -37,9 +37,6 @@ class AnomalyModuleBlog_1_0_0_CreatePostsStream extends Migration
         'content'      => [
             'required' => true
         ],
-        'status'       => [
-            'required' => true
-        ],
         'slug'         => [
             'required' => true
         ],
@@ -52,6 +49,7 @@ class AnomalyModuleBlog_1_0_0_CreatePostsStream extends Migration
         'author'       => [
             'required' => true
         ],
+        'enabled',
         'allow_comments',
         'excerpt',
         'category',

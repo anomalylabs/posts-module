@@ -35,7 +35,7 @@ class PostFormOptions
                     'title'  => 'module::section.options',
                     'fields' => [
                         'tags',
-                        'status',
+                        'enabled',
                         //'author',
                         //'published_at',
                         //'allow_comments'

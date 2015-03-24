@@ -26,8 +26,11 @@ class CategoriesController extends PublicController
      */
     public function posts(CategoryRepositoryInterface $categories, PostRepositoryInterface $posts, $category)
     {
-        $category = $categories->findBySlug($category);
-        $posts    = $posts->findManyByCategory($category);
+        if (!$category = $categories->findBySlug($category)) {
+            abort(404);
+        }
+
+        $posts = $posts->findManyByCategory($category);
 
         return view('anomaly.module.blog::categories/posts', compact('category', 'posts'));
     }

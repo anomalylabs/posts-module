@@ -39,7 +39,11 @@ class PostsController extends PublicController
      */
     public function show(PostRepositoryInterface $posts, Request $request, SettingRepositoryInterface $settings)
     {
-        $structure = $settings->get('anomaly.module.blog::permalink_structure', '{year}/{month}/{day}/{post}');
+        $base      = $settings->get('anomaly.module.blog::module_base', 'blog');
+        $structure = $base . '/' . $settings->get(
+                'anomaly.module.blog::permalink_structure',
+                '{year}/{month}/{day}/{post}'
+            );
 
         $post = $posts->findBySlug($request->segment(array_search('{post}', explode('/', $structure)) + 1));
 

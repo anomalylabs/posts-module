@@ -7,7 +7,7 @@ return [
             'default_value' => '{year}/{month}/{day}/{post}',
         ]
     ],
-    'archive_base'        => [
+    'module_base'         => [
         'type'   => 'anomaly.field_type.text',
         'config' => [
             'default_value' => 'blog'

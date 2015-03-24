@@ -26,12 +26,8 @@ return [
     'content'       => [
         'name' => 'Content'
     ],
-    'status'        => [
-        'name'   => 'Status',
-        'option' => [
-            'draft'   => 'Draft',
-            'pending' => 'Pending',
-            'live'    => 'Live'
-        ]
+    'enabled'       => [
+        'name' => 'Enabled',
+        'text' => 'Yes, this post is enabled.'
     ]
 ];

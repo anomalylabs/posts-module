@@ -3,6 +3,7 @@
 use Anomaly\BlogModule\Post\Contract\PostInterface;
 use Anomaly\BlogModule\PostType\PostTypeExtension;
 use Anomaly\Streams\Platform\Model\Blog\BlogPostsEntryModel;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class PostModel
@@ -30,6 +31,17 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
         parent::boot();
 
         self::observe(app('Anomaly\BlogModule\Post\PostObserver'));
+    }
+
+    /**
+     * Return only active posts.
+     *
+     * @param Builder $query
+     * @return $this
+     */
+    public function scopeActive(Builder $query)
+    {
+        return $query->where('status', 'live');
     }
 
     /**

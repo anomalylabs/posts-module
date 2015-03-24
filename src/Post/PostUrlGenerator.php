@@ -58,6 +58,7 @@ class PostUrlGenerator
      */
     public function generate(PostInterface $post)
     {
+        $base      = $this->settings->get('anomaly.module.blog::module_base', 'base');
         $structure = $this->settings->get('anomaly.module.blog::permalink_structure', '{year}/{month}/{day}/{post}');
 
         $data = [
@@ -67,6 +68,6 @@ class PostUrlGenerator
             'post'  => $post->getSlug()
         ];
 
-        return url($this->parser->parse($structure, $data));
+        return url($this->parser->parse($base . '/' . $structure, $data));
     }
 }

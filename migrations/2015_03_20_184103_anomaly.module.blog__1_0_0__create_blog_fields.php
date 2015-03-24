@@ -40,14 +40,10 @@ class AnomalyModuleBlog_1_0_0_CreateBlogFields extends Migration
                 'related' => 'Anomaly\BlogModule\Category\CategoryModel'
             ]
         ],
-        'status'         => [
-            'type'   => 'anomaly.field_type.select',
+        'enabled'        => [
+            'type'   => 'anomaly.field_type.boolean',
             'config' => [
-                'options' => [
-                    'draft'   => 'anomaly.module.blog::field.status.option.draft',
-                    'pending' => 'anomaly.module.blog::field.status.option.pending',
-                    'live'    => 'anomaly.module.blog::field.status.option.live',
-                ]
+                'text' => 'anomaly.module.blog::field.enabled.text'
             ]
         ]
     ];

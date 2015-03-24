@@ -62,15 +62,15 @@ class BlogModuleServiceProvider extends AddonServiceProvider
         /**
          * Route base URI.
          */
-        $this->routes[$settings->get(
-            $this->addon->getNamespace('archive_base'),
+        $this->routes[$base = $settings->get(
+            $this->addon->getNamespace('module_base'),
             'blog'
         )] = 'Anomaly\BlogModule\Http\Controller\PostsController@index';
 
         /**
          * Route base category URI.
          */
-        $this->routes[$settings->get(
+        $this->routes[$base . '/' . $settings->get(
             $this->addon->getNamespace('category_base'),
             'category'
         ) . '/{category}'] = 'Anomaly\BlogModule\Http\Controller\CategoriesController@posts';
@@ -78,7 +78,7 @@ class BlogModuleServiceProvider extends AddonServiceProvider
         /**
          * Route base tag URI.
          */
-        $this->routes[$settings->get(
+        $this->routes[$base . '/' . $settings->get(
             $this->addon->getNamespace('tag_base'),
             'tag'
         ) . '/{tag}'] = 'Anomaly\BlogModule\Http\Controller\TagsController@posts';
@@ -86,7 +86,7 @@ class BlogModuleServiceProvider extends AddonServiceProvider
         /**
          * Route post URIs.
          */
-        $this->routes[$settings->get(
+        $this->routes[$base . '/' . $settings->get(
             $this->addon->getNamespace('permalink_structure'),
             '{year}/{month}/{day}/{post}'
         )] = [
