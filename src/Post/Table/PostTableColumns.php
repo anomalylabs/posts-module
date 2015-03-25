@@ -29,7 +29,7 @@ class PostTableColumns
                         return trans($entry->getTypeName());
                     }
                 ],
-                'entry.category.slug',
+                'entry.category.title',
                 'entry.enabled.icon'
             ]
         );

@@ -28,7 +28,11 @@ class CategoryFormBuilder extends FormBuilder
     protected $fields = [
         'title',
         'slug',
-        'description'
+        'description' => [
+            'config' => [
+                'default_value' => 'FOO'
+            ]
+        ]
     ];
 
 }
