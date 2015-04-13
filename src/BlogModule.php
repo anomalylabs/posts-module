@@ -14,11 +14,11 @@ class BlogModule extends Module
 {
 
     /**
-     * The module's navigation group.
+     * The module's icon.
      *
-     * @var null
+     * @var string
      */
-    protected $navigation = 'streams::navigation.content';
+    protected $icon = 'rss';
 
     /**
      * The module sections.
