@@ -43,7 +43,11 @@ class BlogModule extends Module
                 'new' => 'module::button.new_category'
             ]
         ],
-        'post_types',
+        'post_types' => [
+            'buttons' => [
+                'new' => 'module::button.new_type'
+            ]
+        ],
         'settings'
     ];
 

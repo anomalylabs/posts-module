@@ -18,14 +18,19 @@ class AnomalyModuleBlog_1_0_0_CreateBlogFields extends Migration
      * @var array
      */
     protected $fields = [
-        'slug'           => 'anomaly.field_type.slug',
         'name'           => 'anomaly.field_type.text',
         'title'          => 'anomaly.field_type.text',
+        'slug'           => [
+            'type'   => 'anomaly.field_type.slug',
+            'config' => [
+                'slugify' => 'title'
+            ]
+        ],
         'type'           => 'anomaly.field_type.text',
         'tags'           => 'anomaly.field_type.tags',
         'content'        => 'anomaly.field_type.wysiwyg',
         'excerpt'        => 'anomaly.field_type.textarea',
-        'description'    => 'anomaly.field_type.wysiwyg',
+        'description'    => 'anomaly.field_type.textarea',
         'publish_at'     => 'anomaly.field_type.datetime',
         'allow_comments' => 'anomaly.field_type.boolean',
         'author'         => [
