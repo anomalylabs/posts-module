@@ -7,7 +7,7 @@ return [
     ],
     'module_base'         => [
         'label'        => 'Module Base',
-        'instructions' => 'Define a custom base URI for the the Blog module.'
+        'instructions' => 'Define a custom base URI for the the Posts module.'
     ],
     'category_base'       => [
         'label'        => 'Category Base',

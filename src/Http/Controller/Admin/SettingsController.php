@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Http\Controller\Admin;
+<?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
 use Anomaly\SettingsModule\Setting\Form\SettingFormBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
@@ -9,19 +9,19 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Http\Controller
+ * @package       Anomaly\PostsModule\Http\Controller
  */
 class SettingsController extends AdminController
 {
 
     /**
-     * Return a form to modify settings for the blog module.
+     * Return a form to edit settings for the posts module.
      *
      * @param SettingFormBuilder $settings
-     * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(SettingFormBuilder $settings)
     {
-        return $settings->render('anomaly.module.blog');
+        return $settings->render('anomaly.module.posts');
     }
 }

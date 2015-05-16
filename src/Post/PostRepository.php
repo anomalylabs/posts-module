@@ -1,8 +1,8 @@
-<?php namespace Anomaly\BlogModule\Post;
+<?php namespace Anomaly\PostsModule\Post;
 
-use Anomaly\BlogModule\Category\Contract\CategoryInterface;
-use Anomaly\BlogModule\Post\Contract\PostInterface;
-use Anomaly\BlogModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Category\Contract\CategoryInterface;
+use Anomaly\PostsModule\Post\Contract\PostInterface;
+use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
@@ -11,7 +11,7 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post
+ * @package       Anomaly\PostsModule\Post
  */
 class PostRepository implements PostRepositoryInterface
 {
@@ -34,7 +34,7 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
-     * Get posts for a blog.
+     * Get posts for a posts.
      *
      * @return EntryCollection
      */

@@ -1,16 +1,16 @@
-<?php namespace Anomaly\BlogModule\Category\Table;
+<?php namespace Anomaly\PostsModule\Type\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
 /**
- * Class CategoryTableBuilder
+ * Class TypeTableBuilder
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Category\Table
+ * @package       Anomaly\PostsModule\Type\Table
  */
-class CategoryTableBuilder extends TableBuilder
+class TypeTableBuilder extends TableBuilder
 {
 
     /**
@@ -19,9 +19,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'title',
-        'slug',
-        'description'
+        'name'
     ];
 
     /**
@@ -31,6 +29,15 @@ class CategoryTableBuilder extends TableBuilder
      */
     protected $actions = [
         'delete'
+    ];
+
+    /**
+     * The table options.
+     *
+     * @var array
+     */
+    protected $options = [
+        'sortable' => true
     ];
 
 }

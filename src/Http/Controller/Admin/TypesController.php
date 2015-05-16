@@ -1,50 +1,50 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
-use Anomaly\PostsModule\Post\Form\PostFormBuilder;
-use Anomaly\PostsModule\Post\Table\PostTableBuilder;
+use Anomaly\PostsModule\Type\Form\TypeFormBuilder;
+use Anomaly\PostsModule\Type\Table\TypeTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
- * Class PostsController
+ * Class TypesController
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
-class PostsController extends AdminController
+class TypesController extends AdminController
 {
 
     /**
-     * Return an index of existing posts.
+     * Return an index of types.
      *
-     * @param PostTableBuilder $table
+     * @param TypeTableBuilder $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(PostTableBuilder $table)
+    public function index(TypeTableBuilder $table)
     {
         return $table->render();
     }
 
     /**
-     * Return the form for creating a new post.
+     * Return the form for creating a new type.
      *
-     * @param PostFormBuilder $form
+     * @param TypeFormBuilder $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function create(PostFormBuilder $form)
+    public function create(TypeFormBuilder $form)
     {
         return $form->render();
     }
 
     /**
-     * Returns the form for an existing post.
+     * Return the form for editing an existing type.
      *
-     * @param PostFormBuilder $form
+     * @param TypeFormBuilder $form
      * @param                 $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(PostFormBuilder $form, $id)
+    public function edit(TypeFormBuilder $form, $id)
     {
         return $form->render($id);
     }

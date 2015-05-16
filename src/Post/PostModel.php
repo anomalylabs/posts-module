@@ -1,8 +1,8 @@
-<?php namespace Anomaly\BlogModule\Post;
+<?php namespace Anomaly\PostsModule\Post;
 
-use Anomaly\BlogModule\Post\Contract\PostInterface;
-use Anomaly\BlogModule\PostType\PostTypeExtension;
-use Anomaly\Streams\Platform\Model\Blog\BlogPostsEntryModel;
+use Anomaly\PostsModule\Post\Contract\PostInterface;
+use Anomaly\PostsModule\Type\TypeExtension;
+use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\Builder;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post
+ * @package       Anomaly\PostsModule\Post
  */
-class PostModel extends BlogPostsEntryModel implements PostInterface
+class PostModel extends PostsPostsEntryModel implements PostInterface
 {
 
     /**
@@ -30,7 +30,7 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
     {
         parent::boot();
 
-        self::observe(app('Anomaly\BlogModule\Post\PostObserver'));
+        self::observe(app('Anomaly\PostsModule\Post\PostObserver'));
     }
 
     /**
@@ -61,13 +61,13 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
      */
     public function getUrl()
     {
-        return app('Anomaly\BlogModule\Post\PostUrlGenerator')->generate($this);
+        return app('Anomaly\PostsModule\Post\PostUrlGenerator')->generate($this);
     }
 
     /**
-     * Get the post type.
+     * Get the type.
      *
-     * @return PostTypeExtension
+     * @return TypeExtension
      */
     public function getType()
     {
@@ -75,7 +75,7 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
     }
 
     /**
-     * Get the post type name.
+     * Get the type name.
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class PostModel extends BlogPostsEntryModel implements PostInterface
     }
 
     /**
-     * Get the post type description.
+     * Get the type description.
      *
      * @return string
      */

@@ -1,8 +1,8 @@
-<?php namespace Anomaly\BlogModule\Category;
+<?php namespace Anomaly\PostsModule\Category;
 
-use Anomaly\BlogModule\Category\Contract\CategoryInterface;
+use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
-use Anomaly\Streams\Platform\Model\Blog\BlogCategoriesEntryModel;
+use Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Category
+ * @package       Anomaly\PostsModule\Category
  */
-class CategoryModel extends BlogCategoriesEntryModel implements CategoryInterface
+class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterface
 {
 
     /**
@@ -40,6 +40,6 @@ class CategoryModel extends BlogCategoriesEntryModel implements CategoryInterfac
      */
     public function posts()
     {
-        return $this->hasMany('Anomaly\BlogModule\Post\PostModel', 'category_id');
+        return $this->hasMany('Anomaly\PostsModule\Post\PostModel', 'category_id');
     }
 }

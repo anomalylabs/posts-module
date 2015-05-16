@@ -1,6 +1,6 @@
-<?php namespace Anomaly\BlogModule\Post\Contract;
+<?php namespace Anomaly\PostsModule\Post\Contract;
 
-use Anomaly\BlogModule\Category\Contract\CategoryInterface;
+use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
@@ -9,7 +9,7 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post
+ * @package       Anomaly\PostsModule\Post
  */
 interface PostRepositoryInterface
 {

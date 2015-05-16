@@ -1,6 +1,6 @@
-<?php namespace Anomaly\BlogModule\Post\Contract;
+<?php namespace Anomaly\PostsModule\Post\Contract;
 
-use Anomaly\BlogModule\PostType\PostTypeExtension;
+use Anomaly\PostsModule\Type\TypeExtension;
 
 /**
  * Interface PostInterface
@@ -8,7 +8,7 @@ use Anomaly\BlogModule\PostType\PostTypeExtension;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post
+ * @package       Anomaly\PostsModule\Post
  */
 interface PostInterface
 {
@@ -28,21 +28,21 @@ interface PostInterface
     public function getUrl();
 
     /**
-     * Get the post type.
+     * Get the type.
      *
-     * @return PostTypeExtension
+     * @return TypeExtension
      */
     public function getType();
 
     /**
-     * Get the post type name.
+     * Get the type name.
      *
      * @return string
      */
     public function getTypeName();
 
     /**
-     * Get the post type description.
+     * Get the type description.
      *
      * @return string
      */

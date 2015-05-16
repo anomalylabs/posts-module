@@ -1,6 +1,6 @@
-<?php namespace Anomaly\BlogModule\Post\Table;
+<?php namespace Anomaly\PostsModule\Post\Table;
 
-use Anomaly\BlogModule\Post\Contract\PostInterface;
+use Anomaly\PostsModule\Post\Contract\PostInterface;
 
 /**
  * Class PostTableButtons
@@ -8,7 +8,7 @@ use Anomaly\BlogModule\Post\Contract\PostInterface;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post\Table
+ * @package       Anomaly\PostsModule\Post\Table
  */
 class PostTableButtons
 {
@@ -24,7 +24,7 @@ class PostTableButtons
             [
                 [
                     'button' => 'edit',
-                    'href'   => '/admin/blog/posts/edit/{entry.id}',
+                    'href'   => '/admin/posts/posts/edit/{entry.id}',
                 ],
                 [
                     'button' => 'view',

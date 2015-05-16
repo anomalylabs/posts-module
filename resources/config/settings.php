@@ -10,7 +10,7 @@ return [
     'module_base'         => [
         'type'   => 'anomaly.field_type.text',
         'config' => [
-            'default_value' => 'blog'
+            'default_value' => 'posts'
         ]
     ],
     'category_base'       => [

@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Category\Contract;
+<?php namespace Anomaly\PostsModule\Category\Contract;
 
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Category\Contract
+ * @package       Anomaly\PostsModule\Category\Contract
  */
 interface CategoryInterface
 {

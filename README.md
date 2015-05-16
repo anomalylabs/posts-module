@@ -1,3 +1,3 @@
-# Blog Module
+# Posts Module
 
-Blog management.
+Posts management.

@@ -1,6 +1,6 @@
-<?php namespace Anomaly\BlogModule\Http\Controller;
+<?php namespace Anomaly\PostsModule\Http\Controller;
 
-use Anomaly\BlogModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 
 /**
@@ -9,7 +9,7 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Http\Controller
+ * @package       Anomaly\PostsModule\Http\Controller
  */
 class TagsController extends PublicController
 {
@@ -25,6 +25,6 @@ class TagsController extends PublicController
     {
         $posts = $posts->findManyByTag($tag);
 
-        return view('anomaly.module.blog::tags/posts', compact('posts', 'tag'));
+        return view('anomaly.module.posts::tags/posts', compact('posts', 'tag'));
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
 return [
-    'name'        => 'Blog',
-    'description' => 'Blog management.',
+    'name'        => 'Posts',
+    'description' => 'Posts management.',
     'section'     => [
         'posts'      => 'Posts',
         'categories' => 'Categories',
-        'post_types' => 'Post Types',
+        'types'      => 'Types',
+        'fields'     => 'Fields',
         'settings'   => 'Settings'
     ]
 ];

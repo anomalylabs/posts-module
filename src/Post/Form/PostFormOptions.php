@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Post\Form;
+<?php namespace Anomaly\PostsModule\Post\Form;
 
 /**
  * Class PostFormOptions
@@ -6,7 +6,7 @@
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post\Form
+ * @package       Anomaly\PostsModule\Post\Form
  */
 class PostFormOptions
 {

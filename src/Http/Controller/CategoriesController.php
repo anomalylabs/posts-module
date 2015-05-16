@@ -1,7 +1,7 @@
-<?php namespace Anomaly\BlogModule\Http\Controller;
+<?php namespace Anomaly\PostsModule\Http\Controller;
 
-use Anomaly\BlogModule\Category\Contract\CategoryRepositoryInterface;
-use Anomaly\BlogModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Http\Controller
+ * @package       Anomaly\PostsModule\Http\Controller
  */
 class CategoriesController extends PublicController
 {
@@ -32,6 +32,6 @@ class CategoriesController extends PublicController
 
         $posts = $posts->findManyByCategory($category);
 
-        return view('anomaly.module.blog::categories/posts', compact('category', 'posts'));
+        return view('anomaly.module.posts::categories/posts', compact('category', 'posts'));
     }
 }

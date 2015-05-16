@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Post\Table;
+<?php namespace Anomaly\PostsModule\Post\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
@@ -8,7 +8,7 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post\Table
+ * @package       Anomaly\PostsModule\Post\Table
  */
 class PostTableBuilder extends TableBuilder
 {
@@ -18,7 +18,7 @@ class PostTableBuilder extends TableBuilder
      *
      * @var string
      */
-    protected $model = 'Anomaly\BlogModule\Post\PostModel';
+    protected $model = 'Anomaly\PostsModule\Post\PostModel';
 
     /**
      * The table actions.

@@ -1,16 +1,16 @@
-<?php namespace Anomaly\BlogModule;
+<?php namespace Anomaly\PostsModule;
 
 use Anomaly\Streams\Platform\Addon\Module\Module;
 
 /**
- * Class BlogModule
+ * Class PostsModule
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule
+ * @package       Anomaly\PostsModule
  */
-class BlogModule extends Module
+class PostsModule extends Module
 {
 
     /**
@@ -18,7 +18,7 @@ class BlogModule extends Module
      *
      * @var string
      */
-    protected $icon = 'rss';
+    protected $icon = 'newspaper';
 
     /**
      * The module sections.
@@ -28,24 +28,26 @@ class BlogModule extends Module
     protected $sections = [
         'posts'      => [
             'buttons' => [
-                [
-                    'button'     => 'new',
-                    'text'       => 'module::button.new_post',
-                    'href'       => 'admin/blog/post_types/choose',
-                    'attributes' => [
-                        'data-modal' => 'small'
-                    ]
+                'new_post' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/posts/ajax/choose_type',
                 ]
             ]
         ],
         'categories' => [
             'buttons' => [
-                'new' => 'module::button.new_category'
+                'new_category'
             ]
         ],
-        'post_types' => [
+        'types'      => [
             'buttons' => [
-                'new' => 'module::button.new_type'
+                'new_type'
+            ]
+        ],
+        'fields'     => [
+            'buttons' => [
+                'new_fields'
             ]
         ],
         'settings'

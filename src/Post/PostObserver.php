@@ -1,4 +1,4 @@
-<?php namespace Anomaly\BlogModule\Post;
+<?php namespace Anomaly\PostsModule\Post;
 
 use Anomaly\Streams\Platform\Entry\EntryObserver;
 use Anomaly\Streams\Platform\Model\EloquentModel;
@@ -9,7 +9,7 @@ use Anomaly\Streams\Platform\Model\EloquentModel;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post
+ * @package       Anomaly\PostsModule\Post
  */
 class PostObserver extends EntryObserver
 {

@@ -1,6 +1,6 @@
-<?php namespace Anomaly\BlogModule\Http\Controller;
+<?php namespace Anomaly\PostsModule\Http\Controller;
 
-use Anomaly\BlogModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Http\Controller
+ * @package       Anomaly\PostsModule\Http\Controller
  */
 class PostsController extends PublicController
 {
@@ -26,7 +26,7 @@ class PostsController extends PublicController
     {
         $posts = $posts->getRecent();
 
-        return view('anomaly.module.blog::posts/index', compact('posts'));
+        return view('anomaly.module.posts::posts/index', compact('posts'));
     }
 
     /**
@@ -39,14 +39,14 @@ class PostsController extends PublicController
      */
     public function show(PostRepositoryInterface $posts, Request $request, SettingRepositoryInterface $settings)
     {
-        $base      = $settings->get('anomaly.module.blog::module_base', 'blog');
+        $base      = $settings->get('anomaly.module.posts::module_base', 'posts');
         $structure = $base . '/' . $settings->get(
-                'anomaly.module.blog::permalink_structure',
+                'anomaly.module.posts::permalink_structure',
                 '{year}/{month}/{day}/{post}'
             );
 
         $post = $posts->findBySlug($request->segment(array_search('{post}', explode('/', $structure)) + 1));
 
-        return view('anomaly.module.blog::posts/show', compact('post'));
+        return view('anomaly.module.posts::posts/show', compact('post'));
     }
 }

@@ -3,13 +3,13 @@
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class AnomalyModuleBlog_1_0_0_CreatePostsStream
+ * Class AnomalyModulePosts_1_0_0_CreatePostsStream
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  */
-class AnomalyModuleBlog_1_0_0_CreatePostsStream extends Migration
+class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
 {
 
     /**

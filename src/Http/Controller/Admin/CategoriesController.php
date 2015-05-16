@@ -1,8 +1,10 @@
-<?php namespace Anomaly\BlogModule\Http\Controller\Admin;
+<?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
-use Anomaly\BlogModule\Category\Form\CategoryFormBuilder;
-use Anomaly\BlogModule\Category\Table\CategoryTableBuilder;
+use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\PostsModule\Category\Form\CategoryFormBuilder;
+use Anomaly\PostsModule\Category\Tree\CategoryTreeBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
+use Anomaly\Streams\Platform\Support\Authorizer;
 
 /**
  * Class CategoriesController
@@ -10,7 +12,7 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Http\Controller\Admin
+ * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
 class CategoriesController extends AdminController
 {
@@ -18,19 +20,19 @@ class CategoriesController extends AdminController
     /**
      * Return an index of existing categories.
      *
-     * @param CategoryTableBuilder $table
-     * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
+     * @param CategoryTreeBuilder $table
+     * @return \Illuminate\Http\Response
      */
-    public function index(CategoryTableBuilder $table)
+    public function index(CategoryTreeBuilder $table)
     {
         return $table->render();
     }
 
     /**
-     * Return a form for a new category.
+     * Create the form for creating a new category.
      *
      * @param CategoryFormBuilder $form
-     * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(CategoryFormBuilder $form)
     {
@@ -38,14 +40,31 @@ class CategoriesController extends AdminController
     }
 
     /**
-     * Return a form for an existing category.
+     * Return the form for editing an existing category.
      *
      * @param CategoryFormBuilder $form
      * @param                     $id
-     * @return \Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(CategoryFormBuilder $form, $id)
     {
         return $form->render($id);
+    }
+
+    /**
+     * Delete a category.
+     *
+     * @param CategoryRepositoryInterface $categories
+     * @param Authorizer                  $authorizer
+     * @param                             $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete(CategoryRepositoryInterface $categories, Authorizer $authorizer, $id)
+    {
+        $authorizer->authorize('anomaly.module.posts::categories.delete');
+
+        $categories->delete($categories->find($id));
+
+        return redirect()->back();
     }
 }

@@ -1,6 +1,6 @@
-<?php namespace Anomaly\BlogModule\Post\Table;
+<?php namespace Anomaly\PostsModule\Post\Table;
 
-use Anomaly\BlogModule\Post\Contract\PostInterface;
+use Anomaly\PostsModule\Post\Contract\PostInterface;
 
 /**
  * Class PostTableColumns
@@ -8,7 +8,7 @@ use Anomaly\BlogModule\Post\Contract\PostInterface;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\BlogModule\Post\Table
+ * @package       Anomaly\PostsModule\Post\Table
  */
 class PostTableColumns
 {
@@ -24,7 +24,7 @@ class PostTableColumns
             [
                 'title',
                 [
-                    'heading' => 'module::admin.post_type',
+                    'heading' => 'module::admin.type',
                     'value'   => function (PostInterface $entry) {
                         return trans($entry->getTypeName());
                     }

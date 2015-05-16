@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'new_category' => 'New Category',
     'new_post'     => 'New Post',
-    'customize'    => 'Customize'
+    'new_category' => 'New Category',
+    'new_type'     => 'New Type',
+    'new_field'    => 'New Field'
 ];
