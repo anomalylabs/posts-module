@@ -14,4 +14,23 @@ use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
 class TypeModel extends PostsTypesEntryModel implements TypeInterface
 {
 
+    /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }

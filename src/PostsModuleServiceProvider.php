@@ -20,18 +20,26 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'admin/posts'                        => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@index',
-        'admin/posts/create'                 => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@create',
-        'admin/posts/edit/{id}'              => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@edit',
-        'admin/posts/categories'             => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@index',
-        'admin/posts/categories/create'      => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@create',
-        'admin/posts/categories/edit/{id}'   => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@edit',
-        'admin/posts/types'                  => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@index',
-        'admin/posts/types/create'           => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@create',
-        'admin/posts/types/edit/{id}'        => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@edit',
-        'admin/posts/ajax/choose_type'       => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseType',
-        'admin/posts/ajax/choose_field/{id}' => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseField',
-        'admin/posts/settings'               => 'Anomaly\PostsModule\Http\Controller\Admin\SettingsController@edit'
+        'admin/posts'                                           => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@index',
+        'admin/posts/create'                                    => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@create',
+        'admin/posts/edit/{id}'                                 => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@edit',
+        'admin/posts/categories'                                => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@index',
+        'admin/posts/categories/create'                         => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@create',
+        'admin/posts/categories/edit/{id}'                      => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@edit',
+        'admin/posts/types'                                     => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@index',
+        'admin/posts/types/create'                              => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@create',
+        'admin/posts/types/edit/{id}'                           => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@edit',
+        'admin/posts/types/fields/{id}'                         => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@fields',
+        'admin/posts/types/fields/{id}/assign/{field}'          => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@assign',
+        'admin/posts/types/fields/{id}/assignment/{assignment}' => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@assignment',
+        'admin/posts/fields'                                    => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@index',
+        'admin/posts/fields/choose'                             => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@choose',
+        'admin/posts/fields/create'                             => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@create',
+        'admin/posts/fields/edit/{id}'                          => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@edit',
+        'admin/posts/ajax/choose_type'                          => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseType',
+        'admin/posts/ajax/choose_field_type'                    => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseFieldType',
+        'admin/posts/ajax/choose_field/{id}'                    => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseField',
+        'admin/posts/settings'                                  => 'Anomaly\PostsModule\Http\Controller\Admin\SettingsController@edit'
     ];
 
     /**

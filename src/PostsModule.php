@@ -42,12 +42,22 @@ class PostsModule extends Module
         ],
         'types'      => [
             'buttons' => [
-                'new_type'
+                'new_type',
+                'add_field' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'enabled'     => 'admin/posts/types/fields/*',
+                    'href'        => 'admin/posts/ajax/choose_field/{route.parameters.id}'
+                ]
             ]
         ],
         'fields'     => [
             'buttons' => [
-                'new_fields'
+                'new_field' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/posts/ajax/choose_field_type'
+                ]
             ]
         ],
         'settings'

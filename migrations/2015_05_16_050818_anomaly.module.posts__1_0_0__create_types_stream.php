@@ -24,6 +24,12 @@ class AnomalyModulePosts_1_0_0_CreateTypesStream extends Migration
     protected $assignments = [
         'name' => [
             'required' => true
+        ],
+        'slug' => [
+            'config' => [
+                'slugify' => 'name',
+                'type'    => '_'
+            ]
         ]
     ];
 

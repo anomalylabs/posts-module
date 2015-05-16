@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Type;
 
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
@@ -39,5 +40,14 @@ class TypeRepository implements TypeRepositoryInterface
     public function all()
     {
         return $this->model->all();
+    }
+
+    /**
+     * @param $id
+     * @return null|TypeInterface
+     */
+    public function find($id)
+    {
+        return $this->model->find($id);
     }
 }

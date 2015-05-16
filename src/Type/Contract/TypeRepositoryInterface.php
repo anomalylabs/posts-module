@@ -19,4 +19,10 @@ interface TypeRepositoryInterface
      * @return EntryCollection
      */
     public function all();
+
+    /**
+     * @param $id
+     * @return null|TypeInterface
+     */
+    public function find($id);
 }

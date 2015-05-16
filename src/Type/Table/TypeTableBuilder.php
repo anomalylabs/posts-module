@@ -23,6 +23,16 @@ class TypeTableBuilder extends TableBuilder
     ];
 
     /**
+     * The table buttons.
+     *
+     * @var array
+     */
+    protected $buttons = [
+        'edit',
+        'fields'
+    ];
+
+    /**
      * The table actions.
      *
      * @var array
