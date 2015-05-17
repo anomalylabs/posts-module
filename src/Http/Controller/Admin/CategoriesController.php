@@ -2,7 +2,7 @@
 
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Category\Form\CategoryFormBuilder;
-use Anomaly\PostsModule\Category\Tree\CategoryTreeBuilder;
+use Anomaly\PostsModule\Category\Table\CategoryTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 use Anomaly\Streams\Platform\Support\Authorizer;
 
@@ -20,10 +20,10 @@ class CategoriesController extends AdminController
     /**
      * Return an index of existing categories.
      *
-     * @param CategoryTreeBuilder $table
+     * @param CategoryTableBuilder $table
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryTreeBuilder $table)
+    public function index(CategoryTableBuilder $table)
     {
         return $table->render();
     }

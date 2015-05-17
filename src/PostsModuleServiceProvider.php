@@ -1,7 +1,8 @@
 <?php namespace Anomaly\PostsModule;
 
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Application\Application;
+use Illuminate\Filesystem\Filesystem;
 
 /**
  * Class PostsModuleServiceProvider
@@ -65,47 +66,18 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * Get the routes.
+     * Map additional routes.
      *
-     * @return array
+     * @param Filesystem  $files
+     * @param Application $application
      */
-    public function getRoutes()
+    public function map(Filesystem $files, Application $application)
     {
-        /* @var SettingRepositoryInterface $settings */
-        $settings = app('Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface');
-
-        /**
-         * Route base URI.
-         */
-        $this->routes[$base = $settings->get(
-            $this->addon->getNamespace('module_base'),
-            'posts'
-        )] = 'Anomaly\PostsModule\Http\Controller\PostsController@index';
-
-        /**
-         * Route base category URI.
-         */
-        $this->routes[$base . '/' . $settings->get(
-            $this->addon->getNamespace('category_base'),
-            'category'
-        ) . '/{category}'] = 'Anomaly\PostsModule\Http\Controller\CategoriesController@posts';
-
-        /**
-         * Route base tag URI.
-         */
-        $this->routes[$base . '/' . $settings->get(
-            $this->addon->getNamespace('tag_base'),
-            'tag'
-        ) . '/{tag}'] = 'Anomaly\PostsModule\Http\Controller\TagsController@posts';
-
-        /**
-         * Route post URIs.
-         */
-        $this->routes[$base . '/' . $settings->get(
-            $this->addon->getNamespace('permalink_structure'),
-            '{year}/{month}/{day}/{post}'
-        )] = 'Anomaly\PostsModule\Http\Controller\PostsController@show';
-
-        return parent::getRoutes();
+        // Include public routes.
+        if ($files->exists($routes = $application->getStoragePath('posts/routes.php'))) {
+            $files->requireOnce($routes);
+        } else {
+            $files->requireOnce(__DIR__.'/../resources/routes.php');
+        }
     }
 }

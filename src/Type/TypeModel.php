@@ -1,7 +1,9 @@
 <?php namespace Anomaly\PostsModule\Type;
 
+use Anomaly\PostsModule\Type\Command\GetTypeStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
+use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 
 /**
  * Class TypeModel
@@ -52,5 +54,13 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     public function getDescription()
     {
         return $this->desciption;
+    }
+
+    /**
+     * @return StreamInterface
+     */
+    public function getEntryStream()
+    {
+        return $this->dispatch(new GetTypeStream($this));
     }
 }

@@ -44,8 +44,7 @@ class AnomalyModulePosts_1_0_0_CreateCategoriesStream extends Migration
         ],
         'description' => [
             'translatable' => true
-        ],
-        'parent'
+        ]
     ];
 
 }

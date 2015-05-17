@@ -45,12 +45,6 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
                 'related' => 'Anomaly\PostsModule\Category\CategoryModel'
             ]
         ],
-        'parent'         => [
-            'type'   => 'anomaly.field_type.relationship',
-            'config' => [
-                'related' => 'Anomaly\PostsModule\Category\CategoryModel'
-            ]
-        ],
         'enabled'        => [
             'type'   => 'anomaly.field_type.boolean',
             'config' => [
