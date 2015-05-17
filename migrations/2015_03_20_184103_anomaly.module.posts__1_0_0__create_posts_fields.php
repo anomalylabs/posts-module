@@ -18,44 +18,87 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
      * @var array
      */
     protected $fields = [
-        'name'           => 'anomaly.field_type.text',
-        'title'          => 'anomaly.field_type.text',
-        'slug'           => [
+        'name'             => 'anomaly.field_type.text',
+        'title'            => 'anomaly.field_type.text',
+        'slug'             => [
             'type'   => 'anomaly.field_type.slug',
             'config' => [
                 'slugify' => 'title'
             ]
         ],
-        'type'           => [
+        'type'             => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
                 'related' => 'Anomaly\PostsModule\Type\TypeModel'
             ]
         ],
-        'tags'           => 'anomaly.field_type.tags',
-        'excerpt'        => 'anomaly.field_type.textarea',
-        'description'    => 'anomaly.field_type.textarea',
-        'publish_at'     => 'anomaly.field_type.datetime',
-        'allow_comments' => 'anomaly.field_type.boolean',
-        'entry'          => 'anomaly.field_type.polymorphic',
-        'author'         => [
+        'tags'             => 'anomaly.field_type.tags',
+        'excerpt'          => 'anomaly.field_type.textarea',
+        'description'      => 'anomaly.field_type.textarea',
+        'publish_at'       => 'anomaly.field_type.datetime',
+        'allow_comments'   => 'anomaly.field_type.boolean',
+        'entry'            => 'anomaly.field_type.polymorphic',
+        'author'           => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
                 'related' => 'Anomaly\UsersModule\User\UserModel'
             ]
         ],
-        'category'       => [
+        'layout'           => [
+            'type'   => 'anomaly.field_type.editor',
+            'config' => [
+                'default_value' => '<h1>{{ post.title }}</h1>',
+                'mode'          => 'twig'
+            ]
+        ],
+        'category'         => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
                 'related' => 'Anomaly\PostsModule\Category\CategoryModel'
             ]
         ],
-        'enabled'        => [
+        'enabled'          => [
             'type'   => 'anomaly.field_type.boolean',
             'config' => [
                 'default_value' => 'on'
             ]
-        ]
+        ],
+        'meta_title'       => 'anomaly.field_type.text',
+        'meta_description' => 'anomaly.field_type.textarea',
+        'meta_keywords'    => 'anomaly.field_type.tags',
+        'ttl'              => [
+            'type'   => 'anomaly.field_type.integer',
+            'config' => [
+                'min'  => 0,
+                'step' => 60,
+                'page' => 500
+            ]
+        ],
+        'css'              => [
+            'type'   => 'anomaly.field_type.editor',
+            'config' => [
+                'mode' => 'css'
+            ]
+        ],
+        'js'               => [
+            'type'   => 'anomaly.field_type.editor',
+            'config' => [
+                'mode' => 'javascript'
+            ]
+        ],
+        'allowed_roles'    => [
+            'type'   => 'anomaly.field_type.multiple',
+            'config' => [
+                'related' => 'Anomaly\UsersModule\Role\RoleModel'
+            ]
+        ],
+        'theme_layout'     => [
+            'type'   => 'anomaly.field_type.select',
+            'config' => [
+                'handler' => 'Anomaly\PagesModule\FieldType\ThemeLayout\ThemeLayoutOptions@handle'
+            ]
+        ],
+
     ];
 
 }
