@@ -23,9 +23,6 @@ return [
     'tags'          => [
         'name' => 'Tags'
     ],
-    'content'       => [
-        'name' => 'Content'
-    ],
     'enabled'       => [
         'name' => 'Enabled',
         'text' => 'Yes, this post is enabled.'

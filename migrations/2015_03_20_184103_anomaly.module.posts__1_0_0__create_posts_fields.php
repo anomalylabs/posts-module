@@ -26,17 +26,22 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
                 'slugify' => 'title'
             ]
         ],
-        'type'           => 'anomaly.field_type.text',
+        'type'           => [
+            'type'   => 'anomaly.field_type.relationship',
+            'config' => [
+                'related' => 'Anomaly\PostsModule\Post\PostModel'
+            ]
+        ],
         'tags'           => 'anomaly.field_type.tags',
-        'content'        => 'anomaly.field_type.wysiwyg',
         'excerpt'        => 'anomaly.field_type.textarea',
         'description'    => 'anomaly.field_type.textarea',
         'publish_at'     => 'anomaly.field_type.datetime',
         'allow_comments' => 'anomaly.field_type.boolean',
+        'entry'          => 'anomaly.field_type.polymorphic',
         'author'         => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'related' => 'Anomaly\UserModule\User\UserModel'
+                'related' => 'Anomaly\UsersModule\User\UserModel'
             ]
         ],
         'category'       => [
@@ -54,7 +59,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
         'enabled'        => [
             'type'   => 'anomaly.field_type.boolean',
             'config' => [
-                'text' => 'anomaly.module.posts::field.enabled.text'
+                'default_value' => 'on'
             ]
         ]
     ];
