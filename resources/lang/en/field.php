@@ -23,9 +23,6 @@ return [
     'tags'          => [
         'name' => 'Tags'
     ],
-    'content'       => [
-        'name' => 'Content'
-    ],
     'enabled'       => [
         'name' => 'Enabled',
         'text' => 'Yes, this post is enabled.'
@@ -33,5 +30,9 @@ return [
     'publish_at'    => [
         'name'         => 'Publish At',
         'instructions' => 'Set the date/time when you want the post to publish itself.'
+    ],
+    'author'        => [
+        'name'         => 'Author',
+        'instructions' => 'Set the publicly displayed author.'
     ]
 ];

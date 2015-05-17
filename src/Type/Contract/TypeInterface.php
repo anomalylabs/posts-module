@@ -50,7 +50,17 @@ interface TypeInterface
     public function getDescription();
 
     /**
+     * Get the related stream.
+     *
      * @return StreamInterface
      */
     public function getEntryStream();
+
+    /**
+     * Get the related stream's
+     * entry model name.
+     *
+     * @return string
+     */
+    public function getEntryModelName();
 }

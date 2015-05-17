@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post\Contract;
 
-use Anomaly\PostsModule\Type\TypeExtension;
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
+use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 
 /**
  * Interface PostInterface
@@ -14,6 +15,27 @@ interface PostInterface
 {
 
     /**
+     * Get the ID.
+     *
+     * @return null|int
+     */
+    public function getId();
+
+    /**
+     * Return the post's path.
+     *
+     * @return string
+     */
+    public function path();
+
+    /**
+     * Get the post title.
+     *
+     * @return string
+     */
+    public function getTitle();
+
+    /**
      * Get the slug.
      *
      * @return string
@@ -21,16 +43,9 @@ interface PostInterface
     public function getSlug();
 
     /**
-     * Get the URL.
-     *
-     * @return string
-     */
-    public function getUrl();
-
-    /**
      * Get the type.
      *
-     * @return TypeExtension
+     * @return null|TypeInterface
      */
     public function getType();
 
@@ -47,4 +62,18 @@ interface PostInterface
      * @return string
      */
     public function getTypeDescription();
+
+    /**
+     * Get the related entry.
+     *
+     * @return EntryInterface
+     */
+    public function getEntry();
+
+    /**
+     * Get the related entry's ID.
+     *
+     * @return null|int
+     */
+    public function getEntryId();
 }

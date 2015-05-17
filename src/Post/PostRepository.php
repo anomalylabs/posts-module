@@ -4,6 +4,7 @@ use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
+use Anomaly\Streams\Platform\Entry\EntryModel;
 
 /**
  * Class PostRepository
@@ -34,20 +35,21 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
-     * Get posts for a posts.
+     * Find a post by it's ID.
      *
-     * @return EntryCollection
+     * @param $id
+     * @return null|PostInterface
      */
-    public function get()
+    public function find($id)
     {
-        return $this->model->get();
+        return $this->model->find($id);
     }
 
     /**
      * Find a post by it's slug.
      *
      * @param $post
-     * @return PostInterface
+     * @return null|PostInterface
      */
     public function findBySlug($slug)
     {
@@ -84,5 +86,16 @@ class PostRepository implements PostRepositoryInterface
     public function getRecent()
     {
         return $this->model->with(['category'])->orderBy('created_at', 'DESC')->limit(15)->get();
+    }
+
+    /**
+     * Delete a post.
+     *
+     * @param PostInterface|EntryModel $post
+     * @return bool
+     */
+    public function delete(PostInterface $post)
+    {
+        return $post->delete();
     }
 }

@@ -34,9 +34,6 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
             'translatable' => true,
             'required'     => true
         ],
-        'content'    => [
-            'required' => true
-        ],
         'slug'       => [
             'required' => true
         ],
@@ -47,6 +44,9 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
             'required' => true
         ],
         'author'     => [
+            'required' => true
+        ],
+        'entry'      => [
             'required' => true
         ],
         'enabled',

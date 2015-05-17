@@ -1,7 +1,9 @@
 <?php namespace Anomaly\PostsModule\Post;
 
+use Anomaly\PostsModule\Post\Command\GetPostPath;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
-use Anomaly\PostsModule\Type\TypeExtension;
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
+use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -24,16 +26,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     protected $cacheMinutes = 99999;
 
     /**
-     * Boot the model.
-     */
-    protected static function boot()
-    {
-        parent::boot();
-
-        self::observe(app('Anomaly\PostsModule\Post\PostObserver'));
-    }
-
-    /**
      * Return only active posts.
      *
      * @param Builder $query
@@ -42,6 +34,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function scopeActive(Builder $query)
     {
         return $query->where('status', 'live');
+    }
+
+    /**
+     * Return the post's path.
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return $this->dispatch(new GetPostPath($this));
     }
 
     /**
@@ -55,23 +57,13 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
-     * Get the URL.
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return app('Anomaly\PostsModule\Post\PostUrlGenerator')->generate($this);
-    }
-
-    /**
      * Get the type.
      *
-     * @return TypeExtension
+     * @return null|TypeInterface
      */
     public function getType()
     {
-        return app($this->type);
+        return $this->type;
     }
 
     /**
@@ -81,7 +73,9 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     public function getTypeName()
     {
-        return $this->getType()->getName();
+        $type = $this->getType();
+
+        return $type->getName();
     }
 
     /**
@@ -92,5 +86,27 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getTypeDescription()
     {
         return $this->getType()->getDescription();
+    }
+
+    /**
+     * Get the related entry.
+     *
+     * @return EntryInterface
+     */
+    public function getEntry()
+    {
+        return $this->entry;
+    }
+
+    /**
+     * Get the related entry's ID.
+     *
+     * @return null|int
+     */
+    public function getEntryId()
+    {
+        $entry = $this->getEntry();
+
+        return $entry->getId();
     }
 }

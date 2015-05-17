@@ -15,10 +15,18 @@ interface PostRepositoryInterface
 {
 
     /**
+     * Find a post by it's ID.
+     *
+     * @param $id
+     * @return null|PostInterface
+     */
+    public function find($id);
+
+    /**
      * Find a post by it's slug.
      *
      * @param $post
-     * @return PostInterface
+     * @return null|PostInterface
      */
     public function findBySlug($slug);
 
@@ -44,4 +52,12 @@ interface PostRepositoryInterface
      * @return EntryCollection
      */
     public function getRecent();
+
+    /**
+     * Delete a post.
+     *
+     * @param PostInterface $post
+     * @return bool
+     */
+    public function delete(PostInterface $post);
 }

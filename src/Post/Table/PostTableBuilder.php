@@ -14,11 +14,25 @@ class PostTableBuilder extends TableBuilder
 {
 
     /**
-     * The table model.
+     * The table columns.
      *
-     * @var string
+     * @var array
      */
-    protected $model = 'Anomaly\PostsModule\Post\PostModel';
+    protected $columns = [
+        'entry.view_link',
+        'entry.author.username',
+        'entry.category.name',
+        'entry.enabled.icon'
+    ];
+
+    /**
+     * The tree buttons.
+     *
+     * @var array
+     */
+    protected $buttons = [
+        'edit'
+    ];
 
     /**
      * The table actions.
