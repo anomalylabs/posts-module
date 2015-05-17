@@ -15,6 +15,16 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
 {
 
     /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        self::observe(app(substr(__CLASS__, 0, -5) . 'Observer'));
+
+        parent::boot();
+    }
+
+    /**
      * Get the name.
      *
      * @return string
@@ -32,5 +42,15 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Get the description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->desciption;
     }
 }

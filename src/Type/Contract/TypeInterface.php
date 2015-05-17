@@ -39,4 +39,11 @@ interface TypeInterface
      * @return string
      */
     public function getSlug();
+
+    /**
+     * Get the description.
+     *
+     * @return string
+     */
+    public function getDescription();
 }
