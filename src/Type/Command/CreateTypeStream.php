@@ -42,7 +42,7 @@ class CreateTypeStream implements SelfHandling
         $streams->create(
             array(
                 'namespace'    => 'posts',
-                'slug'         => $this->type->getSlug(),
+                'slug'         => $this->type->getSlug() . '_posts',
                 'description'  => $this->type->getDescription(),
                 'translatable' => true,
                 'locked'       => false
