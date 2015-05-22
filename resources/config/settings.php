@@ -1,25 +1,31 @@
 <?php
 
 return [
+    'module_title'        => [
+        'type'   => 'anomaly.field_type.text',
+        'config' => [
+            'default_value' => 'Posts',
+        ]
+    ],
     'permalink_structure' => [
         'type'   => 'anomaly.field_type.text',
         'config' => [
             'default_value' => '{year}/{month}/{day}/{post}',
         ]
     ],
-    'module_base'         => [
+    'module_segment'      => [
         'type'   => 'anomaly.field_type.text',
         'config' => [
             'default_value' => 'posts'
         ]
     ],
-    'category_base'       => [
+    'category_segment'    => [
         'type'   => 'anomaly.field_type.text',
         'config' => [
             'default_value' => 'category'
         ]
     ],
-    'tag_base'            => [
+    'tag_segment'         => [
         'type'   => 'anomaly.field_type.text',
         'config' => [
             'default_value' => 'tag'

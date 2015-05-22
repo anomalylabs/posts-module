@@ -30,31 +30,42 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'title'      => [
+        'title'            => [
             'translatable' => true,
             'required'     => true
         ],
-        'slug'       => [
+        'slug'             => [
             'required' => true,
             'unique'   => true
         ],
-        'type'       => [
+        'type'             => [
             'required' => true
         ],
-        'publish_at' => [
+        'publish_at'       => [
             'required' => true
         ],
-        'author'     => [
+        'author'           => [
             'required' => true
         ],
-        'entry'      => [
+        'entry'            => [
             'required' => true
+        ],
+        'meta_title'       => [
+            'translatable' => true
+        ],
+        'meta_description' => [
+            'translatable' => true
+        ],
+        'meta_keywords'    => [
+            'translatable' => true
         ],
         'enabled',
         'allow_comments',
         'excerpt',
         'category',
-        'tags'
+        'tags',
+        'css',
+        'js'
     ];
 
 }

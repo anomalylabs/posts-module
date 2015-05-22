@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h1>{{ trans('anomaly.module.posts::module.tagged') }} "{{ tag }}"</h1>
+    <h1>{{ trans('anomaly.module.posts::module.tagged', {'tag': tag}) }}</h1>
 
     {% include "anomaly.module.posts::partials/posts" %}
 

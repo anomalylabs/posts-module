@@ -1,5 +1,7 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
+use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
+use Anomaly\PostsModule\Command\AddTagBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 
@@ -24,6 +26,9 @@ class TagsController extends PublicController
     public function posts(PostRepositoryInterface $posts, $tag)
     {
         $posts = $posts->findManyByTag($tag);
+
+        $this->dispatch(new AddPostsBreadcrumb());
+        $this->dispatch(new AddTagBreadcrumb($tag));
 
         return view('anomaly.module.posts::tags/posts', compact('posts', 'tag'));
     }

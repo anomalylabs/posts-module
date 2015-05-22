@@ -42,8 +42,8 @@ class GetPostPath implements SelfHandling
      */
     public function handle(SettingRepositoryInterface $settings, Parser $parser)
     {
-        $base      = $settings->get('anomaly.module.blog::module_base', 'posts');
-        $structure = $settings->get('anomaly.module.blog::permalink_structure', '{year}/{month}/{day}/{post}');
+        $base      = $settings->get('anomaly.module.posts::module_segment', 'posts');
+        $structure = $settings->get('anomaly.module.posts::permalink_structure', '{year}/{month}/{day}/{post}');
 
         $data = [
             'year'  => $this->post->created_at->format('Y'),
@@ -52,6 +52,6 @@ class GetPostPath implements SelfHandling
             'post'  => $this->post->getSlug()
         ];
 
-        return url($parser->parse($base . '/' . $structure, $data));
+        return $parser->parse($base . '/' . $structure, $data);
     }
 }

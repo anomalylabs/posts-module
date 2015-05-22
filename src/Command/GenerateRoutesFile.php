@@ -38,10 +38,10 @@ class GenerateRoutesFile implements SelfHandling
             app('Anomaly\Streams\Platform\Support\String')->render(
                 $files->get($module->getPath('resources/assets/routes.stub')),
                 [
-                    'module'    => $settings->get('anomaly.module.posts::module_base', 'posts'),
-                    'tag'       => $settings->get('anomaly.module.posts::tag_base', 'tag'),
-                    'category'  => $settings->get('anomaly.module.posts::category_base', 'category'),
-                    'permalink' => $settings->get(
+                    'tag_segment'         => $settings->get('anomaly.module.posts::tag_segment', 'tag'),
+                    'module_segment'      => $settings->get('anomaly.module.posts::module_segment', 'posts'),
+                    'category_segment'    => $settings->get('anomaly.module.posts::category_segment', 'category'),
+                    'permalink_structure' => $settings->get(
                         'anomaly.module.posts::permalink_structure',
                         '{year}/{month}/{day}/{post}'
                     ),

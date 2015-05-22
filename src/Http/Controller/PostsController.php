@@ -1,5 +1,7 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
+use Anomaly\PostsModule\Command\AddPostBreadcrumb;
+use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
@@ -26,6 +28,8 @@ class PostsController extends PublicController
     {
         $posts = $posts->getRecent();
 
+        $this->dispatch(new AddPostsBreadcrumb());
+
         return view('anomaly.module.posts::posts/index', compact('posts'));
     }
 
@@ -47,6 +51,9 @@ class PostsController extends PublicController
 
         $post = $posts->findBySlug($request->segment(array_search('{post}', explode('/', $structure)) + 1));
 
-        return view('anomaly.module.posts::posts/show', compact('post'));
+        $this->dispatch(new AddPostsBreadcrumb());
+        $this->dispatch(new AddPostBreadcrumb($post));
+
+        return view('anomaly.module.posts::posts/post', compact('post'));
     }
 }

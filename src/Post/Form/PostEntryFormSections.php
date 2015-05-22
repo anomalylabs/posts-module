@@ -30,10 +30,11 @@ class PostEntryFormSections
                             'fields' => [
                                 'title',
                                 'slug',
+                                'excerpt',
+                                'tags',
                                 'enabled',
                                 'publish_at',
-                                'author',
-                                'category'
+                                'author'
                             ]
                         ],
                         'entry'   => [

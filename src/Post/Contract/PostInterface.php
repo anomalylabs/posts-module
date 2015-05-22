@@ -15,11 +15,11 @@ interface PostInterface
 {
 
     /**
-     * Get the ID.
+     * Return the post's URL.
      *
-     * @return null|int
+     * @return string
      */
-    public function getId();
+    public function url();
 
     /**
      * Return the post's path.
@@ -27,6 +27,13 @@ interface PostInterface
      * @return string
      */
     public function path();
+
+    /**
+     * Get the ID.
+     *
+     * @return null|int
+     */
+    public function getId();
 
     /**
      * Get the post title.

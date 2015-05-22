@@ -37,6 +37,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Return the post's URL.
+     *
+     * @return string
+     */
+    public function url()
+    {
+        return url($this->path());
+    }
+
+    /**
      * Return the post's path.
      *
      * @return string

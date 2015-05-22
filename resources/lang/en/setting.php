@@ -1,20 +1,24 @@
 <?php
 
 return [
+    'module_title'        => [
+        'label'        => 'Module Title',
+        'instructions' => 'The module title is used in breadcrumbs.'
+    ],
     'permalink_structure' => [
         'label'        => 'Permalink Structure',
         'instructions' => 'Customize the URL structure for your permalinks and archives. This can improve the aesthetics, usability, and forward-compatibility of your links. A number of tags are available, and here are some examples to get you started.'
     ],
-    'module_base'         => [
-        'label'        => 'Module Base',
-        'instructions' => 'Define a custom base URI for the the Posts module.'
+    'module_segment'      => [
+        'label'        => 'Module Segment',
+        'instructions' => 'Define a custom segment URI for the the Posts module.'
     ],
-    'category_base'       => [
-        'label'        => 'Category Base',
-        'instructions' => 'Define a custom category base URI for the category URLs.'
+    'category_segment'    => [
+        'label'        => 'Category Segment',
+        'instructions' => 'Define a custom category segment URI for the category URLs.'
     ],
-    'tag_base'            => [
-        'label'        => 'Tag Base',
-        'instructions' => 'Define a custom tag base for the tag URLs.'
+    'tag_segment'         => [
+        'label'        => 'Tag Segment',
+        'instructions' => 'Define a custom tag segment for the tag URLs.'
     ]
 ];
