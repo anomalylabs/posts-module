@@ -24,7 +24,7 @@ class CategoriesController extends PublicController
      * @param                             $category
      * @return \Illuminate\View\View
      */
-    public function posts(CategoryRepositoryInterface $categories, PostRepositoryInterface $posts, $category)
+    public function index(CategoryRepositoryInterface $categories, PostRepositoryInterface $posts, $category)
     {
         if (!$category = $categories->findBySlug($category)) {
             abort(404);

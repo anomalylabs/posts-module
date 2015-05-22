@@ -1,6 +1,7 @@
 <?php
 
 Route::any('{{ module_segment }}', 'Anomaly\PostsModule\Http\Controller\PostsController@index');
-Route::any('{{ module_segment }}/{{ tag_segment }}/{tag}', 'Anomaly\PostsModule\Http\Controller\TagsController@posts');
-Route::any('{{ module_segment }}/{{ category_segment }}/{category}', 'Anomaly\PostsModule\Http\Controller\CategoriesController@posts');
+Route::any('{{ module_segment }}/preview/{id}', 'Anomaly\PostsModule\Http\Controller\PostsController@preview');
+Route::any('{{ module_segment }}/{{ tag_segment }}/{tag}', 'Anomaly\PostsModule\Http\Controller\TagsController@index');
+Route::any('{{ module_segment }}/{{ category_segment }}/{category}', 'Anomaly\PostsModule\Http\Controller\CategoriesController@index');
 Route::any('{{ module_segment }}/{{ permalink_structure }}', 'Anomaly\PostsModule\Http\Controller\PostsController@show');

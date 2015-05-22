@@ -28,7 +28,8 @@ class PostFormBuilder extends FormBuilder
      */
     protected $skips = [
         'type',
-        'entry'
+        'entry',
+        'str_id'
     ];
 
     /**
@@ -53,6 +54,10 @@ class PostFormBuilder extends FormBuilder
 
         if (!$entry->type_id) {
             $entry->type_id = $type->getId();
+        }
+
+        if (!$entry->str_id) {
+            $entry->str_id = str_random();
         }
     }
 

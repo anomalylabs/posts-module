@@ -46,6 +46,17 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
+     * Find a post by it's string ID.
+     *
+     * @param $id
+     * @return null|PostInterface
+     */
+    public function findByStrId($id)
+    {
+        return $this->model->where('str_id', $id)->first();
+    }
+
+    /**
      * Find a post by it's slug.
      *
      * @param $post

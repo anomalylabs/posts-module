@@ -35,6 +35,32 @@ class PostsController extends PublicController
     }
 
     /**
+     * Preview an existing post.
+     *
+     * @param PostRepositoryInterface $posts
+     * @param                         $id
+     * @return \Illuminate\View\View
+     */
+    public function preview(PostRepositoryInterface $posts, $id)
+    {
+        $post = $posts->findByStrId($id);
+
+        if (!$post) {
+            abort(404);
+        }
+
+        $this->dispatch(new AddPostsBreadcrumb());
+
+        if ($category = $post->getCategory()) {
+            $this->dispatch(new AddCategoryBreadcrumb($category));
+        }
+
+        $this->dispatch(new AddPostBreadcrumb($post));
+
+        return view('anomaly.module.posts::posts/post', compact('post'));
+    }
+
+    /**
      * Show an existing post.
      *
      * @param PostRepositoryInterface    $posts
@@ -51,6 +77,10 @@ class PostsController extends PublicController
             );
 
         $post = $posts->findBySlug($request->segment(array_search('{post}', explode('/', $structure)) + 1));
+
+        if (!$post) {
+            abort(404);
+        }
 
         $this->dispatch(new AddPostsBreadcrumb());
 

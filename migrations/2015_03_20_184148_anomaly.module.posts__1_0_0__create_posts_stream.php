@@ -30,6 +30,10 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
      * @var array
      */
     protected $assignments = [
+        'str_id'           => [
+            'required' => true,
+            'unique'   => true
+        ],
         'title'            => [
             'translatable' => true,
             'required'     => true

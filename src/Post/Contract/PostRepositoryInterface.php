@@ -31,6 +31,14 @@ interface PostRepositoryInterface
     public function findBySlug($slug);
 
     /**
+     * Find a post by it's string ID.
+     *
+     * @param $id
+     * @return null|PostInterface
+     */
+    public function findByStrId($id);
+
+    /**
      * Find many posts by tag.
      *
      * @param      $tag

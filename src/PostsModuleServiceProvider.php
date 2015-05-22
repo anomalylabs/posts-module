@@ -77,7 +77,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         if ($files->exists($routes = $application->getStoragePath('posts/routes.php'))) {
             $files->requireOnce($routes);
         } else {
-            $files->requireOnce(__DIR__.'/../resources/routes.php');
+            $files->requireOnce(__DIR__ . '/../resources/routes.php');
         }
     }
 }

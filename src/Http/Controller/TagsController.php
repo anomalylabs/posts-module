@@ -23,7 +23,7 @@ class TagsController extends PublicController
      * @param                         $tag
      * @return \Illuminate\View\View
      */
-    public function posts(PostRepositoryInterface $posts, $tag)
+    public function index(PostRepositoryInterface $posts, $tag)
     {
         $posts = $posts->findManyByTag($tag);
 

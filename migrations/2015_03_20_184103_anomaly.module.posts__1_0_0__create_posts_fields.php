@@ -18,6 +18,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
      * @var array
      */
     protected $fields = [
+        'str_id'           => 'anomaly.field_type.text',
         'name'             => 'anomaly.field_type.text',
         'title'            => 'anomaly.field_type.text',
         'slug'             => [
