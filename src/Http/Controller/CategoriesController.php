@@ -32,6 +32,6 @@ class CategoriesController extends PublicController
 
         $posts = $posts->findManyByCategory($category);
 
-        return view('anomaly.module.posts::categories/posts', compact('category', 'posts'));
+        return view('anomaly.module.posts::categories/index', compact('category', 'posts'));
     }
 }

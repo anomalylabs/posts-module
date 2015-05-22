@@ -34,6 +34,7 @@ class PostEntryFormSections
                                 'tags',
                                 'enabled',
                                 'publish_at',
+                                'category',
                                 'author'
                             ]
                         ],

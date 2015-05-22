@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post\Contract;
 
+use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 
@@ -69,6 +70,13 @@ interface PostInterface
      * @return string
      */
     public function getTypeDescription();
+
+    /**
+     * Get the category.
+     *
+     * @return null|CategoryInterface
+     */
+    public function getCategory();
 
     /**
      * Get the related entry.

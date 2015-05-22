@@ -33,25 +33,28 @@ interface PostRepositoryInterface
     /**
      * Find many posts by tag.
      *
-     * @param $tag
+     * @param      $tag
+     * @param null $limit
      * @return EntryCollection
      */
-    public function findManyByTag($tag);
+    public function findManyByTag($tag, $limit = null);
 
     /**
      * Find many posts by category.
      *
      * @param CategoryInterface $category
+     * @param null              $limit
      * @return EntryCollection
      */
-    public function findManyByCategory(CategoryInterface $category);
+    public function findManyByCategory(CategoryInterface $category, $limit = null);
 
     /**
      * Get recent posts.
      *
+     * @param null $limit
      * @return EntryCollection
      */
-    public function getRecent();
+    public function getRecent($limit = null);
 
     /**
      * Delete a post.

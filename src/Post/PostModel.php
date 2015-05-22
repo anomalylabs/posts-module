@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post;
 
+use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Post\Command\GetPostPath;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
@@ -96,6 +97,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getTypeDescription()
     {
         return $this->getType()->getDescription();
+    }
+
+    /**
+     * Get the category.
+     *
+     * @return null|CategoryInterface
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     /**

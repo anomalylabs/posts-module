@@ -9,33 +9,30 @@
             </h1>
 
             <p>
-                {{ str_truncate(post.excerpt, 100)|raw }}
+                {{ post.excerpt|raw }}
             </p>
 
-            <p class="meta">
+            <div class="meta">
                 <span class="date">
                     {{ post.created_at|date(config_get('streams.date_format')) }}
                 </span>
 
                 {% if post.category_id %}
-                    <span class="date">
+                    <span class="category">
                         {{ post.category.name }}
                     </span>
                 {% endif %}
 
                 {% if post.tags %}
                     <span class="tags">
-                        {% for tag in post.tags %}
+                        {% for tag in post.tags.value %}
                             {% if not loop.first %}, {% endif %}
-                            <span class="tag">{{ tag }}</span>
+                            <span>{{ tag }}</span>
                         {% endfor %}
                     </span>
                 {% endif %}
 
-                {#<span class="edit">
-                    {{ html_link('admin/posts/posts/edit/' ~ post.id, trans('streams::button.edit')) }}
-                </span>#}
-            </p>
+            </div>
         </div>
     {% endfor %}
 </section>

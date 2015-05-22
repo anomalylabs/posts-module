@@ -30,6 +30,6 @@ class TagsController extends PublicController
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddTagBreadcrumb($tag));
 
-        return view('anomaly.module.posts::tags/posts', compact('posts', 'tag'));
+        return view('anomaly.module.posts::tags/index', compact('posts', 'tag'));
     }
 }

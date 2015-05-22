@@ -59,23 +59,28 @@ class PostRepository implements PostRepositoryInterface
     /**
      * Find man posts by tag.
      *
-     * @param $tag
+     * @param      $tag
+     * @param null $limit
      * @return EntryCollection
      */
-    public function findManyByTag($tag)
+    public function findManyByTag($tag, $limit = null)
     {
-        return $this->model->where('tags', 'LIKE', '%' . $tag . '%')->get();
+        return $this->model->where('tags', 'LIKE', '%' . $tag . '%')->paginate($limit);
     }
 
     /**
      * Find many posts by category.
      *
      * @param CategoryInterface $category
+     * @param null              $limit
      * @return EntryCollection
      */
-    public function findManyByCategory(CategoryInterface $category)
+    public function findManyByCategory(CategoryInterface $category, $limit = null)
     {
-        return $this->model->orderBy('created_at', 'DESC')->where('category_id', $category->getId())->limit(15)->get();
+        return $this->model
+            ->orderBy('created_at', 'DESC')
+            ->where('category_id', $category->getId())
+            ->paginate($limit);
     }
 
     /**
@@ -83,9 +88,9 @@ class PostRepository implements PostRepositoryInterface
      *
      * @return EntryCollection
      */
-    public function getRecent()
+    public function getRecent($limit = null)
     {
-        return $this->model->with(['category'])->orderBy('created_at', 'DESC')->limit(15)->get();
+        return $this->model->with(['category'])->orderBy('created_at', 'DESC')->paginate($limit);
     }
 
     /**

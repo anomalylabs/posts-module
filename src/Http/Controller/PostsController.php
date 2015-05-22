@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
+use Anomaly\PostsModule\Command\AddCategoryBreadcrumb;
 use Anomaly\PostsModule\Command\AddPostBreadcrumb;
 use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
@@ -52,6 +53,11 @@ class PostsController extends PublicController
         $post = $posts->findBySlug($request->segment(array_search('{post}', explode('/', $structure)) + 1));
 
         $this->dispatch(new AddPostsBreadcrumb());
+
+        if ($category = $post->getCategory()) {
+            $this->dispatch(new AddCategoryBreadcrumb($category));
+        }
+
         $this->dispatch(new AddPostBreadcrumb($post));
 
         return view('anomaly.module.posts::posts/post', compact('post'));
