@@ -22,6 +22,20 @@ interface CategoryInterface
     public function getId();
 
     /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName();
+
+    /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug();
+
+    /**
      * Get the related posts.
      *
      * @return EntryCollection

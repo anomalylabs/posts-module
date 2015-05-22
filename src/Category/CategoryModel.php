@@ -24,6 +24,26 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
     protected $cacheMinutes = 99999;
 
     /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Get the related posts.
      *
      * @return EntryCollection

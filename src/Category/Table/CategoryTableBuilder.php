@@ -19,7 +19,8 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'name'
+        'entry.view_link',
+        'slug'
     ];
 
     /**
