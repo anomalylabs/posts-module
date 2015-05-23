@@ -40,6 +40,6 @@ class PostHttp
     {
         $response = $post->getResponse();
 
-        $response->setTtl($this->settings->get('anomaly.module.posts::ttl', 30));
+        $response->setTtl($this->settings->get('anomaly.module.posts::ttl'));
     }
 }
