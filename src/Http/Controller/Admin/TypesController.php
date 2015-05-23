@@ -86,7 +86,7 @@ class TypesController extends AdminController
             )
             ->setOption('title', $type->getName() . ' fields')
             ->setOption('description', 'This is a list of assigned fields for the "' . $type->getName() . '" post type')
-            ->setStream($streams->findBySlugAndNamespace($type->getSlug(), 'posts'))
+            ->setStream($type->getEntryStream())
             ->render();
     }
 
