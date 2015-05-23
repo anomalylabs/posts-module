@@ -7,6 +7,7 @@ use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Response;
 
 /**
  * Class PostModel
@@ -18,6 +19,13 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class PostModel extends PostsPostsEntryModel implements PostInterface
 {
+
+    /**
+     * The post's response.
+     *
+     * @var null|Response
+     */
+    protected $response = null;
 
     /**
      * The cache time.
@@ -55,6 +63,54 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function path()
     {
         return $this->dispatch(new GetPostPath($this));
+    }
+
+    /**
+     * Return the combined meta title.
+     *
+     * @return string
+     */
+    public function metaTitle()
+    {
+        $metaTitle = $this->getMetaTitle();
+
+        if (!$metaTitle && $type = $this->getType()) {
+            $metaTitle = $type->getMetaTitle();
+        }
+
+        return $metaTitle;
+    }
+
+    /**
+     * Return the combined meta keywords.
+     *
+     * @return string
+     */
+    public function metaKeywords()
+    {
+        $metaKeywords = $this->getMetaKeywords();
+
+        if (!$metaKeywords && $type = $this->getType()) {
+            $metaKeywords = $type->getMetaKeywords();
+        }
+
+        return $metaKeywords;
+    }
+
+    /**
+     * Return the combined meta description.
+     *
+     * @return string
+     */
+    public function metaDescription()
+    {
+        $metaDescription = $this->getMetaDescription();
+
+        if (!$metaDescription && $type = $this->getType()) {
+            $metaDescription = $type->getMetaDescription();
+        }
+
+        return $metaDescription;
     }
 
     /**
@@ -129,5 +185,68 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
         $entry = $this->getEntry();
 
         return $entry->getId();
+    }
+
+    /**
+     * Get the enabled flag.
+     *
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Get the meta title.
+     *
+     * @return string
+     */
+    public function getMetaTitle()
+    {
+        return $this->meta_title;
+    }
+
+    /**
+     * Get the meta keywords.
+     *
+     * @return array
+     */
+    public function getMetaKeywords()
+    {
+        return $this->meta_keywords;
+    }
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->meta_description;
+    }
+
+    /**
+     * Get the response.
+     *
+     * @return Response|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * Set the response.
+     *
+     * @param $response
+     * @return $this
+     */
+    public function setResponse(Response $response)
+    {
+        $this->response = $response;
+
+        return $this;
     }
 }

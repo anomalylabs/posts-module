@@ -63,4 +63,25 @@ interface TypeInterface
      * @return string
      */
     public function getEntryModelName();
+
+    /**
+     * Get the meta title.
+     *
+     * @return string
+     */
+    public function getMetaTitle();
+
+    /**
+     * Get the meta keywords.
+     *
+     * @return array
+     */
+    public function getMetaKeywords();
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription();
 }

@@ -3,6 +3,7 @@
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
+use Illuminate\Http\Response;
 
 /**
  * Interface PostInterface
@@ -28,6 +29,27 @@ interface PostInterface
      * @return string
      */
     public function path();
+
+    /**
+     * Return the combined meta title.
+     *
+     * @return string
+     */
+    public function metaTitle();
+
+    /**
+     * Return the combined meta keywords.
+     *
+     * @return string
+     */
+    public function metaKeywords();
+
+    /**
+     * Return the combined meta description.
+     *
+     * @return string
+     */
+    public function metaDescription();
 
     /**
      * Get the ID.
@@ -91,4 +113,47 @@ interface PostInterface
      * @return null|int
      */
     public function getEntryId();
+
+    /**
+     * Get the meta title.
+     *
+     * @return string
+     */
+    public function getMetaTitle();
+
+    /**
+     * Get the meta keywords.
+     *
+     * @return array
+     */
+    public function getMetaKeywords();
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription();
+
+    /**
+     * Get the enabled flag.
+     *
+     * @return bool
+     */
+    public function isEnabled();
+
+    /**
+     * Get the response.
+     *
+     * @return Response|null
+     */
+    public function getResponse();
+
+    /**
+     * Set the response.
+     *
+     * @param $response
+     * @return $this
+     */
+    public function setResponse(Response $response);
 }
