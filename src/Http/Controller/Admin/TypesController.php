@@ -59,7 +59,6 @@ class TypesController extends AdminController
      * Return a table of existing post type assignments.
      *
      * @param AssignmentTableBuilder      $table
-     * @param StreamRepositoryInterface   $streams
      * @param TypeRepositoryInterface     $types
      * @param BreadcrumbCollection        $breadcrumbs
      * @param                             $id
@@ -67,7 +66,6 @@ class TypesController extends AdminController
      */
     public function fields(
         AssignmentTableBuilder $table,
-        StreamRepositoryInterface $streams,
         TypeRepositoryInterface $types,
         BreadcrumbCollection $breadcrumbs,
         $id
