@@ -2,6 +2,8 @@
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
+use Anomaly\Streams\Platform\Stream\StreamManager;
+use Illuminate\Config\Repository;
 use Illuminate\Contracts\Bus\SelfHandling;
 
 /**
@@ -37,16 +39,19 @@ class CreateTypeStream implements SelfHandling
      *
      * @param StreamRepositoryInterface $streams
      */
-    public function handle(StreamRepositoryInterface $streams)
+    public function handle(StreamManager $manager, Repository $config)
     {
-        $streams->create(
-            array(
-                'namespace'    => 'posts',
-                'slug'         => $this->type->getSlug() . '_posts',
-                'description'  => $this->type->getDescription(),
-                'translatable' => true,
-                'locked'       => false
-            )
+        $manager->create(
+            [
+                $config->get('app.fallback_locale') => [
+                    'name'        => $this->type->getName(),
+                    'description' => $this->type->getDescription()
+                ],
+                'namespace'                         => 'posts',
+                'slug'                              => $this->type->getSlug() . '_posts',
+                'translatable'                      => true,
+                'locked'                            => false
+            ]
         );
     }
 }
