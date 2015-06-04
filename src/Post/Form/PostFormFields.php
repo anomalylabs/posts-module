@@ -24,9 +24,14 @@ class PostFormFields
         $builder->setFields(
             [
                 '*',
-                'author' => [
+                'author'     => [
                     'config' => [
                         'default_value' => $auth->id()
+                    ]
+                ],
+                'publish_at' => [
+                    'config' => [
+                        'default_value' => 'now'
                     ]
                 ]
             ]
