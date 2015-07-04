@@ -19,7 +19,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
      */
     protected $stream = [
         'slug'         => 'posts',
-        'title_column' => 'title',
+        'title_column' => 'slug',
         'translatable' => true,
         'locked'       => true
     ];
