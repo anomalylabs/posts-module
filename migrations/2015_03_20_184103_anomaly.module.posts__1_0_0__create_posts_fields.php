@@ -96,7 +96,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
         'theme_layout'     => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
-                'handler' => 'Anomaly\PagesModule\FieldType\ThemeLayout\ThemeLayoutOptions@handle'
+                'handler' => 'Anomaly\SelectFieldType\Handler\Layouts@handle'
             ]
         ],
 
