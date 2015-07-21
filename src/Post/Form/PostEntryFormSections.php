@@ -28,14 +28,14 @@ class PostEntryFormSections
                         'general' => [
                             'title'  => 'module::tab.post',
                             'fields' => [
-                                'title',
-                                'slug',
-                                'excerpt',
-                                'tags',
-                                'enabled',
-                                'publish_at',
-                                'category',
-                                'author'
+                                'post_title',
+                                'post_slug',
+                                'post_excerpt',
+                                'post_tags',
+                                'post_enabled',
+                                'post_publish_at',
+                                'post_category',
+                                'post_author'
                             ]
                         ],
                         'entry'   => [
@@ -43,7 +43,7 @@ class PostEntryFormSections
                             'fields' => function (PostEntryFormBuilder $builder) {
                                 return array_map(
                                     function (FieldType $field) {
-                                        return $field->getField();
+                                        return 'entry_' . $field->getField();
                                     },
                                     array_filter(
                                         $builder->getFormFields()->base()->all(),
@@ -57,21 +57,21 @@ class PostEntryFormSections
                         'seo'     => [
                             'title'  => 'module::tab.seo',
                             'fields' => [
-                                'meta_title',
-                                'meta_keywords',
-                                'meta_description'
+                                'post_meta_title',
+                                'post_meta_keywords',
+                                'post_meta_description'
                             ]
                         ],
                         'css'     => [
                             'title'  => 'module::tab.css',
                             'fields' => [
-                                'css'
+                                'post_css'
                             ]
                         ],
                         'js'      => [
                             'title'  => 'module::tab.js',
                             'fields' => [
-                                'js'
+                                'post_js'
                             ]
                         ]
                     ]
