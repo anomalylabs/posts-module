@@ -80,6 +80,8 @@ class PostsController extends PublicController
         $this->resolver   = $resolver;
         $this->response   = $response;
         $this->authorizer = $authorizer;
+
+        parent::__construct();
     }
 
     /**
