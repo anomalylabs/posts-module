@@ -38,8 +38,8 @@ class PostEntryFormSections
                                 'post_author'
                             ]
                         ],
-                        'entry'   => [
-                            'title'  => 'module::tab.entry',
+                        'content' => [
+                            'title'  => 'module::tab.content',
                             'fields' => function (PostEntryFormBuilder $builder) {
                                 return array_map(
                                     function (FieldType $field) {

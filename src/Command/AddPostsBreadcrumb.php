@@ -24,7 +24,7 @@ class AddPostsBreadcrumb implements SelfHandling
     public function handle(SettingRepositoryInterface $settings, BreadcrumbCollection $breadcrumbs)
     {
         $breadcrumbs->add(
-            $settings->get('anomaly.module.posts::module_title', 'anomaly.module.posts::breadcrumb.posts'),
+            'anomaly.module.posts::addon.name',
             $settings->get('anomaly.module.posts::module_segment', 'posts')
         );
     }

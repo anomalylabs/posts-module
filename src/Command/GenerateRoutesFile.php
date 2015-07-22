@@ -36,7 +36,7 @@ class GenerateRoutesFile implements SelfHandling
         $files->put(
             $application->getStoragePath('posts/routes.php'),
             app('Anomaly\Streams\Platform\Support\String')->render(
-                $files->get($module->getPath('resources/assets/routes.stub')),
+                $files->get($module->getPath('resources/stubs/routes.stub')),
                 [
                     'tag_segment'         => $settings->get('anomaly.module.posts::tag_segment', 'tag'),
                     'module_segment'      => $settings->get('anomaly.module.posts::module_segment', 'posts'),

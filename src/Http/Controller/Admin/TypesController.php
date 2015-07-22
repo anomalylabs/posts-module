@@ -7,7 +7,6 @@ use Anomaly\Streams\Platform\Assignment\Form\AssignmentFormBuilder;
 use Anomaly\Streams\Platform\Assignment\Table\AssignmentTableBuilder;
 use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
 
 /**
@@ -72,6 +71,7 @@ class TypesController extends AdminController
     ) {
         $type = $types->find($id);
 
+        $breadcrumbs->put($type->getName(), 'admin/posts/types/edit/' . $type->getId());
         $breadcrumbs->put('module::breadcrumb.fields', 'admin/posts/types/fields/' . $type->getId());
 
         return $table
@@ -82,16 +82,42 @@ class TypesController extends AdminController
                     ]
                 ]
             )
-            ->setOption('title', $type->getName() . ' fields')
-            ->setOption('description', 'This is a list of assigned fields for the "' . $type->getName() . '" post type')
             ->setStream($type->getEntryStream())
             ->render();
     }
 
+    /**
+     * Return the modal for choosing a field to assign.
+     *
+     * @param FieldRepositoryInterface $fields
+     * @return \Illuminate\View\View
+     */
+    public function choose(FieldRepositoryInterface $fields, TypeRepositoryInterface $types, $id)
+    {
+        $type = $types->find($id);
+
+        return view(
+            'module::admin/ajax/choose_field',
+            [
+                'fields' => $fields->findByNamespace('posts')->notAssignedTo($type->getEntryStream())->unlocked(),
+                'id'     => $id
+            ]
+        );
+    }
+
+    /**
+     * Assign a field to a post type.
+     *
+     * @param AssignmentFormBuilder     $form
+     * @param TypeRepositoryInterface   $types
+     * @param FieldRepositoryInterface  $fields
+     * @param                           $id
+     * @param                           $field
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function assign(
         AssignmentFormBuilder $form,
         TypeRepositoryInterface $types,
-        StreamRepositoryInterface $streams,
         FieldRepositoryInterface $fields,
         $id,
         $field

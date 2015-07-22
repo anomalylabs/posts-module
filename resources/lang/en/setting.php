@@ -1,13 +1,9 @@
 <?php
 
 return [
-    'module_title'        => [
-        'label'        => 'Module Title',
-        'instructions' => 'The module title is used in breadcrumbs.'
-    ],
     'permalink_structure' => [
         'label'        => 'Permalink Structure',
-        'instructions' => 'Customize the URL structure for your permalinks and archives. This can improve the aesthetics, usability, and forward-compatibility of your links. A number of tags are available, and here are some examples to get you started.'
+        'instructions' => 'Customize the URL structure for your permalinks and archives. This can improve the aesthetics, usability, and forward-compatibility of your links.'
     ],
     'module_segment'      => [
         'label'        => 'Module Segment',

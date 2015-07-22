@@ -13,7 +13,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
 {
 
     /**
-     * The module fields.
+     * The addon fields.
      *
      * @var array
      */
@@ -40,15 +40,15 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
         'allow_comments'   => 'anomaly.field_type.boolean',
         'entry'            => 'anomaly.field_type.polymorphic',
         'author'           => [
-            'type'   => 'anomaly.field_type.relationship',
+            'type'   => 'anomaly.field_type.user',
             'config' => [
-                'related' => 'Anomaly\UsersModule\User\UserModel'
+                'permission' => 'anomaly.module.posts::posts.write'
             ]
         ],
         'layout'           => [
             'type'   => 'anomaly.field_type.editor',
             'config' => [
-                'default_value' => '<h1>{{ post.title }}</h1>',
+                'default_value' => '<h1>{{ post.title }} - {{ post.entry.field_slug }}</h1>',
                 'mode'          => 'twig'
             ]
         ],
@@ -98,8 +98,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsFields extends Migration
             'config' => [
                 'handler' => 'Anomaly\SelectFieldType\Handler\Layouts@handle'
             ]
-        ],
-
+        ]
     ];
 
 }

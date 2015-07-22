@@ -19,9 +19,8 @@ class AnomalyModulePosts_1_0_0_CreateCategoriesStream extends Migration
      */
     protected $stream = [
         'slug'         => 'categories',
-        'title_column' => 'slug',
-        'translatable' => true,
-        'locked'       => true
+        'title_column' => 'name',
+        'translatable' => true
     ];
 
     /**

@@ -1,13 +1,14 @@
 <?php
 
 return [
-    'name'        => 'Posts',
-    'description' => 'Posts management.',
+    'title'       => 'Posts',
+    'name'        => 'Posts Module',
+    'description' => 'A versatile articles and posts manager.',
     'section'     => [
         'posts'      => 'Posts',
-        'categories' => 'Categories',
         'types'      => 'Types',
         'fields'     => 'Fields',
-        'settings'   => 'Settings'
+        'settings'   => 'Settings',
+        'categories' => 'Categories'
     ]
 ];

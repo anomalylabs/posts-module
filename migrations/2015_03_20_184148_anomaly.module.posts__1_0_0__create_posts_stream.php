@@ -19,9 +19,8 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
      */
     protected $stream = [
         'slug'         => 'posts',
-        'title_column' => 'slug',
-        'translatable' => true,
-        'locked'       => true
+        'title_column' => 'title',
+        'translatable' => true
     ];
 
     /**
@@ -63,10 +62,10 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
         'meta_keywords'    => [
             'translatable' => true
         ],
-        'enabled',
         'allow_comments',
-        'excerpt',
         'category',
+        'excerpt',
+        'enabled',
         'tags',
         'css',
         'js'

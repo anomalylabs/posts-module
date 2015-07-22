@@ -2,8 +2,8 @@
 
 return [
     'general' => 'General',
+    'content' => 'Content',
     'layout'  => 'Layout',
-    'entry'   => 'Entry',
     'post'    => 'Post',
     'seo'     => 'SEO',
     'css'     => 'CSS',

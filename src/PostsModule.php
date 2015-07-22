@@ -47,7 +47,7 @@ class PostsModule extends Module
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
                     'enabled'     => 'admin/posts/types/fields/*',
-                    'href'        => 'admin/posts/ajax/choose_field/{route.parameters.id}'
+                    'href'        => 'admin/posts/types/choose/{route.parameters.id}'
                 ]
             ]
         ],
@@ -56,7 +56,7 @@ class PostsModule extends Module
                 'new_field' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/posts/ajax/choose_field_type'
+                    'href'        => 'admin/posts/fields/choose'
                 ]
             ]
         ],
