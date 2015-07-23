@@ -19,7 +19,10 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $filters = [
-        'title'
+        'title',
+        'author',
+        'category',
+        'live'
     ];
 
     /**
@@ -31,7 +34,7 @@ class PostTableBuilder extends TableBuilder
         'entry.view_link',
         'author',
         'category',
-        'entry.enabled.icon'
+        'entry.live.icon'
     ];
 
     /**

@@ -30,12 +30,7 @@ class PostEntryFormSections
                             'fields' => [
                                 'post_title',
                                 'post_slug',
-                                'post_excerpt',
-                                'post_tags',
-                                'post_enabled',
-                                'post_publish_at',
-                                'post_category',
-                                'post_author'
+                                'post_excerpt'
                             ]
                         ],
                         'content' => [
@@ -72,6 +67,16 @@ class PostEntryFormSections
                             'title'  => 'module::tab.js',
                             'fields' => [
                                 'post_js'
+                            ]
+                        ],
+                        'options' => [
+                            'title'  => 'module::tab.options',
+                            'fields' => [
+                                'post_live',
+                                'post_author',
+                                'post_publish_at',
+                                'post_category',
+                                'post_tags'
                             ]
                         ]
                     ]

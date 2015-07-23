@@ -65,7 +65,7 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
         'allow_comments',
         'category',
         'excerpt',
-        'enabled',
+        'live',
         'tags',
         'css',
         'js'

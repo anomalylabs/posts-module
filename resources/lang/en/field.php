@@ -61,9 +61,10 @@ return [
         'name'         => 'Tags',
         'instructions' => 'Add organizational tags (separated by spaces).'
     ],
-    'enabled'          => [
-        'name' => 'Enabled',
-        'text' => 'Is this post live?'
+    'live'             => [
+        'name'         => 'Live',
+        'label'        => 'Is this post live?',
+        'instructions' => 'This post will not display on your website until made live and the "publish at" date is satisfied.'
     ],
     'publish_at'       => [
         'name'         => 'Publish At',

@@ -14,13 +14,23 @@ class CategoryTableBuilder extends TableBuilder
 {
 
     /**
+     * The table filters.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'name'
+    ];
+
+    /**
      * The table columns.
      *
      * @var array
      */
     protected $columns = [
         'entry.view_link',
-        'slug'
+        'slug',
+        'description'
     ];
 
     /**
