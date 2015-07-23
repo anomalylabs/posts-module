@@ -35,7 +35,7 @@ class GetCategoryPath implements SelfHandling
     public function handle(SettingRepositoryInterface $settings)
     {
         return $settings->get('anomaly.module.posts::module_segment', 'posts')
-            . '/' . $settings->get('anomaly.module.posts::category_segment', 'category')
-            . '/' . $this->category->getSlug();;
+        . '/' . $settings->get('anomaly.module.posts::category_segment', 'category')
+        . '/' . $this->category->getSlug();;
     }
 }

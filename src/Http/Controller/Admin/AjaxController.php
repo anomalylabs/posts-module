@@ -1,8 +1,6 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
-use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeCollection;
-use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**

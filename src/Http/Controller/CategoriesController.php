@@ -3,7 +3,6 @@
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
-use Illuminate\Http\Request;
 
 /**
  * Class CategoriesController

@@ -136,11 +136,11 @@ interface PostInterface
     public function getMetaDescription();
 
     /**
-     * Get the enabled flag.
+     * Get the live flag.
      *
      * @return bool
      */
-    public function isEnabled();
+    public function isLive();
 
     /**
      * Get the response.
