@@ -143,6 +143,20 @@ interface PostInterface
     public function isLive();
 
     /**
+     * Get the CSS path.
+     *
+     * @return string
+     */
+    public function getCssPath();
+
+    /**
+     * Get the JS path.
+     *
+     * @return string
+     */
+    public function getJsPath();
+
+    /**
      * Get the response.
      *
      * @return Response|null

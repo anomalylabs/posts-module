@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Type;
 
+use Anomaly\EditorFieldType\EditorFieldType;
 use Anomaly\PostsModule\Type\Command\GetTypeStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
@@ -106,5 +107,35 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     public function getMetaDescription()
     {
         return $this->meta_description;
+    }
+
+    /**
+     * Get the CSS path.
+     *
+     * @return string
+     */
+    public function getCssPath()
+    {
+        /* @var EditorFieldType $css */
+        $css = $this->getFieldType('css');
+
+        $css->setEntry($this);
+
+        return $css->getAssetPath();
+    }
+
+    /**
+     * Get the JS path.
+     *
+     * @return string
+     */
+    public function getJsPath()
+    {
+        /* @var EditorFieldType $js */
+        $js = $this->getFieldType('js');
+
+        $js->setEntry($this);
+
+        return $js->getAssetPath();
     }
 }

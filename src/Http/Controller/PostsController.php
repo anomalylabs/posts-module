@@ -4,6 +4,7 @@ use Anomaly\PostsModule\Command\AddCategoryBreadcrumb;
 use Anomaly\PostsModule\Command\AddPostBreadcrumb;
 use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Post\PostAsset;
 use Anomaly\PostsModule\Post\PostAuthorizer;
 use Anomaly\PostsModule\Post\PostHttp;
 use Anomaly\PostsModule\Post\PostLoader;
@@ -30,6 +31,13 @@ class PostsController extends PublicController
      * @var PostHttp
      */
     protected $http;
+
+    /**
+     * The post asset loader.
+     *
+     * @var PostAsset
+     */
+    protected $asset;
 
     /**
      * The post loader.
@@ -63,6 +71,7 @@ class PostsController extends PublicController
      * Create a new PostsController instance.
      *
      * @param PostHttp       $http
+     * @param PostAsset      $asset
      * @param PostLoader     $loader
      * @param PostResolver   $resolver
      * @param PostResponse   $response
@@ -70,12 +79,14 @@ class PostsController extends PublicController
      */
     public function __construct(
         PostHttp $http,
+        PostAsset $asset,
         PostLoader $loader,
         PostResolver $resolver,
         PostResponse $response,
         PostAuthorizer $authorizer
     ) {
         $this->http       = $http;
+        $this->asset      = $asset;
         $this->loader     = $loader;
         $this->resolver   = $resolver;
         $this->response   = $response;
@@ -114,6 +125,7 @@ class PostsController extends PublicController
 
         $this->authorizer->authorize($post);
         $this->loader->load($post);
+        $this->asset->add($post);
         $this->response->make($post);
         $this->http->cache($post);
 

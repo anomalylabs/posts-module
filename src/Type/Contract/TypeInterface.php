@@ -84,4 +84,18 @@ interface TypeInterface
      * @return string
      */
     public function getMetaDescription();
+
+    /**
+     * Get the CSS path.
+     *
+     * @return string
+     */
+    public function getCssPath();
+
+    /**
+     * Get the JS path.
+     *
+     * @return string
+     */
+    public function getJsPath();
 }

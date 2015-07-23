@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post;
 
+use Anomaly\EditorFieldType\EditorFieldType;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Post\Command\GetPostPath;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
@@ -225,6 +226,36 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getMetaDescription()
     {
         return $this->meta_description;
+    }
+
+    /**
+     * Get the CSS path.
+     *
+     * @return string
+     */
+    public function getCssPath()
+    {
+        /* @var EditorFieldType $css */
+        $css = $this->getFieldType('css');
+
+        $css->setEntry($this);
+
+        return $css->getAssetPath();
+    }
+
+    /**
+     * Get the JS path.
+     *
+     * @return string
+     */
+    public function getJsPath()
+    {
+        /* @var EditorFieldType $js */
+        $js = $this->getFieldType('js');
+
+        $js->setEntry($this);
+
+        return $js->getAssetPath();
     }
 
     /**
