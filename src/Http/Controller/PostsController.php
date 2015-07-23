@@ -6,6 +6,7 @@ use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\PostAsset;
 use Anomaly\PostsModule\Post\PostAuthorizer;
+use Anomaly\PostsModule\Post\PostContent;
 use Anomaly\PostsModule\Post\PostHttp;
 use Anomaly\PostsModule\Post\PostLoader;
 use Anomaly\PostsModule\Post\PostResolver;
@@ -73,6 +74,7 @@ class PostsController extends PublicController
      * @param PostHttp       $http
      * @param PostAsset      $asset
      * @param PostLoader     $loader
+     * @param PostContent    $content
      * @param PostResolver   $resolver
      * @param PostResponse   $response
      * @param PostAuthorizer $authorizer
@@ -81,6 +83,7 @@ class PostsController extends PublicController
         PostHttp $http,
         PostAsset $asset,
         PostLoader $loader,
+        PostContent $content,
         PostResolver $resolver,
         PostResponse $response,
         PostAuthorizer $authorizer
@@ -88,6 +91,7 @@ class PostsController extends PublicController
         $this->http       = $http;
         $this->asset      = $asset;
         $this->loader     = $loader;
+        $this->content    = $content;
         $this->resolver   = $resolver;
         $this->response   = $response;
         $this->authorizer = $authorizer;
@@ -126,6 +130,7 @@ class PostsController extends PublicController
         $this->authorizer->authorize($post);
         $this->loader->load($post);
         $this->asset->add($post);
+        $this->content->make($post);
         $this->response->make($post);
         $this->http->cache($post);
 
@@ -157,6 +162,8 @@ class PostsController extends PublicController
 
         $this->authorizer->authorize($post);
         $this->loader->load($post);
+        $this->asset->add($post);
+        $this->content->make($post);
         $this->response->make($post);
         $this->http->cache($post);
 

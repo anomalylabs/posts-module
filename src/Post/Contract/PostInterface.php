@@ -13,7 +13,7 @@ use Illuminate\Http\Response;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Post
  */
-interface PostInterface
+interface PostInterface extends EntryInterface
 {
 
     /**
@@ -143,6 +143,13 @@ interface PostInterface
     public function isLive();
 
     /**
+     * Get the path to the post's type layout.
+     *
+     * @return string
+     */
+    public function getLayoutViewPath();
+
+    /**
      * Get the CSS path.
      *
      * @return string
@@ -155,6 +162,21 @@ interface PostInterface
      * @return string
      */
     public function getJsPath();
+
+    /**
+     * Get the content.
+     *
+     * @return null|string
+     */
+    public function getContent();
+
+    /**
+     * Set the content.
+     *
+     * @param $content
+     * @return $this
+     */
+    public function setContent($content);
 
     /**
      * Get the response.

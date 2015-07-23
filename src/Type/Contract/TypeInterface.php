@@ -8,6 +8,7 @@
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Type\Contract
  */
+use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 
 /**
@@ -18,15 +19,8 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Type\Contract
  */
-interface TypeInterface
+interface TypeInterface extends EntryInterface
 {
-
-    /**
-     * Get the ID.
-     *
-     * @return null|int
-     */
-    public function getId();
 
     /**
      * Get the name.

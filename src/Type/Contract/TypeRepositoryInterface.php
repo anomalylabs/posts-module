@@ -1,6 +1,6 @@
 <?php namespace Anomaly\PostsModule\Type\Contract;
 
-use Anomaly\Streams\Platform\Entry\EntryCollection;
+use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 
 /**
  * Interface TypeRepositoryInterface
@@ -10,19 +10,7 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Type\Contract
  */
-interface TypeRepositoryInterface
+interface TypeRepositoryInterface extends EntryRepositoryInterface
 {
 
-    /**
-     * Return all types.
-     *
-     * @return EntryCollection
-     */
-    public function all();
-
-    /**
-     * @param $id
-     * @return null|TypeInterface
-     */
-    public function find($id);
 }

@@ -2,6 +2,6 @@
 
 {% block content %}
 
-    {% include post.type.layout.path %}
+    {{ post.content|raw }}
 
 {% endblock %}

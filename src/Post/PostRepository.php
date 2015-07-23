@@ -4,7 +4,7 @@ use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
-use Anomaly\Streams\Platform\Entry\EntryModel;
+use Anomaly\Streams\Platform\Entry\EntryRepository;
 
 /**
  * Class PostRepository
@@ -14,7 +14,7 @@ use Anomaly\Streams\Platform\Entry\EntryModel;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Post
  */
-class PostRepository implements PostRepositoryInterface
+class PostRepository extends EntryRepository implements PostRepositoryInterface
 {
 
     /**
@@ -32,17 +32,6 @@ class PostRepository implements PostRepositoryInterface
     public function __construct(PostModel $model)
     {
         $this->model = $model;
-    }
-
-    /**
-     * Find a post by it's ID.
-     *
-     * @param $id
-     * @return null|PostInterface
-     */
-    public function find($id)
-    {
-        return $this->model->find($id);
     }
 
     /**
@@ -102,16 +91,5 @@ class PostRepository implements PostRepositoryInterface
     public function getRecent($limit = null)
     {
         return $this->model->with(['category'])->orderBy('created_at', 'DESC')->paginate($limit);
-    }
-
-    /**
-     * Delete a post.
-     *
-     * @param PostInterface|EntryModel $post
-     * @return bool
-     */
-    public function delete(PostInterface $post)
-    {
-        return $post->delete();
     }
 }

@@ -22,6 +22,13 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
 {
 
     /**
+     * The posts's content.
+     *
+     * @var null|string
+     */
+    protected $content = null;
+
+    /**
      * The post's response.
      *
      * @var null|Response
@@ -229,6 +236,21 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Get the path to the post's type layout.
+     *
+     * @return string
+     */
+    public function getLayoutViewPath()
+    {
+        $type = $this->getType();
+
+        /* @var EditorFieldType $layout */
+        $layout = $type->getFieldType('layout');
+
+        return $layout->getViewPath();
+    }
+
+    /**
      * Get the CSS path.
      *
      * @return string
@@ -256,6 +278,29 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
         $js->setEntry($this);
 
         return $js->getAssetPath();
+    }
+
+    /**
+     * Get the content.
+     *
+     * @return null|string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set the content.
+     *
+     * @param $content
+     * @return $this
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
     }
 
     /**

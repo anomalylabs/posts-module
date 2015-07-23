@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post\Contract;
 
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
+use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 
 /**
@@ -11,16 +12,8 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Post
  */
-interface PostRepositoryInterface
+interface PostRepositoryInterface extends EntryRepositoryInterface
 {
-
-    /**
-     * Find a post by it's ID.
-     *
-     * @param $id
-     * @return null|PostInterface
-     */
-    public function find($id);
 
     /**
      * Find a post by it's slug.
@@ -63,12 +56,4 @@ interface PostRepositoryInterface
      * @return EntryCollection
      */
     public function getRecent($limit = null);
-
-    /**
-     * Delete a post.
-     *
-     * @param PostInterface $post
-     * @return bool
-     */
-    public function delete(PostInterface $post);
 }
