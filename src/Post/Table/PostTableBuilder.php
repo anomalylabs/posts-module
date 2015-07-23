@@ -14,14 +14,23 @@ class PostTableBuilder extends TableBuilder
 {
 
     /**
+     * The table filters.
+     *
+     * @var array
+     */
+    protected $filters = [
+        'title'
+    ];
+
+    /**
      * The table columns.
      *
      * @var array
      */
     protected $columns = [
         'entry.view_link',
-        'entry.author.username',
-        'entry.category.name',
+        'author',
+        'category',
         'entry.enabled.icon'
     ];
 
