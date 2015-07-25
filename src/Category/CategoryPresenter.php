@@ -3,7 +3,7 @@
 use Anomaly\PostsModule\Category\Command\GetCategoryPath;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryPresenter;
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CategoryPresenter
@@ -16,7 +16,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 class CategoryPresenter extends EntryPresenter
 {
 
-    use DispatchesCommands;
+    use DispatchesJobs;
 
     /**
      * The presented object.
