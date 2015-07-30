@@ -47,7 +47,7 @@ class PostsModule extends Module
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
                     'enabled'     => 'admin/posts/types/fields/*',
-                    'href'        => 'admin/posts/types/choose/{route.parameters.id}'
+                    'href'        => 'admin/posts/types/choose/{request.route.parameters.id}'
                 ]
             ]
         ],

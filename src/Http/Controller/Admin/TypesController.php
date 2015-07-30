@@ -99,7 +99,7 @@ class TypesController extends AdminController
         return view(
             'module::admin/ajax/choose_field',
             [
-                'fields' => $fields->findByNamespace('posts')->notAssignedTo($type->getEntryStream())->unlocked(),
+                'fields' => $fields->findAllByNamespace('posts')->notAssignedTo($type->getEntryStream())->unlocked(),
                 'id'     => $id
             ]
         );
