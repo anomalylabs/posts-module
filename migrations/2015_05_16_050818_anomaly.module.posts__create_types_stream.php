@@ -3,13 +3,13 @@
 use Anomaly\Streams\Platform\Database\Migration\Migration;
 
 /**
- * Class AnomalyModulePosts_1_0_0_CreatePostsStream
+ * Class AnomalyModulePostsCreateTypesStream
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
  */
-class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
+class AnomalyModulePostsCreateTypesStream extends Migration
 {
 
     /**
@@ -18,8 +18,8 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
      * @var array
      */
     protected $stream = [
-        'slug'         => 'posts',
-        'title_column' => 'title',
+        'slug'         => 'types',
+        'title_column' => 'name',
         'translatable' => true
     ];
 
@@ -29,28 +29,23 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'str_id'           => [
+        'name'             => [
             'required' => true,
             'unique'   => true
-        ],
-        'title'            => [
-            'translatable' => true,
-            'required'     => true
         ],
         'slug'             => [
             'required' => true,
-            'unique'   => true
+            'unique'   => true,
+            'config'   => [
+                'slugify' => 'name',
+                'type'    => '_'
+            ]
         ],
-        'type'             => [
+        'description',
+        'layout'           => [
             'required' => true
         ],
-        'publish_at'       => [
-            'required' => true
-        ],
-        'author'           => [
-            'required' => true
-        ],
-        'entry'            => [
+        'theme_layout'     => [
             'required' => true
         ],
         'meta_title'       => [
@@ -62,11 +57,6 @@ class AnomalyModulePosts_1_0_0_CreatePostsStream extends Migration
         'meta_keywords'    => [
             'translatable' => true
         ],
-        'allow_comments',
-        'category',
-        'excerpt',
-        'live',
-        'tags',
         'css',
         'js'
     ];
