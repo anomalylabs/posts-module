@@ -52,6 +52,8 @@ class PostAuthorizer
             abort(404);
         }
 
-        $this->authorizer->authorize('anomaly.module.posts::view_drafts');
+        if (!$this->authorizer->authorize('anomaly.module.posts::view_drafts')) {
+            abort(404);
+        }
     }
 }

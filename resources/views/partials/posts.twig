@@ -3,21 +3,23 @@
         <div class="post">
 
             <h1 class="title">
-                <a href="{{ post.url }}">
+                <a href="{{ url(post.path) }}">
                     {{ post.title }}
                 </a>
             </h1>
 
-            <p>
-                {{ post.excerpt|raw }}
-            </p>
+            {% if post.excerpt %}
+                <p>
+                    {{ post.excerpt|raw }}
+                </p>
+            {% endif %}
 
             <div class="meta">
                 <span class="date">
-                    {{ post.created_at|date(config_get('streams.date_format')) }}
+                    {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
                 </span>
 
-                {% if post.category_id %}
+                {% if post.category %}
                     <span class="category">
                         {{ post.category.name }}
                     </span>
@@ -25,10 +27,7 @@
 
                 {% if post.tags %}
                     <span class="tags">
-                        {% for tag in post.tags.value %}
-                            {% if not loop.first %}, {% endif %}
-                            <span>{{ tag }}</span>
-                        {% endfor %}
+                        {{ post.tags.labels|raw }}
                     </span>
                 {% endif %}
 

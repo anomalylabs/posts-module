@@ -42,7 +42,12 @@ class GetPostPath implements SelfHandling
      */
     public function handle(SettingRepositoryInterface $settings, Parser $parser)
     {
-        $base      = $settings->get('anomaly.module.posts::module_segment', 'posts');
+        $base = $settings->get('anomaly.module.posts::module_segment', 'posts');
+
+        if (!$this->post->isLive()) {
+            return $base . '/preview/' . $this->post->getStrId();
+        }
+
         $structure = $settings->get('anomaly.module.posts::permalink_structure', '{year}/{month}/{day}/{post}');
 
         $data = [

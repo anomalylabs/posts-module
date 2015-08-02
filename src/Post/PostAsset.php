@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post;
 
+use Anomaly\EditorFieldType\EditorFieldTypePresenter;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Asset\Asset;
 
@@ -31,12 +32,20 @@ class PostAsset
      */
     public function add(PostInterface $post)
     {
-        $this->asset->add('styles.css', $post->getCssPath());
-        $this->asset->add('scripts.js', $post->getJsPath());
+        /* @var EditorFieldTypePresenter $js */
+        /* @var EditorFieldTypePresenter $css */
+        $js  = $post->getFieldTypePresenter('js');
+        $css = $post->getFieldTypePresenter('css');
+
+        $this->asset->add('styles.css', $css->path());
+        $this->asset->add('scripts.js', $js->path());
 
         $type = $post->getType();
 
-        $this->asset->add('styles.css', $type->getCssPath());
-        $this->asset->add('scripts.js', $type->getJsPath());
+        $js  = $type->getFieldTypePresenter('js');
+        $css = $type->getFieldTypePresenter('css');
+
+        $this->asset->add('styles.css', $css->path());
+        $this->asset->add('scripts.js', $js->path());
     }
 }

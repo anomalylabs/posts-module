@@ -7,7 +7,6 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
 
 /**
@@ -43,27 +42,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     protected $cacheMinutes = 99999;
 
     /**
-     * Return only active posts.
-     *
-     * @param Builder $query
-     * @return $this
-     */
-    public function scopeActive(Builder $query)
-    {
-        return $query->where('status', 'live');
-    }
-
-    /**
-     * Return the post's URL.
-     *
-     * @return string
-     */
-    public function url()
-    {
-        return url($this->path());
-    }
-
-    /**
      * Return the post's path.
      *
      * @return string
@@ -84,6 +62,10 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
 
         if (!$metaTitle && $type = $this->getType()) {
             $metaTitle = $type->getMetaTitle();
+        }
+
+        if (!$metaTitle) {
+            $metaTitle = $this->getTitle();
         }
 
         return $metaTitle;
@@ -119,6 +101,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
         }
 
         return $metaDescription;
+    }
+
+    /**
+     * Get the string ID.
+     *
+     * @return string
+     */
+    public function getStrId()
+    {
+        return $this->str_id;
     }
 
     /**
@@ -248,36 +240,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
         $layout = $type->getFieldType('layout');
 
         return $layout->getViewPath();
-    }
-
-    /**
-     * Get the CSS path.
-     *
-     * @return string
-     */
-    public function getCssPath()
-    {
-        /* @var EditorFieldType $css */
-        $css = $this->getFieldType('css');
-
-        $css->setEntry($this);
-
-        return $css->getAssetPath();
-    }
-
-    /**
-     * Get the JS path.
-     *
-     * @return string
-     */
-    public function getJsPath()
-    {
-        /* @var EditorFieldType $js */
-        $js = $this->getFieldType('js');
-
-        $js->setEntry($this);
-
-        return $js->getAssetPath();
     }
 
     /**

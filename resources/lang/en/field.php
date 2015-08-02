@@ -25,10 +25,6 @@ return [
         'name'         => 'Category',
         'instructions' => 'Specify the category this post displays in.'
     ],
-    'allowed_roles'    => [
-        'name'         => 'Allowed Roles',
-        'instructions' => 'Which user roles are allowed to access this category?'
-    ],
     'meta_title'       => [
         'name'         => 'Meta Title',
         'instructions' => 'Enter the post\'s SEO title. The post\'s title will be used by default.'

@@ -2,6 +2,7 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Entry\EntryPresenter;
+use Collective\Html\HtmlBuilder;
 
 /**
  * Class PostPresenter
@@ -15,11 +16,31 @@ class PostPresenter extends EntryPresenter
 {
 
     /**
+     * The HTML builder.
+     *
+     * @var HtmlBuilder
+     */
+    protected $html;
+
+    /**
      * The decorated post.
      *
      * @var PostInterface
      */
     protected $object;
+
+    /**
+     * Create a new PostPresenter instance.
+     *
+     * @param HtmlBuilder $html
+     * @param             $object
+     */
+    public function __construct(HtmlBuilder $html, $object)
+    {
+        $this->html = $html;
+
+        parent::__construct($object);
+    }
 
     /**
      * Return the view link.
@@ -28,6 +49,6 @@ class PostPresenter extends EntryPresenter
      */
     public function viewLink()
     {
-        return app('html')->link($this->object->path(), $this->object->getTitle(), ['target' => '_blank']);
+        return $this->html->link($this->object->path(), $this->object->getTitle(), ['target' => '_blank']);
     }
 }

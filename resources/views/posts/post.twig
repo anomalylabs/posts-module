@@ -1,7 +1,32 @@
 {% extends post.type.theme_layout ?: "theme::layouts/default" %}
 
 {% block content %}
+    <section id="posts">
 
-    {{ post.content|raw }}
+        <h1>{{ page.title }}</h1>
 
+        <div class="meta">
+                <span class="date">
+                    {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
+                </span>
+
+            {% if post.category %}
+                <span class="category">
+                    {{ post.category.name }}
+                </span>
+            {% endif %}
+
+            {% if post.tags %}
+                <span class="tags">
+                    {{ post.tags.labels|raw }}
+                </span>
+            {% endif %}
+
+        </div>
+
+        <div class="content">
+            {{ post.content|raw }}
+        </div>
+
+    </section>
 {% endblock %}

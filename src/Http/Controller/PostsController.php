@@ -126,8 +126,7 @@ class PostsController extends PublicController
         if (!$post = $posts->findByStrId($id)) {
             abort(404);
         }
-
-        $this->authorizer->authorize($post);
+        
         $this->loader->load($post);
         $this->asset->add($post);
         $this->content->make($post);
@@ -155,7 +154,6 @@ class PostsController extends PublicController
      */
     public function show()
     {
-
         if (!$post = $this->resolver->resolve()) {
             abort(404);
         }

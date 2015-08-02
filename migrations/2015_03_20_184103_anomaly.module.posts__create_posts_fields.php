@@ -87,12 +87,6 @@ class AnomalyModulePostsCreatePostsFields extends Migration
                 'mode' => 'javascript'
             ]
         ],
-        'allowed_roles'    => [
-            'type'   => 'anomaly.field_type.multiple',
-            'config' => [
-                'related' => 'Anomaly\UsersModule\Role\RoleModel'
-            ]
-        ],
         'theme_layout'     => [
             'type'   => 'anomaly.field_type.select',
             'config' => [

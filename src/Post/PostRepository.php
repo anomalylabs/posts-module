@@ -90,6 +90,6 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      */
     public function getRecent($limit = null)
     {
-        return $this->model->with(['category'])->orderBy('created_at', 'DESC')->paginate($limit);
+        return $this->model->where('live', true)->orderBy('created_at', 'DESC')->paginate($limit);
     }
 }

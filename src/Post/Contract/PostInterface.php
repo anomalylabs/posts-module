@@ -17,13 +17,6 @@ interface PostInterface extends EntryInterface
 {
 
     /**
-     * Return the post's URL.
-     *
-     * @return string
-     */
-    public function url();
-
-    /**
      * Return the post's path.
      *
      * @return string
@@ -52,18 +45,11 @@ interface PostInterface extends EntryInterface
     public function metaDescription();
 
     /**
-     * Get the ID.
-     *
-     * @return null|int
-     */
-    public function getId();
-
-    /**
-     * Get the post title.
+     * Get the string ID.
      *
      * @return string
      */
-    public function getTitle();
+    public function getStrId();
 
     /**
      * Get the slug.
@@ -148,20 +134,6 @@ interface PostInterface extends EntryInterface
      * @return string
      */
     public function getLayoutViewPath();
-
-    /**
-     * Get the CSS path.
-     *
-     * @return string
-     */
-    public function getCssPath();
-
-    /**
-     * Get the JS path.
-     *
-     * @return string
-     */
-    public function getJsPath();
 
     /**
      * Get the content.
