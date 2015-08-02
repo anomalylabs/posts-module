@@ -1,17 +1,13 @@
 {% for post in posts %}
-
     <article class="post">
 
         {% include "anomaly.module.posts::partials/post-header" %}
 
-        <section class="excerpt">
+        <div class="excerpt">
             {% if post.excerpt %}
-                <p>
-                    {{ post.excerpt|raw }}
-                </p>
+                <p>{{ post.excerpt|raw }}</p>
             {% endif %}
-        </section>
+        </div>
 
     </article>
-
 {% endfor %}
