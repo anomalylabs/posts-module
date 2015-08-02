@@ -1,0 +1,25 @@
+<header>
+
+    <h1><a href="{{ url(post.path) }}">{{ post.title }}</a></h1>
+
+    <time class="date" datetime="{{ post.publish_at.iso }}">
+        {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
+    </time>
+
+    <section class="meta">
+
+        {% if post.category %}
+            <span class="category">
+                {{ post.category.name }}
+            </span>
+        {% endif %}
+
+        {% if post.tags %}
+            <span class="tags">
+                {{ post.tags.labels|raw }}
+            </span>
+        {% endif %}
+
+    </section>
+
+</header>

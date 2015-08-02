@@ -2,10 +2,17 @@
 
 {% block content %}
 
-    <h1>{{ category.title }}</h1>
+    <section id="posts">
 
-    <p>{{ category.description|raw }}</p>
+        <header>
 
-    {% include "anomaly.module.posts::partials/posts" %}
+            <h1>{{ category.title }}</h1>
+            <p>{{ category.description|raw }}</p>
+
+        </header>
+
+        {% include "anomaly.module.posts::partials/posts" %}
+
+    </section>
 
 {% endblock %}

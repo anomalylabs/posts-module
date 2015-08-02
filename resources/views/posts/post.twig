@@ -1,32 +1,19 @@
 {% extends post.type.theme_layout ?: "theme::layouts/default" %}
 
 {% block content %}
+
     <section id="posts">
 
-        <h1>{{ page.title }}</h1>
+        <article id="post">
 
-        <div class="meta">
-                <span class="date">
-                    {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
-                </span>
+            {% include "anomaly.module.posts::partials/post-header" %}
 
-            {% if post.category %}
-                <span class="category">
-                    {{ post.category.name }}
-                </span>
-            {% endif %}
+            <section class="content">
+                {{ post.content|raw }}
+            </section>
 
-            {% if post.tags %}
-                <span class="tags">
-                    {{ post.tags.labels|raw }}
-                </span>
-            {% endif %}
-
-        </div>
-
-        <div class="content">
-            {{ post.content|raw }}
-        </div>
+        </article>
 
     </section>
+
 {% endblock %}
