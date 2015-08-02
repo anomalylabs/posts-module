@@ -1,32 +1,43 @@
 {% extends post.type.theme_layout ?: "theme::layouts/default" %}
 
 {% block content %}
+
     <section id="posts">
 
-        <h1>{{ page.title }}</h1>
+        <article id="post">
 
-        <div class="meta">
+            <header>
+
+                <h1>{{ page.title }}</h1>
+
                 <span class="date">
                     {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
                 </span>
 
-            {% if post.category %}
-                <span class="category">
-                    {{ post.category.name }}
-                </span>
-            {% endif %}
+            </header>
 
-            {% if post.tags %}
-                <span class="tags">
-                    {{ post.tags.labels|raw }}
-                </span>
-            {% endif %}
+            <section class="meta">
 
-        </div>
+                {% if post.category %}
+                    <span class="category">
+                        {{ post.category.name }}
+                    </span>
+                {% endif %}
 
-        <div class="content">
-            {{ post.content|raw }}
-        </div>
+                {% if post.tags %}
+                    <span class="tags">
+                        {{ post.tags.labels|raw }}
+                    </span>
+                {% endif %}
+
+            </section>
+
+            <section class="content">
+                {{ post.content|raw }}
+            </section>
+
+        </article>
 
     </section>
+
 {% endblock %}

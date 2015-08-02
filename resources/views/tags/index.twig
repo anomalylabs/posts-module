@@ -2,8 +2,17 @@
 
 {% block content %}
 
-    <h1>{{ trans('anomaly.module.posts::message.tagged', {'tag': tag}) }}</h1>
+    <section id="posts">
 
-    {% include "anomaly.module.posts::partials/posts" %}
+        <header>
+
+            <h1>{{ trans('anomaly.module.posts::message.tagged', {'tag': tag}) }}</h1>
+
+        </header>
+
+        {% include "anomaly.module.posts::partials/posts" %}
+
+    </section>
+
 
 {% endblock %}

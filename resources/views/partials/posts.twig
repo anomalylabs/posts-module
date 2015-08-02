@@ -1,37 +1,39 @@
-<section id="posts">
-    {% for post in posts %}
-        <div class="post">
+{% for post in posts %}
 
+    <article class="post">
+
+        <header class="header">
             <h1 class="title">
                 <a href="{{ url(post.path) }}">
                     {{ post.title }}
                 </a>
             </h1>
+            <span class="date">
+                {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
+            </span>
+        </header>
 
+        <section class="excerpt">
             {% if post.excerpt %}
                 <p>
                     {{ post.excerpt|raw }}
                 </p>
             {% endif %}
+        </section>
 
-            <div class="meta">
-                <span class="date">
-                    {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
+        <section class="meta">
+            {% if post.category %}
+                <span class="category">
+                    {{ post.category.name }}
                 </span>
+            {% endif %}
 
-                {% if post.category %}
-                    <span class="category">
-                        {{ post.category.name }}
-                    </span>
-                {% endif %}
+            {% if post.tags %}
+                <span class="tags">
+                    {{ post.tags.labels|raw }}
+                </span>
+            {% endif %}
+        </section>
+    </article>
 
-                {% if post.tags %}
-                    <span class="tags">
-                        {{ post.tags.labels|raw }}
-                    </span>
-                {% endif %}
-
-            </div>
-        </div>
-    {% endfor %}
-</section>
+{% endfor %}
