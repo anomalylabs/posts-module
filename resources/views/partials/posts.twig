@@ -2,16 +2,7 @@
 
     <article class="post">
 
-        <header class="header">
-            <h1 class="title">
-                <a href="{{ url(post.path) }}">
-                    {{ post.title }}
-                </a>
-            </h1>
-            <span class="date">
-                {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
-            </span>
-        </header>
+        {% include "module::partials/post-header" %}
 
         <section class="excerpt">
             {% if post.excerpt %}
@@ -21,19 +12,6 @@
             {% endif %}
         </section>
 
-        <section class="meta">
-            {% if post.category %}
-                <span class="category">
-                    {{ post.category.name }}
-                </span>
-            {% endif %}
-
-            {% if post.tags %}
-                <span class="tags">
-                    {{ post.tags.labels|raw }}
-                </span>
-            {% endif %}
-        </section>
     </article>
 
 {% endfor %}

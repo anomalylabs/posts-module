@@ -6,31 +6,7 @@
 
         <article id="post">
 
-            <header>
-
-                <h1>{{ post.title }}</h1>
-
-                <span class="date">
-                    {{ post.posted_at|date(config_get('streams::datetime.date_format')) }}
-                </span>
-
-            </header>
-
-            <section class="meta">
-
-                {% if post.category %}
-                    <span class="category">
-                        {{ post.category.name }}
-                    </span>
-                {% endif %}
-
-                {% if post.tags %}
-                    <span class="tags">
-                        {{ post.tags.labels|raw }}
-                    </span>
-                {% endif %}
-
-            </section>
+            {% include "module::partials/post-header" %}
 
             <section class="content">
                 {{ post.content|raw }}
