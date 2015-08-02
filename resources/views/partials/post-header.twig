@@ -6,7 +6,7 @@
         {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
     </time>
 
-    <section class="meta">
+    <div class="meta">
 
         {% if post.category %}
             <span class="category">
@@ -19,7 +19,7 @@
                 {{ post.tags.labels|raw }}
             </span>
         {% endif %}
-
-    </section>
+        
+    </div>
 
 </header>

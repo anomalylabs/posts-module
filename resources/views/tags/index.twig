@@ -1,18 +1,13 @@
 {% extends "streams::blank" %}
 
 {% block content %}
-
-    <section id="posts">
+    <div id="posts">
 
         <header>
-
             <h1>{{ trans('anomaly.module.posts::message.tagged', {'tag': tag}) }}</h1>
-
         </header>
 
         {% include "anomaly.module.posts::partials/posts" %}
 
-    </section>
-
-
+    </div>
 {% endblock %}

@@ -1,19 +1,15 @@
 {% extends post.type.theme_layout ?: "theme::layouts/default" %}
 
 {% block content %}
-
-    <section id="posts">
-
+    <div id="posts">
         <article id="post">
 
             {% include "anomaly.module.posts::partials/post-header" %}
 
-            <section class="content">
+            <div class="content">
                 {{ post.content|raw }}
-            </section>
+            </div>
 
         </article>
-
-    </section>
-
+    </div>
 {% endblock %}
