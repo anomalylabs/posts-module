@@ -2,15 +2,19 @@
 
     <h1><a href="{{ url(post.path) }}">{{ post.title }}</a></h1>
 
-    <time class="date" datetime="{{ post.publish_at.iso }}">
-        {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
-    </time>
-
     <div class="meta">
+
+        <span class="author">
+            {{ post.author.display_name }}
+        </span>
+
+        <time class="date" datetime="{{ post.publish_at.iso }}">
+            {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
+        </time>
 
         {% if post.category %}
             <span class="category">
-                {{ post.category.name }}
+                {{ html_link(post.category.path, post.category.name) }}
             </span>
         {% endif %}
 
@@ -19,7 +23,7 @@
                 {{ post.tags.labels|raw }}
             </span>
         {% endif %}
-        
+
     </div>
 
 </header>

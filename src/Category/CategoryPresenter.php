@@ -27,6 +27,16 @@ class CategoryPresenter extends EntryPresenter
     protected $object;
 
     /**
+     * Return the category path.
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return $this->dispatch(new GetCategoryPath($this->object));
+    }
+
+    /**
      * Return the view link.
      *
      * @return string
