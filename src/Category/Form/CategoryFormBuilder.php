@@ -13,22 +13,4 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 class CategoryFormBuilder extends FormBuilder
 {
 
-    /**
-     * The form model.
-     *
-     * @var string
-     */
-    protected $model = 'Anomaly\PostsModule\Category\CategoryModel';
-
-    /**
-     * The form fields.
-     *
-     * @var array
-     */
-    protected $fields = [
-        'name',
-        'slug',
-        'description'
-    ];
-
 }

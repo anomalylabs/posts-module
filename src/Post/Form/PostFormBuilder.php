@@ -45,6 +45,23 @@ class PostFormBuilder extends FormBuilder
     }
 
     /**
+     * Fired just before saving the form.
+     */
+    public function onSaving()
+    {
+        $entry = $this->getFormEntry();
+        $type  = $this->getType();
+
+        if (!$entry->type_id) {
+            $entry->type_id = $type->getId();
+        }
+
+        if (!$entry->str_id) {
+            $entry->str_id = str_random();
+        }
+    }
+
+    /**
      * Get the type.
      *
      * @return TypeInterface|null
@@ -65,22 +82,5 @@ class PostFormBuilder extends FormBuilder
         $this->type = $type;
 
         return $this;
-    }
-
-    /**
-     * Fired just before saving the form.
-     */
-    public function onSaving()
-    {
-        $entry = $this->getFormEntry();
-        $type  = $this->getType();
-
-        if (!$entry->type_id) {
-            $entry->type_id = $type->getId();
-        }
-
-        if (!$entry->str_id) {
-            $entry->str_id = str_random();
-        }
     }
 }
