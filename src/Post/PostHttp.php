@@ -2,6 +2,7 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class PostHttp
@@ -34,7 +35,7 @@ class PostHttp
     /**
      * Cache the post's HTTP response.
      *
-     * @param PostInterface $post
+     * @param PostInterface|Arrayable $post
      */
     public function cache(PostInterface $post)
     {
@@ -51,6 +52,18 @@ class PostHttp
             $ttl = $this->settings->get('anomaly.module.posts::ttl');
         }
 
-        $response->setTtl($ttl * 60);
+        if ($ttl && $seconds = $ttl * 60) {
+
+            $response->headers->set('Pragma', 'public');
+            $response->headers->set('Content-Type', 'text/html');
+            $response->headers->set('Etag', md5(json_encode($post->toArray())));
+            $response->headers->set('Cache-Control', 'public,max-age=' . $seconds . ',s-maxage=' . $seconds);
+            $response->headers->set(
+                'Last-Modified',
+                $post->lastModified()->setTimezone('GMT')->format('D, d M Y H:i:s')
+            );
+
+            $response->setTtl($seconds);
+        }
     }
 }
