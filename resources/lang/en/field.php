@@ -17,9 +17,9 @@ return [
         'name'         => 'Description',
         'instructions' => 'Briefly describe the entry.'
     ],
-    'excerpt'          => [
-        'name'         => 'Excerpt',
-        'instructions' => 'Enter a brief summary excerpt for the post.'
+    'summary'          => [
+        'name'         => 'Summary',
+        'instructions' => 'Enter a brief summary summary for the post.'
     ],
     'category'         => [
         'name'         => 'Category',

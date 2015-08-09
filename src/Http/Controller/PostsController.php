@@ -3,14 +3,11 @@
 use Anomaly\PostsModule\Command\AddCategoryBreadcrumb;
 use Anomaly\PostsModule\Command\AddPostBreadcrumb;
 use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
+use Anomaly\PostsModule\Command\AddPostsMetaTitle;
+use Anomaly\PostsModule\Post\Command\MakePostResponse;
+use Anomaly\PostsModule\Post\Command\MakePreviewResponse;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
-use Anomaly\PostsModule\Post\PostAsset;
-use Anomaly\PostsModule\Post\PostAuthorizer;
-use Anomaly\PostsModule\Post\PostContent;
-use Anomaly\PostsModule\Post\PostHttp;
-use Anomaly\PostsModule\Post\PostLoader;
 use Anomaly\PostsModule\Post\PostResolver;
-use Anomaly\PostsModule\Post\PostResponse;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 use Illuminate\Http\Request;
@@ -27,79 +24,6 @@ class PostsController extends PublicController
 {
 
     /**
-     * The post HTTP modifier.
-     *
-     * @var PostHttp
-     */
-    protected $http;
-
-    /**
-     * The post asset loader.
-     *
-     * @var PostAsset
-     */
-    protected $asset;
-
-    /**
-     * The post loader.
-     *
-     * @var PostLoader
-     */
-    protected $loader;
-
-    /**
-     * The post resolver.
-     *
-     * @var PostResolver
-     */
-    protected $resolver;
-
-    /**
-     * The post responder.
-     *
-     * @var PostResponse
-     */
-    protected $response;
-
-    /**
-     * The post authorizer.
-     *
-     * @var PostAuthorizer
-     */
-    protected $authorizer;
-
-    /**
-     * Create a new PostsController instance.
-     *
-     * @param PostHttp       $http
-     * @param PostAsset      $asset
-     * @param PostLoader     $loader
-     * @param PostContent    $content
-     * @param PostResolver   $resolver
-     * @param PostResponse   $response
-     * @param PostAuthorizer $authorizer
-     */
-    public function __construct(
-        PostHttp $http,
-        PostAsset $asset,
-        PostLoader $loader,
-        PostContent $content,
-        PostResolver $resolver,
-        PostResponse $response,
-        PostAuthorizer $authorizer
-    ) {
-        $this->http       = $http;
-        $this->asset      = $asset;
-        $this->loader     = $loader;
-        $this->content    = $content;
-        $this->resolver   = $resolver;
-        $this->response   = $response;
-        $this->authorizer = $authorizer;
-
-        parent::__construct();
-    }
-
-    /**
      * Display recent posts.
      *
      * @param PostRepositoryInterface $posts
@@ -110,6 +34,7 @@ class PostsController extends PublicController
         $posts = $posts->getRecent();
 
         $this->dispatch(new AddPostsBreadcrumb());
+        $this->dispatch(new AddPostsMetaTitle());
 
         return view('anomaly.module.posts::posts/index', compact('posts'));
     }
@@ -126,14 +51,9 @@ class PostsController extends PublicController
         if (!$post = $posts->findByStrId($id)) {
             abort(404);
         }
-        
-        $this->loader->load($post);
-        $this->asset->add($post);
-        $this->content->make($post);
-        $this->response->make($post);
-        $this->http->cache($post);
 
         $this->dispatch(new AddPostsBreadcrumb());
+        $this->dispatch(new MakePreviewResponse($post));
 
         if ($category = $post->getCategory()) {
             $this->dispatch(new AddCategoryBreadcrumb($category));
@@ -152,19 +72,13 @@ class PostsController extends PublicController
      * @param SettingRepositoryInterface $settings
      * @return \Illuminate\View\View
      */
-    public function show()
+    public function show(PostResolver $resolver)
     {
-        if (!$post = $this->resolver->resolve()) {
+        if (!$post = $resolver->resolve()) {
             abort(404);
         }
 
-        $this->authorizer->authorize($post);
-        $this->loader->load($post);
-        $this->asset->add($post);
-        $this->content->make($post);
-        $this->response->make($post);
-        $this->http->cache($post);
-
+        $this->dispatch(new MakePostResponse($post));
         $this->dispatch(new AddPostsBreadcrumb());
 
         if ($category = $post->getCategory()) {
@@ -173,6 +87,6 @@ class PostsController extends PublicController
 
         $this->dispatch(new AddPostBreadcrumb($post));
 
-        return view('anomaly.module.posts::posts/post', compact('post'));
+        return $post->getResponse();
     }
 }

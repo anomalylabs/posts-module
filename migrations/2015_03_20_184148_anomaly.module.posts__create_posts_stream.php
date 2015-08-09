@@ -64,7 +64,7 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         ],
         'allow_comments',
         'category',
-        'excerpt',
+        'summary',
         'live',
         'tags',
         'css',

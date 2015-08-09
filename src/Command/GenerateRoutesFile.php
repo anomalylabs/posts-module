@@ -1,10 +1,11 @@
 <?php namespace Anomaly\PostsModule\Command;
 
+use Anomaly\PostsModule\PostsModule;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Application\Application;
+use Anomaly\Streams\Platform\Support\String;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\View\Factory;
 
 /**
  * Class GenerateRoutesFile
@@ -22,32 +23,34 @@ class GenerateRoutesFile implements SelfHandling
      *
      * @param SettingRepositoryInterface $settings
      * @param Application                $application
+     * @param PostsModule                $module
      * @param Filesystem                 $files
-     * @param Factory                    $view
+     * @param String                     $string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @internal param Factory $view
      */
     public function handle(
         SettingRepositoryInterface $settings,
         Application $application,
+        PostsModule $module,
         Filesystem $files,
-        Factory $view
+        String $string
     ) {
         $files->makeDirectory($application->getStoragePath('posts'), 0777, true, true);
 
         $files->put(
             $application->getStoragePath('posts/routes.php'),
-            app('Anomaly\Streams\Platform\Support\String')->render(
-                $view->make(
-                    'anomaly.module.posts::stubs/routes.twig',
-                    [
-                        'tag_segment'         => $settings->get('anomaly.module.posts::tag_segment', 'tag'),
-                        'module_segment'      => $settings->get('anomaly.module.posts::module_segment', 'posts'),
-                        'category_segment'    => $settings->get('anomaly.module.posts::category_segment', 'category'),
-                        'permalink_structure' => $settings->get(
-                            'anomaly.module.posts::permalink_structure',
-                            '{year}/{month}/{day}/{post}'
-                        ),
-                    ]
-                )->render()
+            $string->render(
+                $files->get($module->getPath('resources/stubs/routes.stub')),
+                [
+                    'tag_segment'         => $settings->get('anomaly.module.posts::tag_segment', 'tag'),
+                    'module_segment'      => $settings->get('anomaly.module.posts::module_segment', 'posts'),
+                    'category_segment'    => $settings->get('anomaly.module.posts::category_segment', 'category'),
+                    'permalink_structure' => $settings->get(
+                        'anomaly.module.posts::permalink_structure',
+                        '{year}/{month}/{day}/{post}'
+                    ),
+                ]
             )
         );
     }

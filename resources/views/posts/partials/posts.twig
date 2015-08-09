@@ -3,7 +3,7 @@
 
         <header>
 
-            <h1><a href="{{ url(post.path) }}">{{ post.title }}</a></h1>
+            <h2><a href="{{ url(post.path) }}">{{ post.title }}</a></h2>
 
             <div class="meta">
 
@@ -17,23 +17,23 @@
 
                 {% if post.category %}
                     <span class="category">
-                    {{ html_link(post.category.path, post.category.name) }}
-                </span>
+                        {{ html_link(post.category.path, post.category.name) }}
+                    </span>
                 {% endif %}
 
                 {% if post.tags %}
                     <span class="tags">
-                    {{ post.tags.labels|raw }}
-                </span>
+                        {{ post.tag_links|raw }}
+                    </span>
                 {% endif %}
 
             </div>
 
         </header>
 
-        <div class="excerpt">
-            {% if post.excerpt %}
-                <p>{{ post.excerpt|raw }}</p>
+        <div class="summary">
+            {% if post.summary %}
+                <p>{{ post.summary|nl2br|raw }}</p>
             {% endif %}
         </div>
 

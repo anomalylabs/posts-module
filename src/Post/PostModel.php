@@ -114,6 +114,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Get the tags.
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
      * Get the slug.
      *
      * @return string

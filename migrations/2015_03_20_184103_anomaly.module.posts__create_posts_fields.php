@@ -34,7 +34,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
             ]
         ],
         'tags'             => 'anomaly.field_type.tags',
-        'excerpt'          => 'anomaly.field_type.textarea',
+        'summary'          => 'anomaly.field_type.textarea',
         'description'      => 'anomaly.field_type.textarea',
         'publish_at'       => 'anomaly.field_type.datetime',
         'allow_comments'   => 'anomaly.field_type.boolean',
@@ -90,7 +90,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'theme_layout'     => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
-                'handler' => 'Anomaly\SelectFieldType\Handler\Layouts@handle'
+                'handler' => \Anomaly\SelectFieldType\Handler\Layouts::class
             ]
         ]
     ];

@@ -16,6 +16,15 @@ class PostsModuleServiceProvider extends AddonServiceProvider
 {
 
     /**
+     * The addon plugins.
+     *
+     * @var array
+     */
+    protected $plugins = [
+        PostsModulePlugin::class
+    ];
+
+    /**
      * The addon routes.
      *
      * @var array
@@ -48,9 +57,9 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        'Anomaly\PostsModule\Post\PostModel'         => 'Anomaly\PostsModule\Post\PostModel',
-        'Anomaly\PostsModule\Type\TypeModel'         => 'Anomaly\PostsModule\Type\TypeModel',
-        'Anomaly\PostsModule\Category\CategoryModel' => 'Anomaly\PostsModule\Category\CategoryModel'
+        'Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel'      => 'Anomaly\PostsModule\Post\PostModel',
+        'Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel'      => 'Anomaly\PostsModule\Type\TypeModel',
+        'Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel' => 'Anomaly\PostsModule\Category\CategoryModel'
     ];
 
     /**

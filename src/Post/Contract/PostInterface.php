@@ -52,6 +52,13 @@ interface PostInterface extends EntryInterface
     public function getStrId();
 
     /**
+     * Get the tags.
+     *
+     * @return array
+     */
+    public function getTags();
+
+    /**
      * Get the slug.
      *
      * @return string

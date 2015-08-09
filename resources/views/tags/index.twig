@@ -1,4 +1,4 @@
-{% extends "streams::blank" %}
+{% extends settings_get("anomaly.module.posts::theme_layout", "theme::layouts/default") %}
 
 {% block content %}
     <div id="posts">
@@ -7,7 +7,7 @@
             <h1>{{ trans('anomaly.module.posts::message.tagged', {'tag': tag}) }}</h1>
         </header>
 
-        {% include "anomaly.module.posts::partials/posts" %}
+        {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
 
     </div>
 {% endblock %}

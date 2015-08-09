@@ -16,5 +16,9 @@ return [
     'tag_segment'         => [
         'label'        => 'Tag Segment',
         'instructions' => 'Define a custom tag segment for the tag URLs.'
+    ],
+    'theme_layout'        => [
+        'label'        => 'Theme Layout',
+        'instructions' => 'Define the theme layout used for displaying lists of posts.'
     ]
 ];

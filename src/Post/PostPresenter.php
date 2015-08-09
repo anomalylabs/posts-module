@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post;
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
+use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryPresenter;
 use Collective\Html\HtmlBuilder;
 
@@ -30,16 +31,58 @@ class PostPresenter extends EntryPresenter
     protected $object;
 
     /**
+     * The setting repository.
+     *
+     * @var SettingRepositoryInterface
+     */
+    private $settings;
+
+    /**
      * Create a new PostPresenter instance.
      *
-     * @param HtmlBuilder $html
-     * @param             $object
+     * @param HtmlBuilder                $html
+     * @param SettingRepositoryInterface $settings
+     * @param                            $object
      */
-    public function __construct(HtmlBuilder $html, $object)
+    public function __construct(HtmlBuilder $html, SettingRepositoryInterface $settings, $object)
     {
-        $this->html = $html;
+        $this->html     = $html;
+        $this->settings = $settings;
 
         parent::__construct($object);
+    }
+
+    /**
+     * Return the tag links.
+     *
+     * @param array $attributes
+     * @return string
+     */
+    public function tagLinks(array $attributes = [])
+    {
+        array_set($attributes, 'class', array_get($attributes, 'class', 'label label-default'));
+
+        return implode(
+            ' ',
+            array_map(
+                function ($label) use ($attributes) {
+                    return $this->html->link(
+                        implode(
+                            '/',
+                            [
+                                $this->settings->get('anomaly.module.posts::module_segment', 'posts'),
+                                $this->settings->get('anomaly.module.posts::tag_segment', 'tag'),
+                                $label
+                            ]
+                        )
+                        ,
+                        $label,
+                        $attributes
+                    );
+                },
+                (array)$this->object->getTags()
+            )
+        );
     }
 
     /**

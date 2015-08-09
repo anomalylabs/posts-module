@@ -30,7 +30,7 @@ class PostEntryFormSections
                             'fields' => [
                                 'post_title',
                                 'post_slug',
-                                'post_excerpt'
+                                'post_summary'
                             ]
                         ],
                         'content' => [
