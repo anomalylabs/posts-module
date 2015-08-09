@@ -3,7 +3,6 @@
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\PostAsset;
 use Anomaly\PostsModule\Post\PostContent;
-use Anomaly\PostsModule\Post\PostHttp;
 use Anomaly\PostsModule\Post\PostLoader;
 use Anomaly\PostsModule\Post\PostResponse;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -39,14 +38,12 @@ class MakePreviewResponse implements SelfHandling
     /**
      * Handle the command
      *
-     * @param PostHttp     $http
      * @param PostAsset    $asset
      * @param PostLoader   $loader
      * @param PostContent  $content
      * @param PostResponse $response
      */
     public function handle(
-        PostHttp $http,
         PostAsset $asset,
         PostLoader $loader,
         PostContent $content,
@@ -56,6 +53,5 @@ class MakePreviewResponse implements SelfHandling
         $asset->add($this->post);
         $content->make($this->post);
         $response->make($this->post);
-        $http->cache($this->post);
     }
 }
