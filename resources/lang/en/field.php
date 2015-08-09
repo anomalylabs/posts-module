@@ -19,7 +19,7 @@ return [
     ],
     'summary'          => [
         'name'         => 'Summary',
-        'instructions' => 'Enter a brief summary summary for the post.'
+        'instructions' => 'Enter a brief summary for the post.'
     ],
     'category'         => [
         'name'         => 'Category',
