@@ -45,5 +45,13 @@ return [
             'default_value' => 15,
             'min'           => 1
         ]
+    ],
+    'ttl'                 => [
+        'type'   => 'anomaly.field_type.integer',
+        'config' => [
+            'min'  => 0,
+            'step' => 1,
+            'page' => 5
+        ]
     ]
 ];

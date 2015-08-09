@@ -77,7 +77,8 @@ class PostEntryFormSections
                                 'post_author',
                                 'post_publish_at',
                                 'post_category',
-                                'post_tags'
+                                'post_tags',
+                                'post_ttl'
                             ]
                         ]
                     ]

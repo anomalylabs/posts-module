@@ -52,6 +52,13 @@ interface PostInterface extends EntryInterface
     public function getStrId();
 
     /**
+     * Get the TTL.
+     *
+     * @return int|null
+     */
+    public function getTtl();
+
+    /**
      * Get the tags.
      *
      * @return array

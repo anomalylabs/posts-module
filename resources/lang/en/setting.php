@@ -24,5 +24,9 @@ return [
     'posts_per_page'      => [
         'label'        => 'Posts Per Page',
         'instructions' => 'Define how many posts to display per page on your website.'
+    ],
+    'ttl'                 => [
+        'label'        => 'Time to live (TTL)',
+        'instructions' => 'How long (in minutes) do you want to cache posts before before serving fresh content?'
     ]
 ];

@@ -67,6 +67,7 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         'summary',
         'live',
         'tags',
+        'ttl',
         'css',
         'js'
     ];

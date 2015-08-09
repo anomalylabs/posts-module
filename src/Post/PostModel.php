@@ -133,6 +133,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Get the TTL.
+     *
+     * @return int|null
+     */
+    public function getTtl()
+    {
+        return $this->ttl;
+    }
+
+    /**
      * Get the tags.
      *
      * @return array

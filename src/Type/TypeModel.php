@@ -55,6 +55,16 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     }
 
     /**
+     * Get the TTL.
+     *
+     * @return int|null
+     */
+    public function getTtl()
+    {
+        return $this->ttl;
+    }
+
+    /**
      * Get the description.
      *
      * @return string

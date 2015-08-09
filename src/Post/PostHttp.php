@@ -38,8 +38,19 @@ class PostHttp
      */
     public function cache(PostInterface $post)
     {
+        $ttl      = $post->getTtl();
         $response = $post->getResponse();
 
-        $response->setTtl($this->settings->get('anomaly.module.posts::ttl'));
+        // if no post TTL use the post type TTL.
+        if ($ttl === null && $type = $post->getType()) {
+            $ttl = $type->getTtl();
+        }
+
+        // Default to settings.
+        if ($ttl === null) {
+            $ttl = $this->settings->get('anomaly.module.posts::ttl');
+        }
+
+        $response->setTtl($ttl * 60);
     }
 }

@@ -56,6 +56,12 @@ class TypeFormSections
                             'fields' => [
                                 'js'
                             ]
+                        ],
+                        'options' => [
+                            'title'  => 'module::tab.options',
+                            'fields' => [
+                                'ttl'
+                            ]
                         ]
                     ]
                 ]

@@ -23,6 +23,13 @@ interface TypeInterface extends EntryInterface
 {
 
     /**
+     * Get the TTL.
+     *
+     * @return int|null
+     */
+    public function getTtl();
+
+    /**
      * Get the name.
      *
      * @return string
