@@ -37,5 +37,13 @@ return [
         'config'   => [
             'handler' => Layouts::class
         ]
+    ],
+    'posts_per_page'      => [
+        'type'     => 'anomaly.field_type.integer',
+        'required' => true,
+        'config'   => [
+            'default_value' => 15,
+            'min'           => 1
+        ]
     ]
 ];

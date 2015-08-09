@@ -7,6 +7,7 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
 
 /**
@@ -40,6 +41,20 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      * @var int
      */
     protected $cacheMinutes = 99999;
+
+    /**
+     * Restrict to active posts only.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeActive(Builder $query)
+    {
+        return $query
+            ->where('live', 1)
+            ->where('publish_at', '<=', date('Y-m-d H:i:s'))
+            ->orderBy('publish_at', 'DESC');
+    }
 
     /**
      * Return the post's path.

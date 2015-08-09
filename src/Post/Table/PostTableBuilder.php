@@ -55,4 +55,15 @@ class PostTableBuilder extends TableBuilder
         'delete'
     ];
 
+    /**
+     * The table options.
+     *
+     * @var array
+     */
+    protected $options = [
+        'order_by' => [
+            'publish_at' => 'DESC'
+        ]
+    ];
+
 }

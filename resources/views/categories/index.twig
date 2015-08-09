@@ -15,5 +15,7 @@
 
         {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
 
+        {{ posts.render|raw }}
+
     </div>
 {% endblock %}

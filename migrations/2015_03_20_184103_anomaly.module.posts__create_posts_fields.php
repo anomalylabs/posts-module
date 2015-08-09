@@ -37,7 +37,12 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'summary'          => 'anomaly.field_type.textarea',
         'description'      => 'anomaly.field_type.textarea',
         'publish_at'       => 'anomaly.field_type.datetime',
-        'allow_comments'   => 'anomaly.field_type.boolean',
+        'allow_comments'   => [
+            'type'   => 'anomaly.field_type.boolean',
+            'config' => [
+                'default_value' => false
+            ]
+        ],
         'entry'            => 'anomaly.field_type.polymorphic',
         'author'           => [
             'type'   => 'anomaly.field_type.user',

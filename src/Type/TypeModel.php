@@ -18,6 +18,13 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
 {
 
     /**
+     * The cache time.
+     *
+     * @var int
+     */
+    protected $cacheMinutes = 99999;
+
+    /**
      * Boot the model.
      */
     protected static function boot()

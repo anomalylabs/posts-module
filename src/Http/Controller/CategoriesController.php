@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\PostsModule\Command\AddCategoryMetaTitle;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 
@@ -28,6 +29,8 @@ class CategoriesController extends PublicController
         if (!$category = $categories->findBySlug($category)) {
             abort(404);
         }
+
+        $this->dispatch(new AddCategoryMetaTitle($category));
 
         $posts = $posts->findManyByCategory($category);
 

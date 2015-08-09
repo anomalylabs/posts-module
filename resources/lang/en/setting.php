@@ -20,5 +20,9 @@ return [
     'theme_layout'        => [
         'label'        => 'Theme Layout',
         'instructions' => 'Define the theme layout used for displaying lists of posts.'
+    ],
+    'posts_per_page'      => [
+        'label'        => 'Posts Per Page',
+        'instructions' => 'Define how many posts to display per page on your website.'
     ]
 ];

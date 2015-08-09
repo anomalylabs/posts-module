@@ -2,6 +2,7 @@
 
 use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Command\AddTagBreadcrumb;
+use Anomaly\PostsModule\Command\AddTagMetaTitle;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 
@@ -29,6 +30,7 @@ class TagsController extends PublicController
 
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddTagBreadcrumb($tag));
+        $this->dispatch(new AddTagMetaTitle($tag));
 
         return view('anomaly.module.posts::tags/index', compact('posts', 'tag'));
     }

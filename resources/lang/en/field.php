@@ -69,5 +69,10 @@ return [
     'author'           => [
         'name'         => 'Author',
         'instructions' => 'Set the publicly displayed author.'
+    ],
+    'allow_comments'   => [
+        'name'         => 'Comments Allowed',
+        'label'        => 'Allow commenting on this post?',
+        'instructions' => 'By default, comments will need to be approved before being visible.'
     ]
 ];

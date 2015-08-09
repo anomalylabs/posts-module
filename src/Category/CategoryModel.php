@@ -50,7 +50,7 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
      */
     public function getPosts()
     {
-        return $this->posts()->get();
+        return $this->posts;
     }
 
     /**
