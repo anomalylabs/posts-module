@@ -38,7 +38,8 @@ class PostsModulePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('posts_recent', [$this->functions, 'recentPosts']),
+            new \Twig_SimpleFunction('posts_recent', [$this->functions, 'recent']),
+            new \Twig_SimpleFunction('posts_featured', [$this->functions, 'featured']),
             new \Twig_SimpleFunction('posts_categories', [$this->functions, 'categories'])
         ];
     }

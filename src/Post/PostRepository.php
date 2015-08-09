@@ -97,4 +97,17 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
             ->active()
             ->paginate($limit);
     }
+
+    /**
+     * Get featured posts.
+     *
+     * @return EntryCollection
+     */
+    public function getFeatured($limit = null)
+    {
+        return $this->model
+            ->active()
+            ->where('featured', true)
+            ->paginate($limit);
+    }
 }

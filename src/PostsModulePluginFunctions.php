@@ -70,7 +70,7 @@ class PostsModulePluginFunctions
      * @param array $parameters
      * @return \Anomaly\Streams\Platform\Entry\EntryCollection
      */
-    public function recentPosts(array $parameters = [])
+    public function recent(array $parameters = [])
     {
         $tag      = array_get($parameters, 'tag');
         $category = array_get($parameters, 'category');
@@ -83,6 +83,21 @@ class PostsModulePluginFunctions
         } else {
             $posts = $this->posts->getRecent($limit);
         }
+
+        return $this->decorator->decorate($posts);
+    }
+
+    /**
+     * Return featured posts.
+     *
+     * @param array $parameters
+     * @return \Anomaly\Streams\Platform\Entry\EntryCollection
+     */
+    public function featured(array $parameters = [])
+    {
+        $limit    = array_get($parameters, 'limit', 15);
+
+        $posts = $this->posts->getFeatured($limit);
 
         return $this->decorator->decorate($posts);
     }

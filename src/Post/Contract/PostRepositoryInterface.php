@@ -56,4 +56,12 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
      * @return EntryCollection
      */
     public function getRecent($limit = null);
+
+    /**
+     * Get featured posts.
+     *
+     * @param null $limit
+     * @return EntryCollection
+     */
+    public function getFeatured($limit = null);
 }
