@@ -99,6 +99,10 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
             $metaKeywords = $type->getMetaKeywords();
         }
 
+        if (!$metaKeywords) {
+            $metaKeywords = $this->getTags();
+        }
+
         return $metaKeywords;
     }
 
