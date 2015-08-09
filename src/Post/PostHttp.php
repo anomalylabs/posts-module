@@ -39,6 +39,10 @@ class PostHttp
      */
     public function cache(PostInterface $post)
     {
+        if (!$post->isLive()) {
+            return;
+        }
+
         $ttl      = $post->getTtl();
         $response = $post->getResponse();
 
