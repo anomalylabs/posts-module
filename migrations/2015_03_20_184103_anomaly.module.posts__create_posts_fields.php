@@ -69,6 +69,12 @@ class AnomalyModulePostsCreatePostsFields extends Migration
                 'default_value' => false
             ]
         ],
+        'featured'         => [
+            'type'   => 'anomaly.field_type.boolean',
+            'config' => [
+                'default_value' => false
+            ]
+        ],
         'meta_title'       => 'anomaly.field_type.text',
         'meta_description' => 'anomaly.field_type.textarea',
         'meta_keywords'    => 'anomaly.field_type.tags',

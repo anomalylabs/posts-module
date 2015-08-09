@@ -62,6 +62,11 @@ return [
         'label'        => 'Is this post live?',
         'instructions' => 'This post will not display on your website until made live and the "publish at" date is satisfied.'
     ],
+    'featured'         => [
+        'name'         => 'Featured',
+        'label'        => 'Is this a featured post?',
+        'instructions' => 'Featured posts can be used to bring attention to specific posts.'
+    ],
     'publish_at'       => [
         'name'         => 'Publish At',
         'instructions' => 'Set the date/time when you want the post to publish itself.'

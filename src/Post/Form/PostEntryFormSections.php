@@ -73,6 +73,7 @@ class PostEntryFormSections
                             'title'  => 'module::tab.options',
                             'fields' => [
                                 'post_live',
+                                'post_featured',
                                 'post_allow_comments',
                                 'post_author',
                                 'post_publish_at',
