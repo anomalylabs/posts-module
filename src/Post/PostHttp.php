@@ -60,7 +60,7 @@ class PostHttp
 
             $response->headers->set('Content-Type', 'text/html');
             $response->headers->set('Cache-Controle', 'must-revalidate');
-            $response->headers->set('Etag', md5(json_encode($post->toArray())));
+            $response->headers->set('Etag', $post->etag());
             $response->headers->set(
                 'Last-Modified',
                 $post->lastModified()->setTimezone('GMT')->format('D, d M Y H:i:s T')
