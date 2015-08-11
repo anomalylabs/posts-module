@@ -10,7 +10,7 @@
                 <description>{{ post.summary }}</description>
                 <pubDate>{{ post.publish_at.rfc }}</pubDate>
                 <link>{{ url(post.path) }}</link>
-                <guid isPermaLink="true">{{ post.path }}</guid>
+                <guid isPermaLink="true">{{ url(post.path) }}</guid>
             </item>
         {% endfor %}
     </channel>

@@ -67,7 +67,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     {
         return $this->model
             ->active()
-            ->where('tags', 'LIKE', '%' . $tag . '%')
+            ->where('tags', 'LIKE', '%"' . $tag . '"%')
             ->paginate($limit);
     }
 

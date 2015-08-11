@@ -49,7 +49,9 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'admin/posts/fields/edit/{id}'                          => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@edit',
         'admin/posts/ajax/choose_type'                          => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseType',
         'admin/posts/settings'                                  => 'Anomaly\PostsModule\Http\Controller\Admin\SettingsController@edit',
-        'posts/rss.xml'                                         => 'Anomaly\PostsModule\Http\Controller\RssController@all'
+        'posts/rss/category/{category}.xml'                     => 'Anomaly\PostsModule\Http\Controller\RssController@category',
+        'posts/rss/tag/{tag}.xml'                               => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
+        'posts/rss.xml'                                         => 'Anomaly\PostsModule\Http\Controller\RssController@recent'
     ];
 
     /**
