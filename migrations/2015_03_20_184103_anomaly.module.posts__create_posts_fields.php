@@ -24,7 +24,8 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'slug'             => [
             'type'   => 'anomaly.field_type.slug',
             'config' => [
-                'slugify' => 'title'
+                'slugify' => 'title',
+                'type'    => '-'
             ]
         ],
         'type'             => [
