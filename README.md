@@ -1,3 +1,3 @@
 # Posts Module
 
-A versatile articles and posts manager.w
+A versatile articles and posts manager.
