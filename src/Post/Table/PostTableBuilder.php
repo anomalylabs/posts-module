@@ -34,7 +34,7 @@ class PostTableBuilder extends TableBuilder
         'entry.view_link',
         'author',
         'category',
-        'entry.live.icon'
+        'entry.live.toggle'
     ];
 
     /**
