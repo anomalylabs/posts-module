@@ -33,6 +33,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'admin/posts'                                           => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@index',
         'admin/posts/create'                                    => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@create',
         'admin/posts/edit/{id}'                                 => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@edit',
+        'admin/posts/view/{id}'                                 => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@view',
         'admin/posts/categories'                                => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@index',
         'admin/posts/categories/create'                         => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@create',
         'admin/posts/categories/edit/{id}'                      => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@edit',

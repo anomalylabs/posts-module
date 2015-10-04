@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
+use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\Form\Command\AddEntryFormFromPost;
 use Anomaly\PostsModule\Post\Form\Command\AddEntryFormFromRequest;
@@ -69,15 +70,20 @@ class PostsController extends AdminController
      * Redirect to a post's URL.
      *
      * @param PostRepositoryInterface $posts
-     * @param Redirector              $redirector
+     * @param Redirector              $redirect
      * @param                         $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function view(PostRepositoryInterface $posts, Redirector $redirector, $id)
+    public function view(PostRepositoryInterface $posts, Redirector $redirect, $id)
     {
+        /* @var PostInterface $post */
         $post = $posts->find($id);
 
-        return $redirector->to($post->path());
+        if (!$post->isLive()) {
+            return $redirect->to('posts/preview/' . $post->getStrId());
+        }
+
+        return $redirect->to($post->path());
     }
 
     /**

@@ -92,6 +92,10 @@ class PostPresenter extends EntryPresenter
      */
     public function viewLink()
     {
-        return $this->html->link($this->object->path(), $this->object->getTitle(), ['target' => '_blank']);
+        return $this->html->link(
+            'admin/posts/view/' . $this->object->getId(),
+            $this->object->getTitle(),
+            ['target' => '_blank']
+        );
     }
 }
