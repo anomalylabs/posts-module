@@ -57,7 +57,7 @@ return [
         'name'         => 'Taggar',
         'instructions' => 'Lägg till organiserande taggar (separeras med blanksteg).'
     ],
-    'live'             => [
+    'enabled'          => [
         'name'         => 'Offentligt',
         'label'        => 'Är detta inlägg offentligt?',
         'instructions' => 'Detta inlägget kommer inte att visas förrän det har offentliggjorts och publiceringsdatumet uppnått.'

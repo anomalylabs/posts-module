@@ -44,7 +44,7 @@ class GetPostPath implements SelfHandling
     {
         $base = $settings->get('anomaly.module.posts::module_segment', 'posts');
 
-        if (!$this->post->isLive()) {
+        if (!$this->post->isEnabled()) {
             return $base . '/preview/' . $this->post->getStrId();
         }
 

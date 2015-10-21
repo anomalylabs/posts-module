@@ -51,7 +51,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function scopeActive(Builder $query)
     {
         return $query
-            ->where('live', 1)
+            ->where('enabled', 1)
             ->where('publish_at', '<=', date('Y-m-d H:i:s'))
             ->orderBy('publish_at', 'DESC');
     }
@@ -227,13 +227,13 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
-     * Get the live flag.
+     * Get the enabled flag.
      *
      * @return bool
      */
-    public function isLive()
+    public function isEnabled()
     {
-        return $this->live;
+        return $this->enabled;
     }
 
     /**

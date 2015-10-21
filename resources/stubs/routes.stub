@@ -1,7 +1,0 @@
-<?php
-
-Route::any('{{ module_segment }}', ['uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@index', 'streams::addon' => 'anomaly.module.posts']);
-Route::any('{{ module_segment }}/preview/{id}', ['uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@preview', 'streams::addon' => 'anomaly.module.posts']);
-Route::any('{{ module_segment }}/{{ tag_segment }}/{tag}', ['uses' => 'Anomaly\PostsModule\Http\Controller\TagsController@index', 'streams::addon' => 'anomaly.module.posts']);
-Route::any('{{ module_segment }}/{{ category_segment }}/{category}', ['uses' => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index', 'streams::addon' => 'anomaly.module.posts']);
-Route::any('{{ module_segment }}/{{ permalink_structure }}', ['uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@show', 'streams::addon' => 'anomaly.module.posts']);

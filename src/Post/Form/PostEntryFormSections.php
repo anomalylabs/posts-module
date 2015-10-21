@@ -25,7 +25,7 @@ class PostEntryFormSections
             [
                 'general' => [
                     'tabs' => [
-                        'general'  => [
+                        'general'      => [
                             'title'  => 'module::tab.post',
                             'fields' => [
                                 'post_title',
@@ -33,7 +33,7 @@ class PostEntryFormSections
                                 'post_summary'
                             ]
                         ],
-                        'fields'  => [
+                        'fields'       => [
                             'title'  => 'module::tab.fields',
                             'fields' => function (PostEntryFormBuilder $builder) {
                                 return array_map(
@@ -49,14 +49,14 @@ class PostEntryFormSections
                                 );
                             }
                         ],
-                        'organization'  => [
+                        'organization' => [
                             'title'  => 'module::tab.organization',
                             'fields' => [
                                 'post_category',
                                 'post_tags'
                             ]
                         ],
-                        'seo'      => [
+                        'seo'          => [
                             'title'  => 'module::tab.seo',
                             'fields' => [
                                 'post_meta_title',
@@ -64,29 +64,22 @@ class PostEntryFormSections
                                 'post_meta_description'
                             ]
                         ],
-                        'options'  => [
+                        'options'      => [
                             'title'  => 'module::tab.options',
                             'fields' => [
-                                'post_live',
-                                'post_featured',
-                                'post_allow_comments',
                                 'post_author',
+                                'post_enabled',
+                                'post_featured',
                                 'post_publish_at'
                             ]
                         ],
-                        'advanced' => [
-                            'title'  => 'module::tab.advanced',
-                            'fields' => [
-                                'post_ttl'
-                            ]
-                        ],
-                        'css'      => [
+                        'css'          => [
                             'title'  => 'module::tab.css',
                             'fields' => [
                                 'post_css'
                             ]
                         ],
-                        'js'       => [
+                        'js'           => [
                             'title'  => 'module::tab.js',
                             'fields' => [
                                 'post_js'

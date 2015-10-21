@@ -62,13 +62,11 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         'meta_keywords'    => [
             'translatable' => true
         ],
-        'allow_comments',
         'category',
         'featured',
         'summary',
-        'live',
+        'enabled',
         'tags',
-        'ttl',
         'css',
         'js'
     ];

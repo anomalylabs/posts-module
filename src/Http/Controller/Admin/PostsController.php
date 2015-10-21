@@ -79,7 +79,7 @@ class PostsController extends AdminController
         /* @var PostInterface $post */
         $post = $posts->find($id);
 
-        if (!$post->isLive()) {
+        if (!$post->isEnabled()) {
             return $redirect->to('posts/preview/' . $post->getStrId());
         }
 

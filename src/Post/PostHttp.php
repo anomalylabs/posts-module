@@ -39,7 +39,7 @@ class PostHttp
      */
     public function cache(PostInterface $post)
     {
-        if (!$post->isLive()) {
+        if (!$post->isEnabled()) {
             return;
         }
 

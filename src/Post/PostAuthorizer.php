@@ -48,7 +48,7 @@ class PostAuthorizer
      */
     public function authorize(PostInterface $post)
     {
-        if (!$post->isLive() && !$this->guard->user()) {
+        if (!$post->isEnabled() && !$this->guard->user()) {
             abort(404);
         }
 

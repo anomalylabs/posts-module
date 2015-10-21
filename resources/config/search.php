@@ -3,7 +3,7 @@
 return [
     'Anomaly\PostsModule\Post\PostModel' => [
         'default' => [
-            'enabled' => 'live',
+            'enabled' => 'enabled',
             'fields'  => [
                 'title'            => 'title',
                 'summary'          => 'summary',

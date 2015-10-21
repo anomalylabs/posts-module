@@ -22,7 +22,7 @@ class PostTableBuilder extends TableBuilder
         'title',
         'author',
         'category',
-        'live'
+        'enabled'
     ];
 
     /**
@@ -34,7 +34,7 @@ class PostTableBuilder extends TableBuilder
         'entry.view_link',
         'author',
         'category',
-        'entry.live.toggle'
+        'entry.enabled.toggle'
     ];
 
     /**

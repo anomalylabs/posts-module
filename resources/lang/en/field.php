@@ -57,10 +57,10 @@ return [
         'name'         => 'Tags',
         'instructions' => 'Add organizational tags (separated by spaces).'
     ],
-    'live'             => [
-        'name'         => 'Live',
-        'label'        => 'Is this post live?',
-        'instructions' => 'This post will not display on your website until made live and the "publish at" date is satisfied.'
+    'enabled'          => [
+        'name'         => 'Enabled',
+        'label'        => 'Is this post enabled?',
+        'instructions' => 'This post will not display on your website until made enabled and the "publish at" date is satisfied.'
     ],
     'featured'         => [
         'name'         => 'Featured',
@@ -74,11 +74,6 @@ return [
     'author'           => [
         'name'         => 'Author',
         'instructions' => 'Set the publicly displayed author.'
-    ],
-    'allow_comments'   => [
-        'name'         => 'Comments Allowed',
-        'label'        => 'Allow commenting on this post?',
-        'instructions' => 'By default, comments will need to be approved before being visible.'
     ],
     'ttl'              => [
         'label'        => 'Time to live (TTL)',

@@ -1,6 +1,5 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
-use Anomaly\PostsModule\Command\GenerateRoutesFile;
 use Anomaly\SettingsModule\Setting\Form\SettingFormBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
@@ -23,13 +22,6 @@ class SettingsController extends AdminController
      */
     public function edit(SettingFormBuilder $settings)
     {
-        $settings->on(
-            'saved',
-            function () {
-                $this->dispatch(new GenerateRoutesFile());
-            }
-        );
-
         return $settings->render('anomaly.module.posts');
     }
 }

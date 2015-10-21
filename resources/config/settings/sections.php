@@ -7,8 +7,7 @@ return [
                 'title'  => 'anomaly.module.posts::tab.display',
                 'fields' => [
                     'theme_layout',
-                    'posts_per_page',
-                    'ttl'
+                    'posts_per_page'
                 ]
             ],
             'permalinks' => [

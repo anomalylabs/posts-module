@@ -136,11 +136,11 @@ interface PostInterface extends EntryInterface
     public function getMetaDescription();
 
     /**
-     * Get the live flag.
+     * Get the enabled flag.
      *
      * @return bool
      */
-    public function isLive();
+    public function isEnabled();
 
     /**
      * Get the path to the post's type layout.

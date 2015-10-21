@@ -29,11 +29,11 @@ class AnomalyModulePostsCreateTypesStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'name'             => [
+        'name'         => [
             'required' => true,
             'unique'   => true
         ],
-        'slug'             => [
+        'slug'         => [
             'required' => true,
             'unique'   => true,
             'config'   => [
@@ -41,23 +41,13 @@ class AnomalyModulePostsCreateTypesStream extends Migration
                 'type'    => '_'
             ]
         ],
+        'layout'       => [
+            'required' => true
+        ],
+        'theme_layout' => [
+            'required' => true
+        ],
         'description',
-        'layout'           => [
-            'required' => true
-        ],
-        'theme_layout'     => [
-            'required' => true
-        ],
-        'meta_title'       => [
-            'translatable' => true
-        ],
-        'meta_description' => [
-            'translatable' => true
-        ],
-        'meta_keywords'    => [
-            'translatable' => true
-        ],
-        'ttl',
         'css',
         'js'
     ];

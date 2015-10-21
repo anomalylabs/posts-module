@@ -4,10 +4,22 @@ use Anomaly\SelectFieldType\Handler\Layouts;
 
 return [
     'permalink_structure' => [
-        'type'     => 'anomaly.field_type.text',
+        'type'     => 'anomaly.field_type.tags',
         'required' => true,
         'config'   => [
-            'default_value' => '{year}/{month}/{day}/{post}'
+            'allow_creating_tags' => false,
+            'options'             => [
+                'year',
+                'month',
+                'day',
+                'post'
+            ],
+            'default_value'       => [
+                'year',
+                'month',
+                'day',
+                'post'
+            ]
         ]
     ],
     'module_segment'      => [
@@ -44,14 +56,6 @@ return [
         'config'   => [
             'default_value' => 15,
             'min'           => 1
-        ]
-    ],
-    'ttl'                 => [
-        'type'   => 'anomaly.field_type.integer',
-        'config' => [
-            'min'  => 0,
-            'step' => 1,
-            'page' => 5
         ]
     ]
 ];

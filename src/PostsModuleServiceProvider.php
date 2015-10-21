@@ -1,8 +1,9 @@
 <?php namespace Anomaly\PostsModule;
 
+use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Anomaly\Streams\Platform\Application\Application;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Routing\Router;
 
 /**
  * Class PostsModuleServiceProvider
@@ -20,9 +21,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      *
      * @var array
      */
-    protected $plugins = [
-        PostsModulePlugin::class
-    ];
+    protected $plugins = [];
 
     /**
      * The addon routes.
@@ -80,16 +79,58 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     /**
      * Map additional routes.
      *
-     * @param Filesystem  $files
-     * @param Application $application
+     * @param Router $router
      */
-    public function map(Filesystem $files, Application $application)
+    public function map(Router $router, SettingRepositoryInterface $settings)
     {
-        // Include public routes.
-        if ($files->exists($routes = $application->getStoragePath('posts/routes.php'))) {
-            $files->requireOnce($routes);
-        } else {
-            $files->requireOnce(__DIR__ . '/../resources/routes.php');
-        }
+        $tag       = $settings->get('anomaly.module.posts::tag_segment');
+        $module    = $settings->get('anomaly.module.posts::module_segment');
+        $category  = $settings->get('anomaly.module.posts::category_segment');
+        $permalink = $settings->get('anomaly.module.posts::permalink_structure');
+
+        $tag       = $tag ? $tag->getValue() : 'tag';
+        $module    = $module ? $module->getValue() : 'posts';
+        $category  = $category ? $category->getValue() : 'category';
+        $permalink = $permalink ? $permalink->getValue() : '{year}/{month}/{day}/{post}';
+
+        $router->any(
+            $module,
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@index',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
+            "{$module}/preview/{id}",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@preview',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
+            "{$module}/{$tag}/{tag}",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\TagsController@index',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
+            "{$module}/{$category}/{category}",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
+            "{{$module}}/{$permalink}",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@show',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
     }
 }
