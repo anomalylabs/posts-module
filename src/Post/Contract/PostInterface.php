@@ -3,7 +3,7 @@
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Interface PostInterface
@@ -24,39 +24,11 @@ interface PostInterface extends EntryInterface
     public function path();
 
     /**
-     * Return the combined meta title.
-     *
-     * @return string
-     */
-    public function metaTitle();
-
-    /**
-     * Return the combined meta keywords.
-     *
-     * @return string
-     */
-    public function metaKeywords();
-
-    /**
-     * Return the combined meta description.
-     *
-     * @return string
-     */
-    public function metaDescription();
-
-    /**
      * Get the string ID.
      *
      * @return string
      */
     public function getStrId();
-
-    /**
-     * Get the TTL.
-     *
-     * @return int|null
-     */
-    public function getTtl();
 
     /**
      * Get the tags.

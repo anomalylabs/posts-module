@@ -39,8 +39,8 @@ class PostLoader
     public function load(PostInterface $post)
     {
         $this->template->set('title', $post->getTitle());
-        $this->template->set('meta_title', $post->metaTitle());
-        $this->template->set('meta_keywords', $post->metaKeywords());
-        $this->template->set('meta_description', $post->metaDescription());
+        $this->template->set('meta_title', $post->getMetaTitle());
+        $this->template->set('meta_keywords', $post->getMetaKeywords());
+        $this->template->set('meta_description', $post->getMetaDescription());
     }
 }

@@ -4,7 +4,15 @@ use Anomaly\EditorFieldType\EditorFieldTypePresenter;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Asset\Asset;
 
-class PostAsset
+/**
+ * Class PostAssets
+ *
+ * @link          http://anomaly.is/streams-platform
+ * @author        AnomalyLabs, Inc. <hello@anomaly.is>
+ * @author        Ryan Thompson <ryan@anomaly.is>
+ * @package       Anomaly\PostsModule\Post
+ */
+class PostAssets
 {
 
     /**
@@ -15,7 +23,7 @@ class PostAsset
     protected $asset;
 
     /**
-     * Create a new PostAsset instance.
+     * Create a new PostAssets instance.
      *
      * @param Asset $asset
      */

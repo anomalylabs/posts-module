@@ -23,13 +23,6 @@ interface TypeInterface extends EntryInterface
 {
 
     /**
-     * Get the TTL.
-     *
-     * @return int|null
-     */
-    public function getTtl();
-
-    /**
      * Get the name.
      *
      * @return string
@@ -64,27 +57,6 @@ interface TypeInterface extends EntryInterface
      * @return string
      */
     public function getEntryModelName();
-
-    /**
-     * Get the meta title.
-     *
-     * @return string
-     */
-    public function getMetaTitle();
-
-    /**
-     * Get the meta keywords.
-     *
-     * @return array
-     */
-    public function getMetaKeywords();
-
-    /**
-     * Get the meta description.
-     *
-     * @return string
-     */
-    public function getMetaDescription();
 
     /**
      * Get the CSS path.

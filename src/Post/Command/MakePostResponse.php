@@ -1,10 +1,9 @@
 <?php namespace Anomaly\PostsModule\Post\Command;
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
-use Anomaly\PostsModule\Post\PostAsset;
+use Anomaly\PostsModule\Post\PostAssets;
 use Anomaly\PostsModule\Post\PostAuthorizer;
 use Anomaly\PostsModule\Post\PostContent;
-use Anomaly\PostsModule\Post\PostHttp;
 use Anomaly\PostsModule\Post\PostLoader;
 use Anomaly\PostsModule\Post\PostResponse;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -40,16 +39,14 @@ class MakePostResponse implements SelfHandling
     /**
      * Handle the command
      *
-     * @param PostHttp       $http
-     * @param PostAsset      $asset
+     * @param PostAssets     $assets
      * @param PostLoader     $loader
      * @param PostContent    $content
      * @param PostResponse   $response
      * @param PostAuthorizer $authorizer
      */
     public function handle(
-        PostHttp $http,
-        PostAsset $asset,
+        PostAssets $assets,
         PostLoader $loader,
         PostContent $content,
         PostResponse $response,
@@ -57,9 +54,8 @@ class MakePostResponse implements SelfHandling
     ) {
         $authorizer->authorize($this->post);
         $loader->load($this->post);
-        $asset->add($this->post);
+        $assets->add($this->post);
         $content->make($this->post);
         $response->make($this->post);
-        $http->cache($this->post);
     }
 }

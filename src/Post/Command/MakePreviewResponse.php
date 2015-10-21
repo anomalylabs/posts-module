@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post\Command;
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
-use Anomaly\PostsModule\Post\PostAsset;
+use Anomaly\PostsModule\Post\PostAssets;
 use Anomaly\PostsModule\Post\PostContent;
 use Anomaly\PostsModule\Post\PostLoader;
 use Anomaly\PostsModule\Post\PostResponse;
@@ -38,13 +38,13 @@ class MakePreviewResponse implements SelfHandling
     /**
      * Handle the command
      *
-     * @param PostAsset    $asset
+     * @param PostAssets   $asset
      * @param PostLoader   $loader
      * @param PostContent  $content
      * @param PostResponse $response
      */
     public function handle(
-        PostAsset $asset,
+        PostAssets $asset,
         PostLoader $loader,
         PostContent $content,
         PostResponse $response

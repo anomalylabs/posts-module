@@ -91,7 +91,15 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         $tag       = $tag ? $tag->getValue() : 'tag';
         $module    = $module ? $module->getValue() : 'posts';
         $category  = $category ? $category->getValue() : 'category';
-        $permalink = $permalink ? $permalink->getValue() : '{year}/{month}/{day}/{post}';
+        $permalink = $permalink ? implode('}/{', $permalink->getValue()) : implode(
+            '}/{',
+            [
+                'year',
+                'month',
+                'day',
+                'post'
+            ]
+        );
 
         $router->any(
             $module,
@@ -126,7 +134,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         );
 
         $router->any(
-            "{{$module}}/{$permalink}",
+            "{$module}/{{$permalink}}",
             [
                 'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@show',
                 'streams::addon' => 'anomaly.module.posts'

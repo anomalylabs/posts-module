@@ -58,12 +58,15 @@ class PostResolver
      */
     public function resolve()
     {
-        $base      = $this->settings->get('anomaly.module.posts::module_base', 'posts');
-        $structure = $base . '/' . $this->settings->get(
-                'anomaly.module.posts::permalink_structure',
-                '{year}/{month}/{day}/{post}'
-            );
+        $permalink = $this->settings->get('anomaly.module.posts::permalink_structure');
 
-        return $this->posts->findBySlug($this->request->segment(array_search('{post}', explode('/', $structure)) + 1));
+        $permalink = $permalink ? $permalink->getValue() : [
+            'year',
+            'month',
+            'day',
+            'post'
+        ];
+
+        return $this->posts->findBySlug($this->request->segment(array_search('post', $permalink) + 2));
     }
 }

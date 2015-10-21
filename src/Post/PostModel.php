@@ -8,7 +8,7 @@ use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class PostModel
@@ -67,62 +67,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
-     * Return the combined meta title.
-     *
-     * @return string
-     */
-    public function metaTitle()
-    {
-        $metaTitle = $this->getMetaTitle();
-
-        if (!$metaTitle && $type = $this->getType()) {
-            $metaTitle = $type->getMetaTitle();
-        }
-
-        if (!$metaTitle) {
-            $metaTitle = $this->getTitle();
-        }
-
-        return $metaTitle;
-    }
-
-    /**
-     * Return the combined meta keywords.
-     *
-     * @return string
-     */
-    public function metaKeywords()
-    {
-        $metaKeywords = $this->getMetaKeywords();
-
-        if (!$metaKeywords && $type = $this->getType()) {
-            $metaKeywords = $type->getMetaKeywords();
-        }
-
-        if (!$metaKeywords) {
-            $metaKeywords = $this->getTags();
-        }
-
-        return $metaKeywords;
-    }
-
-    /**
-     * Return the combined meta description.
-     *
-     * @return string
-     */
-    public function metaDescription()
-    {
-        $metaDescription = $this->getMetaDescription();
-
-        if (!$metaDescription && $type = $this->getType()) {
-            $metaDescription = $type->getMetaDescription();
-        }
-
-        return $metaDescription;
-    }
-
-    /**
      * Get the string ID.
      *
      * @return string
@@ -130,16 +74,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getStrId()
     {
         return $this->str_id;
-    }
-
-    /**
-     * Get the TTL.
-     *
-     * @return int|null
-     */
-    public function getTtl()
-    {
-        return $this->ttl;
     }
 
     /**
@@ -243,6 +177,10 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     public function getMetaTitle()
     {
+        if (!$this->meta_title) {
+            return $this->getTitle();
+        }
+
         return $this->meta_title;
     }
 
