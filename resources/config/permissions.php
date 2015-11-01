@@ -1,20 +1,22 @@
 <?php
 
 return [
-    'pages'  => [
+    'posts'      => [
         'read',
         'write',
         'delete'
     ],
-    'types'  => [
-        'read',
-        'write',
-        'delete',
-        'fields'
-    ],
-    'fields' => [
+    'categories' => [
         'read',
         'write',
         'delete'
+    ],
+    'types'      => [
+        'read',
+        'write',
+        'delete'
+    ],
+    'fields'     => [
+        'manage'
     ]
 ];
