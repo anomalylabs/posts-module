@@ -36,6 +36,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'admin/posts/categories'                                => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@index',
         'admin/posts/categories/create'                         => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@create',
         'admin/posts/categories/edit/{id}'                      => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@edit',
+        'admin/posts/categories/view/{id}'                      => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@view',
         'admin/posts/types'                                     => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@index',
         'admin/posts/types/create'                              => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@create',
         'admin/posts/types/edit/{id}'                           => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@edit',
@@ -83,16 +84,11 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      */
     public function map(Router $router, SettingRepositoryInterface $settings)
     {
-        $tag       = $settings->get('anomaly.module.posts::tag_segment');
-        $module    = $settings->get('anomaly.module.posts::module_segment');
-        $category  = $settings->get('anomaly.module.posts::category_segment');
-        $permalink = $settings->get('anomaly.module.posts::permalink_structure');
-
-        $tag       = $tag ? $tag->getValue() : 'tag';
-        $module    = $module ? $module->getValue() : 'posts';
-        $category  = $category ? $category->getValue() : 'category';
-        $permalink = $permalink ? implode('}/{', $permalink->getValue()) : implode(
-            '}/{',
+        $tag       = $settings->value('anomaly.module.posts::tag_segment', 'tag');
+        $module    = $settings->value('anomaly.module.posts::module_segment', 'posts');
+        $category  = $settings->value('anomaly.module.posts::category_segment', 'category');
+        $permalink = $settings->value(
+            'anomaly.module.posts::permalink_structure',
             [
                 'year',
                 'month',
@@ -100,6 +96,8 @@ class PostsModuleServiceProvider extends AddonServiceProvider
                 'post'
             ]
         );
+
+        $permalink = implode('}/{', $permalink);
 
         $router->any(
             $module,

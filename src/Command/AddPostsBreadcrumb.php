@@ -25,7 +25,7 @@ class AddPostsBreadcrumb implements SelfHandling
     {
         $breadcrumbs->add(
             'anomaly.module.posts::addon.name',
-            $settings->get('anomaly.module.posts::module_segment', 'posts')
+            $settings->value('anomaly.module.posts::module_segment', 'posts')
         );
     }
 }

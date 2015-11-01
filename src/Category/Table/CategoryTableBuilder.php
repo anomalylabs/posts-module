@@ -28,7 +28,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'entry.view_link',
+        'entry.edit_link',
         'slug',
         'description'
     ];
@@ -39,7 +39,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
-        'edit'
+        'view'
     ];
 
     /**

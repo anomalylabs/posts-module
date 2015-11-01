@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Category\Contract;
 
+use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -11,15 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Category\Contract
  */
-interface CategoryInterface
+interface CategoryInterface extends EntryInterface
 {
-
-    /**
-     * Get the ID.
-     *
-     * @return integer
-     */
-    public function getId();
 
     /**
      * Get the name.
@@ -41,6 +35,13 @@ interface CategoryInterface
      * @return EntryCollection
      */
     public function getPosts();
+
+    /**
+     * Return the category's path.
+     *
+     * @return string
+     */
+    public function path();
 
     /**
      * Return the posts relation.

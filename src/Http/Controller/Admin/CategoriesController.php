@@ -1,10 +1,10 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
+use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Category\Form\CategoryFormBuilder;
 use Anomaly\PostsModule\Category\Table\CategoryTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Anomaly\Streams\Platform\Support\Authorizer;
 
 /**
  * Class CategoriesController
@@ -52,19 +52,17 @@ class CategoriesController extends AdminController
     }
 
     /**
-     * Delete a category.
+     * Redirect to a category's URL.
      *
      * @param CategoryRepositoryInterface $categories
-     * @param Authorizer                  $authorizer
      * @param                             $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function delete(CategoryRepositoryInterface $categories, Authorizer $authorizer, $id)
+    public function view(CategoryRepositoryInterface $categories, $id)
     {
-        $authorizer->authorize('anomaly.module.posts::categories.delete');
+        /* @var CategoryInterface $category */
+        $category = $categories->find($id);
 
-        $categories->delete($categories->find($id));
-
-        return redirect()->back();
+        return $this->redirect->to($category->path());
     }
 }

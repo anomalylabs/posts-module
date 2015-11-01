@@ -70,8 +70,8 @@ class PostPresenter extends EntryPresenter
                         implode(
                             '/',
                             [
-                                $this->settings->get('anomaly.module.posts::module_segment', 'posts'),
-                                $this->settings->get('anomaly.module.posts::tag_segment', 'tag'),
+                                $this->settings->value('anomaly.module.posts::module_segment', 'posts'),
+                                $this->settings->value('anomaly.module.posts::tag_segment', 'tag'),
                                 $label
                             ]
                         )
@@ -82,20 +82,6 @@ class PostPresenter extends EntryPresenter
                 },
                 (array)$this->object->getTags()
             )
-        );
-    }
-
-    /**
-     * Return the view link.
-     *
-     * @return string
-     */
-    public function viewLink()
-    {
-        return $this->html->link(
-            'admin/posts/view/' . $this->object->getId(),
-            $this->object->getTitle(),
-            ['target' => '_blank']
         );
     }
 }

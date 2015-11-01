@@ -42,18 +42,14 @@ class GetPostPath implements SelfHandling
      */
     public function handle(SettingRepositoryInterface $settings, Parser $parser)
     {
-        $base = $settings->get('anomaly.module.posts::module_segment');
-
-        $base = $base ? $base->getValue() : 'posts';
+        $base = $settings->value('anomaly.module.posts::module_segment', 'posts');
 
         if (!$this->post->isEnabled()) {
             return $base . '/preview/' . $this->post->getStrId();
         }
 
-        $permalink = $settings->get('anomaly.module.posts::permalink_structure');
-
-        $permalink = $permalink ? implode('}/{', $permalink->getValue()) : implode(
-            '}/{',
+        $permalink = $settings->value(
+            'anomaly.module.posts::permalink_structure',
             [
                 'year',
                 'month',
@@ -61,6 +57,8 @@ class GetPostPath implements SelfHandling
                 'post'
             ]
         );
+
+        $permalink = implode('}/{', $permalink);
 
         $data = [
             'year'  => $this->post->created_at->format('Y'),

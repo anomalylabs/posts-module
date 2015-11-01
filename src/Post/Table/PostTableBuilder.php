@@ -31,7 +31,7 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'entry.view_link',
+        'entry.edit_link',
         'author',
         'category',
         'entry.enabled.toggle'
@@ -43,7 +43,7 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
-        'edit'
+        'view'
     ];
 
     /**

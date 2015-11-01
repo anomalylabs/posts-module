@@ -35,18 +35,4 @@ class CategoryPresenter extends EntryPresenter
     {
         return $this->dispatch(new GetCategoryPath($this->object));
     }
-
-    /**
-     * Return the view link.
-     *
-     * @return string
-     */
-    public function viewLink()
-    {
-        return app('html')->link(
-            $this->dispatch(new GetCategoryPath($this->object)),
-            $this->object->getName(),
-            ['target' => '_blank']
-        );
-    }
 }

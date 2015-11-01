@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Category;
 
+use Anomaly\PostsModule\Category\Command\GetCategoryPath;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel;
@@ -51,6 +52,16 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    /**
+     * Return the category's path.
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return $this->dispatch(new GetCategoryPath($this));
     }
 
     /**

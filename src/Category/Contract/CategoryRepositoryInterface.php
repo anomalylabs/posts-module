@@ -1,6 +1,6 @@
 <?php namespace Anomaly\PostsModule\Category\Contract;
 
-use Anomaly\Streams\Platform\Entry\EntryCollection;
+use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 
 /**
  * Interface CategoryRepositoryInterface
@@ -10,23 +10,8 @@ use Anomaly\Streams\Platform\Entry\EntryCollection;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Category\Contract
  */
-interface CategoryRepositoryInterface
+interface CategoryRepositoryInterface extends EntryRepositoryInterface
 {
-
-    /**
-     * Return all categories.
-     *
-     * @return EntryCollection
-     */
-    public function all();
-
-    /**
-     * Find a category by it's ID.
-     *
-     * @param $id
-     * @return null|CategoryInterface
-     */
-    public function find($id);
 
     /**
      * Find a category by it's related
@@ -36,12 +21,4 @@ interface CategoryRepositoryInterface
      * @return null|CategoryInterface
      */
     public function findBySlug($slug);
-
-    /**
-     * Delete a category.
-     *
-     * @param CategoryInterface $category
-     * @return bool
-     */
-    public function delete(CategoryInterface $category);
 }

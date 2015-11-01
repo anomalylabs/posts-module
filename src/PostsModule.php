@@ -59,8 +59,7 @@ class PostsModule extends Module
                     'href'        => 'admin/posts/fields/choose'
                 ]
             ]
-        ],
-        'settings'
+        ]
     ];
 
 }
