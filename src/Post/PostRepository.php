@@ -66,7 +66,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function findManyByTag($tag, $limit = null)
     {
         return $this->model
-            ->active()
+            ->enabled()
             ->where('tags', 'LIKE', '%"' . $tag . '"%')
             ->paginate($limit);
     }
@@ -81,7 +81,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function findManyByCategory(CategoryInterface $category, $limit = null)
     {
         return $this->model
-            ->active()
+            ->enabled()
             ->where('category_id', $category->getId())
             ->paginate($limit);
     }
@@ -94,7 +94,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function getRecent($limit = null)
     {
         return $this->model
-            ->active()
+            ->enabled()
             ->paginate($limit);
     }
 
@@ -106,7 +106,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function getFeatured($limit = null)
     {
         return $this->model
-            ->active()
+            ->enabled()
             ->where('featured', true)
             ->paginate($limit);
     }

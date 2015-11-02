@@ -48,7 +48,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      * @param Builder $query
      * @return Builder
      */
-    public function scopeActive(Builder $query)
+    public function scopeEnabled(Builder $query)
     {
         return $query
             ->where('enabled', 1)
