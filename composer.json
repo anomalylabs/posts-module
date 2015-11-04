@@ -3,9 +3,9 @@
     "type": "streams-addon",
     "description": "A versatile articles and posts manager.",
     "keywords": [
-        "streams module",
-        "streams addon",
-        "module"
+        "streams",
+        "module",
+        "posts"
     ],
     "homepage": "http://anomaly.is/",
     "license": "MIT",
@@ -23,11 +23,6 @@
     "autoload": {
         "psr-4": {
             "Anomaly\\PostsModule\\": "src/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-1.0/master": "1.0.x-dev"
         }
     }
 }
