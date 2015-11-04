@@ -48,7 +48,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'layout'           => [
             'type'   => 'anomaly.field_type.editor',
             'config' => [
-                'default_value' => '<h1>{{ post.title }} - {{ post.entry.field_slug }}</h1>',
+                'default_value' => '<h1>{{ post.title }}</h1>',
                 'mode'          => 'twig'
             ]
         ],

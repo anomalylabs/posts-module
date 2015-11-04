@@ -34,7 +34,7 @@ class PostTableBuilder extends TableBuilder
         'entry.edit_link',
         'author',
         'category',
-        'entry.enabled.toggle'
+        'entry.enabled.label'
     ];
 
     /**
@@ -43,7 +43,9 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
-        'view'
+        'view' => [
+            'target' => '_blank'
+        ]
     ];
 
     /**
