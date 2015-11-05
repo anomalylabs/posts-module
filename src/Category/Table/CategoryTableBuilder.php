@@ -39,7 +39,9 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
-        'view'
+        'view' => [
+            'target' => '_blank'
+        ]
     ];
 
     /**
