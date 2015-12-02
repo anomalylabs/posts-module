@@ -23,7 +23,7 @@
 
                 {% if post.tags %}
                     <span class="tags">
-                        {{ post.tag_links|raw }}
+                        {{ post.tag_links|join(' ')|raw }}
                     </span>
                 {% endif %}
 

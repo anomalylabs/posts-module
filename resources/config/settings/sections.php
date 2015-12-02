@@ -6,7 +6,6 @@ return [
             'display'    => [
                 'title'  => 'anomaly.module.posts::tab.display',
                 'fields' => [
-                    'theme_layout',
                     'posts_per_page'
                 ]
             ],
