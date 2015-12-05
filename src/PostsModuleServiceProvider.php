@@ -48,7 +48,17 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * Singleton bindings.
+     * The class bindings.
+     *
+     * @var array
+     */
+    protected $bindings = [
+        'Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel'           => 'Anomaly\PostsModule\Post\PostModel',
+        'Anomaly\Streams\Platform\Model\Categories\PostsCategoriesEntryModel' => 'Anomaly\PostsModule\Category\CategoryModel'
+    ];
+
+    /**
+     * The singleton bindings.
      *
      * @var array
      */
