@@ -2,7 +2,6 @@
 
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Routing\Router;
 
 /**
@@ -15,13 +14,6 @@ use Illuminate\Routing\Router;
  */
 class PostsModuleServiceProvider extends AddonServiceProvider
 {
-
-    /**
-     * The addon plugins.
-     *
-     * @var array
-     */
-    protected $plugins = [];
 
     /**
      * The addon routes.
@@ -53,17 +45,6 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'posts/rss/category/{category}.xml'                     => 'Anomaly\PostsModule\Http\Controller\RssController@category',
         'posts/rss/tag/{tag}.xml'                               => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
         'posts/rss.xml'                                         => 'Anomaly\PostsModule\Http\Controller\RssController@recent'
-    ];
-
-    /**
-     * Class bindings.
-     *
-     * @var array
-     */
-    protected $bindings = [
-        'Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel'      => 'Anomaly\PostsModule\Post\PostModel',
-        'Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel'      => 'Anomaly\PostsModule\Type\TypeModel',
-        'Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel' => 'Anomaly\PostsModule\Category\CategoryModel'
     ];
 
     /**
