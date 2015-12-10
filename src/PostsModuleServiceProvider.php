@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule;
 
+use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Illuminate\Routing\Router;
@@ -71,7 +72,8 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     /**
      * Map additional routes.
      *
-     * @param Router $router
+     * @param Router                     $router
+     * @param SettingRepositoryInterface $settings
      */
     public function map(Router $router, SettingRepositoryInterface $settings)
     {
@@ -89,6 +91,14 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         );
 
         $permalink = implode('}/{', $permalink);
+
+        $router->any(
+            "{$module}/{type}",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\TypesController@index',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
 
         $router->any(
             $module,

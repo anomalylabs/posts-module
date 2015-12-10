@@ -3,6 +3,7 @@
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 
@@ -83,6 +84,21 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
         return $this->model
             ->enabled()
             ->where('category_id', $category->getId())
+            ->paginate($limit);
+    }
+
+    /**
+     * Find many posts by type.
+     *
+     * @param TypeInterface $type
+     * @param null          $limit
+     * @return PostCollection
+     */
+    public function findManyByType(TypeInterface $type, $limit = null)
+    {
+        return $this->model
+            ->enabled()
+            ->where('type_id', $type->getId())
             ->paginate($limit);
     }
 

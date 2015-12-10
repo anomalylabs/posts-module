@@ -13,4 +13,11 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 interface TypeRepositoryInterface extends EntryRepositoryInterface
 {
 
+    /**
+     * Find a category by it's slug.
+     *
+     * @param $slug
+     * @return null|TypeInterface
+     */
+    public function findBySlug($slug);
 }

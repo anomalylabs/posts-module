@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
+use Anomaly\PostsModule\Category\Command\AddCategoryMetaTitle;
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
-use Anomaly\PostsModule\Command\AddCategoryMetaTitle;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 

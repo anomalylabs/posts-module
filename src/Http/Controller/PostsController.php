@@ -1,9 +1,9 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
-use Anomaly\PostsModule\Command\AddCategoryBreadcrumb;
-use Anomaly\PostsModule\Command\AddPostBreadcrumb;
-use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
-use Anomaly\PostsModule\Command\AddPostsMetaTitle;
+use Anomaly\PostsModule\Category\Command\AddCategoryBreadcrumb;
+use Anomaly\PostsModule\Post\Command\AddPostBreadcrumb;
+use Anomaly\PostsModule\Post\Command\AddPostsBreadcrumb;
+use Anomaly\PostsModule\Post\Command\AddPostsMetaTitle;
 use Anomaly\PostsModule\Post\Command\MakePostResponse;
 use Anomaly\PostsModule\Post\Command\MakePreviewResponse;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;

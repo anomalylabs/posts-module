@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Type;
 
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 
@@ -29,5 +30,16 @@ class TypeRepository extends EntryRepository implements TypeRepositoryInterface
     public function __construct(TypeModel $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Find a category by it's slug.
+     *
+     * @param $slug
+     * @return null|TypeInterface
+     */
+    public function findBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
     }
 }

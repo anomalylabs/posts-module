@@ -1,4 +1,4 @@
-<?php namespace Anomaly\PostsModule\Command;
+<?php namespace Anomaly\PostsModule\Post\Command;
 
 use Anomaly\Streams\Platform\View\ViewTemplate;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\PostsModule\Command
+ * @package       Anomaly\PostsModule\Post\Command
  */
 class AddPostsMetaTitle implements SelfHandling
 {

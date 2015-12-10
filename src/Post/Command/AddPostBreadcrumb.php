@@ -1,35 +1,36 @@
-<?php namespace Anomaly\PostsModule\Command;
+<?php namespace Anomaly\PostsModule\Post\Command;
 
+use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Http\Request;
 
 /**
- * Class AddTagBreadcrumb
+ * Class AddPostBreadcrumb
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\PostsModule\Command
+ * @package       Anomaly\PostsModule\Post\Command
  */
-class AddTagBreadcrumb implements SelfHandling
+class AddPostBreadcrumb implements SelfHandling
 {
 
     /**
-     * The tag string.
+     * The post instance.
      *
-     * @var string
+     * @var PostInterface
      */
-    protected $tag;
+    protected $post;
 
     /**
-     * Create a new AddTagBreadcrumb instance.
+     * Create a new AddPostBreadcrumb instance.
      *
-     * @param string $tag
+     * @param PostInterface $post
      */
-    public function __construct($tag)
+    public function __construct(PostInterface $post)
     {
-        $this->tag = $tag;
+        $this->post = $post;
     }
 
     /**
@@ -41,7 +42,7 @@ class AddTagBreadcrumb implements SelfHandling
     public function handle(Request $request, BreadcrumbCollection $breadcrumbs)
     {
         $breadcrumbs->add(
-            trans('anomaly.module.posts::breadcrumb.tagged', ['tag' => $this->tag]),
+            $this->post->getTitle(),
             $request->fullUrl()
         );
     }

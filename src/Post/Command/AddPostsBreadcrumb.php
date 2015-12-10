@@ -1,4 +1,4 @@
-<?php namespace Anomaly\PostsModule\Command;
+<?php namespace Anomaly\PostsModule\Post\Command;
 
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
@@ -10,7 +10,7 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\PostsModule\Command
+ * @package       Anomaly\PostsModule\Post\Command
  */
 class AddPostsBreadcrumb implements SelfHandling
 {

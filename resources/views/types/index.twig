@@ -1,0 +1,21 @@
+{% extends layout('anomaly/posts-module/types/index') %}
+
+{% block content %}
+    <div id="posts">
+
+        <header>
+
+            <h1>{{ type.title }}</h1>
+
+            {% if type.description %}
+                <p>{{ type.description|raw }}</p>
+            {% endif %}
+
+        </header>
+
+        {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
+
+        {{ posts.render|raw }}
+
+    </div>
+{% endblock %}

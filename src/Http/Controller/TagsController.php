@@ -1,9 +1,9 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
-use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
-use Anomaly\PostsModule\Command\AddTagBreadcrumb;
-use Anomaly\PostsModule\Command\AddTagMetaTitle;
+use Anomaly\PostsModule\Post\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Tag\Command\AddTagBreadcrumb;
+use Anomaly\PostsModule\Tag\Command\AddTagMetaTitle;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
 
 /**

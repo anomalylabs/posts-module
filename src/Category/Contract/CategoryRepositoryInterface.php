@@ -14,8 +14,7 @@ interface CategoryRepositoryInterface extends EntryRepositoryInterface
 {
 
     /**
-     * Find a category by it's related
-     * posts and it's slug.
+     * Find a category by it's slug.
      *
      * @param $slug
      * @return null|CategoryInterface
