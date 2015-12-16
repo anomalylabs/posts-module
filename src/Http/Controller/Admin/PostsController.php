@@ -42,8 +42,8 @@ class PostsController extends AdminController
      */
     public function create(PostEntryFormBuilder $form)
     {
-        $this->dispatch(new AddPostFormFromRequest($form));
         $this->dispatch(new AddEntryFormFromRequest($form));
+        $this->dispatch(new AddPostFormFromRequest($form));
 
         return $form->render();
     }
@@ -60,8 +60,8 @@ class PostsController extends AdminController
     {
         $post = $posts->find($id);
 
-        $this->dispatch(new AddPostFormFromPost($form, $post));
         $this->dispatch(new AddEntryFormFromPost($form, $post));
+        $this->dispatch(new AddPostFormFromPost($form, $post));
 
         return $form->render($id);
     }
