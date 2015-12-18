@@ -43,6 +43,15 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     protected $cacheMinutes = 99999;
 
     /**
+     * Eager load these relations.
+     *
+     * @var array
+     */
+    protected $with = [
+        'translations'
+    ];
+
+    /**
      * Restrict to active posts only.
      *
      * @param Builder $query
