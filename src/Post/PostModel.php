@@ -49,6 +49,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      * @var array
      */
     protected $with = [
+        'entry',
         'translations'
     ];
 

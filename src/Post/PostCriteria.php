@@ -71,6 +71,7 @@ class PostCriteria extends EntryCriteria
         $table  = $stream->getEntryTableName();
 
         $this->query
+            ->select('posts_posts.*')
             ->where('type_id', $type->getId())
             ->join($table . ' AS entry', 'entry.id', '=', 'posts_posts.entry_id');
 
