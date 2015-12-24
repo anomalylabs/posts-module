@@ -1,6 +1,5 @@
 <?php namespace Anomaly\PostsModule;
 
-use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Illuminate\Routing\Router;
@@ -54,8 +53,8 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        'Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel'           => 'Anomaly\PostsModule\Post\PostModel',
-        'Anomaly\Streams\Platform\Model\Categories\PostsCategoriesEntryModel' => 'Anomaly\PostsModule\Category\CategoryModel'
+        'Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel'      => 'Anomaly\PostsModule\Post\PostModel',
+        'Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel' => 'Anomaly\PostsModule\Category\CategoryModel'
     ];
 
     /**
