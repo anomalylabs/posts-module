@@ -41,10 +41,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'admin/posts/fields/create'                             => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@create',
         'admin/posts/fields/edit/{id}'                          => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@edit',
         'admin/posts/ajax/choose_type'                          => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseType',
-        'admin/posts/settings'                                  => 'Anomaly\PostsModule\Http\Controller\Admin\SettingsController@edit',
-        'posts/rss/category/{category}.xml'                     => 'Anomaly\PostsModule\Http\Controller\RssController@category',
-        'posts/rss/tag/{tag}.xml'                               => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
-        'posts/rss.xml'                                         => 'Anomaly\PostsModule\Http\Controller\RssController@recent'
+        'admin/posts/settings'                                  => 'Anomaly\PostsModule\Http\Controller\Admin\SettingsController@edit'
     ];
 
     /**
@@ -91,6 +88,38 @@ class PostsModuleServiceProvider extends AddonServiceProvider
 
         $permalink = implode('}/{', $permalink);
 
+        /**
+         * Map the RSS methods.
+         */
+        $router->any(
+            "{$module}/rss/category/{category}.xml",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@category',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
+            "{$module}/rss/tag/{tag}.xml",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
+            "{$module}/rss.xml",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@recent',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        /**
+         * Map other public routes.
+         * Mind the order. Routes are
+         * handled first come first serve.
+         */
         $router->any(
             "{$module}/{type}",
             [
