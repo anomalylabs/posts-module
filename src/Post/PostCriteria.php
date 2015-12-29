@@ -1,5 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post;
 
+use Anomaly\PostsModule\Type\Command\GetType;
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\EntryCriteria;
 
 /**
@@ -54,4 +56,25 @@ class PostCriteria extends EntryCriteria
         return $this;
     }
 
+    /**
+     * Add the type constraint.
+     *
+     * @param $identifier
+     * @return $this
+     */
+    public function type($identifier)
+    {
+        /* @var TypeInterface $type */
+        $type = $this->dispatch(new GetType($identifier));
+
+        $stream = $type->getEntryStream();
+        $table  = $stream->getEntryTableName();
+
+        $this->query
+            ->select('posts_posts.*')
+            ->where('type_id', $type->getId())
+            ->join($table . ' AS entry', 'entry.id', '=', 'posts_posts.entry_id');
+
+        return $this;
+    }
 }

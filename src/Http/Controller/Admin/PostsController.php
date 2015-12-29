@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
+use Anomaly\PostsModule\Post\Command\GetPostPath;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\Form\Command\AddEntryFormFromPost;
@@ -80,7 +81,7 @@ class PostsController extends AdminController
         $post = $posts->find($id);
 
         if (!$post->isEnabled()) {
-            return $redirect->to('posts/preview/' . $post->getStrId());
+            return $redirect->to($this->dispatch(new GetPostPath($post)));
         }
 
         return $redirect->to($post->path());
