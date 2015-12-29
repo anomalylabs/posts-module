@@ -53,12 +53,12 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     ];
 
     /**
-     * Restrict to active posts only.
+     * Restrict to live posts only.
      *
      * @param Builder $query
      * @return Builder
      */
-    public function scopeEnabled(Builder $query)
+    public function scopeLive(Builder $query)
     {
         return $query
             ->where('enabled', 1)
@@ -168,6 +168,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
         $entry = $this->getEntry();
 
         return $entry->getId();
+    }
+
+    /**
+     * Return if the post is live or not.
+     *
+     * @return bool
+     */
+    public function isLive()
+    {
+        return $this->isEnabled() && $this->getPublishAt()->diff(new \DateTime())->invert == 0;
     }
 
     /**

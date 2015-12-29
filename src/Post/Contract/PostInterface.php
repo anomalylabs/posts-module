@@ -116,6 +116,13 @@ interface PostInterface extends EntryInterface
     public function getPublishAt();
 
     /**
+     * Return if the post is live or not.
+     *
+     * @return bool
+     */
+    public function isLive();
+
+    /**
      * Get the enabled flag.
      *
      * @return bool
