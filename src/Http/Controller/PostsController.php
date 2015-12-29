@@ -77,7 +77,7 @@ class PostsController extends PublicController
         if (!$post = $resolver->resolve()) {
             abort(404);
         }
-        dd($post->isLive());
+
         $this->dispatch(new MakePostResponse($post));
         $this->dispatch(new AddPostsBreadcrumb());
 
