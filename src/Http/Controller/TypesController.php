@@ -1,6 +1,8 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
+use Anomaly\PostsModule\Post\Command\AddPostsBreadcrumb;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Type\Command\AddTypeBreadcrumb;
 use Anomaly\PostsModule\Type\Command\AddTypeMetaTitle;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
@@ -30,6 +32,8 @@ class TypesController extends PublicController
             abort(404);
         }
 
+        $this->dispatch(new AddPostsBreadcrumb());
+        $this->dispatch(new AddTypeBreadcrumb($type));
         $this->dispatch(new AddTypeMetaTitle($type));
 
         $posts = $posts->findManyByType($type);
