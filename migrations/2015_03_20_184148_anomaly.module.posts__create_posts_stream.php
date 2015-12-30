@@ -37,6 +37,9 @@ class AnomalyModulePostsCreatePostsStream extends Migration
             'translatable' => true,
             'required'     => true
         ],
+        'summary'          => [
+            'translatable' => true
+        ],
         'slug'             => [
             'required' => true,
             'unique'   => true
@@ -64,7 +67,6 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         ],
         'category',
         'featured',
-        'summary',
         'enabled',
         'tags',
         'css',

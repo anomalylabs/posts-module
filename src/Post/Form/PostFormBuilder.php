@@ -55,10 +55,6 @@ class PostFormBuilder extends FormBuilder
         if (!$entry->type_id) {
             $entry->type_id = $type->getId();
         }
-
-        if (!$entry->str_id) {
-            $entry->str_id = str_random();
-        }
     }
 
     /**
