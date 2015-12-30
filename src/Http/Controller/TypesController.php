@@ -32,7 +32,7 @@ class TypesController extends PublicController
             abort(404);
         }
 
-        $this->dispatch(new AddPostsBreadcrumb($type));
+        $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddTypeBreadcrumb($type));
         $this->dispatch(new AddTypeMetaTitle($type));
 
