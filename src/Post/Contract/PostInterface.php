@@ -3,6 +3,7 @@
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
+use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -106,6 +107,20 @@ interface PostInterface extends EntryInterface
      * @return string
      */
     public function getMetaDescription();
+
+    /**
+     * Return the publish at date.
+     *
+     * @return Carbon
+     */
+    public function getPublishAt();
+
+    /**
+     * Return if the post is live or not.
+     *
+     * @return bool
+     */
+    public function isLive();
 
     /**
      * Get the enabled flag.

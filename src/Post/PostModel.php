@@ -7,6 +7,7 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -48,16 +49,17 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      * @var array
      */
     protected $with = [
+        'entry',
         'translations'
     ];
 
     /**
-     * Restrict to active posts only.
+     * Restrict to live posts only.
      *
      * @param Builder $query
      * @return Builder
      */
-    public function scopeEnabled(Builder $query)
+    public function scopeLive(Builder $query)
     {
         return $query
             ->where('enabled', 1)
@@ -170,6 +172,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Return if the post is live or not.
+     *
+     * @return bool
+     */
+    public function isLive()
+    {
+        return $this->isEnabled() && $this->getPublishAt()->diff(new \DateTime())->invert == 0;
+    }
+
+    /**
      * Get the enabled flag.
      *
      * @return bool
@@ -211,6 +223,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getMetaDescription()
     {
         return $this->meta_description;
+    }
+
+    /**
+     * Return the publish at date.
+     *
+     * @return Carbon
+     */
+    public function getPublishAt()
+    {
+        return $this->publish_at;
     }
 
     /**

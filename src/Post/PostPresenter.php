@@ -4,6 +4,7 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryPresenter;
 use Anomaly\Streams\Platform\Support\Decorator;
+use Carbon\Carbon;
 use Collective\Html\HtmlBuilder;
 
 /**
@@ -51,6 +52,16 @@ class PostPresenter extends EntryPresenter
         $this->settings = $settings;
 
         parent::__construct($object);
+    }
+
+    /**
+     * Return the publish at date.
+     *
+     * @return Carbon
+     */
+    public function date()
+    {
+        return $this->object->getPublishAt();
     }
 
     /**
