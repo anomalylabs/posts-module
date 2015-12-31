@@ -27,6 +27,12 @@ return [
             'default_value' => 'posts'
         ]
     ],
+    'enable_index' => [
+        'type'   => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => 1,
+        ]
+    ],
     'category_segment'    => [
         'type'     => 'anomaly.field_type.text',
         'required' => true,
