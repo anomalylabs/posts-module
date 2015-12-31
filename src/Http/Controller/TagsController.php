@@ -5,6 +5,7 @@ use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Tag\Command\AddTagBreadcrumb;
 use Anomaly\PostsModule\Tag\Command\AddTagMetaTitle;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
+use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 
 /**
  * Class TagsController
@@ -24,9 +25,9 @@ class TagsController extends PublicController
      * @param                         $tag
      * @return \Illuminate\View\View
      */
-    public function index(PostRepositoryInterface $posts, $tag)
+    public function index(PostRepositoryInterface $posts, SettingRepositoryInterface $settings, $tag)
     {
-        $posts = $posts->findManyByTag($tag);
+        $posts = $posts->findManyByTag($tag,$settings->value('anomaly.module.posts::posts_per_page',null));
 
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddTagBreadcrumb($tag));
