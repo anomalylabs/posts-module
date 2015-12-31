@@ -35,7 +35,7 @@ class PostsController extends PublicController
             abort(404);
         }
         
-        $posts = $posts->getRecent();
+        $posts = $posts->getRecent($settings->value('anomaly.module.posts::posts_per_page',null));
 
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddPostsMetaTitle());
