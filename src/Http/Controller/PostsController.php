@@ -29,8 +29,12 @@ class PostsController extends PublicController
      * @param PostRepositoryInterface $posts
      * @return \Illuminate\View\View
      */
-    public function index(PostRepositoryInterface $posts)
+    public function index(PostRepositoryInterface $posts, SettingRepositoryInterface $settings)
     {
+        if (!$settings->value('anomaly.module.posts::enable_index',true)) {
+            abort(404);
+        }
+        
         $posts = $posts->getRecent();
 
         $this->dispatch(new AddPostsBreadcrumb());
