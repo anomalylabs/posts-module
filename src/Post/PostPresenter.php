@@ -105,7 +105,7 @@ class PostPresenter extends EntryPresenter
     {
         $entry = $this->object->getEntry();
 
-        if ($entry->hasField($key)) {
+        if ($entry && $entry->hasField($key)) {
             return (New Decorator())->decorate($entry)->{$key};
         }
 

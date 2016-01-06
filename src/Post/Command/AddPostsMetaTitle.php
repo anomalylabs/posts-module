@@ -21,6 +21,6 @@ class AddPostsMetaTitle implements SelfHandling
      */
     public function handle(ViewTemplate $template)
     {
-        $template->set('meta_title', trans('anomaly.module.posts::addon.name'));
+        $template->set('meta_title', trans('anomaly.module.posts::breadcrumb.posts'));
     }
 }
