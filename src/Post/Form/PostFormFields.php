@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post\Form;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Guard;
 
 /**
@@ -31,7 +32,7 @@ class PostFormFields
                 ],
                 'publish_at' => [
                     'config' => [
-                        'default_value' => 'now'
+                        'default_value' => Carbon::now()
                     ]
                 ]
             ]
