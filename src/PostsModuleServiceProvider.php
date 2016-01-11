@@ -40,8 +40,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'admin/posts/fields/choose'                             => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@choose',
         'admin/posts/fields/create'                             => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@create',
         'admin/posts/fields/edit/{id}'                          => 'Anomaly\PostsModule\Http\Controller\Admin\FieldsController@edit',
-        'admin/posts/ajax/choose_type'                          => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseType',
-        'admin/posts/settings'                                  => 'Anomaly\PostsModule\Http\Controller\Admin\SettingsController@edit'
+        'admin/posts/ajax/choose_type'                          => 'Anomaly\PostsModule\Http\Controller\Admin\AjaxController@chooseType'
     ];
 
     /**
