@@ -2,7 +2,7 @@
 
 return [
     'posts'      => [
-        'name'   => 'Pages',
+        'name'   => 'Posts',
         'option' => [
             'read'   => 'Can access posts section.',
             'write'  => 'Can create and edit posts.',
