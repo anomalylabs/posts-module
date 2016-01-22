@@ -18,13 +18,16 @@ class PostObserver extends EntryObserver
     /**
      * Fired just before saving the entry.
      *
-     * @param EntryInterface $entry
+     * @param EntryInterface|PostInterface $entry
      */
     public function creating(EntryInterface $entry)
     {
-        /* @var PostInterface $entry */
         if (!$entry->getStrId()) {
             $entry->setAttribute('str_id', str_random());
+        }
+
+        if (!$entry->getSlug()) {
+            $entry->setAttribute('slug', $entry->getTitle());
         }
 
         parent::creating($entry);
