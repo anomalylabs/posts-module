@@ -26,10 +26,6 @@ class PostObserver extends EntryObserver
             $entry->setAttribute('str_id', str_random());
         }
 
-        if (!$entry->getSlug()) {
-            $entry->setAttribute('slug', $entry->getTitle());
-        }
-
         parent::creating($entry);
     }
 }
