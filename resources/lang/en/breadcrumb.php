@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'posts'  => 'Posts',
-    'fields' => 'Fields',
-    'tagged' => 'Tagged ":tag"'
+    'posts'   => 'Posts',
+    'fields'  => 'Fields',
+    'archive' => 'Archive',
+    'tagged'  => 'Tagged ":tag"'
 ];

@@ -160,6 +160,14 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         );
 
         $router->any(
+            "{$module}/archive/{year}/{month?}",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\ArchiveController@index',
+                'streams::addon' => 'anomaly.module.posts'
+            ]
+        );
+
+        $router->any(
             "{$module}/{{$permalink}}",
             [
                 'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@show',

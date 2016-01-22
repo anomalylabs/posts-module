@@ -60,6 +60,16 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     public function findManyByType(TypeInterface $type, $limit = null);
 
     /**
+     * Find many posts by date.
+     *
+     * @param      $year
+     * @param      $month
+     * @param null $limit
+     * @return PostCollection
+     */
+    public function findManyByDate($year, $month, $limit = null);
+
+    /**
      * Get recent posts.
      *
      * @param null $limit

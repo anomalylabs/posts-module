@@ -103,6 +103,28 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     }
 
     /**
+     * Find many posts by date.
+     *
+     * @param      $year
+     * @param      $month
+     * @param null $limit
+     * @return PostCollection
+     */
+    public function findManyByDate($year, $month, $limit = null)
+    {
+        $query = $this->model
+            ->live()
+            ->whereYear('publish_at', '=', $year);
+
+        if ($month) {
+            $query->whereMonth('publish_at', '=', $month);
+        }
+
+        return $query->paginate($limit);
+    }
+
+
+    /**
      * Get recent posts.
      *
      * @return EntryCollection
