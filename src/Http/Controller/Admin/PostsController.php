@@ -80,7 +80,7 @@ class PostsController extends AdminController
         /* @var PostInterface $post */
         $post = $posts->find($id);
 
-        if (!$post->isEnabled()) {
+        if (!$post->isLive()) {
             return $redirect->to($this->dispatch(new GetPostPath($post)));
         }
 
