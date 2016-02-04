@@ -54,7 +54,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      */
     public function findBySlug($slug)
     {
-        return $this->model->orderBy('created_at', 'DESC')->where('slug', $slug)->first();
+        return $this->model->orderBy('publish_at', 'DESC')->where('slug', $slug)->first();
     }
 
     /**

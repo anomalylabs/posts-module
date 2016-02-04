@@ -61,9 +61,9 @@ class GetPostPath implements SelfHandling
         $permalink = implode('}/{', $permalink);
 
         $data = [
-            'year'  => $this->post->created_at->format('Y'),
-            'month' => $this->post->created_at->format('m'),
-            'day'   => $this->post->created_at->format('d'),
+            'year'  => $this->post->publish_at->format('Y'),
+            'month' => $this->post->publish_at->format('m'),
+            'day'   => $this->post->publish_at->format('d'),
             'post'  => $this->post->getSlug()
         ];
 

@@ -14,6 +14,7 @@ return [
                 'fields' => [
                     'permalink_structure',
                     'module_segment',
+                    'enable_index',
                     'category_segment',
                     'tag_segment'
                 ]

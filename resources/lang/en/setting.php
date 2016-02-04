@@ -9,6 +9,10 @@ return [
         'label'        => 'Module Segment',
         'instructions' => 'Define a custom segment URI for the the Posts module.'
     ],
+    'enable_index'      => [
+        'label'        => 'Enable the module\'s index route',
+        'instructions' => 'When enabled an index of all post entries will be displayed when visiting the module segment URL.'
+    ],
     'category_segment'    => [
         'label'        => 'Category Segment',
         'instructions' => 'Define a custom category segment URI for the category URLs.'

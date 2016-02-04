@@ -6,6 +6,7 @@ use Anomaly\PostsModule\Type\Command\AddTypeBreadcrumb;
 use Anomaly\PostsModule\Type\Command\AddTypeMetaTitle;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
+use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 
 /**
  * Class TypesController
@@ -26,7 +27,7 @@ class TypesController extends PublicController
      * @param                             $type
      * @return \Illuminate\View\View
      */
-    public function index(TypeRepositoryInterface $categories, PostRepositoryInterface $posts, $type)
+    public function index(TypeRepositoryInterface $categories, PostRepositoryInterface $posts, SettingRepositoryInterface $settings, $type)
     {
         if (!$type = $categories->findBySlug($type)) {
             abort(404);
@@ -36,7 +37,7 @@ class TypesController extends PublicController
         $this->dispatch(new AddTypeBreadcrumb($type));
         $this->dispatch(new AddTypeMetaTitle($type));
 
-        $posts = $posts->findManyByType($type);
+        $posts = $posts->findManyByType($type,$settings->value('anomaly.module.posts::posts_per_page',null));
 
         return view('anomaly.module.posts::types/index', compact('type', 'posts'));
     }
