@@ -48,7 +48,8 @@ class CreateTypeStream implements SelfHandling
                 'namespace'                         => 'posts',
                 'slug'                              => $this->type->getSlug() . '_posts',
                 'translatable'                      => true,
-                'locked'                            => false
+                'locked'                            => false,
+                'hidden'                            => true
             ]
         );
     }
