@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Type;
 
 use Anomaly\EditorFieldType\EditorFieldType;
+use Anomaly\PostsModule\Post\PostCollection;
 use Anomaly\PostsModule\Type\Command\GetTypeStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
@@ -104,5 +105,25 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
         $js->setEntry($this);
 
         return $js->getAssetPath();
+    }
+
+    /**
+     * Get related posts.
+     *
+     * @return PostCollection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Return the posts relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany('Anomaly\PostsModule\Post\PostModel', 'type_id');
     }
 }

@@ -37,6 +37,7 @@ class TypeObserver extends EntryObserver
     public function deleted(EntryInterface $entry)
     {
         $this->commands->dispatch(new DeleteTypeStream($entry));
+        $this->commands->dispatch(new DeletePosts($entry));
 
         parent::deleted($entry);
     }

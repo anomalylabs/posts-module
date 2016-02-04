@@ -8,6 +8,7 @@
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\PostsModule\Type\Contract
  */
+use Anomaly\PostsModule\Post\PostCollection;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 
@@ -71,4 +72,18 @@ interface TypeInterface extends EntryInterface
      * @return string
      */
     public function getJsPath();
+
+    /**
+     * Get related posts.
+     *
+     * @return PostCollection
+     */
+    public function getPosts();
+
+    /**
+     * Return the posts relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts();
 }
