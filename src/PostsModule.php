@@ -43,10 +43,10 @@ class PostsModule extends Module
         'types'      => [
             'buttons' => [
                 'new_type',
-                'add_field' => [
+                'assign_fields' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'enabled'     => 'admin/posts/types/fields/*',
+                    'enabled'     => 'admin/posts/types/assignments/*',
                     'href'        => 'admin/posts/types/choose/{request.route.parameters.id}'
                 ]
             ]
