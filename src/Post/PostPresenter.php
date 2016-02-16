@@ -95,6 +95,58 @@ class PostPresenter extends EntryPresenter
     }
 
     /**
+     * Return the posts' status as a label.
+     *
+     * @param string $size
+     * @return null|string
+     */
+    public function statusLabel($size = 'sm')
+    {
+        $color  = 'default';
+        $status = $this->status();
+
+        switch ($status) {
+            case 'live':
+                $color = 'success';
+                break;
+
+            case 'draft':
+                $color = 'default';
+                break;
+
+            case 'scheduled':
+                $color = 'info';
+                break;
+        }
+
+        return '<span class="label label-' . $size . ' label-' . $color . '">' . trans(
+            'module::message.' . $status
+        ) . '</span>';
+    }
+
+    /**
+     * Return the status key.
+     *
+     * @return null|string
+     */
+    public function status()
+    {
+        if ($this->object->isLive()) {
+            return 'live';
+        }
+
+        if ($this->object->isEnabled() && !$this->object->isLive()) {
+            return 'scheduled';
+        }
+
+        if (!$this->object->isEnabled() && !$this->object->isLive()) {
+            return 'draft';
+        }
+
+        return null;
+    }
+
+    /**
      * Catch calls to fields on
      * the page's related entry.
      *

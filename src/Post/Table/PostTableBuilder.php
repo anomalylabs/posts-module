@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post\Table;
 
+use Anomaly\PostsModule\Post\Table\Column\Status;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
 /**
@@ -23,18 +24,6 @@ class PostTableBuilder extends TableBuilder
         'author',
         'category',
         'enabled'
-    ];
-
-    /**
-     * The table columns.
-     *
-     * @var array
-     */
-    protected $columns = [
-        'entry.edit_link',
-        'author',
-        'category',
-        'entry.enabled.label'
     ];
 
     /**
