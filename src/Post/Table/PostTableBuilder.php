@@ -32,6 +32,7 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
+        'edit',
         'view' => [
             'target' => '_blank'
         ]
