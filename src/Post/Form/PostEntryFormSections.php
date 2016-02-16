@@ -72,18 +72,6 @@ class PostEntryFormSections
                                 'post_featured',
                                 'post_publish_at'
                             ]
-                        ],
-                        'css'          => [
-                            'title'  => 'module::tab.css',
-                            'fields' => [
-                                'post_css'
-                            ]
-                        ],
-                        'js'           => [
-                            'title'  => 'module::tab.js',
-                            'fields' => [
-                                'post_js'
-                            ]
                         ]
                     ]
                 ]

@@ -45,14 +45,6 @@ return [
         'name'         => 'Layout',
         'instructions' => 'The layout will be used to display the post content.'
     ],
-    'css'              => [
-        'name'         => 'CSS',
-        'instructions' => 'This CSS will be added to the <strong>styles.css</strong> asset collection.'
-    ],
-    'js'               => [
-        'name'         => 'JS',
-        'instructions' => 'This script will be added to the <strong>scripts.js</strong> asset collection.'
-    ],
     'tags'             => [
         'name'         => 'Tags',
         'instructions' => 'Add organizational tags (separated by spaces).'
