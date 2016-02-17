@@ -23,56 +23,47 @@ class PostEntryFormSections
     {
         $builder->setSections(
             [
-                'general' => [
-                    'tabs' => [
-                        'general'      => [
-                            'title'  => 'module::tab.post',
-                            'fields' => [
-                                'post_title',
-                                'post_slug',
-                                'post_summary'
-                            ]
-                        ],
-                        'fields'       => [
-                            'title'  => 'module::tab.fields',
-                            'fields' => function (PostEntryFormBuilder $builder) {
-                                return array_map(
-                                    function (FieldType $field) {
-                                        return 'entry_' . $field->getField();
-                                    },
-                                    array_filter(
-                                        $builder->getFormFields()->base()->all(),
-                                        function (FieldType $field) {
-                                            return (!$field->getEntry() instanceof PostModel);
-                                        }
-                                    )
-                                );
-                            }
-                        ],
-                        'organization' => [
-                            'title'  => 'module::tab.organization',
-                            'fields' => [
-                                'post_category',
-                                'post_tags'
-                            ]
-                        ],
-                        'seo'          => [
-                            'title'  => 'module::tab.seo',
-                            'fields' => [
-                                'post_meta_title',
-                                'post_meta_keywords',
-                                'post_meta_description'
-                            ]
-                        ],
-                        'options'      => [
-                            'title'  => 'module::tab.options',
-                            'fields' => [
-                                'post_author',
-                                'post_enabled',
-                                'post_featured',
-                                'post_publish_at'
-                            ]
-                        ]
+                'general'      => [
+                    'fields' => [
+                        'post_title',
+                        'post_slug',
+                        'post_summary'
+                    ]
+                ],
+                'fields'       => [
+                    'fields' => function (PostEntryFormBuilder $builder) {
+                        return array_map(
+                            function (FieldType $field) {
+                                return 'entry_' . $field->getField();
+                            },
+                            array_filter(
+                                $builder->getFormFields()->base()->all(),
+                                function (FieldType $field) {
+                                    return (!$field->getEntry() instanceof PostModel);
+                                }
+                            )
+                        );
+                    }
+                ],
+                'organization' => [
+                    'fields' => [
+                        'post_category',
+                        'post_tags'
+                    ]
+                ],
+                'seo'          => [
+                    'fields' => [
+                        'post_meta_title',
+                        'post_meta_keywords',
+                        'post_meta_description'
+                    ]
+                ],
+                'options'      => [
+                    'fields' => [
+                        'post_author',
+                        'post_enabled',
+                        'post_featured',
+                        'post_publish_at'
                     ]
                 ]
             ]
