@@ -45,6 +45,21 @@ class PostTableBuilder extends TableBuilder
     ];
 
     /**
+     * The table columns.
+     *
+     * @var array
+     */
+    protected $columns = [
+        'title',
+        'author',
+        'category',
+        'status' => [
+            'heading' => 'anomaly.module.posts::message.status',
+            'value'   => 'entry.status_label'
+        ]
+    ];
+
+    /**
      * The tree buttons.
      *
      * @var array
