@@ -95,7 +95,7 @@ class PostPresenter extends EntryPresenter
     }
 
     /**
-     * Return the posts' status as a label.
+     * Return the user's status as a label.
      *
      * @param string $size
      * @return null|string
@@ -106,21 +106,21 @@ class PostPresenter extends EntryPresenter
         $status = $this->status();
 
         switch ($status) {
-            case 'live':
-                $color = 'success';
+            case 'scheduled':
+                $color = 'info';
                 break;
 
             case 'draft':
                 $color = 'default';
                 break;
 
-            case 'scheduled':
-                $color = 'info';
+            case 'live':
+                $color = 'primary';
                 break;
         }
 
         return '<span class="label label-' . $size . ' label-' . $color . '">' . trans(
-            'module::message.' . $status
+            'anomaly.module.posts::field.status.option.' . $status
         ) . '</span>';
     }
 
@@ -131,16 +131,16 @@ class PostPresenter extends EntryPresenter
      */
     public function status()
     {
-        if ($this->object->isLive()) {
-            return 'live';
+        if (!$this->object->isEnabled()) {
+            return 'draft';
         }
 
         if ($this->object->isEnabled() && !$this->object->isLive()) {
             return 'scheduled';
         }
 
-        if (!$this->object->isEnabled() && !$this->object->isLive()) {
-            return 'draft';
+        if ($this->object->isEnabled() && $this->object->isLive()) {
+            return 'live';
         }
 
         return null;

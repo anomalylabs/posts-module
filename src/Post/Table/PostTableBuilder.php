@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post\Table;
 
 use Anomaly\PostsModule\Post\Table\Column\Status;
+use Anomaly\PostsModule\Post\Table\Filter\StatusFilterQuery;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
 /**
@@ -20,10 +21,27 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $filters = [
-        'title',
+        'search' => [
+            'columns' => [
+                'tags',
+                'title',
+                'summary',
+                'meta_title',
+                'meta_keywords',
+                'meta_description'
+            ]
+        ],
         'author',
         'category',
-        'enabled'
+        'status' => [
+            'filter'  => 'select',
+            'query'   => StatusFilterQuery::class,
+            'options' => [
+                'live'      => 'anomaly.module.posts::field.status.option.live',
+                'draft'     => 'anomaly.module.posts::field.status.option.draft',
+                'scheduled' => 'anomaly.module.posts::field.status.option.scheduled'
+            ]
+        ]
     ];
 
     /**
@@ -57,5 +75,4 @@ class PostTableBuilder extends TableBuilder
             'publish_at' => 'DESC'
         ]
     ];
-
 }

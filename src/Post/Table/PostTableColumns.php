@@ -1,7 +1,5 @@
 <?php namespace Anomaly\PostsModule\Post\Table;
 
-use Illuminate\Translation\Translator;
-
 /**
  * Class PostTableColumns
  *
@@ -17,9 +15,8 @@ class PostTableColumns
      * Handle the columns.
      *
      * @param PostTableBuilder $builder
-     * @param Translator       $translator
      */
-    public function handle(PostTableBuilder $builder, Translator $translator)
+    public function handle(PostTableBuilder $builder)
     {
         $builder->setColumns(
             [
@@ -27,7 +24,7 @@ class PostTableColumns
                 'author',
                 'category',
                 'status' => [
-                    'heading' => $translator->get('module::message.status'),
+                    'heading' => 'anomaly.module.posts::message.status',
                     'value'   => 'entry.status_label'
                 ]
             ]
