@@ -22,7 +22,7 @@ class PostTableBuilder extends TableBuilder
      */
     protected $filters = [
         'search' => [
-            'columns' => [
+            'fields' => [
                 'tags',
                 'title',
                 'summary',
