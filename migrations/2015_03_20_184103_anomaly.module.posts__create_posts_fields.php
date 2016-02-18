@@ -40,9 +40,10 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'publish_at'       => 'anomaly.field_type.datetime',
         'entry'            => 'anomaly.field_type.polymorphic',
         'author'           => [
-            'type'   => 'anomaly.field_type.user',
+            'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'permission' => 'anomaly.module.posts::posts.write'
+                'mode'    => 'lookup',
+                'related' => \Anomaly\UsersModule\User\UserModel::class
             ]
         ],
         'layout'           => [
