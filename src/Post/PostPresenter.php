@@ -1,11 +1,11 @@
 <?php namespace Anomaly\PostsModule\Post;
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryPresenter;
 use Anomaly\Streams\Platform\Support\Decorator;
 use Carbon\Carbon;
 use Collective\Html\HtmlBuilder;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * Class PostPresenter
@@ -33,23 +33,23 @@ class PostPresenter extends EntryPresenter
     protected $object;
 
     /**
-     * The setting repository.
+     * The config repository.
      *
-     * @var SettingRepositoryInterface
+     * @var Repository
      */
-    private $settings;
+    private $config;
 
     /**
      * Create a new PostPresenter instance.
      *
-     * @param HtmlBuilder                $html
-     * @param SettingRepositoryInterface $settings
-     * @param                            $object
+     * @param HtmlBuilder $html
+     * @param Repository  $config
+     * @param             $object
      */
-    public function __construct(HtmlBuilder $html, SettingRepositoryInterface $settings, $object)
+    public function __construct(HtmlBuilder $html, Repository $config, $object)
     {
-        $this->html     = $html;
-        $this->settings = $settings;
+        $this->html   = $html;
+        $this->config = $config;
 
         parent::__construct($object);
     }
@@ -80,8 +80,8 @@ class PostPresenter extends EntryPresenter
                     implode(
                         '/',
                         [
-                            $this->settings->value('anomaly.module.posts::module_segment', 'posts'),
-                            $this->settings->value('anomaly.module.posts::tag_segment', 'tag'),
+                            $this->config->get('anomaly.module.posts::paths.module'),
+                            $this->config->get('anomaly.module.posts::paths.tag'),
                             $label
                         ]
                     )

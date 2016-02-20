@@ -236,6 +236,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Alias for getPublishAt()
+     *
+     * @return Carbon
+     */
+    public function getDate()
+    {
+        return $this->getPublishAt();
+    }
+
+    /**
      * Get the path to the post's type layout.
      *
      * @return string

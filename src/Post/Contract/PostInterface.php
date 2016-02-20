@@ -116,6 +116,13 @@ interface PostInterface extends EntryInterface
     public function getPublishAt();
 
     /**
+     * Alias for getPublishAt()
+     *
+     * @return Carbon
+     */
+    public function getDate();
+
+    /**
      * Return if the post is live or not.
      *
      * @return bool

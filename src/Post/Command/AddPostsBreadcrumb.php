@@ -1,8 +1,8 @@
 <?php namespace Anomaly\PostsModule\Post\Command;
 
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
 use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * Class AddPostsBreadcrumb
@@ -18,14 +18,14 @@ class AddPostsBreadcrumb implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param SettingRepositoryInterface $settings
-     * @param BreadcrumbCollection       $breadcrumbs
+     * @param Repository           $config
+     * @param BreadcrumbCollection $breadcrumbs
      */
-    public function handle(SettingRepositoryInterface $settings, BreadcrumbCollection $breadcrumbs)
+    public function handle(Repository $config, BreadcrumbCollection $breadcrumbs)
     {
         $breadcrumbs->add(
             'anomaly.module.posts::breadcrumb.posts',
-            $settings->value('anomaly.module.posts::module_segment', 'posts')
+            $config->get('anomaly.module.posts::paths.module')
         );
     }
 }

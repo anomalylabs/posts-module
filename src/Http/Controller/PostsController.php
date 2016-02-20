@@ -8,9 +8,7 @@ use Anomaly\PostsModule\Post\Command\MakePostResponse;
 use Anomaly\PostsModule\Post\Command\MakePreviewResponse;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\PostResolver;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
-use Illuminate\Http\Request;
 
 /**
  * Class PostsController
@@ -65,14 +63,12 @@ class PostsController extends PublicController
     }
 
     /**
-     * Show an existing post.
+     * View an existing post.
      *
-     * @param PostRepositoryInterface    $posts
-     * @param Request                    $request
-     * @param SettingRepositoryInterface $settings
-     * @return \Illuminate\View\View
+     * @param PostResolver $resolver
+     * @return null|\Symfony\Component\HttpFoundation\Response
      */
-    public function show(PostResolver $resolver)
+    public function view(PostResolver $resolver)
     {
         if (!$post = $resolver->resolve()) {
             abort(404);

@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule;
 
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Routing\Router;
 
 /**
@@ -67,25 +67,15 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     /**
      * Map additional routes.
      *
-     * @param Router                     $router
-     * @param SettingRepositoryInterface $settings
+     * @param Router     $router
+     * @param Repository $config
      */
-    public function map(Router $router, SettingRepositoryInterface $settings)
+    public function map(Router $router, Repository $config)
     {
-        $tag       = $settings->value('anomaly.module.posts::tag_segment', 'tag');
-        $module    = $settings->value('anomaly.module.posts::module_segment', 'posts');
-        $category  = $settings->value('anomaly.module.posts::category_segment', 'category');
-        $permalink = $settings->value(
-            'anomaly.module.posts::permalink_structure',
-            [
-                'year',
-                'month',
-                'day',
-                'post'
-            ]
-        );
-
-        $permalink = implode('}/{', $permalink);
+        $tag       = $config->get('anomaly.module.posts::paths.tag');
+        $module    = $config->get('anomaly.module.posts::paths.module');
+        $category  = $config->get('anomaly.module.posts::paths.category');
+        $permalink = $config->get('anomaly.module.posts::paths.route');;
 
         /**
          * Map the RSS methods.
@@ -168,9 +158,9 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         );
 
         $router->any(
-            "{$module}/{{$permalink}}",
+            "{$module}/{$permalink}",
             [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@show',
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@view',
                 'streams::addon' => 'anomaly.module.posts'
             ]
         );

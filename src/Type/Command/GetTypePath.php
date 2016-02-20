@@ -1,8 +1,8 @@
 <?php namespace Anomaly\PostsModule\Type\Command;
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * Class GetTypePath
@@ -35,12 +35,11 @@ class GetTypePath implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param SettingRepositoryInterface $settings
+     * @param Repository $config
      * @return string
      */
-    public function handle(SettingRepositoryInterface $settings)
+    public function handle(Repository $config)
     {
-        return $settings->value('anomaly.module.posts::module_segment', 'posts')
-        . '/' . $this->category->getSlug();
+        return $config->get('anomaly.module.posts::paths.module') . '/' . $this->category->getSlug();
     }
 }
