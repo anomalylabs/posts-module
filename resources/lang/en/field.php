@@ -78,5 +78,8 @@ return [
             'draft'     => 'Draft',
             'scheduled' => 'Scheduled'
         ]
-    ]
+    ],
+    'content'          => [
+        'name' => 'Content'
+    ],
 ];
