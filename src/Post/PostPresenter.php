@@ -115,7 +115,7 @@ class PostPresenter extends EntryPresenter
                 break;
 
             case 'live':
-                $color = 'primary';
+                $color = 'success';
                 break;
         }
 
