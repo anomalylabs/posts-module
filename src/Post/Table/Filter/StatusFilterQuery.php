@@ -23,15 +23,15 @@ class StatusFilterQuery extends GenericFilterQuery
      */
     public function handle(Builder $query, FilterInterface $filter)
     {
-        if ($filter->getValue() == 'active') {
-            $query->where('enabled', true)->where('activated', true);
+        if ($filter->getValue() == 'live') {
+            $query->where('enabled', true)->where('publish_at', '<', time());
         }
 
-        if ($filter->getValue() == 'inactive') {
-            $query->where('enabled', true)->where('activated', false);
+        if ($filter->getValue() == 'scheduled') {
+            $query->where('enabled', true)->where('publish_at', '>', time());
         }
 
-        if ($filter->getValue() == 'disabled') {
+        if ($filter->getValue() == 'draft') {
             $query->where('enabled', false);
         }
     }
