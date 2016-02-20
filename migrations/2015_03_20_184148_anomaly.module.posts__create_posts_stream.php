@@ -69,9 +69,7 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         'category',
         'featured',
         'enabled',
-        'tags',
-        'css',
-        'js'
+        'tags'
     ];
 
 }

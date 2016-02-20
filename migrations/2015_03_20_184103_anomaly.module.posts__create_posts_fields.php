@@ -28,6 +28,10 @@ class AnomalyModulePostsCreatePostsFields extends Migration
                 'type'    => '-'
             ]
         ],
+        'content'          => [
+            'type'   => 'anomaly.field_type.wysiwyg',
+            'locked' => 0 // Used with seeded pages.
+        ],
         'type'             => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
@@ -80,18 +84,6 @@ class AnomalyModulePostsCreatePostsFields extends Migration
                 'min'  => 0,
                 'step' => 1,
                 'page' => 5
-            ]
-        ],
-        'css'              => [
-            'type'   => 'anomaly.field_type.editor',
-            'config' => [
-                'mode' => 'css'
-            ]
-        ],
-        'js'               => [
-            'type'   => 'anomaly.field_type.editor',
-            'config' => [
-                'mode' => 'javascript'
             ]
         ],
         'theme_layout'     => [

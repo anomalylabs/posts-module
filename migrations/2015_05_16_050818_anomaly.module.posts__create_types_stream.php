@@ -30,8 +30,9 @@ class AnomalyModulePostsCreateTypesStream extends Migration
      */
     protected $assignments = [
         'name'         => [
-            'required' => true,
-            'unique'   => true
+            'translatable' => true,
+            'required'     => true,
+            'unique'       => true
         ],
         'slug'         => [
             'required' => true,
@@ -47,9 +48,9 @@ class AnomalyModulePostsCreateTypesStream extends Migration
         'theme_layout' => [
             'required' => true
         ],
-        'description',
-        'css',
-        'js'
+        'description'  => [
+            'translatable' => true
+        ]
     ];
 
 }

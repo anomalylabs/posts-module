@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Type;
 
 use Anomaly\PostsModule\Type\Command\CreateTypeStream;
+use Anomaly\PostsModule\Type\Command\DeletePosts;
 use Anomaly\PostsModule\Type\Command\DeleteTypeStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
@@ -36,8 +37,8 @@ class TypeObserver extends EntryObserver
      */
     public function deleted(EntryInterface $entry)
     {
-        $this->commands->dispatch(new DeleteTypeStream($entry));
         $this->commands->dispatch(new DeletePosts($entry));
+        $this->commands->dispatch(new DeleteTypeStream($entry));
 
         parent::deleted($entry);
     }
