@@ -34,7 +34,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'entry.edit_link',
+        'name',
         'slug',
         'description'
     ];
@@ -45,6 +45,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
+        'edit',
         'view' => [
             'target' => '_blank'
         ]
