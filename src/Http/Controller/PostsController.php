@@ -74,6 +74,10 @@ class PostsController extends PublicController
             abort(404);
         }
 
+        if (!$post->isLive()) {
+            abort(404);
+        }
+
         $this->dispatch(new MakePostResponse($post));
         $this->dispatch(new AddPostsBreadcrumb());
 
