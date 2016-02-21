@@ -1,6 +1,5 @@
 <?php namespace Anomaly\PostsModule\Post\Table;
 
-use Anomaly\PostsModule\Post\Table\Column\Status;
 use Anomaly\PostsModule\Post\Table\Filter\StatusFilterQuery;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
