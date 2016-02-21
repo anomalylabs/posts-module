@@ -54,7 +54,7 @@ class TypeTableBuilder extends TableBuilder
      * @var array
      */
     protected $actions = [
-        'prompt'
+        'delete'
     ];
 
     /**

@@ -21,7 +21,8 @@ class AnomalyModulePostsCreateTypesStream extends Migration
         'slug'         => 'types',
         'title_column' => 'name',
         'sortable'     => true,
-        'translatable' => true
+        'translatable' => true,
+        'trashable'    => true
     ];
 
     /**

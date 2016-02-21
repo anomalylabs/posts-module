@@ -40,7 +40,7 @@ class DeletePosts implements SelfHandling
     public function handle(PostRepositoryInterface $posts)
     {
         foreach ($this->type->getPosts() as $post) {
-            $posts->forceDelete($post);
+            $posts->delete($post);
         }
     }
 }

@@ -246,6 +246,17 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Return if the model is
+     * restorable or not.
+     *
+     * @return bool
+     */
+    public function isRestorable()
+    {
+        return $this->getType() ? true : false;
+    }
+
+    /**
      * Get the path to the post's type layout.
      *
      * @return string
