@@ -39,8 +39,6 @@ class DeleteTypeStream implements SelfHandling
      */
     public function handle(StreamRepositoryInterface $streams)
     {
-        if ($stream = $streams->findBySlugAndNamespace($this->type->getSlug() . '_posts', 'posts')) {
-            $streams->delete($stream);
-        }
+        $streams->delete($streams->findBySlugAndNamespace($this->type->getSlug() . '_posts', 'posts'));
     }
 }

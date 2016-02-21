@@ -20,7 +20,8 @@ class AnomalyModulePostsCreateCategoriesStream extends Migration
     protected $stream = [
         'slug'         => 'categories',
         'title_column' => 'name',
-        'translatable' => true
+        'translatable' => true,
+        'trashable'    => true
     ];
 
     /**
