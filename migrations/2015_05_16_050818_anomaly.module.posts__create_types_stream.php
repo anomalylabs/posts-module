@@ -20,6 +20,7 @@ class AnomalyModulePostsCreateTypesStream extends Migration
     protected $stream = [
         'slug'         => 'types',
         'title_column' => 'name',
+        'sortable'     => true,
         'translatable' => true
     ];
 
