@@ -20,7 +20,7 @@ class CategoryTableBuilder extends TableBuilder
      */
     protected $filters = [
         'search' => [
-            'columns' => [
+            'fields' => [
                 'name',
                 'slug',
                 'description'
