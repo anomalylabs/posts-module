@@ -25,6 +25,13 @@ interface PostInterface extends EntryInterface
     public function path();
 
     /**
+     * Alias for getContent();
+     *
+     * @return null|string
+     */
+    public function render();
+
+    /**
      * Get the string ID.
      *
      * @return string
