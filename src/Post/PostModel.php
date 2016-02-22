@@ -78,16 +78,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
-     * Alias for getContent();
-     *
-     * @return null|string
-     */
-    public function render()
-    {
-        return $this->getContent();
-    }
-
-    /**
      * Get the string ID.
      *
      * @return string
