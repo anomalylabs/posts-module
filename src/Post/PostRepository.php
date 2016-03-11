@@ -123,7 +123,6 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
         return $query->paginate($limit);
     }
 
-
     /**
      * Get recent posts.
      *
