@@ -6,6 +6,8 @@ use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Database\Seeder\Seeder;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 use Anomaly\Streams\Platform\Model\Posts\PostsDefaultPostsEntryModel;
+use Anomaly\UsersModule\User\UserModel;
+use Anomaly\UsersModule\User\UserRepository;
 
 /**
  * Class PostSeeder
@@ -67,6 +69,8 @@ class PostSeeder extends Seeder
 
         $repository->setModel(new PostsDefaultPostsEntryModel());
 
+        $users = new UserRepository(new UserModel());
+
         $repository->truncate();
 
         $type     = $this->types->findBySlug('default');
@@ -89,7 +93,8 @@ class PostSeeder extends Seeder
                 'enabled'    => true,
                 'type'       => $type,
                 'entry'      => $welcome,
-                'category'   => $category
+                'category'   => $category,
+                'author'     => $users->findByUsername('admin')
             ]
         );
     }
