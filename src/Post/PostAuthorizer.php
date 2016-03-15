@@ -48,11 +48,7 @@ class PostAuthorizer
      */
     public function authorize(PostInterface $post)
     {
-        if (!$post->isEnabled() && !$this->guard->user()) {
-            abort(404);
-        }
-
-        if (!$this->authorizer->authorize('anomaly.module.posts::view_drafts')) {
+        if (!$post->isEnabled() && !$this->authorizer->authorize('anomaly.module.posts::view_drafts')) {
             abort(404);
         }
     }
