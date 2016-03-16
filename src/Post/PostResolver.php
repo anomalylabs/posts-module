@@ -60,6 +60,13 @@ class PostResolver
     {
         $permalink = explode('/', $this->config->get('anomaly.module.posts::paths.route'));
 
-        return $this->posts->findBySlug($this->request->segment(array_search('{post}', $permalink) + 2));
+        // If there's nothing defined for the module path, the offset is 1,
+        //  otherwise it's 2
+        if($this->config->get('anomaly.module.posts::paths.module'))
+            $indexOffset = 2;
+        else
+            $indexOffset = 1;
+
+        return $this->posts->findBySlug($this->request->segment(array_search('{post}', $permalink) + $indexOffset));
     }
 }
