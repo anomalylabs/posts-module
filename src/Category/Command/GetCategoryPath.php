@@ -40,7 +40,7 @@ class GetCategoryPath implements SelfHandling
      */
     public function handle(Repository $config)
     {
-        return $config->get('anomaly.module.posts::paths.module')
+        return '/' . $config->get('anomaly.module.posts::paths.module')
         . '/' . $config->get('anomaly.module.posts::paths.category')
         . '/' . $this->category->getSlug();
     }

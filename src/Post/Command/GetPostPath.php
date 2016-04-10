@@ -46,7 +46,7 @@ class GetPostPath implements SelfHandling
      */
     public function handle(Repository $config, Resolver $resolver, Evaluator $evaluator, Value $value)
     {
-        $base = $config->get('anomaly.module.posts::paths.module');
+        $base = '/' . $config->get('anomaly.module.posts::paths.module');
 
         if (!$this->post->isLive()) {
             return $base . '/preview/' . $this->post->getStrId();
