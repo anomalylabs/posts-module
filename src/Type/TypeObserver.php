@@ -3,6 +3,8 @@
 use Anomaly\PostsModule\Type\Command\CreateTypeStream;
 use Anomaly\PostsModule\Type\Command\DeletePosts;
 use Anomaly\PostsModule\Type\Command\DeleteTypeStream;
+use Anomaly\PostsModule\Type\Command\UpdatePosts;
+use Anomaly\PostsModule\Type\Command\UpdateStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryObserver;
@@ -28,6 +30,19 @@ class TypeObserver extends EntryObserver
         $this->commands->dispatch(new CreateTypeStream($entry));
 
         parent::created($entry);
+    }
+
+    /**
+     * Fired before a page type is updated.
+     *
+     * @param EntryInterface|TypeInterface $entry
+     */
+    public function updating(EntryInterface $entry)
+    {
+        $this->commands->dispatch(new UpdateStream($entry));
+        $this->commands->dispatch(new UpdatePosts($entry));
+
+        parent::updating($entry);
     }
 
     /**
