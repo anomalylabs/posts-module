@@ -1,20 +1,45 @@
 <?php
 
+use Anomaly\PostsModule\Post\Contract\PostInterface;
+use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Illuminate\Contracts\Config\Repository;
+use Roumen\Sitemap\Sitemap;
+
 return [
-    'lastmod' => function (\Anomaly\PostsModule\Post\Contract\PostRepositoryInterface $posts) {
+    'lastmod' => function (PostRepositoryInterface $posts) {
 
         $post = $posts->lastModified();
 
         return $post->lastModified()->toAtomString();
     },
-    'entries' => function (\Anomaly\PostsModule\Post\Contract\PostRepositoryInterface $posts) {
+    'entries' => function (PostRepositoryInterface $posts) {
 
         /* @var \Anomaly\PostsModule\Post\PostCollection $posts */
         $posts = $posts->all();
 
         return $posts->live();
     },
-    'handler' => function (\Roumen\Sitemap\Sitemap $sitemap, \Anomaly\PostsModule\Post\Contract\PostInterface $entry) {
-        $sitemap->add(url($entry->path()), $entry->lastModified()->toAtomString(), 0.5, 'monthly');
+    'handler' => function (Sitemap $sitemap, Repository $config, PostInterface $entry) {
+
+        $translations = [];
+
+        foreach ($config->get('streams::locales.enabled') as $locale) {
+            if ($locale != $config->get('streams::locales.default')) {
+                $translations[] = [
+                    'language' => $locale,
+                    'url'      => url($locale . '/' . $entry->path())
+                ];
+            }
+        }
+
+        $sitemap->add(
+            url($entry->path()),
+            $entry->lastModified()->toAtomString(),
+            0.5,
+            'monthly',
+            [],
+            null,
+            $translations
+        );
     }
 ];
