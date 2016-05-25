@@ -86,9 +86,7 @@ class TypeSeeder extends Seeder
                     ],
                     'slug'         => 'default',
                     'theme_layout' => 'theme::layouts/default.twig',
-                    'layout'       => '<h1>{{ post.title }}</h1>
-
-{{ post.content|raw }}'
+                    'layout'       => '{{ post.content|raw }}'
                 ]
             );
 
