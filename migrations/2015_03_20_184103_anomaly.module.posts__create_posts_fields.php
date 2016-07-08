@@ -46,9 +46,8 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'author'           => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'mode'       => 'dropdown',
-                'permission' => 'anomaly.module.posts::posts.*',
-                'related'    => \Anomaly\UsersModule\User\UserModel::class
+                'mode'    => 'lookup',
+                'related' => 'Anomaly\UsersModule\User\UserModel'
             ]
         ],
         'layout'           => [
