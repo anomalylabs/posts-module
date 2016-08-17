@@ -8,7 +8,9 @@ use Roumen\Sitemap\Sitemap;
 return [
     'lastmod' => function (PostRepositoryInterface $posts) {
 
-        $post = $posts->lastModified();
+        if (!$post = $posts->lastModified()) {
+            return null;
+        }
 
         return $post->lastModified()->toAtomString();
     },
