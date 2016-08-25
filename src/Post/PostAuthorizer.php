@@ -2,7 +2,7 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Support\Authorizer;
-use Illuminate\Auth\Guard;
+use Illuminate\Contracts\Auth\Guard;
 
 /**
  * Class PostAuthorizer

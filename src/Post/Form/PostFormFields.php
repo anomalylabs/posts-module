@@ -1,6 +1,6 @@
 <?php namespace Anomaly\PostsModule\Post\Form;
 
-use Illuminate\Auth\Guard;
+use Illuminate\Contracts\Auth\Guard;
 
 /**
  * Class PostFormFields
