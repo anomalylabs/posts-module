@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Form
  */
 class PostEntryFormSections
 {
@@ -27,8 +26,8 @@ class PostEntryFormSections
                     'fields' => [
                         'post_title',
                         'post_slug',
-                        'post_summary'
-                    ]
+                        'post_summary',
+                    ],
                 ],
                 'fields'       => [
                     'fields' => function (PostEntryFormBuilder $builder) {
@@ -43,29 +42,29 @@ class PostEntryFormSections
                                 }
                             )
                         );
-                    }
+                    },
                 ],
                 'organization' => [
                     'fields' => [
                         'post_category',
-                        'post_tags'
-                    ]
+                        'post_tags',
+                    ],
                 ],
                 'seo'          => [
                     'fields' => [
                         'post_meta_title',
                         'post_meta_keywords',
-                        'post_meta_description'
-                    ]
+                        'post_meta_description',
+                    ],
                 ],
                 'options'      => [
                     'fields' => [
                         'post_author',
                         'post_enabled',
                         'post_featured',
-                        'post_publish_at'
-                    ]
-                ]
+                        'post_publish_at',
+                    ],
+                ],
             ]
         );
     }

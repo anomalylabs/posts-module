@@ -10,7 +10,6 @@ use Anomaly\Streams\Platform\Entry\EntryObserver;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post
  */
 class PostObserver extends EntryObserver
 {

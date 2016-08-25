@@ -11,7 +11,6 @@ use Illuminate\Routing\ResponseFactory;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller
  */
 class RssController extends PublicController
 {
@@ -19,8 +18,8 @@ class RssController extends PublicController
     /**
      * Return an RSS feed of recent posts.
      *
-     * @param PostRepositoryInterface $posts
-     * @param ResponseFactory         $response
+     * @param  PostRepositoryInterface                   $posts
+     * @param  ResponseFactory                           $response
      * @return \Illuminate\Http\Response|ResponseFactory
      */
     public function recent(PostRepositoryInterface $posts, ResponseFactory $response)
@@ -37,10 +36,10 @@ class RssController extends PublicController
     /**
      * Return an RSS feed of recent posts by category.
      *
-     * @param PostRepositoryInterface     $posts
-     * @param CategoryRepositoryInterface $categories
-     * @param ResponseFactory             $response
-     * @param                             $category
+     * @param  PostRepositoryInterface                   $posts
+     * @param  CategoryRepositoryInterface               $categories
+     * @param  ResponseFactory                           $response
+     * @param                                            $category
      * @return \Illuminate\Http\Response|ResponseFactory
      */
     public function category(
@@ -65,9 +64,9 @@ class RssController extends PublicController
     /**
      * Return an RSS feed of recent posts by tag.
      *
-     * @param PostRepositoryInterface     $posts
-     * @param ResponseFactory             $response
-     * @param                             $category
+     * @param  PostRepositoryInterface                   $posts
+     * @param  ResponseFactory                           $response
+     * @param                                            $category
      * @return \Illuminate\Http\Response|ResponseFactory
      */
     public function tag(PostRepositoryInterface $posts, ResponseFactory $response, $tag)

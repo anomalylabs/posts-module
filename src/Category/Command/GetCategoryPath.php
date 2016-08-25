@@ -1,7 +1,6 @@
 <?php namespace Anomaly\PostsModule\Category\Command;
 
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Config\Repository;
 
 /**
@@ -10,9 +9,8 @@ use Illuminate\Contracts\Config\Repository;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Category\Command
  */
-class GetCategoryPath implements SelfHandling
+class GetCategoryPath
 {
 
     /**
@@ -35,7 +33,7 @@ class GetCategoryPath implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param Repository $config
+     * @param  Repository $config
      * @return string
      */
     public function handle(Repository $config)

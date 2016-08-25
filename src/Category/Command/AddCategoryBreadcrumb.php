@@ -3,7 +3,6 @@
 use Anomaly\PostsModule\Category\Command\GetCategoryPath;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -12,9 +11,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Command
  */
-class AddCategoryBreadcrumb implements SelfHandling
+class AddCategoryBreadcrumb
 {
 
     use DispatchesJobs;

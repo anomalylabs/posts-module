@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\Module\Module;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule
  */
 class PostsModule extends Module
 {
@@ -32,13 +31,13 @@ class PostsModule extends Module
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
                     'href'        => 'admin/posts/ajax/choose_type',
-                ]
-            ]
+                ],
+            ],
         ],
         'categories' => [
             'buttons' => [
-                'new_category'
-            ]
+                'new_category',
+            ],
         ],
         'types'      => [
             'buttons' => [
@@ -47,19 +46,19 @@ class PostsModule extends Module
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
                     'enabled'     => 'admin/posts/types/assignments/*',
-                    'href'        => 'admin/posts/types/choose/{request.route.parameters.id}'
-                ]
-            ]
+                    'href'        => 'admin/posts/types/choose/{request.route.parameters.id}',
+                ],
+            ],
         ],
         'fields'     => [
             'buttons' => [
                 'new_field' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/posts/fields/choose'
-                ]
-            ]
-        ]
+                    'href'        => 'admin/posts/fields/choose',
+                ],
+            ],
+        ],
     ];
 
 }

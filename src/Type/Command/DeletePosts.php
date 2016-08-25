@@ -2,7 +2,7 @@
 
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class DeletePosts
@@ -10,9 +10,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Command
  */
-class DeletePosts implements SelfHandling
+class DeletePosts
 {
 
     /**

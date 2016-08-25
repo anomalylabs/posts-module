@@ -3,7 +3,6 @@
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Form\PostEntryFormBuilder;
 use Anomaly\PostsModule\Post\Form\PostFormBuilder;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -12,9 +11,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Form\Command
  */
-class AddPostFormFromPost implements SelfHandling
+class AddPostFormFromPost
 {
 
     use DispatchesJobs;

@@ -1,7 +1,6 @@
 <?php namespace Anomaly\PostsModule\Type\Command;
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Config\Repository;
 
 /**
@@ -10,9 +9,8 @@ use Illuminate\Contracts\Config\Repository;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Command
  */
-class GetTypePath implements SelfHandling
+class GetTypePath
 {
 
     /**
@@ -35,7 +33,7 @@ class GetTypePath implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param Repository $config
+     * @param  Repository $config
      * @return string
      */
     public function handle(Repository $config)

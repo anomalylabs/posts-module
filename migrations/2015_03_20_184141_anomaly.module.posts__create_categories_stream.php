@@ -22,7 +22,7 @@ class AnomalyModulePostsCreateCategoriesStream extends Migration
         'title_column' => 'name',
         'translatable' => true,
         'sortable'     => true,
-        'trashable'    => true
+        'trashable'    => true,
     ];
 
     /**
@@ -34,18 +34,18 @@ class AnomalyModulePostsCreateCategoriesStream extends Migration
         'name'        => [
             'translatable' => true,
             'required'     => true,
-            'unique'       => true
+            'unique'       => true,
         ],
         'slug'        => [
             'required' => true,
             'unique'   => true,
             'config'   => [
-                'slugify' => 'name'
-            ]
+                'slugify' => 'name',
+            ],
         ],
         'description' => [
-            'translatable' => true
-        ]
+            'translatable' => true,
+        ],
     ];
 
 }

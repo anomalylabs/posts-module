@@ -21,7 +21,7 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         'slug'         => 'posts',
         'title_column' => 'title',
         'translatable' => true,
-        'trashable'    => true
+        'trashable'    => true,
     ];
 
     /**
@@ -32,44 +32,44 @@ class AnomalyModulePostsCreatePostsStream extends Migration
     protected $assignments = [
         'str_id'           => [
             'required' => true,
-            'unique'   => true
+            'unique'   => true,
         ],
         'title'            => [
             'translatable' => true,
-            'required'     => true
+            'required'     => true,
         ],
         'summary'          => [
-            'translatable' => true
+            'translatable' => true,
         ],
         'slug'             => [
             'required' => true,
-            'unique'   => true
+            'unique'   => true,
         ],
         'type'             => [
-            'required' => true
+            'required' => true,
         ],
         'publish_at'       => [
-            'required' => true
+            'required' => true,
         ],
         'author'           => [
-            'required' => true
+            'required' => true,
         ],
         'entry'            => [
-            'required' => true
+            'required' => true,
         ],
         'meta_title'       => [
-            'translatable' => true
+            'translatable' => true,
         ],
         'meta_description' => [
-            'translatable' => true
+            'translatable' => true,
         ],
         'meta_keywords'    => [
-            'translatable' => true
+            'translatable' => true,
         ],
         'category',
         'featured',
         'enabled',
-        'tags'
+        'tags',
     ];
 
 }

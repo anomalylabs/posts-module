@@ -13,7 +13,6 @@ use Anomaly\Streams\Platform\Model\Posts\PostsDefaultPostsEntryModel;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Seeder
  */
 class PostSeeder extends Seeder
 {
@@ -74,7 +73,7 @@ class PostSeeder extends Seeder
 
         $welcome = (new PostsDefaultPostsEntryModel())->create(
             [
-                'content' => '<p>Welcome to PyroCMS!</p>'
+                'content' => '<p>Welcome to PyroCMS!</p>',
             ]
         );
 
@@ -82,7 +81,7 @@ class PostSeeder extends Seeder
             [
                 'en'         => [
                     'title'   => 'Welcome to PyroCMS!',
-                    'summary' => 'This is an example post to demonstrate the posts module.'
+                    'summary' => 'This is an example post to demonstrate the posts module.',
                 ],
                 'slug'       => 'welcome-to-pyrocms',
                 'publish_at' => time(),
@@ -90,7 +89,7 @@ class PostSeeder extends Seeder
                 'type'       => $type,
                 'entry'      => $welcome,
                 'category'   => $category,
-                'author'     => 1
+                'author'     => 1,
             ]
         );
     }

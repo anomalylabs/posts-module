@@ -4,7 +4,6 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Support\Evaluator;
 use Anomaly\Streams\Platform\Support\Resolver;
 use Anomaly\Streams\Platform\Support\Value;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Config\Repository;
 
 /**
@@ -13,9 +12,8 @@ use Illuminate\Contracts\Config\Repository;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Command
  */
-class GetPostPath implements SelfHandling
+class GetPostPath
 {
 
     /**
@@ -38,10 +36,10 @@ class GetPostPath implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param Repository $config
-     * @param Resolver   $resolver
-     * @param Evaluator  $evaluator
-     * @param Value      $value
+     * @param  Repository $config
+     * @param  Resolver   $resolver
+     * @param  Evaluator  $evaluator
+     * @param  Value      $value
      * @return string
      */
     public function handle(Repository $config, Resolver $resolver, Evaluator $evaluator, Value $value)

@@ -13,7 +13,6 @@ use Illuminate\Contracts\Config\Repository;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post
  */
 class PostPresenter extends EntryPresenter
 {
@@ -67,7 +66,7 @@ class PostPresenter extends EntryPresenter
     /**
      * Return the tag links.
      *
-     * @param array $attributes
+     * @param  array  $attributes
      * @return string
      */
     public function tagLinks(array $attributes = [])
@@ -82,7 +81,7 @@ class PostPresenter extends EntryPresenter
                         [
                             $this->config->get('anomaly.module.posts::paths.module'),
                             $this->config->get('anomaly.module.posts::paths.tag'),
-                            $label
+                            $label,
                         ]
                     )
                     ,
@@ -97,7 +96,7 @@ class PostPresenter extends EntryPresenter
     /**
      * Return the user's status as a label.
      *
-     * @param string $size
+     * @param  string      $size
      * @return null|string
      */
     public function statusLabel($size = 'sm')
@@ -150,7 +149,7 @@ class PostPresenter extends EntryPresenter
      * Catch calls to fields on
      * the page's related entry.
      *
-     * @param string $key
+     * @param  string $key
      * @return mixed
      */
     public function __get($key)

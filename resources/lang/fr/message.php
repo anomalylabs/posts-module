@@ -8,5 +8,5 @@ return [
     'scheduled'         => 'Programmé',
     'status'            => 'Statut',
     'live'              => 'En ligne',
-    'draft'             => 'Brouillon'
+    'draft'             => 'Brouillon',
 ];

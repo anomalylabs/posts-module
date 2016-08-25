@@ -3,7 +3,7 @@
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Illuminate\Config\Repository;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class CreateTypeStream
@@ -11,9 +11,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Command
  */
-class CreateTypeStream implements SelfHandling
+class CreateTypeStream
 {
 
     /**
@@ -43,14 +42,14 @@ class CreateTypeStream implements SelfHandling
             [
                 $config->get('app.fallback_locale') => [
                     'name'        => $this->type->getName(),
-                    'description' => $this->type->getDescription()
+                    'description' => $this->type->getDescription(),
                 ],
                 'slug'                              => $this->type->getSlug() . '_posts',
                 'namespace'                         => 'posts',
                 'locked'                            => false,
                 'translatable'                      => true,
                 'trashable'                         => true,
-                'hidden'                            => true
+                'hidden'                            => true,
             ]
         );
     }

@@ -2,7 +2,7 @@
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class DeleteTypeStream
@@ -10,9 +10,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Command
  */
-class DeleteTypeStream implements SelfHandling
+class DeleteTypeStream
 {
 
     /**

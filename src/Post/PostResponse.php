@@ -9,7 +9,6 @@ use Illuminate\Routing\ResponseFactory;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post
  */
 class PostResponse
 {
@@ -43,7 +42,7 @@ class PostResponse
                 'anomaly.module.posts::posts/post',
                 [
                     'post'    => $post,
-                    'content' => $post->getContent()
+                    'content' => $post->getContent(),
                 ]
             )
         );

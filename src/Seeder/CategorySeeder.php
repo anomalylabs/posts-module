@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Database\Seeder\Seeder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Seeder
  */
 class CategorySeeder extends Seeder
 {
@@ -42,9 +41,9 @@ class CategorySeeder extends Seeder
             [
                 'en'   => [
                     'name'        => 'News',
-                    'description' => 'Company news and updates.'
+                    'description' => 'Company news and updates.',
                 ],
-                'slug' => 'news'
+                'slug' => 'news',
             ]
         );
     }

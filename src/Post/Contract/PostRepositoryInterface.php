@@ -11,7 +11,6 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post
  */
 interface PostRepositoryInterface extends EntryRepositoryInterface
 {
@@ -35,8 +34,8 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     /**
      * Find many posts by tag.
      *
-     * @param      $tag
-     * @param null $limit
+     * @param                 $tag
+     * @param  null           $limit
      * @return PostCollection
      */
     public function findManyByTag($tag, $limit = null);
@@ -44,8 +43,8 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     /**
      * Find many posts by category.
      *
-     * @param CategoryInterface $category
-     * @param null              $limit
+     * @param  CategoryInterface $category
+     * @param  null              $limit
      * @return PostCollection
      */
     public function findManyByCategory(CategoryInterface $category, $limit = null);
@@ -53,8 +52,8 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     /**
      * Find many posts by type.
      *
-     * @param TypeInterface $type
-     * @param null          $limit
+     * @param  TypeInterface  $type
+     * @param  null           $limit
      * @return PostCollection
      */
     public function findManyByType(TypeInterface $type, $limit = null);
@@ -62,9 +61,9 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     /**
      * Find many posts by date.
      *
-     * @param      $year
-     * @param      $month
-     * @param null $limit
+     * @param                 $year
+     * @param                 $month
+     * @param  null           $limit
      * @return PostCollection
      */
     public function findManyByDate($year, $month, $limit = null);
@@ -72,7 +71,7 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     /**
      * Get recent posts.
      *
-     * @param null $limit
+     * @param  null           $limit
      * @return PostCollection
      */
     public function getRecent($limit = null);
@@ -80,7 +79,7 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
     /**
      * Get featured posts.
      *
-     * @param null $limit
+     * @param  null           $limit
      * @return PostCollection
      */
     public function getFeatured($limit = null);

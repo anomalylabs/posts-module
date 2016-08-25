@@ -29,7 +29,7 @@ return [
             if ($locale != $config->get('streams::locales.default')) {
                 $translations[] = [
                     'language' => $locale,
-                    'url'      => url($locale . $entry->path())
+                    'url'      => url($locale . $entry->path()),
                 ];
             }
         }
@@ -43,5 +43,5 @@ return [
             null,
             $translations
         );
-    }
+    },
 ];

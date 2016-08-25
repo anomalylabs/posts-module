@@ -2,7 +2,6 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Http\Request;
 
 /**
@@ -11,9 +10,8 @@ use Illuminate\Http\Request;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Command
  */
-class AddPostBreadcrumb implements SelfHandling
+class AddPostBreadcrumb
 {
 
     /**

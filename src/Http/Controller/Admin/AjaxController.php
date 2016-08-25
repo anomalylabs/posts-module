@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
 class AjaxController extends AdminController
 {
@@ -17,7 +16,7 @@ class AjaxController extends AdminController
     /**
      * Return the modal for choosing a post type.
      *
-     * @param TypeRepositoryInterface $types
+     * @param  TypeRepositoryInterface $types
      * @return \Illuminate\View\View
      */
     public function chooseType(TypeRepositoryInterface $types)

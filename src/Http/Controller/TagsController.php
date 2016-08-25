@@ -12,7 +12,6 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller
  */
 class TagsController extends PublicController
 {
@@ -20,8 +19,8 @@ class TagsController extends PublicController
     /**
      * Return an index of tag posts.
      *
-     * @param PostRepositoryInterface $posts
-     * @param                         $tag
+     * @param  PostRepositoryInterface $posts
+     * @param                          $tag
      * @return \Illuminate\View\View
      */
     public function index(PostRepositoryInterface $posts, $tag)

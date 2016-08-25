@@ -2,7 +2,7 @@
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class GetTypeStream
@@ -10,9 +10,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Command
  */
-class GetTypeStream implements SelfHandling
+class GetTypeStream
 {
 
     /**
@@ -35,7 +34,7 @@ class GetTypeStream implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param StreamRepositoryInterface $streams
+     * @param  StreamRepositoryInterface                                      $streams
      * @return \Anomaly\Streams\Platform\Stream\Contract\StreamInterface|null
      */
     public function handle(StreamRepositoryInterface $streams)

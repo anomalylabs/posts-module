@@ -3,7 +3,7 @@
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Support\Presenter;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class GetType
@@ -11,9 +11,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Command
  */
-class GetType implements SelfHandling
+class GetType
 {
 
     /**
@@ -36,7 +35,7 @@ class GetType implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param TypeRepositoryInterface $types
+     * @param  TypeRepositoryInterface $types
      * @return TypeInterface|null
      */
     public function handle(TypeRepositoryInterface $types)

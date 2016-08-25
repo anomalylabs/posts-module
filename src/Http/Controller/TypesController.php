@@ -13,7 +13,6 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller
  */
 class TypesController extends PublicController
 {
@@ -21,9 +20,9 @@ class TypesController extends PublicController
     /**
      * Return an index of type posts.
      *
-     * @param TypeRepositoryInterface     $categories
-     * @param PostRepositoryInterface     $posts
-     * @param                             $type
+     * @param  TypeRepositoryInterface $categories
+     * @param  PostRepositoryInterface $posts
+     * @param                          $type
      * @return \Illuminate\View\View
      */
     public function index(TypeRepositoryInterface $categories, PostRepositoryInterface $posts, $type)

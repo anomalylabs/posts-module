@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule\Tag\Command;
 
 use Anomaly\Streams\Platform\View\ViewTemplate;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class AddTagMetaTitle
@@ -9,9 +9,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Tag\Command
  */
-class AddTagMetaTitle implements SelfHandling
+class AddTagMetaTitle
 {
 
     /**

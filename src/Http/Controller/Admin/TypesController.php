@@ -15,7 +15,6 @@ use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
 class TypesController extends AdminController
 {
@@ -23,7 +22,7 @@ class TypesController extends AdminController
     /**
      * Return an index of types.
      *
-     * @param TypeTableBuilder $table
+     * @param  TypeTableBuilder                           $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(TypeTableBuilder $table)
@@ -34,7 +33,7 @@ class TypesController extends AdminController
     /**
      * Return the form for creating a new type.
      *
-     * @param TypeFormBuilder $form
+     * @param  TypeFormBuilder                            $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(TypeFormBuilder $form)
@@ -45,8 +44,8 @@ class TypesController extends AdminController
     /**
      * Return the form for editing an existing type.
      *
-     * @param TypeFormBuilder $form
-     * @param                 $id
+     * @param  TypeFormBuilder                            $form
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(TypeFormBuilder $form, $id)
@@ -57,10 +56,10 @@ class TypesController extends AdminController
     /**
      * Return a table of existing post type assignments.
      *
-     * @param AssignmentTableBuilder      $table
-     * @param TypeRepositoryInterface     $types
-     * @param BreadcrumbCollection        $breadcrumbs
-     * @param                             $id
+     * @param  AssignmentTableBuilder                     $table
+     * @param  TypeRepositoryInterface                    $types
+     * @param  BreadcrumbCollection                       $breadcrumbs
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function fields(
@@ -78,8 +77,8 @@ class TypesController extends AdminController
             ->setButtons(
                 [
                     'edit' => [
-                        'href' => '{request.path}/assignment/{entry.id}'
-                    ]
+                        'href' => '{request.path}/assignment/{entry.id}',
+                    ],
                 ]
             )
             ->setStream($type->getEntryStream())
@@ -89,7 +88,7 @@ class TypesController extends AdminController
     /**
      * Return the modal for choosing a field to assign.
      *
-     * @param FieldRepositoryInterface $fields
+     * @param  FieldRepositoryInterface $fields
      * @return \Illuminate\View\View
      */
     public function choose(FieldRepositoryInterface $fields, TypeRepositoryInterface $types, $id)
@@ -100,7 +99,7 @@ class TypesController extends AdminController
             'module::admin/ajax/choose_field',
             [
                 'fields' => $fields->findAllByNamespace('posts')->notAssignedTo($type->getEntryStream())->unlocked(),
-                'id'     => $id
+                'id'     => $id,
             ]
         );
     }
@@ -108,11 +107,11 @@ class TypesController extends AdminController
     /**
      * Assign a field to a post type.
      *
-     * @param AssignmentFormBuilder     $form
-     * @param TypeRepositoryInterface   $types
-     * @param FieldRepositoryInterface  $fields
-     * @param                           $id
-     * @param                           $field
+     * @param  AssignmentFormBuilder                      $form
+     * @param  TypeRepositoryInterface                    $types
+     * @param  FieldRepositoryInterface                   $fields
+     * @param                                             $id
+     * @param                                             $field
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function assign(
@@ -133,10 +132,10 @@ class TypesController extends AdminController
     /**
      * Return a form for an existing post type field and assignment.
      *
-     * @param AssignmentFormBuilder       $form
-     * @param TypeRepositoryInterface     $types
-     * @param BreadcrumbCollection        $breadcrumbs
-     * @param                             $id
+     * @param  AssignmentFormBuilder                      $form
+     * @param  TypeRepositoryInterface                    $types
+     * @param  BreadcrumbCollection                       $breadcrumbs
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function assignment(

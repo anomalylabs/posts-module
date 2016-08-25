@@ -4,19 +4,19 @@ return [
     'posts'      => [
         'read',
         'write',
-        'delete'
+        'delete',
     ],
     'categories' => [
         'read',
         'write',
-        'delete'
+        'delete',
     ],
     'types'      => [
         'read',
         'write',
-        'delete'
+        'delete',
     ],
     'fields'     => [
-        'manage'
-    ]
+        'manage',
+    ],
 ];

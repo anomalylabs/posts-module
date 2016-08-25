@@ -9,6 +9,6 @@ return [
         'types'      => 'Typer',
         'fields'     => 'Fält',
         'settings'   => 'Inställningar',
-        'categories' => 'Kategorier'
-    ]
+        'categories' => 'Kategorier',
+    ],
 ];

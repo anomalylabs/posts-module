@@ -19,7 +19,6 @@ use Illuminate\Routing\Redirector;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
 class PostsController extends AdminController
 {
@@ -27,7 +26,7 @@ class PostsController extends AdminController
     /**
      * Return a tree of existing posts.
      *
-     * @param PostTableBuilder $tree
+     * @param  PostTableBuilder          $tree
      * @return \Illuminate\Http\Response
      */
     public function index(PostTableBuilder $tree)
@@ -38,7 +37,7 @@ class PostsController extends AdminController
     /**
      * Return the form for creating a new post.
      *
-     * @param PostEntryFormBuilder $form
+     * @param  PostEntryFormBuilder                       $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(PostEntryFormBuilder $form)
@@ -52,9 +51,9 @@ class PostsController extends AdminController
     /**
      * Return the form for editing an existing post.
      *
-     * @param PostRepositoryInterface $posts
-     * @param PostEntryFormBuilder    $form
-     * @param                         $id
+     * @param  PostRepositoryInterface                    $posts
+     * @param  PostEntryFormBuilder                       $form
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(PostRepositoryInterface $posts, PostEntryFormBuilder $form, $id)
@@ -70,9 +69,9 @@ class PostsController extends AdminController
     /**
      * Redirect to a post's URL.
      *
-     * @param PostRepositoryInterface $posts
-     * @param Redirector              $redirect
-     * @param                         $id
+     * @param  PostRepositoryInterface           $posts
+     * @param  Redirector                        $redirect
+     * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function view(PostRepositoryInterface $posts, Redirector $redirect, $id)
@@ -90,9 +89,9 @@ class PostsController extends AdminController
     /**
      * Delete a post and go back.
      *
-     * @param PostRepositoryInterface $posts
-     * @param Authorizer              $authorizer
-     * @param                         $id
+     * @param  PostRepositoryInterface           $posts
+     * @param  Authorizer                        $authorizer
+     * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function delete(PostRepositoryInterface $posts, Authorizer $authorizer, $id)

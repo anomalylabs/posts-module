@@ -8,7 +8,6 @@ use Illuminate\Contracts\Auth\Guard;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Form
  */
 class PostFormFields
 {
@@ -26,14 +25,14 @@ class PostFormFields
                 '*',
                 'author'     => [
                     'config' => [
-                        'default_value' => $auth->id()
-                    ]
+                        'default_value' => $auth->id(),
+                    ],
                 ],
                 'publish_at' => [
                     'config' => [
-                        'default_value' => 'now'
-                    ]
-                ]
+                        'default_value' => 'now',
+                    ],
+                ],
             ]
         );
     }

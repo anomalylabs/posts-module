@@ -2,12 +2,12 @@
 
 return [
     'posts'      => [
-        'name' => 'Inlägg'
+        'name' => 'Inlägg',
     ],
     'post_types' => [
-        'name' => 'Inläggstyper'
+        'name' => 'Inläggstyper',
     ],
     'categories' => [
-        'name' => 'Kategorier'
-    ]
+        'name' => 'Kategorier',
+    ],
 ];

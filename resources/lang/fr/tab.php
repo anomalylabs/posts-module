@@ -10,5 +10,5 @@ return [
     'fields'       => 'Champs',
     'layout'       => 'Mise en forme',
     'post'         => 'Article',
-    'seo'          => 'SEO'
+    'seo'          => 'SEO',
 ];

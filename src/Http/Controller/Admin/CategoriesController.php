@@ -12,7 +12,6 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
 class CategoriesController extends AdminController
 {
@@ -20,7 +19,7 @@ class CategoriesController extends AdminController
     /**
      * Return an index of existing categories.
      *
-     * @param CategoryTableBuilder $table
+     * @param  CategoryTableBuilder      $table
      * @return \Illuminate\Http\Response
      */
     public function index(CategoryTableBuilder $table)
@@ -31,7 +30,7 @@ class CategoriesController extends AdminController
     /**
      * Create the form for creating a new category.
      *
-     * @param CategoryFormBuilder $form
+     * @param  CategoryFormBuilder                        $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(CategoryFormBuilder $form)
@@ -42,8 +41,8 @@ class CategoriesController extends AdminController
     /**
      * Return the form for editing an existing category.
      *
-     * @param CategoryFormBuilder $form
-     * @param                     $id
+     * @param  CategoryFormBuilder                        $form
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(CategoryFormBuilder $form, $id)
@@ -54,8 +53,8 @@ class CategoriesController extends AdminController
     /**
      * Redirect to a category's URL.
      *
-     * @param CategoryRepositoryInterface $categories
-     * @param                             $id
+     * @param  CategoryRepositoryInterface       $categories
+     * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function view(CategoryRepositoryInterface $categories, $id)

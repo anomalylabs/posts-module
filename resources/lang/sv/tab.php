@@ -12,5 +12,5 @@ return [
     'post'         => 'Inlägg',
     'seo'          => 'SEO',
     'css'          => 'CSS',
-    'js'           => 'JS'
+    'js'           => 'JS',
 ];

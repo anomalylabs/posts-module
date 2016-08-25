@@ -22,7 +22,7 @@ class AnomalyModulePostsCreateTypesStream extends Migration
         'title_column' => 'name',
         'sortable'     => true,
         'translatable' => true,
-        'trashable'    => true
+        'trashable'    => true,
     ];
 
     /**
@@ -36,8 +36,8 @@ class AnomalyModulePostsCreateTypesStream extends Migration
             'required'     => true,
             'unique'       => true,
             'config'       => [
-                'max' => 50
-            ]
+                'max' => 50,
+            ],
         ],
         'slug'         => [
             'required' => true,
@@ -45,18 +45,18 @@ class AnomalyModulePostsCreateTypesStream extends Migration
             'config'   => [
                 'slugify' => 'name',
                 'type'    => '_',
-                'max'     => 50
-            ]
+                'max'     => 50,
+            ],
         ],
         'layout'       => [
-            'required' => true
+            'required' => true,
         ],
         'theme_layout' => [
-            'required' => true
+            'required' => true,
         ],
         'description'  => [
-            'translatable' => true
-        ]
+            'translatable' => true,
+        ],
     ];
 
 }

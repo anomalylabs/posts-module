@@ -3,31 +3,31 @@
 return [
     'posts' => [
         'name' => 'Hírek',
-    'option' => [
+    'option'   => [
         'read' => 'Hozzáférhet a hírekhez.',
-    'write' => 'Hozzáférhet és szerkeszthet híreket.',
-    'delete' => 'Törölhet híreket.',
+    'write'    => 'Hozzáférhet és szerkeszthet híreket.',
+    'delete'   => 'Törölhet híreket.',
     ],
     ],
     'categories' => [
         'name' => 'Kategóriák',
-    'option' => [
+    'option'   => [
         'read' => 'Hozzáférhet a kategóriákhoz.',
-    'write' => 'Létrehozhat és szerkeszthet kategóriákat.',
-    'delete' => 'Törölhet kategóriákat.',
+    'write'    => 'Létrehozhat és szerkeszthet kategóriákat.',
+    'delete'   => 'Törölhet kategóriákat.',
     ],
     ],
     'types' => [
         'name' => 'Typusok',
-    'option' => [
+    'option'   => [
         'read' => 'Hozzáférhet a típusokhoz.',
-    'write' => 'Létrehozhat és szerkeszthet típusokat.',
-    'delete' => 'Törölhet típusokat.',
+    'write'    => 'Létrehozhat és szerkeszthet típusokat.',
+    'delete'   => 'Törölhet típusokat.',
     ],
     ],
     'fields' => [
         'name' => 'Mezők',
-    'option' => [
+    'option'   => [
         'manage' => 'Kezelhet egyedi mezőket.',
     ],
     ],

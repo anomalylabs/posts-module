@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Form
  */
 class TypeFormBuilder extends FormBuilder
 {
@@ -21,8 +20,8 @@ class TypeFormBuilder extends FormBuilder
     protected $fields = [
         '*',
         'slug' => [
-            'disabled' => 'edit'
-        ]
+            'disabled' => 'edit',
+        ],
     ];
 
 }

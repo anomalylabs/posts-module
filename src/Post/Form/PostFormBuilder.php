@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Form
  */
 class PostFormBuilder extends FormBuilder
 {
@@ -29,7 +28,7 @@ class PostFormBuilder extends FormBuilder
     protected $skips = [
         'type',
         'entry',
-        'str_id'
+        'str_id',
     ];
 
     /**
@@ -70,7 +69,7 @@ class PostFormBuilder extends FormBuilder
     /**
      * Set the type.
      *
-     * @param TypeInterface $type
+     * @param  TypeInterface $type
      * @return $this
      */
     public function setType(TypeInterface $type)

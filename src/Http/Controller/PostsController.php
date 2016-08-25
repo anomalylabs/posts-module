@@ -16,7 +16,6 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller
  */
 class PostsController extends PublicController
 {
@@ -24,7 +23,7 @@ class PostsController extends PublicController
     /**
      * Display recent posts.
      *
-     * @param PostRepositoryInterface $posts
+     * @param  PostRepositoryInterface $posts
      * @return \Illuminate\View\View
      */
     public function index(PostRepositoryInterface $posts)
@@ -40,8 +39,8 @@ class PostsController extends PublicController
     /**
      * Preview an existing post.
      *
-     * @param PostRepositoryInterface $posts
-     * @param                         $id
+     * @param  PostRepositoryInterface $posts
+     * @param                          $id
      * @return \Illuminate\View\View
      */
     public function preview(PostRepositoryInterface $posts, $id)
@@ -65,7 +64,7 @@ class PostsController extends PublicController
     /**
      * View an existing post.
      *
-     * @param PostResolver $resolver
+     * @param  PostResolver                                    $resolver
      * @return null|\Symfony\Component\HttpFoundation\Response
      */
     public function view(PostResolver $resolver)

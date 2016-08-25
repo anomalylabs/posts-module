@@ -13,7 +13,6 @@ use Anomaly\Streams\Platform\Entry\EntryRepository;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post
  */
 class PostRepository extends EntryRepository implements PostRepositoryInterface
 {
@@ -60,8 +59,8 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     /**
      * Find man posts by tag.
      *
-     * @param      $tag
-     * @param null $limit
+     * @param                  $tag
+     * @param  null            $limit
      * @return EntryCollection
      */
     public function findManyByTag($tag, $limit = null)
@@ -75,8 +74,8 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     /**
      * Find many posts by category.
      *
-     * @param CategoryInterface $category
-     * @param null              $limit
+     * @param  CategoryInterface $category
+     * @param  null              $limit
      * @return EntryCollection
      */
     public function findManyByCategory(CategoryInterface $category, $limit = null)
@@ -90,8 +89,8 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     /**
      * Find many posts by type.
      *
-     * @param TypeInterface $type
-     * @param null          $limit
+     * @param  TypeInterface  $type
+     * @param  null           $limit
      * @return PostCollection
      */
     public function findManyByType(TypeInterface $type, $limit = null)
@@ -105,9 +104,9 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     /**
      * Find many posts by date.
      *
-     * @param      $year
-     * @param      $month
-     * @param null $limit
+     * @param                 $year
+     * @param                 $month
+     * @param  null           $limit
      * @return PostCollection
      */
     public function findManyByDate($year, $month, $limit = null)

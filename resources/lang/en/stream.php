@@ -2,12 +2,12 @@
 
 return [
     'posts'      => [
-        'name' => 'Posts'
+        'name' => 'Posts',
     ],
     'post_types' => [
-        'name' => 'Post Types'
+        'name' => 'Post Types',
     ],
     'categories' => [
-        'name' => 'Categories'
-    ]
+        'name' => 'Categories',
+    ],
 ];

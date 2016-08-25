@@ -13,7 +13,6 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Seeder
  */
 class TypeSeeder extends Seeder
 {
@@ -82,11 +81,11 @@ class TypeSeeder extends Seeder
                 [
                     'en'           => [
                         'name'        => 'Default',
-                        'description' => 'A simple post type.'
+                        'description' => 'A simple post type.',
                     ],
                     'slug'         => 'default',
                     'theme_layout' => 'theme::layouts/default.twig',
-                    'layout'       => '{{ post.content|raw }}'
+                    'layout'       => '{{ post.content|raw }}',
                 ]
             );
 
@@ -95,7 +94,7 @@ class TypeSeeder extends Seeder
         $this->assignments->create(
             [
                 'stream' => $stream,
-                'field'  => $this->fields->findBySlugAndNamespace('content', 'posts')
+                'field'  => $this->fields->findBySlugAndNamespace('content', 'posts'),
             ]
         );
     }

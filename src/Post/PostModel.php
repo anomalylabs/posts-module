@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post
  */
 class PostModel extends PostsPostsEntryModel implements PostInterface
 {
@@ -50,13 +49,13 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     protected $with = [
         'entry',
-        'translations'
+        'translations',
     ];
 
     /**
      * Restrict to live posts only.
      *
-     * @param Builder $query
+     * @param  Builder $query
      * @return Builder
      */
     public function scopeLive(Builder $query)

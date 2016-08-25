@@ -8,6 +8,6 @@ return [
         'posts'      => 'Articles',
         'types'      => 'Types',
         'fields'     => 'Champs',
-        'categories' => 'Catégories'
-    ]
+        'categories' => 'Catégories',
+    ],
 ];

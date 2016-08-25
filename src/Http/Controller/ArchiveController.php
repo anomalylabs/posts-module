@@ -11,7 +11,6 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Http\Controller
  */
 class ArchiveController extends PublicController
 {
@@ -19,9 +18,9 @@ class ArchiveController extends PublicController
     /**
      * Return an index of archived posts.
      *
-     * @param PostRepositoryInterface $posts
-     * @param                         $year
-     * @param null                    $month
+     * @param  PostRepositoryInterface                                  $posts
+     * @param                                                           $year
+     * @param  null                                                     $month
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(PostRepositoryInterface $posts, $year, $month = null)

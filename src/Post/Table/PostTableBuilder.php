@@ -9,7 +9,6 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Post\Table
  */
 class PostTableBuilder extends TableBuilder
 {
@@ -27,8 +26,8 @@ class PostTableBuilder extends TableBuilder
                 'summary',
                 'meta_title',
                 'meta_keywords',
-                'meta_description'
-            ]
+                'meta_description',
+            ],
         ],
         'author',
         'category',
@@ -38,9 +37,9 @@ class PostTableBuilder extends TableBuilder
             'options' => [
                 'live'      => 'anomaly.module.posts::field.status.option.live',
                 'draft'     => 'anomaly.module.posts::field.status.option.draft',
-                'scheduled' => 'anomaly.module.posts::field.status.option.scheduled'
-            ]
-        ]
+                'scheduled' => 'anomaly.module.posts::field.status.option.scheduled',
+            ],
+        ],
     ];
 
     /**
@@ -54,8 +53,8 @@ class PostTableBuilder extends TableBuilder
         'category',
         'status' => [
             'heading' => 'anomaly.module.posts::message.status',
-            'value'   => 'entry.status_label'
-        ]
+            'value'   => 'entry.status_label',
+        ],
     ];
 
     /**
@@ -66,8 +65,8 @@ class PostTableBuilder extends TableBuilder
     protected $buttons = [
         'edit',
         'view' => [
-            'target' => '_blank'
-        ]
+            'target' => '_blank',
+        ],
     ];
 
     /**
@@ -76,7 +75,7 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $actions = [
-        'delete'
+        'delete',
     ];
 
     /**
@@ -86,7 +85,7 @@ class PostTableBuilder extends TableBuilder
      */
     protected $options = [
         'order_by' => [
-            'publish_at' => 'DESC'
-        ]
+            'publish_at' => 'DESC',
+        ],
     ];
 }

@@ -1,6 +1,6 @@
 <?php namespace Anomaly\PostsModule\Type\Contract;
 
-/**
+/*
  * Interface TypeInterface
  *
  * @link          http://pyrocms.com/
@@ -18,7 +18,6 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\PostsModule\Type\Contract
  */
 interface TypeInterface extends EntryInterface
 {

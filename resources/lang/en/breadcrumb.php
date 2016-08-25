@@ -4,5 +4,5 @@ return [
     'posts'   => 'Posts',
     'fields'  => 'Fields',
     'archive' => 'Archive',
-    'tagged'  => 'Tagged ":tag"'
+    'tagged'  => 'Tagged ":tag"',
 ];

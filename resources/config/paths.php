@@ -65,6 +65,6 @@ return [
     |
     */
 
-    'route' => '{year}/{month}/{day}/{post}'
+    'route' => '{year}/{month}/{day}/{post}',
 
 ];

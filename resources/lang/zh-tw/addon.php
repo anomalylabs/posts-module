@@ -8,6 +8,6 @@ return [
         'posts'      => '文章',
         'types'      => '型別',
         'fields'     => '欄位',
-        'categories' => '分類'
-    ]
+        'categories' => '分類',
+    ],
 ];
