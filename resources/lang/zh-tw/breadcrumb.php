@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'posts'  => '文章',
+    'posts' => '文章',
     'fields' => '欄位',
-    'tagged' => '標籤 ":tag"'
+    'archive' => '封存',
+    'tagged' => '標籤 &quot;:tag&quot;',
 ];
