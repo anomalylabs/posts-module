@@ -315,4 +315,20 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
 
         return $this;
     }
+
+    /**
+     * Return the post as an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $array = parent::toArray();
+
+        if ($entry = $this->getEntry()) {
+            $array = array_merge($array, $entry->toArray());
+        }
+
+        return $array;
+    }
 }
