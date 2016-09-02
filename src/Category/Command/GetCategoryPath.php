@@ -1,15 +1,15 @@
 <?php namespace Anomaly\PostsModule\Category\Command;
 
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * Class GetCategoryPath
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Category\Command
  */
 class GetCategoryPath implements SelfHandling
@@ -35,13 +35,13 @@ class GetCategoryPath implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param SettingRepositoryInterface $settings
+     * @param Repository $config
      * @return string
      */
-    public function handle(SettingRepositoryInterface $settings)
+    public function handle(Repository $config)
     {
-        return $settings->value('anomaly.module.posts::module_segment', 'posts')
-        . '/' . $settings->value('anomaly.module.posts::category_segment', 'category')
+        return '/' . $config->get('anomaly.module.posts::paths.module')
+        . '/' . $config->get('anomaly.module.posts::paths.category')
         . '/' . $this->category->getSlug();
     }
 }

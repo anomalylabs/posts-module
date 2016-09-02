@@ -3,80 +3,94 @@
 return [
     'name'             => [
         'name'         => 'Name',
-        'instructions' => 'Enter an easily identifiable name.'
+        'instructions' => [
+            'types'      => 'Specify a short descriptive name for this post type.',
+            'categories' => 'Specify a short descriptive name for this category.'
+        ]
     ],
     'title'            => [
         'name'         => 'Title',
-        'instructions' => 'Enter the title of the post.'
+        'instructions' => 'Specify a short descriptive title for this post.'
     ],
     'slug'             => [
         'name'         => 'Slug',
-        'instructions' => 'The slug is used in building the entry\'s URL.'
+        'instructions' => [
+            'types'      => 'The slug is used in making the database table for posts of this type.',
+            'categories' => 'The slug is used in building the category\'s URL.',
+            'posts'      => 'The slug is used in building the post\'s URL.'
+        ]
     ],
     'description'      => [
         'name'         => 'Description',
-        'instructions' => 'Briefly describe the entry.'
+        'instructions' => [
+            'types'      => 'Briefly describe the post type.',
+            'categories' => 'Briefly describe the category.'
+        ],
+        'warning'      => 'This may or may not be displayed publicly depending on how your website was built.'
     ],
     'summary'          => [
         'name'         => 'Summary',
-        'instructions' => 'Enter a brief summary for the post.'
+        'instructions' => 'Write a brief summary to introduce this post.'
     ],
     'category'         => [
         'name'         => 'Category',
-        'instructions' => 'Specify the category this post displays in.'
+        'instructions' => 'Choose which category this post belongs to.'
     ],
     'meta_title'       => [
         'name'         => 'Meta Title',
-        'instructions' => 'Enter the post\'s SEO title. The post\'s title will be used by default.'
+        'instructions' => 'Specify the SEO title.',
+        'warning'      => 'The post title will be used by default.'
     ],
     'meta_description' => [
         'name'         => 'Meta Description',
-        'instructions' => 'Enter the post\'s SEO description.'
+        'instructions' => 'Specify the SEO description.'
     ],
     'meta_keywords'    => [
         'name'         => 'Meta Keywords',
-        'instructions' => 'Enter the post\'s SEO keywords. Use ONLY as many as makes sense.'
+        'instructions' => 'Specify the SEO keywords.'
     ],
     'theme_layout'     => [
         'name'         => 'Theme Layout',
-        'instructions' => 'The theme layout will be used to wrap the post content.'
+        'instructions' => 'Specify the theme layout to wrap the <strong>post layout</strong> with.'
     ],
     'layout'           => [
-        'name'         => 'Layout',
-        'instructions' => 'The layout will be used to display the post content.'
-    ],
-    'css'              => [
-        'name'         => 'CSS',
-        'instructions' => 'This CSS will be added to the <strong>styles.css</strong> asset collection.'
-    ],
-    'js'               => [
-        'name'         => 'JS',
-        'instructions' => 'This script will be added to the <strong>scripts.js</strong> asset collection.'
+        'name'         => 'Post Layout',
+        'instructions' => 'The layout is used for displaying the post\'s content.'
     ],
     'tags'             => [
         'name'         => 'Tags',
-        'instructions' => 'Add organizational tags (separated by spaces).'
+        'instructions' => 'Specify any organizational tags to help group your post with others.'
     ],
     'enabled'          => [
         'name'         => 'Enabled',
         'label'        => 'Is this post enabled?',
-        'instructions' => 'This post will not display on your website until made enabled and the "publish at" date is satisfied.'
+        'instructions' => 'If disabled, you can still access a secure preview link in the control panel.',
+        'warning'      => 'This post must be enabled before it can be viewed <strong>publicly</strong>.'
     ],
     'featured'         => [
         'name'         => 'Featured',
         'label'        => 'Is this a featured post?',
-        'instructions' => 'Featured posts can be used to bring attention to specific posts.'
+        'instructions' => 'Featured posts can be used to bring attention to specific posts.',
+        'warning'      => 'This may or may not have an effect depending on how your website was built.'
     ],
     'publish_at'       => [
-        'name'         => 'Publish At',
-        'instructions' => 'Set the date/time when you want the post to publish itself.'
+        'name'         => 'Publish Date/Time',
+        'instructions' => 'Specify the publish date/time for this post.',
+        'warning'      => 'If set to the future, this post will not be visible until then.'
     ],
     'author'           => [
         'name'         => 'Author',
-        'instructions' => 'Set the publicly displayed author.'
+        'instructions' => 'Specify the publicly displayed author of this post.'
     ],
-    'ttl'              => [
-        'label'        => 'Time to live (TTL)',
-        'instructions' => 'How long (in minutes) do you want to cache the post before serving fresh content?'
+    'status'           => [
+        'name'   => 'Status',
+        'option' => [
+            'live'      => 'Live',
+            'draft'     => 'Draft',
+            'scheduled' => 'Scheduled'
+        ]
+    ],
+    'content'          => [
+        'name' => 'Content'
     ]
 ];

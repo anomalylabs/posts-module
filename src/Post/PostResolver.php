@@ -2,15 +2,15 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Http\Request;
 
 /**
  * Class PostResolver
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post
  */
 class PostResolver
@@ -31,24 +31,24 @@ class PostResolver
     protected $request;
 
     /**
-     * The setting repository.
+     * The config repository.
      *
-     * @var SettingRepositoryInterface
+     * @var Repository
      */
-    protected $settings;
+    protected $config;
 
     /**
      * Create a new PostResolver instance.
      *
-     * @param PostRepositoryInterface    $posts
-     * @param Request                    $request
-     * @param SettingRepositoryInterface $settings
+     * @param PostRepositoryInterface $posts
+     * @param Repository              $config
+     * @param Request                 $request
      */
-    public function __construct(PostRepositoryInterface $posts, SettingRepositoryInterface $settings, Request $request)
+    public function __construct(PostRepositoryInterface $posts, Repository $config, Request $request)
     {
-        $this->posts    = $posts;
-        $this->request  = $request;
-        $this->settings = $settings;
+        $this->posts   = $posts;
+        $this->request = $request;
+        $this->config  = $config;
     }
 
     /**
@@ -58,16 +58,8 @@ class PostResolver
      */
     public function resolve()
     {
-        $permalink = $this->settings->value(
-            'anomaly.module.posts::permalink_structure',
-            [
-                'year',
-                'month',
-                'day',
-                'post'
-            ]
-        );
+        $permalink = explode('/', $this->config->get('anomaly.module.posts::paths.route'));
 
-        return $this->posts->findBySlug($this->request->segment(array_search('post', $permalink) + 2));
+        return $this->posts->findBySlug($this->request->segment(array_search('{post}', $permalink) + 2));
     }
 }

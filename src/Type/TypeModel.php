@@ -1,6 +1,7 @@
 <?php namespace Anomaly\PostsModule\Type;
 
 use Anomaly\EditorFieldType\EditorFieldType;
+use Anomaly\PostsModule\Post\PostCollection;
 use Anomaly\PostsModule\Type\Command\GetTypeStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
@@ -9,9 +10,9 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 /**
  * Class TypeModel
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Type
  */
 class TypeModel extends PostsTypesEntryModel implements TypeInterface
@@ -23,16 +24,6 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
      * @var int
      */
     protected $cacheMinutes = 99999;
-
-    /**
-     * Boot the model.
-     */
-    protected static function boot()
-    {
-        self::observe(app(substr(__CLASS__, 0, -5) . 'Observer'));
-
-        parent::boot();
-    }
 
     /**
      * Get the name.
@@ -114,5 +105,25 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
         $js->setEntry($this);
 
         return $js->getAssetPath();
+    }
+
+    /**
+     * Get related posts.
+     *
+     * @return PostCollection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Return the posts relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany('Anomaly\PostsModule\Post\PostModel', 'type_id');
     }
 }

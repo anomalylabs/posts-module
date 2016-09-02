@@ -8,9 +8,9 @@ use Illuminate\Contracts\Bus\SelfHandling;
 /**
  * Class CreateTypeStream
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Type\Command
  */
 class CreateTypeStream implements SelfHandling
@@ -45,10 +45,12 @@ class CreateTypeStream implements SelfHandling
                     'name'        => $this->type->getName(),
                     'description' => $this->type->getDescription()
                 ],
-                'namespace'                         => 'posts',
                 'slug'                              => $this->type->getSlug() . '_posts',
+                'namespace'                         => 'posts',
+                'locked'                            => false,
                 'translatable'                      => true,
-                'locked'                            => false
+                'trashable'                         => true,
+                'hidden'                            => true
             ]
         );
     }

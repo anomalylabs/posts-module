@@ -6,9 +6,9 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 /**
  * Class PostFormBuilder
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post\Form
  */
 class PostFormBuilder extends FormBuilder
@@ -54,10 +54,6 @@ class PostFormBuilder extends FormBuilder
 
         if (!$entry->type_id) {
             $entry->type_id = $type->getId();
-        }
-
-        if (!$entry->str_id) {
-            $entry->str_id = str_random();
         }
     }
 

@@ -1,13 +1,14 @@
 <?php namespace Anomaly\PostsModule\Post\Table;
 
+use Anomaly\PostsModule\Post\Table\Filter\StatusFilterQuery;
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 
 /**
  * Class PostTableBuilder
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post\Table
  */
 class PostTableBuilder extends TableBuilder
@@ -19,10 +20,27 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $filters = [
-        'title',
+        'search' => [
+            'fields' => [
+                'tags',
+                'title',
+                'summary',
+                'meta_title',
+                'meta_keywords',
+                'meta_description'
+            ]
+        ],
         'author',
         'category',
-        'enabled'
+        'status' => [
+            'filter'  => 'select',
+            'query'   => StatusFilterQuery::class,
+            'options' => [
+                'live'      => 'anomaly.module.posts::field.status.option.live',
+                'draft'     => 'anomaly.module.posts::field.status.option.draft',
+                'scheduled' => 'anomaly.module.posts::field.status.option.scheduled'
+            ]
+        ]
     ];
 
     /**
@@ -31,10 +49,13 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'entry.edit_link',
+        'title',
         'author',
         'category',
-        'entry.enabled.label'
+        'status' => [
+            'heading' => 'anomaly.module.posts::message.status',
+            'value'   => 'entry.status_label'
+        ]
     ];
 
     /**
@@ -43,6 +64,7 @@ class PostTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
+        'edit',
         'view' => [
             'target' => '_blank'
         ]
@@ -67,5 +89,4 @@ class PostTableBuilder extends TableBuilder
             'publish_at' => 'DESC'
         ]
     ];
-
 }

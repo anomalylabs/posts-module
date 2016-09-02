@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Database\Migration\Migration;
 /**
  * Class AnomalyModulePostsCreateCategoriesStream
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  */
 class AnomalyModulePostsCreateCategoriesStream extends Migration
 {
@@ -20,7 +20,9 @@ class AnomalyModulePostsCreateCategoriesStream extends Migration
     protected $stream = [
         'slug'         => 'categories',
         'title_column' => 'name',
-        'translatable' => true
+        'translatable' => true,
+        'sortable'     => true,
+        'trashable'    => true
     ];
 
     /**

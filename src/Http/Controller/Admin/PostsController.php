@@ -1,5 +1,6 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
+use Anomaly\PostsModule\Post\Command\GetPostPath;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\Form\Command\AddEntryFormFromPost;
@@ -15,9 +16,9 @@ use Illuminate\Routing\Redirector;
 /**
  * Class PostsController
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Http\Controller\Admin
  */
 class PostsController extends AdminController
@@ -79,8 +80,8 @@ class PostsController extends AdminController
         /* @var PostInterface $post */
         $post = $posts->find($id);
 
-        if (!$post->isEnabled()) {
-            return $redirect->to('posts/preview/' . $post->getStrId());
+        if (!$post->isLive()) {
+            return $redirect->to($this->dispatch(new GetPostPath($post)));
         }
 
         return $redirect->to($post->path());

@@ -3,15 +3,16 @@
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 
 /**
  * Class PostRepository
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post
  */
 class PostRepository extends EntryRepository implements PostRepositoryInterface
@@ -66,7 +67,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function findManyByTag($tag, $limit = null)
     {
         return $this->model
-            ->enabled()
+            ->live()
             ->where('tags', 'LIKE', '%"' . $tag . '"%')
             ->paginate($limit);
     }
@@ -81,9 +82,45 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function findManyByCategory(CategoryInterface $category, $limit = null)
     {
         return $this->model
-            ->enabled()
+            ->live()
             ->where('category_id', $category->getId())
             ->paginate($limit);
+    }
+
+    /**
+     * Find many posts by type.
+     *
+     * @param TypeInterface $type
+     * @param null          $limit
+     * @return PostCollection
+     */
+    public function findManyByType(TypeInterface $type, $limit = null)
+    {
+        return $this->model
+            ->live()
+            ->where('type_id', $type->getId())
+            ->paginate($limit);
+    }
+
+    /**
+     * Find many posts by date.
+     *
+     * @param      $year
+     * @param      $month
+     * @param null $limit
+     * @return PostCollection
+     */
+    public function findManyByDate($year, $month, $limit = null)
+    {
+        $query = $this->model
+            ->live()
+            ->whereYear('publish_at', '=', $year);
+
+        if ($month) {
+            $query->whereMonth('publish_at', '=', $month);
+        }
+
+        return $query->paginate($limit);
     }
 
     /**
@@ -94,7 +131,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function getRecent($limit = null)
     {
         return $this->model
-            ->enabled()
+            ->live()
             ->paginate($limit);
     }
 

@@ -10,7 +10,5 @@ return [
     'fields'       => 'Fields',
     'layout'       => 'Layout',
     'post'         => 'Post',
-    'seo'          => 'SEO',
-    'css'          => 'CSS',
-    'js'           => 'JS'
+    'seo'          => 'SEO'
 ];

@@ -3,20 +3,21 @@
 /**
  * Interface TypeInterface
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Type\Contract
  */
+use Anomaly\PostsModule\Post\PostCollection;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 
 /**
  * Interface TypeInterface
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Type\Contract
  */
 interface TypeInterface extends EntryInterface
@@ -71,4 +72,18 @@ interface TypeInterface extends EntryInterface
      * @return string
      */
     public function getJsPath();
+
+    /**
+     * Get related posts.
+     *
+     * @return PostCollection
+     */
+    public function getPosts();
+
+    /**
+     * Return the posts relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts();
 }

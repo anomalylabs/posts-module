@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Database\Migration\Migration;
 /**
  * Class AnomalyModulePostsCreatePostsFields
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  */
 class AnomalyModulePostsCreatePostsFields extends Migration
 {
@@ -28,6 +28,10 @@ class AnomalyModulePostsCreatePostsFields extends Migration
                 'type'    => '-'
             ]
         ],
+        'content'          => [
+            'type'   => 'anomaly.field_type.wysiwyg',
+            'locked' => 0 // Used with seeded pages.
+        ],
         'type'             => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
@@ -40,15 +44,16 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'publish_at'       => 'anomaly.field_type.datetime',
         'entry'            => 'anomaly.field_type.polymorphic',
         'author'           => [
-            'type'   => 'anomaly.field_type.user',
+            'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'permission' => 'anomaly.module.posts::posts.write'
+                'mode'    => 'lookup',
+                'related' => 'Anomaly\UsersModule\User\UserModel'
             ]
         ],
         'layout'           => [
             'type'   => 'anomaly.field_type.editor',
             'config' => [
-                'default_value' => '<h1>{{ post.title }}</h1>',
+                'default_value' => '{{ post.content|raw }}',
                 'mode'          => 'twig'
             ]
         ],
@@ -79,18 +84,6 @@ class AnomalyModulePostsCreatePostsFields extends Migration
                 'min'  => 0,
                 'step' => 1,
                 'page' => 5
-            ]
-        ],
-        'css'              => [
-            'type'   => 'anomaly.field_type.editor',
-            'config' => [
-                'mode' => 'css'
-            ]
-        ],
-        'js'               => [
-            'type'   => 'anomaly.field_type.editor',
-            'config' => [
-                'mode' => 'javascript'
             ]
         ],
         'theme_layout'     => [

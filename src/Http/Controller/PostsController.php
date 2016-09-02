@@ -1,23 +1,21 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
-use Anomaly\PostsModule\Command\AddCategoryBreadcrumb;
-use Anomaly\PostsModule\Command\AddPostBreadcrumb;
-use Anomaly\PostsModule\Command\AddPostsBreadcrumb;
-use Anomaly\PostsModule\Command\AddPostsMetaTitle;
+use Anomaly\PostsModule\Category\Command\AddCategoryBreadcrumb;
+use Anomaly\PostsModule\Post\Command\AddPostBreadcrumb;
+use Anomaly\PostsModule\Post\Command\AddPostsBreadcrumb;
+use Anomaly\PostsModule\Post\Command\AddPostsMetaTitle;
 use Anomaly\PostsModule\Post\Command\MakePostResponse;
 use Anomaly\PostsModule\Post\Command\MakePreviewResponse;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\PostResolver;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
-use Illuminate\Http\Request;
 
 /**
  * Class PostsController
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Http\Controller
  */
 class PostsController extends PublicController
@@ -65,16 +63,18 @@ class PostsController extends PublicController
     }
 
     /**
-     * Show an existing post.
+     * View an existing post.
      *
-     * @param PostRepositoryInterface    $posts
-     * @param Request                    $request
-     * @param SettingRepositoryInterface $settings
-     * @return \Illuminate\View\View
+     * @param PostResolver $resolver
+     * @return null|\Symfony\Component\HttpFoundation\Response
      */
-    public function show(PostResolver $resolver)
+    public function view(PostResolver $resolver)
     {
         if (!$post = $resolver->resolve()) {
+            abort(404);
+        }
+
+        if (!$post->isLive()) {
             abort(404);
         }
 

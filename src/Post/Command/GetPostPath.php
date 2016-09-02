@@ -1,16 +1,18 @@
 <?php namespace Anomaly\PostsModule\Post\Command;
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
-use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
-use Anomaly\Streams\Platform\Support\Parser;
+use Anomaly\Streams\Platform\Support\Evaluator;
+use Anomaly\Streams\Platform\Support\Resolver;
+use Anomaly\Streams\Platform\Support\Value;
 use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * Class GetPostPath
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post\Command
  */
 class GetPostPath implements SelfHandling
@@ -36,37 +38,29 @@ class GetPostPath implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param SettingRepositoryInterface $settings
-     * @param Parser                     $parser
+     * @param Repository $config
+     * @param Resolver   $resolver
+     * @param Evaluator  $evaluator
+     * @param Value      $value
      * @return string
      */
-    public function handle(SettingRepositoryInterface $settings, Parser $parser)
+    public function handle(Repository $config, Resolver $resolver, Evaluator $evaluator, Value $value)
     {
-        $base = $settings->value('anomaly.module.posts::module_segment', 'posts');
+        $base = '/' . $config->get('anomaly.module.posts::paths.module');
 
-        if (!$this->post->isEnabled()) {
+        if (!$this->post->isLive()) {
             return $base . '/preview/' . $this->post->getStrId();
         }
 
-        $permalink = $settings->value(
-            'anomaly.module.posts::permalink_structure',
-            [
-                'year',
-                'month',
-                'day',
-                'post'
-            ]
+        return $base . '/' . $value->make(
+            $evaluator->evaluate(
+                $resolver->resolve(
+                    $config->get('anomaly.module.posts::paths.permalink'),
+                    ['post' => $this->post]
+                ),
+                ['post' => $this->post]
+            ),
+            $this->post
         );
-
-        $permalink = implode('}/{', $permalink);
-
-        $data = [
-            'year'  => $this->post->created_at->format('Y'),
-            'month' => $this->post->created_at->format('m'),
-            'day'   => $this->post->created_at->format('d'),
-            'post'  => $this->post->getSlug()
-        ];
-
-        return $parser->parse($base . '/' . "{{$permalink}}", $data);
     }
 }

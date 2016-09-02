@@ -5,21 +5,27 @@ use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
 /**
  * Class CategoryTableBuilder
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Category\Table
  */
 class CategoryTableBuilder extends TableBuilder
 {
 
     /**
-     * The table filters.
+     * The table columns.
      *
      * @var array
      */
     protected $filters = [
-        'name'
+        'search' => [
+            'fields' => [
+                'name',
+                'slug',
+                'description'
+            ]
+        ]
     ];
 
     /**
@@ -28,7 +34,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $columns = [
-        'entry.edit_link',
+        'name',
         'slug',
         'description'
     ];
@@ -39,6 +45,7 @@ class CategoryTableBuilder extends TableBuilder
      * @var array
      */
     protected $buttons = [
+        'edit',
         'view' => [
             'target' => '_blank'
         ]

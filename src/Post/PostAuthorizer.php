@@ -2,14 +2,14 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Support\Authorizer;
-use Illuminate\Auth\Guard;
+use Illuminate\Contracts\Auth\Guard;
 
 /**
  * Class PostAuthorizer
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post
  */
 class PostAuthorizer
@@ -48,11 +48,7 @@ class PostAuthorizer
      */
     public function authorize(PostInterface $post)
     {
-        if (!$post->isEnabled() && !$this->guard->user()) {
-            abort(404);
-        }
-
-        if (!$this->authorizer->authorize('anomaly.module.posts::view_drafts')) {
+        if (!$post->isEnabled() && !$this->authorizer->authorize('anomaly.module.posts::view_drafts')) {
             abort(404);
         }
     }

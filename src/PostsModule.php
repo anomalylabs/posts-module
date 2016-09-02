@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Addon\Module\Module;
 /**
  * Class PostsModule
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule
  */
 class PostsModule extends Module
@@ -43,10 +43,10 @@ class PostsModule extends Module
         'types'      => [
             'buttons' => [
                 'new_type',
-                'add_field' => [
+                'assign_fields' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'enabled'     => 'admin/posts/types/fields/*',
+                    'enabled'     => 'admin/posts/types/assignments/*',
                     'href'        => 'admin/posts/types/choose/{request.route.parameters.id}'
                 ]
             ]

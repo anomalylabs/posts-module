@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Database\Migration\Migration;
 /**
  * Class AnomalyModulePostsCreatePostsStream
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  */
 class AnomalyModulePostsCreatePostsStream extends Migration
 {
@@ -20,7 +20,8 @@ class AnomalyModulePostsCreatePostsStream extends Migration
     protected $stream = [
         'slug'         => 'posts',
         'title_column' => 'title',
-        'translatable' => true
+        'translatable' => true,
+        'trashable'    => true
     ];
 
     /**
@@ -36,6 +37,9 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         'title'            => [
             'translatable' => true,
             'required'     => true
+        ],
+        'summary'          => [
+            'translatable' => true
         ],
         'slug'             => [
             'required' => true,
@@ -64,11 +68,8 @@ class AnomalyModulePostsCreatePostsStream extends Migration
         ],
         'category',
         'featured',
-        'summary',
         'enabled',
-        'tags',
-        'css',
-        'js'
+        'tags'
     ];
 
 }

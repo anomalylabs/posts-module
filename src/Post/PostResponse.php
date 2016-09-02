@@ -6,9 +6,9 @@ use Illuminate\Routing\ResponseFactory;
 /**
  * Class PostResponse
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post
  */
 class PostResponse
@@ -38,6 +38,14 @@ class PostResponse
      */
     public function make(PostInterface $post)
     {
-        $post->setResponse($this->response->view('anomaly.module.posts::posts/post', compact('post')));
+        $post->setResponse(
+            $this->response->view(
+                'anomaly.module.posts::posts/post',
+                [
+                    'post'    => $post,
+                    'content' => $post->getContent()
+                ]
+            )
+        );
     }
 }

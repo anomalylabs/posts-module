@@ -1,4 +1,4 @@
-{% extends post.type.theme_layout ?: "theme::layouts/default" %}
+{% extends post.type.theme_layout %}
 
 {% block content %}
 
@@ -27,7 +27,7 @@
 
                     {% if post.tags %}
                         <span class="tags">
-                            {{ post.tag_links|raw }}
+                            {{ post.tags.labels|join(' ')|raw }}
                         </span>
                     {% endif %}
 
@@ -36,7 +36,7 @@
             </header>
 
             <div class="content">
-                {{ post.content|raw }}
+                {{ content|raw }}
             </div>
 
         </article>

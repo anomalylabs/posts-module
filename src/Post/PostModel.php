@@ -7,15 +7,16 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class PostModel
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Post
  */
 class PostModel extends PostsPostsEntryModel implements PostInterface
@@ -43,12 +44,22 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     protected $cacheMinutes = 99999;
 
     /**
-     * Restrict to active posts only.
+     * Eager load these relations.
+     *
+     * @var array
+     */
+    protected $with = [
+        'entry',
+        'translations'
+    ];
+
+    /**
+     * Restrict to live posts only.
      *
      * @param Builder $query
      * @return Builder
      */
-    public function scopeEnabled(Builder $query)
+    public function scopeLive(Builder $query)
     {
         return $query
             ->where('enabled', 1)
@@ -161,6 +172,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Return if the post is live or not.
+     *
+     * @return bool
+     */
+    public function isLive()
+    {
+        return $this->isEnabled() && $this->getPublishAt()->diff(new \DateTime())->invert == 0;
+    }
+
+    /**
      * Get the enabled flag.
      *
      * @return bool
@@ -202,6 +223,37 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getMetaDescription()
     {
         return $this->meta_description;
+    }
+
+    /**
+     * Return the publish at date.
+     *
+     * @return Carbon
+     */
+    public function getPublishAt()
+    {
+        return $this->publish_at;
+    }
+
+    /**
+     * Alias for getPublishAt()
+     *
+     * @return Carbon
+     */
+    public function getDate()
+    {
+        return $this->getPublishAt();
+    }
+
+    /**
+     * Return if the model is
+     * restorable or not.
+     *
+     * @return bool
+     */
+    public function isRestorable()
+    {
+        return $this->getType() ? true : false;
     }
 
     /**

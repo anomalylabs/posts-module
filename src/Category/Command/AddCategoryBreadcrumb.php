@@ -1,4 +1,4 @@
-<?php namespace Anomaly\PostsModule\Command;
+<?php namespace Anomaly\PostsModule\Category\Command;
 
 use Anomaly\PostsModule\Category\Command\GetCategoryPath;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
@@ -9,10 +9,10 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 /**
  * Class AddCategoryBreadcrumb
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\PostsModule\Command
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @package       Anomaly\PostsModule\Post\Command
  */
 class AddCategoryBreadcrumb implements SelfHandling
 {

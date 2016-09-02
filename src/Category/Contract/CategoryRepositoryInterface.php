@@ -5,17 +5,16 @@ use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 /**
  * Interface CategoryRepositoryInterface
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\PostsModule\Category\Contract
  */
 interface CategoryRepositoryInterface extends EntryRepositoryInterface
 {
 
     /**
-     * Find a category by it's related
-     * posts and it's slug.
+     * Find a category by it's slug.
      *
      * @param $slug
      * @return null|CategoryInterface
