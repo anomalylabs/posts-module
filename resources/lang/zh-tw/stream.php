@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'posts'      => [
+    'posts' => [
         'name' => '文章',
     ],
     'post_types' => [
