@@ -1,4 +1,4 @@
-<?php namespace Anomaly\PostsModule\Seeder;
+<?php namespace Anomaly\PostsModule\Post;
 
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
@@ -10,9 +10,9 @@ use Anomaly\Streams\Platform\Model\Posts\PostsDefaultPostsEntryModel;
 /**
  * Class PostSeeder
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class PostSeeder extends Seeder
 {

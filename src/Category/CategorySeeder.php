@@ -1,4 +1,4 @@
-<?php namespace Anomaly\PostsModule\Seeder;
+<?php namespace Anomaly\PostsModule\Category;
 
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\Streams\Platform\Database\Seeder\Seeder;
@@ -6,9 +6,9 @@ use Anomaly\Streams\Platform\Database\Seeder\Seeder;
 /**
  * Class CategorySeeder
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class CategorySeeder extends Seeder
 {

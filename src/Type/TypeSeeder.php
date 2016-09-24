@@ -1,4 +1,4 @@
-<?php namespace Anomaly\PostsModule\Seeder;
+<?php namespace Anomaly\PostsModule\Type;
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
@@ -10,9 +10,9 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 /**
  * Class TypeSeeder
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class TypeSeeder extends Seeder
 {
@@ -85,7 +85,7 @@ class TypeSeeder extends Seeder
                     ],
                     'slug'         => 'default',
                     'theme_layout' => 'theme::layouts/default.twig',
-                    'layout'       => '{{ post.content|raw }}',
+                    'layout'       => '{{ post.content.render|raw }}',
                 ]
             );
 
