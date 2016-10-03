@@ -317,16 +317,16 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
-     * Return the post as an array.
+     * Return the searchable array.
      *
      * @return array
      */
-    public function toArray()
+    public function toSearchableArray()
     {
-        $array = parent::toArray();
+        $array = parent::toSearchableArray();
 
         if ($entry = $this->getEntry()) {
-            $array = array_merge($entry->toArray(), $array);
+            $array = array_merge($entry->toSearchableArray(), $array);
         }
 
         return $array;
