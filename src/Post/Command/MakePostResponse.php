@@ -2,6 +2,7 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\PostAuthorizer;
+use Anomaly\PostsModule\Post\PostBreadcrumb;
 use Anomaly\PostsModule\Post\PostContent;
 use Anomaly\PostsModule\Post\PostLoader;
 use Anomaly\PostsModule\Post\PostResponse;
@@ -37,18 +38,20 @@ class MakePostResponse
     /**
      * Handle the command
      *
-     * @param PostLoader     $loader
-     * @param PostContent    $content
-     * @param PostResponse   $response
+     * @param PostLoader $loader
+     * @param PostContent $content
+     * @param PostResponse $response
      * @param PostAuthorizer $authorizer
      */
     public function handle(
         PostLoader $loader,
         PostContent $content,
         PostResponse $response,
-        PostAuthorizer $authorizer
+        PostAuthorizer $authorizer,
+        PostBreadcrumb $breadcrumb
     ) {
         $authorizer->authorize($this->post);
+        $breadcrumb->make($this->post);
         $loader->load($this->post);
         $content->make($this->post);
         $response->make($this->post);
