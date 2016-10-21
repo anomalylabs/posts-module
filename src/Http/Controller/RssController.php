@@ -16,10 +16,28 @@ class RssController extends PublicController
 {
 
     /**
+     * Return an RSS feed of posts.
+     *
+     * @param  PostRepositoryInterface $posts
+     * @param  ResponseFactory         $response
+     * @return \Illuminate\Http\Response|ResponseFactory
+     */
+    public function feed(PostRepositoryInterface $posts, ResponseFactory $response)
+    {
+        $response = $response
+            ->view('module::posts/rss', ['posts' => $posts->getLive()])
+            ->setTtl(3600);
+
+        $response->headers->set('content-type', 'text/xml');
+
+        return $response;
+    }
+
+    /**
      * Return an RSS feed of recent posts.
      *
-     * @param  PostRepositoryInterface                   $posts
-     * @param  ResponseFactory                           $response
+     * @param  PostRepositoryInterface $posts
+     * @param  ResponseFactory         $response
      * @return \Illuminate\Http\Response|ResponseFactory
      */
     public function recent(PostRepositoryInterface $posts, ResponseFactory $response)

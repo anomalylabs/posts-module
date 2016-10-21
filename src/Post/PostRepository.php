@@ -89,8 +89,8 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     /**
      * Find many posts by type.
      *
-     * @param  TypeInterface  $type
-     * @param  null           $limit
+     * @param  TypeInterface $type
+     * @param  null          $limit
      * @return PostCollection
      */
     public function findManyByType(TypeInterface $type, $limit = null)
@@ -145,5 +145,17 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
             ->enabled()
             ->where('featured', true)
             ->paginate($limit);
+    }
+
+    /**
+     * Get live posts.
+     *
+     * @return PostCollection
+     */
+    public function getLive()
+    {
+        return $this->model
+            ->live()
+            ->get();
     }
 }
