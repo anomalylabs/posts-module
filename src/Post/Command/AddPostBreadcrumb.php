@@ -2,14 +2,13 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
-use Illuminate\Http\Request;
 
 /**
  * Class AddPostBreadcrumb
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class AddPostBreadcrumb
 {
@@ -34,14 +33,13 @@ class AddPostBreadcrumb
     /**
      * Handle the command.
      *
-     * @param Request              $request
      * @param BreadcrumbCollection $breadcrumbs
      */
-    public function handle(Request $request, BreadcrumbCollection $breadcrumbs)
+    public function handle(BreadcrumbCollection $breadcrumbs)
     {
         $breadcrumbs->add(
             $this->post->getTitle(),
-            $request->fullUrl()
+            $this->post->route('view')
         );
     }
 }

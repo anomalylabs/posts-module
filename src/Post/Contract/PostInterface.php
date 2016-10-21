@@ -17,11 +17,18 @@ interface PostInterface extends EntryInterface
 {
 
     /**
-     * Return the post's path.
+     * Make the post.
      *
-     * @return string
+     * @return $this
      */
-    public function path();
+    public function make();
+
+    /**
+     * Return the post content.
+     *
+     * @return null|string
+     */
+    public function content();
 
     /**
      * Get the string ID.

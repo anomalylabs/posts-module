@@ -1,21 +1,17 @@
 <?php namespace Anomaly\PostsModule\Category\Command;
 
-use Anomaly\PostsModule\Category\Command\GetCategoryPath;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class AddCategoryBreadcrumb
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class AddCategoryBreadcrumb
 {
-
-    use DispatchesJobs;
 
     /**
      * The category instance.
@@ -43,7 +39,7 @@ class AddCategoryBreadcrumb
     {
         $breadcrumbs->add(
             $this->category->getName(),
-            $this->dispatch(new GetCategoryPath($this->category))
+            $this->category->route('view')
         );
     }
 }

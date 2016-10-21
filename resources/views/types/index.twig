@@ -13,9 +13,9 @@
 
         </header>
 
-        {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
+        {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
 
-        {{ posts.render|raw }}
+        {{ posts.links|raw }}
 
     </div>
 {% endblock %}

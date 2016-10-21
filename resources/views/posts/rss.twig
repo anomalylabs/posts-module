@@ -9,8 +9,8 @@
                 <title>{{ post.title }}</title>
                 <description>{{ post.summary }}</description>
                 <pubDate>{{ post.publish_at.rfc }}</pubDate>
-                <link>{{ url(post.path) }}</link>
-                <guid isPermaLink="true">{{ url(post.path) }}</guid>
+                <link>{{ post.route('view') }}</link>
+                <guid isPermaLink="true">{{ post.route('view') }}</guid>
             </item>
         {% endfor %}
     </channel>

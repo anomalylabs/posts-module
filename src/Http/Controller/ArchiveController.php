@@ -8,9 +8,9 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
 /**
  * Class ArchiveController
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class ArchiveController extends PublicController
 {
@@ -23,13 +23,11 @@ class ArchiveController extends PublicController
      * @param  null                                                     $month
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(PostRepositoryInterface $posts, $year, $month = null)
+    public function index($year, $month = null)
     {
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddArchiveBreadcrumb());
 
-        $posts = $posts->findManyByDate($year, $month);
-
-        return view('anomaly.module.posts::archive/index', compact('year', 'month', 'posts'));
+        return $this->view->make('anomaly.module.posts::archive/index', compact('year', 'month'));
     }
 }
