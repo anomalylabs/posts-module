@@ -74,7 +74,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         $tag       = $config->get('anomaly.module.posts::paths.tag');
         $module    = $config->get('anomaly.module.posts::paths.module');
         $category  = $config->get('anomaly.module.posts::paths.category');
-        $permalink = $config->get('anomaly.module.posts::paths.route'); ;
+        $permalink = $config->get('anomaly.module.posts::paths.route');;
 
         /*
          * Map the RSS methods.
@@ -96,9 +96,17 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         );
 
         $router->any(
-            "{$module}/rss.xml",
+            "{$module}/recent.xml",
             [
                 'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@recent',
+                'streams::addon' => 'anomaly.module.posts',
+            ]
+        );
+
+        $router->any(
+            "{$module}/rss.xml",
+            [
+                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@feed',
                 'streams::addon' => 'anomaly.module.posts',
             ]
         );

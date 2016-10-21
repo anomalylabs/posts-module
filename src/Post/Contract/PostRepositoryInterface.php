@@ -83,4 +83,11 @@ interface PostRepositoryInterface extends EntryRepositoryInterface
      * @return PostCollection
      */
     public function getFeatured($limit = null);
+
+    /**
+     * Get live posts.
+     *
+     * @return PostCollection
+     */
+    public function getLive();
 }
