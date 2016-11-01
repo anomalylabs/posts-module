@@ -8,6 +8,7 @@ use Anomaly\PostsModule\Post\Form\Command\AddPostFormFromPost;
 use Anomaly\PostsModule\Post\Form\Command\AddPostFormFromRequest;
 use Anomaly\PostsModule\Post\Form\PostEntryFormBuilder;
 use Anomaly\PostsModule\Post\Table\PostTableBuilder;
+use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 use Anomaly\Streams\Platform\Support\Authorizer;
 use Illuminate\Routing\Redirector;
@@ -31,6 +32,17 @@ class PostsController extends AdminController
     public function index(PostTableBuilder $tree)
     {
         return $tree->render();
+    }
+
+    /**
+     * Return the modal for choosing a post type.
+     *
+     * @param  TypeRepositoryInterface $types
+     * @return \Illuminate\View\View
+     */
+    public function choose(TypeRepositoryInterface $types)
+    {
+        return $this->view->make('module::admin/posts/choose', ['types' => $types->all()]);
     }
 
     /**

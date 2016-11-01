@@ -30,32 +30,39 @@ class PostsModule extends Module
                 'new_post' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/posts/ajax/choose_type',
+                    'href'        => 'admin/posts/choose',
                 ],
             ],
         ],
         'categories' => [
             'buttons' => [
                 'new_category',
+                'assignments',
             ],
         ],
         'types'      => [
             'buttons' => [
                 'new_type',
-                'assign_fields' => [
-                    'data-toggle' => 'modal',
-                    'data-target' => '#modal',
-                    'enabled'     => 'admin/posts/types/assignments/*',
-                    'href'        => 'admin/posts/types/choose/{request.route.parameters.id}',
-                ],
             ],
         ],
         'fields'     => [
-            'buttons' => [
+            'buttons'  => [
                 'new_field' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
                     'href'        => 'admin/posts/fields/choose',
+                ],
+            ],
+            'sections' => [
+                'assignments' => [
+                    'href'    => 'admin/posts/fields/assignments/{request.route.parameters.stream}',
+                    'buttons' => [
+                        'assign_fields' => [
+                            'data-toggle' => 'modal',
+                            'data-target' => '#modal',
+                            'href'        => 'admin/posts/fields/assignments/{request.route.parameters.stream}/choose',
+                        ],
+                    ],
                 ],
             ],
         ],

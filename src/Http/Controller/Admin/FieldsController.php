@@ -39,7 +39,7 @@ class FieldsController extends AdminController
      */
     public function choose(FieldTypeCollection $fieldTypes)
     {
-        return view('module::admin/ajax/choose_field_type', ['field_types' => $fieldTypes->all()]);
+        return $this->view->make('module::admin/fields/choose', ['field_types' => $fieldTypes->all()]);
     }
 
     /**

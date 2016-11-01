@@ -18,13 +18,6 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
 {
 
     /**
-     * The cache time.
-     *
-     * @var int
-     */
-    protected $cacheMinutes = 99999;
-
-    /**
      * Get the name.
      *
      * @return string
@@ -62,6 +55,18 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     public function getEntryStream()
     {
         return $this->dispatch(new GetTypeStream($this));
+    }
+
+    /**
+     * Get the related entry stream ID.
+     *
+     * @return integer
+     */
+    public function getEntryStreamId()
+    {
+        $stream = $this->getEntryStream();
+
+        return $stream->getId();
     }
 
     /**

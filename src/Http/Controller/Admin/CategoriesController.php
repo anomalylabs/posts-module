@@ -5,6 +5,7 @@ use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Category\Form\CategoryFormBuilder;
 use Anomaly\PostsModule\Category\Table\CategoryTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
+use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 
 /**
  * Class CategoriesController
@@ -63,5 +64,18 @@ class CategoriesController extends AdminController
         $category = $categories->find($id);
 
         return $this->redirect->to($category->route('view'));
+    }
+
+    /**
+     * Go to assignments.
+     *
+     * @param StreamRepositoryInterface $streams
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function assignments(StreamRepositoryInterface $streams)
+    {
+        $stream = $streams->findBySlugAndNamespace('categories', 'posts');
+
+        return $this->redirect->to('admin/posts/fields/assignments/' . $stream->getId());
     }
 }

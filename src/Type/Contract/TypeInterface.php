@@ -51,6 +51,13 @@ interface TypeInterface extends EntryInterface
     public function getEntryStream();
 
     /**
+     * Get the related entry stream ID.
+     *
+     * @return integer
+     */
+    public function getEntryStreamId();
+
+    /**
      * Get the related stream's
      * entry model name.
      *
