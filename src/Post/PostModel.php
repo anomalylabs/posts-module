@@ -2,7 +2,7 @@
 
 use Anomaly\EditorFieldType\EditorFieldType;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
-use Anomaly\PostsModule\Post\Command\GetPostPath;
+use Anomaly\PostsModule\Post\Command\MakePostResponse;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
@@ -14,9 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class PostModel
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class PostModel extends PostsPostsEntryModel implements PostInterface
 {
@@ -67,13 +67,27 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
-     * Return the post's path.
+     * Make the page.
      *
-     * @return string
+     * @return $this
      */
-    public function path()
+    public function make()
     {
-        return $this->dispatch(new GetPostPath($this));
+        $this->dispatch(new MakePostResponse($this));
+
+        return $this;
+    }
+
+    /**
+     * Return the page content.
+     *
+     * @return null|string
+     */
+    public function content()
+    {
+        return $this
+            ->make()
+            ->getContent();
     }
 
     /**
@@ -314,6 +328,24 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
         $this->response = $response;
 
         return $this;
+    }
+
+    /**
+     * Return the routable array information.
+     *
+     * @return array
+     */
+    public function toRoutableArray()
+    {
+        $array = parent::toRoutableArray();
+
+        $date = $this->getPublishAt();
+
+        foreach (config('anomaly.module.posts::format.publish_at') as $key => $format) {
+            $array['publish_at_' . $key] = $date->format($format);
+        }
+
+        return $array;
     }
 
     /**

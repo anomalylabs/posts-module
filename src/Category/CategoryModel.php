@@ -1,6 +1,5 @@
 <?php namespace Anomaly\PostsModule\Category;
 
-use Anomaly\PostsModule\Category\Command\GetCategoryPath;
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel;
@@ -9,19 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Class CategoryModel
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterface
 {
-
-    /**
-     * The cache time.
-     *
-     * @var int
-     */
-    protected $cacheMinutes = 99999;
 
     /**
      * Get the name.
@@ -51,16 +43,6 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
     public function getPosts()
     {
         return $this->posts;
-    }
-
-    /**
-     * Return the category's path.
-     *
-     * @return string
-     */
-    public function path()
-    {
-        return $this->dispatch(new GetCategoryPath($this));
     }
 
     /**

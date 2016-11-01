@@ -36,13 +36,6 @@ interface CategoryInterface extends EntryInterface
     public function getPosts();
 
     /**
-     * Return the category's path.
-     *
-     * @return string
-     */
-    public function path();
-
-    /**
      * Return the posts relation.
      *
      * @return HasMany

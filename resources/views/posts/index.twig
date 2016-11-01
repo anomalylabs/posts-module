@@ -3,9 +3,11 @@
 {% block content %}
     <div id="posts">
 
-        {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
+        {% set posts = entries('posts').recent().paginate() %}
 
-        {{ posts.render|raw }}
+        {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
+
+        {{ posts.links|raw }}
 
     </div>
 {% endblock %}

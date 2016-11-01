@@ -1,8 +1,6 @@
 <?php namespace Anomaly\PostsModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
-use Illuminate\Contracts\Config\Repository;
-use Illuminate\Routing\Router;
 
 /**
  * Class PostsModuleServiceProvider
@@ -20,6 +18,42 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
+        "posts/rss/categories/{category}.xml"                        => [
+            'as'   => 'anomaly.module.posts::categories.rss',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\RssController@category',
+        ],
+        "posts/rss/tags/{tag}.xml"                                   => [
+            'as'   => 'anomaly.module.posts::tags.rss',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
+        ],
+        "posts/rss.xml"                                              => [
+            'as'   => 'anomaly.module.posts::posts.rss',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\RssController@recent',
+        ],
+        'posts'                                                      => [
+            'as'   => 'anomaly.module.posts::posts.index',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@index',
+        ],
+        "posts/preview/{str_id}"                                     => [
+            'as'   => 'anomaly.module.posts::posts.preview',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@preview',
+        ],
+        "posts/tags/{tag}"                                           => [
+            'as'   => 'anomaly.module.posts::tags.view',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\TagsController@index',
+        ],
+        "posts/categories/{slug}"                                    => [
+            'as'   => 'anomaly.module.posts::categories.view',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index',
+        ],
+        "posts/archive/{year}/{month?}"                              => [
+            'as'   => 'anomaly.module.posts::tags.archive',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\ArchiveController@index',
+        ],
+        "posts/{slug}"                                               => [
+            'as'   => 'anomaly.module.posts::posts.view',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@view',
+        ],
         'admin/posts'                                                => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@index',
         'admin/posts/create'                                         => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@create',
         'admin/posts/edit/{id}'                                      => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@edit',
@@ -62,114 +96,4 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface'         => 'Anomaly\PostsModule\Type\TypeRepository',
         'Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface' => 'Anomaly\PostsModule\Category\CategoryRepository',
     ];
-
-    /**
-     * Map additional routes.
-     *
-     * @param Router     $router
-     * @param Repository $config
-     */
-    public function map(Router $router, Repository $config)
-    {
-        $tag       = $config->get('anomaly.module.posts::paths.tag');
-        $module    = $config->get('anomaly.module.posts::paths.module');
-        $category  = $config->get('anomaly.module.posts::paths.category');
-        $permalink = $config->get('anomaly.module.posts::paths.route');;
-
-        /*
-         * Map the RSS methods.
-         */
-        $router->any(
-            "{$module}/rss/category/{category}.xml",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@category',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/rss/tag/{tag}.xml",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/recent.xml",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@recent',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/rss.xml",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\RssController@feed',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        /*
-         * Map other public routes.
-         * Mind the order. Routes are
-         * handled first come first serve.
-         */
-        $router->any(
-            "{$module}/{type}",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\TypesController@index',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            $module,
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@index',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/preview/{id}",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@preview',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/{$tag}/{tag}",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\TagsController@index',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/{$category}/{category}",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/archive/{year}/{month?}",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\ArchiveController@index',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-
-        $router->any(
-            "{$module}/{$permalink}",
-            [
-                'uses'           => 'Anomaly\PostsModule\Http\Controller\PostsController@view',
-                'streams::addon' => 'anomaly.module.posts',
-            ]
-        );
-    }
 }

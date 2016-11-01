@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule\Post\Command;
 
+use Anomaly\Streams\Platform\Routing\UrlGenerator;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
-use Illuminate\Contracts\Config\Repository;
 
 /**
  * Class AddPostsBreadcrumb
@@ -16,14 +16,14 @@ class AddPostsBreadcrumb
     /**
      * Handle the command.
      *
-     * @param Repository           $config
      * @param BreadcrumbCollection $breadcrumbs
+     * @param UrlGenerator         $url
      */
-    public function handle(Repository $config, BreadcrumbCollection $breadcrumbs)
+    public function handle(BreadcrumbCollection $breadcrumbs, UrlGenerator $url)
     {
         $breadcrumbs->add(
             'anomaly.module.posts::breadcrumb.posts',
-            $config->get('anomaly.module.posts::paths.module')
+            $url->route('anomaly.module.posts::posts.index')
         );
     }
 }
