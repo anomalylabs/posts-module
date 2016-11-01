@@ -26,6 +26,16 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
     }
 
     /**
+     * Get the description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
      * Get the slug.
      *
      * @return string

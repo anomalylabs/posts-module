@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule\Http\Controller;
 
 use Anomaly\PostsModule\Category\Command\AddCategoryBreadcrumb;
-use Anomaly\PostsModule\Category\Command\AddCategoryMetaTitle;
+use Anomaly\PostsModule\Category\Command\AddCategoryMetadata;
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Post\Command\AddPostsBreadcrumb;
 use Anomaly\Streams\Platform\Http\Controller\PublicController;
@@ -31,7 +31,7 @@ class CategoriesController extends PublicController
 
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddCategoryBreadcrumb($category));
-        $this->dispatch(new AddCategoryMetaTitle($category));
+        $this->dispatch(new AddCategoryMetadata($category));
 
         return $this->view->make('anomaly.module.posts::categories/index', compact('category'));
     }

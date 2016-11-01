@@ -5,13 +5,13 @@ use Anomaly\Streams\Platform\View\ViewTemplate;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class AddCategoryMetaTitle
+ * Class AddCategoryMetadata
  *
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
  */
-class AddCategoryMetaTitle
+class AddCategoryMetadata
 {
 
     use DispatchesJobs;
@@ -24,7 +24,7 @@ class AddCategoryMetaTitle
     protected $category;
 
     /**
-     * Create a new AddCategoryMetaTitle instance.
+     * Create a new AddCategoryMetadata instance.
      *
      * @param CategoryInterface $category
      */
@@ -41,5 +41,6 @@ class AddCategoryMetaTitle
     public function handle(ViewTemplate $template)
     {
         $template->set('meta_title', $this->category->getName());
+        $template->set('meta_description', $this->category->getDescription());
     }
 }
