@@ -4,6 +4,13 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Illuminate\View\Factory;
 use Robbo\Presenter\Decorator;
 
+/**
+ * Class PostContent
+ *
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
+ */
 class PostContent
 {
 

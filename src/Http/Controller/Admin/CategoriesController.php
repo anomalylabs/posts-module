@@ -9,9 +9,9 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
 /**
  * Class CategoriesController
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class CategoriesController extends AdminController
 {
@@ -19,7 +19,7 @@ class CategoriesController extends AdminController
     /**
      * Return an index of existing categories.
      *
-     * @param  CategoryTableBuilder      $table
+     * @param  CategoryTableBuilder $table
      * @return \Illuminate\Http\Response
      */
     public function index(CategoryTableBuilder $table)
@@ -30,7 +30,7 @@ class CategoriesController extends AdminController
     /**
      * Create the form for creating a new category.
      *
-     * @param  CategoryFormBuilder                        $form
+     * @param  CategoryFormBuilder $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(CategoryFormBuilder $form)
@@ -62,6 +62,6 @@ class CategoriesController extends AdminController
         /* @var CategoryInterface $category */
         $category = $categories->find($id);
 
-        return $this->redirect->to($category->path());
+        return $this->redirect->to($category->route('view'));
     }
 }

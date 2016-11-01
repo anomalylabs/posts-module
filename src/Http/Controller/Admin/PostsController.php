@@ -1,6 +1,5 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
-use Anomaly\PostsModule\Post\Command\GetPostPath;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\Form\Command\AddEntryFormFromPost;
@@ -26,7 +25,7 @@ class PostsController extends AdminController
     /**
      * Return a tree of existing posts.
      *
-     * @param  PostTableBuilder          $tree
+     * @param  PostTableBuilder $tree
      * @return \Illuminate\Http\Response
      */
     public function index(PostTableBuilder $tree)
@@ -37,7 +36,7 @@ class PostsController extends AdminController
     /**
      * Return the form for creating a new post.
      *
-     * @param  PostEntryFormBuilder                       $form
+     * @param  PostEntryFormBuilder $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(PostEntryFormBuilder $form)
@@ -80,10 +79,10 @@ class PostsController extends AdminController
         $post = $posts->find($id);
 
         if (!$post->isLive()) {
-            return $redirect->to($this->dispatch(new GetPostPath($post)));
+            return $redirect->to($post->route('preview'));
         }
 
-        return $redirect->to($post->path());
+        return $redirect->to($post->route('view'));
     }
 
     /**

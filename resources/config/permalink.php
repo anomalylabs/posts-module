@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Date Formats
+    | Date Format
     |--------------------------------------------------------------------------
     |
     | Specify the date format for publish_at
@@ -19,8 +19,13 @@ return [
     |
     | "posts/{publish_at_year}/{slug}" => route information
     |
+    | NOTE THAT BECAUSE FORMATS ARE DEFINED HERE THEY
+    | WILL NOT BE INCLUDED IN THE PERMALINKS.
+    |
+    | You will still need to override the route as desired.
+    |
     */
-    'publish_at' => [
+    'format' => [
         'year'  => 'Y',
         'month' => 'm',
         'day'   => 'd',

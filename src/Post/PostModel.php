@@ -36,13 +36,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     protected $response = null;
 
     /**
-     * The cache time.
-     *
-     * @var int
-     */
-    protected $cacheMinutes = 99999;
-
-    /**
      * Eager load these relations.
      *
      * @var array
@@ -341,7 +334,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
 
         $date = $this->getPublishAt();
 
-        foreach (config('anomaly.module.posts::format.publish_at') as $key => $format) {
+        foreach (config('anomaly.module.posts::permalink.format') as $key => $format) {
             $array['publish_at_' . $key] = $date->format($format);
         }
 
