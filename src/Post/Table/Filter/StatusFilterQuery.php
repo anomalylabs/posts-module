@@ -2,6 +2,7 @@
 
 use Anomaly\Streams\Platform\Ui\Table\Component\Filter\Contract\FilterInterface;
 use Anomaly\Streams\Platform\Ui\Table\Component\Filter\Query\GenericFilterQuery;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -22,12 +23,14 @@ class StatusFilterQuery extends GenericFilterQuery
      */
     public function handle(Builder $query, FilterInterface $filter)
     {
+        $now = Carbon::now()->format('Y-m-d H:i:s');
+
         if ($filter->getValue() == 'live') {
-            $query->where('enabled', true)->where('publish_at', '<', time());
+            $query->where('enabled', true)->whereDate('publish_at', '<', $now);
         }
 
         if ($filter->getValue() == 'scheduled') {
-            $query->where('enabled', true)->where('publish_at', '>', time());
+            $query->where('enabled', true)->whereDate('publish_at', '>', $now);
         }
 
         if ($filter->getValue() == 'draft') {
