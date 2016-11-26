@@ -118,7 +118,7 @@ class PostPresenter extends EntryPresenter
                 break;
         }
 
-        return '<span class="label label-' . $size . ' label-' . $color . '">' . trans(
+        return '<span class="tag tag-' . $size . ' tag-' . $color . '">' . trans(
             'anomaly.module.posts::field.status.option.' . $status
         ) . '</span>';
     }
