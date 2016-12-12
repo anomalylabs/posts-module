@@ -1,6 +1,9 @@
 <?php namespace Anomaly\PostsModule\Post;
 
+use Anomaly\EditorFieldType\EditorFieldType;
+use Anomaly\EditorFieldType\EditorFieldTypePresenter;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\View\Factory;
 use Robbo\Presenter\Decorator;
 
@@ -29,15 +32,24 @@ class PostContent
     protected $decorator;
 
     /**
+     * The response factory.
+     *
+     * @var ResponseFactory
+     */
+    protected $response;
+
+    /**
      * Create a new PostContent instance.
      *
-     * @param Factory   $view
-     * @param Decorator $decorator
+     * @param Factory         $view
+     * @param Decorator       $decorator
+     * @param ResponseFactory $response
      */
-    public function __construct(Factory $view, Decorator $decorator)
+    public function __construct(Factory $view, Decorator $decorator, ResponseFactory $response)
     {
         $this->view      = $view;
         $this->decorator = $decorator;
+        $this->response  = $response;
     }
 
     /**
@@ -47,6 +59,24 @@ class PostContent
      */
     public function make(PostInterface $post)
     {
-        $post->setContent($this->view->make($post->getLayoutViewPath(), compact('post'))->render());
+        $type = $post->getType();
+
+        /* @var EditorFieldType $layout */
+        /* @var EditorFieldTypePresenter $presenter */
+        $layout    = $type->getFieldType('layout');
+        $presenter = $type->getFieldTypePresenter('layout');
+
+        $post->setContent($this->view->make($layout->getViewPath(), compact('post'))->render());
+
+        /**
+         * If the type layout is taking the
+         * reigns then allow it to do so.
+         *
+         * This will let layouts natively
+         * extend parent view blocks.
+         */
+        if (strpos($presenter->content(), '{% extends') !== false) {
+            $post->setResponse($this->response->make($post->getContent()));
+        }
     }
 }

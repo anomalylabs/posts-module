@@ -6,9 +6,9 @@ use Illuminate\Routing\ResponseFactory;
 /**
  * Class PostResponse
  *
- * @link   http://pyrocms.com/
- * @author PyroCMS, Inc. <support@pyrocms.com>
- * @author Ryan Thompson <ryan@pyrocms.com>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  */
 class PostResponse
 {
@@ -37,14 +37,16 @@ class PostResponse
      */
     public function make(PostInterface $post)
     {
-        $post->setResponse(
-            $this->response->view(
-                'anomaly.module.posts::posts/view',
-                [
-                    'post'    => $post,
-                    'content' => $post->getContent(),
-                ]
-            )
-        );
+        if (!$post->getResponse()) {
+            $post->setResponse(
+                $this->response->view(
+                    'anomaly.module.posts::posts.post',
+                    [
+                        'post'    => $post,
+                        'content' => $post->getContent(),
+                    ]
+                )
+            );
+        }
     }
 }
