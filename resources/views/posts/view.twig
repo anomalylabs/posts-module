@@ -44,7 +44,9 @@
             <br>
 
             <div class="content">
-                {{ content|raw }}
+                {% block post %}
+                    {{ content|raw }}
+                {% endblock %}
             </div>
 
         </article>

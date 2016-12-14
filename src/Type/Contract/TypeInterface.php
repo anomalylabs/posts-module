@@ -66,18 +66,11 @@ interface TypeInterface extends EntryInterface
     public function getEntryModelName();
 
     /**
-     * Get the CSS path.
+     * Get the theme layout.
      *
      * @return string
      */
-    public function getCssPath();
-
-    /**
-     * Get the JS path.
-     *
-     * @return string
-     */
-    public function getJsPath();
+    public function getThemeLayout();
 
     /**
      * Get related posts.
