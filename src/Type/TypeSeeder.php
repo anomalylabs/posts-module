@@ -93,8 +93,9 @@ class TypeSeeder extends Seeder
 
         $this->assignments->create(
             [
-                'stream' => $stream,
-                'field'  => $this->fields->findBySlugAndNamespace('content', 'posts'),
+                'translatable' => true,
+                'stream'       => $stream,
+                'field'        => $this->fields->findBySlugAndNamespace('content', 'posts'),
             ]
         );
     }
