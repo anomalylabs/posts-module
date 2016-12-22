@@ -73,7 +73,9 @@ class PostSeeder extends Seeder
 
         $welcome = (new PostsDefaultPostsEntryModel())->create(
             [
-                'content' => '<p>Welcome to PyroCMS!</p>',
+                'en' => [
+                    'content' => '<p>Welcome to PyroCMS!</p>',
+                ],
             ]
         );
 
