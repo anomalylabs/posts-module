@@ -20,17 +20,14 @@ class TagsController extends PublicController
      * Return an index of tag posts.
      *
      * @param  PostRepositoryInterface $posts
-     * @param                          $tag
      * @return \Illuminate\View\View
      */
-    public function index(PostRepositoryInterface $posts, $tag)
+    public function index($tag)
     {
-        $posts = $posts->findManyByTag($tag);
-
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddTagBreadcrumb($tag));
         $this->dispatch(new AddTagMetaTitle($tag));
 
-        return view('anomaly.module.posts::tags/index', compact('posts', 'tag'));
+        return $this->view->make('anomaly.module.posts::tags/index', compact('tag'));
     }
 }

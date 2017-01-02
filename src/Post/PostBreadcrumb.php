@@ -35,7 +35,7 @@ class PostBreadcrumb
     /**
      * Create a new PostBreadcrumb instance.
      *
-     * @param Request $request
+     * @param Request              $request
      * @param BreadcrumbCollection $breadcrumbs
      */
     public function __construct(Request $request, BreadcrumbCollection $breadcrumbs)
@@ -52,28 +52,11 @@ class PostBreadcrumb
     public function make(PostInterface $post)
     {
         $this->dispatch(new AddPostsBreadcrumb());
-        
-        $breadcrumbs = [
-            $post->getTitle() => $this->request->path(),
-        ];
 
-        $this->loadCategory($post, $breadcrumbs);
-
-        foreach (array_reverse($breadcrumbs) as $key => $url) {
-            $this->breadcrumbs->add($key, $url);
-        }
-    }
-
-    /**
-     * Load the category breadcrumb.
-     *
-     * @param PostInterface $post
-     * @param array $breadcrumbs
-     */
-    protected function loadCategory(PostInterface $post, array &$breadcrumbs)
-    {
         if ($category = $post->getCategory()) {
-            $breadcrumbs[$category->getTitle()] = $category->path();
+            $this->breadcrumbs->add($category->getTitle(), $category->route('view'));
         }
+
+        $this->breadcrumbs->add($post->getTitle(), $this->request->path());
     }
 }

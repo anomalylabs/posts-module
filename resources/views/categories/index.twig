@@ -3,7 +3,7 @@
 {% block content %}
     <div id="posts">
 
-        <header>
+        <header class="jumbotron text-center">
 
             <h1>{{ category.title }}</h1>
 
@@ -13,9 +13,11 @@
 
         </header>
 
-        {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
+        {% set posts = category.posts().live().paginate() %}
 
-        {{ posts.render|raw }}
+        {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
+
+        {{ posts.links|raw }}
 
     </div>
 {% endblock %}

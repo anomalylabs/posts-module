@@ -13,9 +13,9 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
 /**
  * Class PostsController
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class PostsController extends PublicController
 {
@@ -23,29 +23,25 @@ class PostsController extends PublicController
     /**
      * Display recent posts.
      *
-     * @param  PostRepositoryInterface $posts
      * @return \Illuminate\View\View
      */
-    public function index(PostRepositoryInterface $posts)
+    public function index()
     {
-        $posts = $posts->getRecent();
-
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new AddPostsMetaTitle());
 
-        return view('anomaly.module.posts::posts/index', compact('posts'));
+        return $this->view->make('anomaly.module.posts::posts/index');
     }
 
     /**
      * Preview an existing post.
      *
      * @param  PostRepositoryInterface $posts
-     * @param                          $id
      * @return \Illuminate\View\View
      */
-    public function preview(PostRepositoryInterface $posts, $id)
+    public function preview(PostRepositoryInterface $posts)
     {
-        if (!$post = $posts->findByStrId($id)) {
+        if (!$post = $posts->findByStrId($this->route->getParameter('str_id'))) {
             abort(404);
         }
 
@@ -64,7 +60,7 @@ class PostsController extends PublicController
     /**
      * View an existing post.
      *
-     * @param  PostResolver                                    $resolver
+     * @param  PostResolver $resolver
      * @return null|\Symfony\Component\HttpFoundation\Response
      */
     public function view(PostResolver $resolver)
@@ -78,13 +74,6 @@ class PostsController extends PublicController
         }
 
         $this->dispatch(new MakePostResponse($post));
-        $this->dispatch(new AddPostsBreadcrumb());
-
-        if ($category = $post->getCategory()) {
-            $this->dispatch(new AddCategoryBreadcrumb($category));
-        }
-
-        $this->dispatch(new AddPostBreadcrumb($post));
 
         return $post->getResponse();
     }

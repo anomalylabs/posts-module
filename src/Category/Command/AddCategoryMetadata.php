@@ -1,17 +1,20 @@
 <?php namespace Anomaly\PostsModule\Category\Command;
 
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
-use Illuminate\Contracts\Config\Repository;
+use Anomaly\Streams\Platform\View\ViewTemplate;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class GetCategoryPath
+ * Class AddCategoryMetadata
  *
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
  */
-class GetCategoryPath
+class AddCategoryMetadata
 {
+
+    use DispatchesJobs;
 
     /**
      * The category instance.
@@ -21,7 +24,7 @@ class GetCategoryPath
     protected $category;
 
     /**
-     * Create a new GetCategoryPath instance.
+     * Create a new AddCategoryMetadata instance.
      *
      * @param CategoryInterface $category
      */
@@ -33,13 +36,11 @@ class GetCategoryPath
     /**
      * Handle the command.
      *
-     * @param  Repository $config
-     * @return string
+     * @param ViewTemplate $template
      */
-    public function handle(Repository $config)
+    public function handle(ViewTemplate $template)
     {
-        return '/' . $config->get('anomaly.module.posts::paths.module')
-        . '/' . $config->get('anomaly.module.posts::paths.category')
-        . '/' . $this->category->getSlug();
+        $template->set('meta_title', $this->category->getName());
+        $template->set('meta_description', $this->category->getDescription());
     }
 }

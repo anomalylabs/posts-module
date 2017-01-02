@@ -22,6 +22,13 @@ interface CategoryInterface extends EntryInterface
     public function getName();
 
     /**
+     * Get the description.
+     *
+     * @return string
+     */
+    public function getDescription();
+
+    /**
      * Get the slug.
      *
      * @return string
@@ -34,13 +41,6 @@ interface CategoryInterface extends EntryInterface
      * @return EntryCollection
      */
     public function getPosts();
-
-    /**
-     * Return the category's path.
-     *
-     * @return string
-     */
-    public function path();
 
     /**
      * Return the posts relation.

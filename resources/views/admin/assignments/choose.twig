@@ -6,11 +6,14 @@
 </div>
 
 <div class="modal-body">
+
+    {% include "streams::modals/filter" %}
+
     {% if not fields.isEmpty() %}
         <ul class="nav nav-pills nav-stacked">
             {% for field in fields %}
                 <li class="nav-item">
-                    <a href="{{ url_to('admin/posts/types/assignments/' ~ id ~ '/assign/' ~ field.id) }}" class="nav-link">
+                    <a href="{{ url_to('admin/posts/fields/assignments/' ~ request_segment(5) ~ '/create?field=' ~ field.id) }}" class="nav-link">
                         <strong>{{ trans(field.name) }}</strong>
                     </a>
                 </li>

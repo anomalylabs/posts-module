@@ -18,13 +18,6 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
 {
 
     /**
-     * The cache time.
-     *
-     * @var int
-     */
-    protected $cacheMinutes = 99999;
-
-    /**
      * Get the name.
      *
      * @return string
@@ -65,6 +58,18 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     }
 
     /**
+     * Get the related entry stream ID.
+     *
+     * @return integer
+     */
+    public function getEntryStreamId()
+    {
+        $stream = $this->getEntryStream();
+
+        return $stream->getId();
+    }
+
+    /**
      * Get the related entry model name.
      *
      * @return string
@@ -77,33 +82,13 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     }
 
     /**
-     * Get the CSS path.
+     * Get the theme layout.
      *
      * @return string
      */
-    public function getCssPath()
+    public function getThemeLayout()
     {
-        /* @var EditorFieldType $css */
-        $css = $this->getFieldType('css');
-
-        $css->setEntry($this);
-
-        return $css->getAssetPath();
-    }
-
-    /**
-     * Get the JS path.
-     *
-     * @return string
-     */
-    public function getJsPath()
-    {
-        /* @var EditorFieldType $js */
-        $js = $this->getFieldType('js');
-
-        $js->setEntry($this);
-
-        return $js->getAssetPath();
+        return $this->theme_layout;
     }
 
     /**

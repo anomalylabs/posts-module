@@ -2,8 +2,7 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
-use Illuminate\Contracts\Config\Repository;
-use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 /**
  * Class PostResolver
@@ -23,31 +22,22 @@ class PostResolver
     protected $posts;
 
     /**
-     * The request object.
+     * The route object.
      *
-     * @var Request
+     * @var Route
      */
-    protected $request;
-
-    /**
-     * The config repository.
-     *
-     * @var Repository
-     */
-    protected $config;
+    protected $route;
 
     /**
      * Create a new PostResolver instance.
      *
      * @param PostRepositoryInterface $posts
-     * @param Repository              $config
-     * @param Request                 $request
+     * @param Route                   $route
      */
-    public function __construct(PostRepositoryInterface $posts, Repository $config, Request $request)
+    public function __construct(PostRepositoryInterface $posts, Route $route)
     {
-        $this->posts   = $posts;
-        $this->request = $request;
-        $this->config  = $config;
+        $this->posts = $posts;
+        $this->route = $route;
     }
 
     /**
@@ -57,8 +47,6 @@ class PostResolver
      */
     public function resolve()
     {
-        $permalink = explode('/', $this->config->get('anomaly.module.posts::paths.route'));
-
-        return $this->posts->findBySlug($this->request->segment(array_search('{post}', $permalink) + 2));
+        return $this->posts->findBySlug($this->route->getParameter('slug'));
     }
 }

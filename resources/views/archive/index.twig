@@ -3,21 +3,29 @@
 {% block content %}
     <div id="posts">
 
-        <header>
+        <header class="jumbotron text-center">
 
             <h1>
                 {{ year }}
 
                 {% if month %}
-                    <small>{{ month|raw }}</small>
+                    <small>{{ carbon(year ~ '-' ~ month ~ '-01').format('F') }}</small>
                 {% endif %}
             </h1>
 
         </header>
 
-        {{ view("anomaly.module.posts::posts/partials/posts", {"posts": posts}) }}
+        {% set query = entries('posts').whereYear('publish_at', route_parameter('year')) %}
 
-        {{ posts.render|raw }}
+        {% if route_parameter('month') %}
+            {% set query = query.whereMonth('publish_at', route_parameter('month')) %}
+        {% endif %}
+
+        {% set posts = query.paginate() %}
+
+        {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
+
+        {{ posts.links|raw }}
 
     </div>
 {% endblock %}

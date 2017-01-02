@@ -16,24 +16,6 @@ class RssController extends PublicController
 {
 
     /**
-     * Return an RSS feed of posts.
-     *
-     * @param  PostRepositoryInterface $posts
-     * @param  ResponseFactory         $response
-     * @return \Illuminate\Http\Response|ResponseFactory
-     */
-    public function feed(PostRepositoryInterface $posts, ResponseFactory $response)
-    {
-        $response = $response
-            ->view('module::posts/rss', ['posts' => $posts->getLive()])
-            ->setTtl(3600);
-
-        $response->headers->set('content-type', 'text/xml');
-
-        return $response;
-    }
-
-    /**
      * Return an RSS feed of recent posts.
      *
      * @param  PostRepositoryInterface $posts
@@ -43,7 +25,7 @@ class RssController extends PublicController
     public function recent(PostRepositoryInterface $posts, ResponseFactory $response)
     {
         $response = $response
-            ->view('module::posts/rss', ['posts' => $posts->getRecent(15)])
+            ->view('module::posts/rss', ['posts' => $posts->getRecent($this->request->get('limit'))])
             ->setTtl(3600);
 
         $response->headers->set('content-type', 'text/xml');
@@ -71,7 +53,10 @@ class RssController extends PublicController
         }
 
         $response = $response
-            ->view('module::posts/rss', ['posts' => $posts->findManyByCategory($category)])
+            ->view(
+                'module::posts/rss',
+                ['posts' => $posts->findManyByCategory($category, $this->request->get('limit'))]
+            )
             ->setTtl(3600);
 
         $response->headers->set('content-type', 'text/xml');
@@ -90,7 +75,7 @@ class RssController extends PublicController
     public function tag(PostRepositoryInterface $posts, ResponseFactory $response, $tag)
     {
         $response = $response
-            ->view('module::posts/rss', ['posts' => $posts->findManyByTag($tag)])
+            ->view('module::posts/rss', ['posts' => $posts->findManyByTag($tag, $this->request->get('limit'))])
             ->setTtl(3600);
 
         $response->headers->set('content-type', 'text/xml');
