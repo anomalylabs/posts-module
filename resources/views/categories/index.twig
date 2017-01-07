@@ -2,22 +2,24 @@
 
 {% block content %}
     <div id="posts">
+        <div class="container">
 
-        <header class="jumbotron text-center">
+            <header class="jumbotron text-center">
 
-            <h1>{{ category.title }}</h1>
+                <h1>{{ category.title }}</h1>
 
-            {% if category.description %}
-                <p>{{ category.description|raw }}</p>
-            {% endif %}
+                {% if category.description %}
+                    <p>{{ category.description|raw }}</p>
+                {% endif %}
 
-        </header>
+            </header>
 
-        {% set posts = category.posts().live().paginate() %}
+            {% set posts = category.posts().live().paginate() %}
 
-        {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
+            {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
 
-        {{ posts.links|raw }}
+            {{ posts.links|raw }}
 
+        </div>
     </div>
 {% endblock %}
