@@ -19,6 +19,8 @@ interface PostInterface extends EntryInterface
     /**
      * Return the post's path.
      *
+     * @deprecated as of 3.2 will be remove in 3.4: Use $post->route('view');
+     *
      * @return string
      */
     public function path();
