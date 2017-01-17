@@ -75,6 +75,6 @@ class AssignmentsController extends AdminController
     {
         return $builder
             ->setStream($streams->find($this->route->getParameter('stream')))
-            ->render($this->route->getParameter('id'));
+            ->render($this->route->getParameter('assignment'));
     }
 }
