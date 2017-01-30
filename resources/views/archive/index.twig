@@ -2,30 +2,32 @@
 
 {% block content %}
     <div id="posts">
+        <div class="container">
 
-        <header class="jumbotron text-center">
+            <header class="jumbotron text-center">
 
-            <h1>
-                {{ year }}
+                <h1>
+                    {{ year }}
 
-                {% if month %}
-                    <small>{{ carbon(year ~ '-' ~ month ~ '-01').format('F') }}</small>
-                {% endif %}
-            </h1>
+                    {% if month %}
+                        <small>{{ carbon(year ~ '-' ~ month ~ '-01').format('F') }}</small>
+                    {% endif %}
+                </h1>
 
-        </header>
+            </header>
 
-        {% set query = entries('posts').whereYear('publish_at', route_parameter('year')) %}
+            {% set query = entries('posts').whereYear('publish_at', route_parameter('year')) %}
 
-        {% if route_parameter('month') %}
-            {% set query = query.whereMonth('publish_at', route_parameter('month')) %}
-        {% endif %}
+            {% if route_parameter('month') %}
+                {% set query = query.whereMonth('publish_at', route_parameter('month')) %}
+            {% endif %}
 
-        {% set posts = query.paginate() %}
+            {% set posts = query.paginate() %}
 
-        {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
+            {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
 
-        {{ posts.links|raw }}
+            {{ posts.links|raw }}
 
+        </div>
     </div>
 {% endblock %}

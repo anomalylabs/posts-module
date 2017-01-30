@@ -29,13 +29,13 @@ return [
             if ($locale != $config->get('streams::locales.default')) {
                 $translations[] = [
                     'language' => $locale,
-                    'url'      => url($locale . $entry->path()),
+                    'url'      => url($locale . $entry->route('view')),
                 ];
             }
         }
 
         $sitemap->add(
-            url($entry->path()),
+            url($entry->route('view')),
             $entry->lastModified()->toAtomString(),
             0.5,
             'monthly',
