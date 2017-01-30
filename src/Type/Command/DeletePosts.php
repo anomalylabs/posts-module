@@ -2,7 +2,8 @@
 
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
-
+use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
+use Illuminate\Http\Request;
 
 /**
  * Class DeletePosts
@@ -36,10 +37,31 @@ class DeletePosts
      *
      * @param PostRepositoryInterface $posts
      */
-    public function handle(PostRepositoryInterface $posts)
+    public function handle(
+        StreamRepositoryInterface $streams,
+        PostRepositoryInterface $posts,
+        Request $request
+    )
     {
-        foreach ($this->type->getPosts() as $post) {
-            $posts->delete($post);
+        if (!$this->type->isForceDeleting())
+        {
+            foreach ($this->type->getPosts() as $post)
+            {
+                $posts->delete($post);
+            }
         }
+        else
+        {
+            $typePosts = $streams->findBySlugAndNamespace('posts', 'posts')
+            ->getEntryModel()
+            ->whereIn('type_id', $request->get('id'))
+            ->onlyTrashed()
+            ->get();
+
+            foreach ($typePosts as $post)
+            {
+                $posts->forceDelete($post);
+            }
+        }        
     }
 }
