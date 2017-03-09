@@ -46,6 +46,15 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     ];
 
     /**
+     * The cascaded relations.
+     *
+     * @var array
+     */
+    protected $cascades = [
+        'entry',
+    ];
+
+    /**
      * Restrict to live posts only.
      *
      * @param  Builder $query

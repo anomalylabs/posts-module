@@ -1,6 +1,16 @@
 <?php namespace Anomaly\PostsModule;
 
+use Anomaly\PostsModule\Category\CategoryModel;
+use Anomaly\PostsModule\Category\CategoryRepository;
+use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
+use Anomaly\PostsModule\Post\PostModel;
+use Anomaly\PostsModule\Post\PostRepository;
+use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
+use Anomaly\PostsModule\Type\TypeRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel;
+use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
 
 /**
  * Class PostsModuleServiceProvider
@@ -11,6 +21,27 @@ use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
  */
 class PostsModuleServiceProvider extends AddonServiceProvider
 {
+
+    /**
+     * The class bindings.
+     *
+     * @var array
+     */
+    protected $bindings = [
+        PostsPostsEntryModel::class      => PostModel::class,
+        PostsCategoriesEntryModel::class => CategoryModel::class,
+    ];
+
+    /**
+     * The singleton bindings.
+     *
+     * @var array
+     */
+    protected $singletons = [
+        PostRepositoryInterface::class     => PostRepository::class,
+        TypeRepositoryInterface::class     => TypeRepository::class,
+        CategoryRepositoryInterface::class => CategoryRepository::class,
+    ];
 
     /**
      * The addon routes.
@@ -75,26 +106,5 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         'admin/posts/fields/assignments/{stream}/choose'            => 'Anomaly\PostsModule\Http\Controller\Admin\AssignmentsController@choose',
         'admin/posts/fields/assignments/{stream}/create'            => 'Anomaly\PostsModule\Http\Controller\Admin\AssignmentsController@create',
         'admin/posts/fields/assignments/{stream}/edit/{assignment}' => 'Anomaly\PostsModule\Http\Controller\Admin\AssignmentsController@edit',
-    ];
-
-    /**
-     * The class bindings.
-     *
-     * @var array
-     */
-    protected $bindings = [
-        'Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel'      => 'Anomaly\PostsModule\Post\PostModel',
-        'Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel' => 'Anomaly\PostsModule\Category\CategoryModel',
-    ];
-
-    /**
-     * The singleton bindings.
-     *
-     * @var array
-     */
-    protected $singletons = [
-        'Anomaly\PostsModule\Post\Contract\PostRepositoryInterface'         => 'Anomaly\PostsModule\Post\PostRepository',
-        'Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface'         => 'Anomaly\PostsModule\Type\TypeRepository',
-        'Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface' => 'Anomaly\PostsModule\Category\CategoryRepository',
     ];
 }

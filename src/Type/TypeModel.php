@@ -1,6 +1,5 @@
 <?php namespace Anomaly\PostsModule\Type;
 
-use Anomaly\EditorFieldType\EditorFieldType;
 use Anomaly\PostsModule\Post\PostCollection;
 use Anomaly\PostsModule\Type\Command\GetTypeStream;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
@@ -16,6 +15,15 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
  */
 class TypeModel extends PostsTypesEntryModel implements TypeInterface
 {
+
+    /**
+     * The cascaded relations.
+     *
+     * @var array
+     */
+    protected $cascades = [
+        'posts',
+    ];
 
     /**
      * Get the name.
