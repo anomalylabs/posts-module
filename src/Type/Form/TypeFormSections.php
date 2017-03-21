@@ -19,17 +19,23 @@ class TypeFormSections
     {
         $builder->setSections(
             [
-                'general' => [
-                    'fields' => [
-                        'name',
-                        'slug',
-                        'description',
-                    ],
-                ],
-                'layout'  => [
-                    'fields' => [
-                        'theme_layout',
-                        'layout',
+                'type' => [
+                    'tabs' => [
+                        'general' => [
+                            'title'  => 'anomaly.module.posts::tab.general',
+                            'fields' => [
+                                'name',
+                                'slug',
+                                'description',
+                            ],
+                        ],
+                        'layout'  => [
+                            'title'  => 'anomaly.module.posts::tab.layout',
+                            'fields' => [
+                                'theme_layout',
+                                'layout',
+                            ],
+                        ],
                     ],
                 ],
             ]
