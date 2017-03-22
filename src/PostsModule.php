@@ -55,6 +55,7 @@ class PostsModule extends Module
             ],
             'sections' => [
                 'assignments' => [
+                    'hidden'  => true,
                     'href'    => 'admin/posts/fields/assignments/{request.route.parameters.stream}',
                     'buttons' => [
                         'assign_fields' => [
