@@ -2,7 +2,7 @@
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
-use Anomaly\PagesModule\Type\Command\DeleteStream;
+use Anomaly\PostsModule\Type\Command\DeleteTypeStream;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 
 /**
@@ -54,7 +54,7 @@ class TypeRepository extends EntryRepository implements TypeRepositoryInterface
 
         foreach ($this->model->all() as $entry)
         {
-            $this->dispatch(new DeleteStream($entry));
+            $this->dispatch(new DeleteTypeStream($entry));
         }
 
         return $this;
