@@ -30,7 +30,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         ],
         'content'          => [
             'type'   => 'anomaly.field_type.wysiwyg',
-            'locked' => 0, // Used with seeded pages.
+            'locked' => 0, // Used with seeded posts.
         ],
         'type'             => [
             'type'   => 'anomaly.field_type.relationship',
