@@ -24,7 +24,7 @@ class TypeTableButtons
                 'edit',
                 'assignments' => [
                     'href' => function (TypeInterface $entry) {
-                        return '/admin/posts/fields/assignments/' . $entry->getEntryStreamId();
+                        return '/admin/posts/assignments/' . $entry->getEntryStreamId();
                     },
                 ],
             ]
