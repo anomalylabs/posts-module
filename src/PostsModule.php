@@ -44,15 +44,6 @@ class PostsModule extends Module
             'buttons' => [
                 'new_type',
             ],
-        ],
-        'fields'     => [
-            'buttons'  => [
-                'new_field' => [
-                    'data-toggle' => 'modal',
-                    'data-target' => '#modal',
-                    'href'        => 'admin/posts/fields/choose',
-                ],
-            ],
             'sections' => [
                 'assignments' => [
                     'hidden'  => true,
@@ -64,6 +55,15 @@ class PostsModule extends Module
                             'href'        => 'admin/posts/assignments/{request.route.parameters.stream}/choose',
                         ],
                     ],
+                ],
+            ],
+        ],
+        'fields'     => [
+            'buttons'  => [
+                'new_field' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/posts/fields/choose',
                 ],
             ],
         ],
