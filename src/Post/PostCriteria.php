@@ -64,15 +64,17 @@ class PostCriteria extends EntryCriteria
     public function type($identifier)
     {
         /* @var TypeInterface $type */
-        if ($type = $this->dispatch(new GetType($identifier))) {
-            $stream = $type->getEntryStream();
-            $table = $stream->getEntryTableName();
-
-            $this->query
-                ->select('posts_posts.*')
-                ->where('type_id', $type->getId())
-                ->join($table . ' AS entry', 'entry.id', '=', 'posts_posts.entry_id');
+        if (!$type = $this->dispatch(new GetType($identifier))) {
+            throw new \Exception('Post type '.$identifier.' doesn\'t exist!');
         }
+        
+        $stream = $type->getEntryStream();
+        $table  = $stream->getEntryTableName();
+
+        $this->query
+            ->select('posts_posts.*')
+            ->where('type_id', $type->getId())
+            ->join($table . ' AS entry', 'entry.id', '=', 'posts_posts.entry_id');
 
         return $this;
     }
