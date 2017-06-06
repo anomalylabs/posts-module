@@ -64,7 +64,9 @@ class PostCriteria extends EntryCriteria
     public function type($identifier)
     {
         /* @var TypeInterface $type */
-        $type = $this->dispatch(new GetType($identifier));
+        if (!$type = $this->dispatch(new GetType($identifier))) {
+            throw new \Exception('Post type [' . $identifier . '] doesn\'t exist!');
+        }
 
         $stream = $type->getEntryStream();
         $table  = $stream->getEntryTableName();

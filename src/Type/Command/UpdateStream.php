@@ -4,7 +4,7 @@ use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
-use Illuminate\Config\Repository;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**

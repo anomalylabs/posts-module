@@ -76,6 +76,6 @@ class CategoriesController extends AdminController
     {
         $stream = $streams->findBySlugAndNamespace('categories', 'posts');
 
-        return $this->redirect->to('admin/posts/fields/assignments/' . $stream->getId());
+        return $this->redirect->to('admin/posts/assignments/' . $stream->getId());
     }
 }

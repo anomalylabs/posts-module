@@ -44,7 +44,9 @@ class UpdatePosts
     public function handle(TypeRepositoryInterface $types, PostRepositoryInterface $posts)
     {
         /* @var TypeInterface $type */
-        $type = $types->find($this->type->getId());
+        if (!$type = $types->find($this->type->getId())) {
+            return;
+        }
 
         /* @var PostInterface $post */
         foreach ($type->getPosts() as $post) {

@@ -32,6 +32,6 @@ class CategoryPresenter extends EntryPresenter
      */
     public function path()
     {
-        return $this->dispatch(new GetCategoryPath($this->object));
+        return $this->object->route('view');
     }
 }

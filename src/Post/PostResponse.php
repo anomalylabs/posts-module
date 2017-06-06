@@ -40,7 +40,7 @@ class PostResponse
         if (!$post->getResponse()) {
             $post->setResponse(
                 $this->response->view(
-                    'anomaly.module.posts::posts.post',
+                    'anomaly.module.posts::posts.view',
                     [
                         'post'    => $post,
                         'content' => $post->getContent(),

@@ -4,8 +4,8 @@ return [
     'posts'      => [
         'name' => 'Posts',
     ],
-    'post_types' => [
-        'name' => 'Post Types',
+    'types'      => [
+        'name' => 'Types',
     ],
     'categories' => [
         'name' => 'Categories',

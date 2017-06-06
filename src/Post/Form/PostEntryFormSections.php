@@ -22,14 +22,43 @@ class PostEntryFormSections
     {
         $builder->setSections(
             [
-                'general'      => [
-                    'fields' => [
-                        'post_title',
-                        'post_slug',
-                        'post_summary',
+                'post'   => [
+                    'tabs' => [
+                        'general'      => [
+                            'title'  => 'anomaly.module.posts::tab.general',
+                            'fields' => [
+                                'post_title',
+                                'post_slug',
+                                'post_summary',
+                            ],
+                        ],
+                        'organization' => [
+                            'title'  => 'anomaly.module.posts::tab.organization',
+                            'fields' => [
+                                'post_category',
+                                'post_tags',
+                            ],
+                        ],
+                        'seo'          => [
+                            'title'  => 'anomaly.module.posts::tab.seo',
+                            'fields' => [
+                                'post_meta_title',
+                                'post_meta_keywords',
+                                'post_meta_description',
+                            ],
+                        ],
+                        'options'      => [
+                            'title'  => 'anomaly.module.posts::tab.options',
+                            'fields' => [
+                                'post_enabled',
+                                'post_featured',
+                                'post_publish_at',
+                                'post_author',
+                            ],
+                        ],
                     ],
                 ],
-                'fields'       => [
+                'fields' => [
                     'fields' => function (PostEntryFormBuilder $builder) {
                         return array_map(
                             function (FieldType $field) {
@@ -43,27 +72,6 @@ class PostEntryFormSections
                             )
                         );
                     },
-                ],
-                'organization' => [
-                    'fields' => [
-                        'post_category',
-                        'post_tags',
-                    ],
-                ],
-                'seo'          => [
-                    'fields' => [
-                        'post_meta_title',
-                        'post_meta_keywords',
-                        'post_meta_description',
-                    ],
-                ],
-                'options'      => [
-                    'fields' => [
-                        'post_author',
-                        'post_enabled',
-                        'post_featured',
-                        'post_publish_at',
-                    ],
                 ],
             ]
         );
