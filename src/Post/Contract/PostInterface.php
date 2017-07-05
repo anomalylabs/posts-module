@@ -66,6 +66,13 @@ interface PostInterface extends EntryInterface
     public function getTypeName();
 
     /**
+     * Get the type slug.
+     *
+     * @return string
+     */
+    public function getTypeSlug();
+
+    /**
      * Get the type description.
      *
      * @return string
@@ -78,6 +85,13 @@ interface PostInterface extends EntryInterface
      * @return null|CategoryInterface
      */
     public function getCategory();
+
+    /**
+     * Get the category slug.
+     *
+     * @return null|string
+     */
+    public function getCategorySlug();
 
     /**
      * Get the related entry.

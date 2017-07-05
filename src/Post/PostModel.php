@@ -145,6 +145,18 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Get the type slug.
+     *
+     * @return string
+     */
+    public function getTypeSlug()
+    {
+        $type = $this->getType();
+
+        return $type->getSlug();
+    }
+
+    /**
      * Get the type description.
      *
      * @return string
@@ -162,6 +174,20 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Get the category slug.
+     *
+     * @return null|string
+     */
+    public function getCategorySlug()
+    {
+        if (!$category = $this->getCategory()) {
+            return null;
+        }
+
+        return $category->getSlug();
     }
 
     /**
@@ -340,6 +366,9 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function toRoutableArray()
     {
         $array = parent::toRoutableArray();
+
+        $array['type']     = $this->getTypeSlug();
+        $array['category'] = $this->getCategorySlug();
 
         $date = $this->getPublishAt();
 
