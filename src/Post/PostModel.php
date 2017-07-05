@@ -36,13 +36,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     protected $response = null;
 
     /**
-     * Preview flag
-     *
-     * @var boolean
-     */
-    protected $preview = false;
-
-    /**
      * Eager load these relations.
      *
      * @var array
@@ -276,29 +269,6 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function isRestorable()
     {
         return $this->getType() ? true : false;
-    }
-
-    /**
-     * Determines if preview.
-     *
-     * @return boolean
-     */
-    public function isPreview()
-    {
-        return $this->preview;
-    }
-
-    /**
-     * Sets the preview flag.
-     *
-     * @param boolean $preview
-     * @return $this
-     */
-    public function setPreview($preview)
-    {
-        $this->preview = $preview;
-
-        return $this;
     }
 
     /**

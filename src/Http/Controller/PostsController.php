@@ -36,17 +36,15 @@ class PostsController extends PublicController
     /**
      * Preview an existing post.
      *
-     * @param  PostRepositoryInterface $posts
-     * @return \Illuminate\View\View
+     * @param PostRepositoryInterface $posts
+     * @param                         $id
+     * @return null|\Symfony\Component\HttpFoundation\Response
      */
     public function preview(PostRepositoryInterface $posts, $id)
     {
         if (!$post = $posts->findByStrId($id)) {
             abort(404);
         }
-
-        $post->setAttribute('enabled', true);
-        $post->setPreview(true);
 
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new MakePreviewResponse($post));
