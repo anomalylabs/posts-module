@@ -5,6 +5,7 @@ return [
         'read',
         'write',
         'delete',
+        'preview',
     ],
     'categories' => [
         'read',

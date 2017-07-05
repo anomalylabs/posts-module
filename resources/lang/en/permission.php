@@ -4,9 +4,10 @@ return [
     'posts'      => [
         'name'   => 'Posts',
         'option' => [
-            'read'   => 'Can access posts section.',
-            'write'  => 'Can create and edit posts.',
-            'delete' => 'Can delete posts.',
+            'read'    => 'Can access posts section.',
+            'write'   => 'Can create and edit posts.',
+            'delete'  => 'Can delete posts.',
+            'preview' => 'Can preview posts.',
         ],
     ],
     'categories' => [

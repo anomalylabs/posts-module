@@ -39,11 +39,14 @@ class PostsController extends PublicController
      * @param  PostRepositoryInterface $posts
      * @return \Illuminate\View\View
      */
-    public function preview(PostRepositoryInterface $posts)
+    public function preview(PostRepositoryInterface $posts, $id)
     {
-        if (!$post = $posts->findByStrId($this->route->getParameter('str_id'))) {
+        if (!$post = $posts->findByStrId($id)) {
             abort(404);
         }
+
+        $post->setAttribute('enabled', true);
+        $post->setPreview(true);
 
         $this->dispatch(new AddPostsBreadcrumb());
         $this->dispatch(new MakePreviewResponse($post));
