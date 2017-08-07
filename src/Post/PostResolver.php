@@ -47,6 +47,6 @@ class PostResolver
      */
     public function resolve()
     {
-        return $this->posts->findBySlug($this->route->getParameter('slug'));
+        return $this->posts->findBySlug($this->route->parameter('slug'));
     }
 }
