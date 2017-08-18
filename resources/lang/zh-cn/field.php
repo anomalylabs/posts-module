@@ -45,10 +45,6 @@ return [
         'name'         => 'Meta 描述',
         'instructions' => '指定 SEO 描述.',
     ],
-    'meta_keywords'    => [
-        'name'         => 'Meta 关键字',
-        'instructions' => '指定 SEO 关键字.',
-    ],
     'theme_layout'     => [
         'name'         => '主题排版',
         'instructions' => '指定主题排版用以包嵌 <strong>post layout</strong> .',

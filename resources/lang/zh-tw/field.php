@@ -45,10 +45,6 @@ return [
         'name' => 'Meta 說明',
     'instructions' => '請輸入這文章的 SEO 說明。',
     ],
-    'meta_keywords' => [
-        'name' => 'Meta 關鍵字',
-    'instructions' => '請輸入這文章的 SEO 關鍵字。',
-    ],
     'theme_layout' => [
         'name' => '模板佈局',
     'instructions' => '這個 模板佈局(theme layout) 將會被用於 包裝(wrap) 文章的內容。',

@@ -45,10 +45,6 @@ return [
         'name'         => 'Meta وصف',
         'instructions' => 'حدد وصف لمساعدة محركات البحث.',
     ],
-    'meta_keywords'    => [
-        'name'         => 'Meta كلمات مفتاحية',
-        'instructions' => 'حدد الكلمات المفتاحية لمساعدة محركات البحث.',
-    ],
     'theme_layout'     => [
         'name'         => 'هيكلية التصميم',
         'instructions' => 'حدد هيكلية التصميم للدمج <strong>هيكلية المنشور</strong> معه.',

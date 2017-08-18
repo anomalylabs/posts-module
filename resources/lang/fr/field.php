@@ -45,10 +45,6 @@ return [
         'name'         => 'Méta Description',
         'instructions' => 'Entrez une description SEO.',
     ],
-    'meta_keywords'    => [
-        'name'         => 'Meta Mots-clés',
-        'instructions' => 'Entrez des mots-clés pour la SEO.',
-    ],
     'theme_layout'     => [
         'name'         => 'Layout du thème',
         'instructions' => 'Choisissez le layout du thème à utiliser pour afficher l\'article.',

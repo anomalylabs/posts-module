@@ -43,7 +43,6 @@ class PostEntryFormSections
                             'title'  => 'anomaly.module.posts::tab.seo',
                             'fields' => [
                                 'post_meta_title',
-                                'post_meta_keywords',
                                 'post_meta_description',
                             ],
                         ],

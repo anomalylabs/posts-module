@@ -77,7 +77,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         ],
         'meta_title'       => 'anomaly.field_type.text',
         'meta_description' => 'anomaly.field_type.textarea',
-        'meta_keywords'    => 'anomaly.field_type.tags',
+        'meta_keywords'    => 'anomaly.field_type.tags', // Removed in 2.3
         'ttl'              => [
             'type'   => 'anomaly.field_type.integer',
             'config' => [

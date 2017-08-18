@@ -45,10 +45,6 @@ return [
         'name'         => 'Meta Description',
         'instructions' => 'Specify the SEO description.',
     ],
-    'meta_keywords'    => [
-        'name'         => 'Meta Keywords',
-        'instructions' => 'Specify the SEO keywords.',
-    ],
     'theme_layout'     => [
         'name'         => 'Theme Layout',
         'instructions' => 'Specify the theme layout to wrap the <strong>post layout</strong> with.',

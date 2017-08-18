@@ -46,10 +46,6 @@ return [
         'name'     => 'Meta Description',
     'instructions' => 'Határozz meg egy SEO leírást.',
     ],
-    'meta_keywords' => [
-        'name'     => 'Meta Keywords',
-    'instructions' => 'Határozz meg egy SEO kulcsszavakat.',
-    ],
     'theme_layout' => [
         'name'     => 'Téma Elrendezés',
     'instructions' => 'Határozd meg a téma elrendezését ami tartalmazni fogja a hír elrendezését.',

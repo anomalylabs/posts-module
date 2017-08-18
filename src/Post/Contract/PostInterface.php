@@ -115,13 +115,6 @@ interface PostInterface extends EntryInterface
     public function getMetaTitle();
 
     /**
-     * Get the meta keywords.
-     *
-     * @return array
-     */
-    public function getMetaKeywords();
-
-    /**
      * Get the meta description.
      *
      * @return string

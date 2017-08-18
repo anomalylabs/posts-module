@@ -33,10 +33,6 @@ return [
         'name'         => 'Metabeskrivning',
         'instructions' => 'Skriv inläggets SEO-beskrivning.',
     ],
-    'meta_keywords'    => [
-        'name'         => 'Metanyckelord',
-        'instructions' => 'Skriv inläggets SEO-nyckelord. Använd bara ett lagom antal.',
-    ],
     'theme_layout'     => [
         'name'         => 'Temalayout',
         'instructions' => 'Temalayouten används runtomkring inläggets innehåll.',
