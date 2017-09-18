@@ -9,12 +9,14 @@ use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\PostModel;
 use Anomaly\PostsModule\Post\PostRepository;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
+use Anomaly\PostsModule\Type\TypeModel;
 use Anomaly\PostsModule\Type\TypeRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Assignment\AssignmentRouter;
 use Anomaly\Streams\Platform\Field\FieldRouter;
 use Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
+use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
 
 /**
  * Class PostsModuleServiceProvider
@@ -33,6 +35,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      */
     protected $bindings = [
         PostsPostsEntryModel::class      => PostModel::class,
+        PostsTypesEntryModel::class      => TypeModel::class,
         PostsCategoriesEntryModel::class => CategoryModel::class,
     ];
 
