@@ -24,12 +24,13 @@ return [
     'handler' => function (Sitemap $sitemap, Repository $config, PostInterface $entry) {
 
         $translations = [];
+        $url          = parse_url($entry->route('view'));
 
         foreach ($config->get('streams::locales.enabled') as $locale) {
             if ($locale != $config->get('streams::locales.default')) {
                 $translations[] = [
                     'language' => $locale,
-                    'url'      => url($locale . $entry->route('view')),
+                    'url'      => url("{$url['scheme']}://{$url['host']}/{$locale}{$url['path']}"),
                 ];
             }
         }
