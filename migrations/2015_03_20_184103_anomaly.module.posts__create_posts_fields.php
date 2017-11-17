@@ -1,6 +1,10 @@
 <?php
 
+use Anomaly\PostsModule\Category\CategoryModel;
+use Anomaly\PostsModule\Type\TypeModel;
+use Anomaly\SelectFieldType\Handler\Layouts;
 use Anomaly\Streams\Platform\Database\Migration\Migration;
+use Anomaly\UsersModule\User\UserModel;
 
 /**
  * Class AnomalyModulePostsCreatePostsFields
@@ -30,12 +34,12 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         ],
         'content'          => [
             'type'   => 'anomaly.field_type.wysiwyg',
-            'locked' => 0, // Used with seeded posts.
+            'locked' => 0, // This means, field would be visible in CP
         ],
         'type'             => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'related' => 'Anomaly\PostsModule\Type\TypeModel',
+                'related' => TypeModel::class,
             ],
         ],
         'tags'             => 'anomaly.field_type.tags',
@@ -47,7 +51,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
                 'mode'    => 'lookup',
-                'related' => 'Anomaly\UsersModule\User\UserModel',
+                'related' => UserModel::class,
             ],
         ],
         'layout'           => [
@@ -60,7 +64,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'category'         => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
-                'related' => 'Anomaly\PostsModule\Category\CategoryModel',
+                'related' => CategoryModel::class,
             ],
         ],
         'enabled'          => [
@@ -89,9 +93,8 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'theme_layout'     => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
-                'handler' => \Anomaly\SelectFieldType\Handler\Layouts::class,
+                'handler' => Layouts::class,
             ],
         ],
     ];
-
 }
