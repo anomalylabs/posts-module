@@ -24,7 +24,8 @@ return [
     'handler' => function (Sitemap $sitemap, Repository $config, PostInterface $entry) {
 
         $translations = [];
-        $url          = parse_url($entry->route('view'));
+
+        $url = parse_url($entry->route('view'));
 
         foreach ($config->get('streams::locales.enabled') as $locale) {
             if ($locale != $config->get('streams::locales.default')) {
