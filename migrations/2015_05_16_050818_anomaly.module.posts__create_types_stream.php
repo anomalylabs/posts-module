@@ -31,7 +31,7 @@ class AnomalyModulePostsCreateTypesStream extends Migration
      * @var array
      */
     protected $assignments = [
-        'name'         => [
+        'name'             => [
             'translatable' => true,
             'required'     => true,
             'unique'       => true,
@@ -39,7 +39,7 @@ class AnomalyModulePostsCreateTypesStream extends Migration
                 'max' => 50,
             ],
         ],
-        'slug'         => [
+        'slug'             => [
             'required' => true,
             'unique'   => true,
             'config'   => [
@@ -48,15 +48,20 @@ class AnomalyModulePostsCreateTypesStream extends Migration
                 'max'     => 50,
             ],
         ],
-        'layout'       => [
+        'layout'           => [
             'required' => true,
         ],
-        'theme_layout' => [
+        'theme_layout'     => [
             'required' => true,
         ],
-        'description'  => [
+        'description'      => [
+            'translatable' => true,
+        ],
+        'meta_title'       => [
+            'translatable' => true,
+        ],
+        'meta_description' => [
             'translatable' => true,
         ],
     ];
-
 }
