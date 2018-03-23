@@ -26,14 +26,26 @@ class CategoryFormSections
 
         $builder->setSections(
             [
-                'general' => [
-                    'fields' => [
-                        'name',
-                        'slug',
-                        'description',
+                'category' => [
+                    'tabs' => [
+                        'general' => [
+                            'title'  => 'anomaly.module.posts::tab.general',
+                            'fields' => [
+                                'name',
+                                'slug',
+                                'description',
+                            ],
+                        ],
+                        'seo'     => [
+                            'title'  => 'anomaly.module.posts::tab.seo',
+                            'fields' => [
+                                'meta_title',
+                                'meta_description',
+                            ],
+                        ],
                     ],
                 ],
-                'content' => [
+                'content'  => [
                     'fields' => $fields,
                 ],
             ]

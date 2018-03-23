@@ -15,6 +15,13 @@ interface CategoryInterface extends EntryInterface
 {
 
     /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug();
+
+    /**
      * Get the name.
      *
      * @return string
@@ -29,11 +36,18 @@ interface CategoryInterface extends EntryInterface
     public function getDescription();
 
     /**
-     * Get the slug.
+     * Get the meta title.
      *
      * @return string
      */
-    public function getSlug();
+    public function getMetaTitle();
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription();
 
     /**
      * Get the related posts.

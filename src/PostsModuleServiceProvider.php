@@ -80,6 +80,10 @@ class PostsModuleServiceProvider extends AddonServiceProvider
             'as'   => 'anomaly.module.posts::tags.view',
             'uses' => 'Anomaly\PostsModule\Http\Controller\TagsController@index',
         ],
+        "posts/type/{slug}"                   => [
+            'as'   => 'anomaly.module.posts::types.view',
+            'uses' => 'Anomaly\PostsModule\Http\Controller\TypesController@index',
+        ],
         "posts/categories/{slug}"             => [
             'as'   => 'anomaly.module.posts::categories.view',
             'uses' => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index',

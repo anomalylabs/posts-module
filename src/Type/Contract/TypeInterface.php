@@ -23,13 +23,6 @@ interface TypeInterface extends EntryInterface
 {
 
     /**
-     * Get the name.
-     *
-     * @return string
-     */
-    public function getName();
-
-    /**
      * Get the slug.
      *
      * @return string
@@ -37,11 +30,32 @@ interface TypeInterface extends EntryInterface
     public function getSlug();
 
     /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName();
+
+    /**
      * Get the description.
      *
      * @return string
      */
     public function getDescription();
+
+    /**
+     * Get the meta title.
+     *
+     * @return string
+     */
+    public function getMetaTitle();
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription();
 
     /**
      * Get the related stream.

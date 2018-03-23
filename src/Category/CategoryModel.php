@@ -16,6 +16,16 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
 {
 
     /**
+     * Get the slug.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Get the name.
      *
      * @return string
@@ -36,13 +46,27 @@ class CategoryModel extends PostsCategoriesEntryModel implements CategoryInterfa
     }
 
     /**
-     * Get the slug.
+     * Get the meta title.
      *
      * @return string
      */
-    public function getSlug()
+    public function getMetaTitle()
     {
-        return $this->slug;
+        if (!$this->meta_title) {
+            return $this->getName();
+        }
+
+        return $this->meta_title;
+    }
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->meta_description;
     }
 
     /**

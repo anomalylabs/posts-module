@@ -27,16 +27,6 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     ];
 
     /**
-     * Get the name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Get the slug.
      *
      * @return string
@@ -47,6 +37,16 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     }
 
     /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Get the description.
      *
      * @return string
@@ -54,6 +54,30 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
     public function getDescription()
     {
         return $this->desciption;
+    }
+
+    /**
+     * Get the meta title.
+     *
+     * @return string
+     */
+    public function getMetaTitle()
+    {
+        if (!$this->meta_title) {
+            return $this->getName();
+        }
+
+        return $this->meta_title;
+    }
+
+    /**
+     * Get the meta description.
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->meta_description;
     }
 
     /**

@@ -39,7 +39,11 @@ return [
     'meta_title'       => [
         'name'         => 'Meta Title',
         'instructions' => 'Specify the SEO title.',
-        'warning'      => 'The post title will be used by default.',
+        'warning'      => [
+            'posts'      => 'The post title will be used by default.',
+            'types'      => 'The type name will be used by default.',
+            'categories' => 'The category name will be used by default.',
+        ],
     ],
     'meta_description' => [
         'name'         => 'Meta Description',

@@ -40,7 +40,7 @@ class AddCategoryMetadata
      */
     public function handle(ViewTemplate $template)
     {
-        $template->set('meta_title', $this->category->getName());
-        $template->set('meta_description', $this->category->getDescription());
+        $template->set('meta_title', $this->category->getMetaTitle());
+        $template->set('meta_description', $this->category->getMetaDescription());
     }
 }
