@@ -5,6 +5,7 @@ use Anomaly\PostsModule\Category\CategoryRepository;
 use Anomaly\PostsModule\Category\Contract\CategoryRepositoryInterface;
 use Anomaly\PostsModule\Http\Controller\Admin\AssignmentsController;
 use Anomaly\PostsModule\Http\Controller\Admin\FieldsController;
+use Anomaly\PostsModule\Http\Controller\Admin\VersionsController;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Post\PostModel;
 use Anomaly\PostsModule\Post\PostRepository;
@@ -17,6 +18,7 @@ use Anomaly\Streams\Platform\Field\FieldRouter;
 use Anomaly\Streams\Platform\Model\Posts\PostsCategoriesEntryModel;
 use Anomaly\Streams\Platform\Model\Posts\PostsPostsEntryModel;
 use Anomaly\Streams\Platform\Model\Posts\PostsTypesEntryModel;
+use Anomaly\Streams\Platform\Version\VersionRouter;
 
 /**
  * Class PostsModuleServiceProvider
@@ -115,11 +117,14 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      * Map the addon.
      *
      * @param FieldRouter      $fields
+     * @param VersionRouter    $versions
      * @param AssignmentRouter $assignments
      */
-    public function map(FieldRouter $fields, AssignmentRouter $assignments)
+    public function map(FieldRouter $fields, VersionRouter $versions, AssignmentRouter $assignments)
     {
         $fields->route($this->addon, FieldsController::class);
+        $versions->route($this->addon, VersionsController::class);
         $assignments->route($this->addon, AssignmentsController::class);
     }
+
 }

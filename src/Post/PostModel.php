@@ -22,6 +22,13 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
 {
 
     /**
+     * The versionable flag.
+     *
+     * @var bool
+     */
+    protected $versionable = true;
+
+    /**
      * The posts's content.
      *
      * @var null|string
