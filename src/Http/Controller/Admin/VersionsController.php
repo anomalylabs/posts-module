@@ -1,6 +1,6 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
-use Anomaly\PagesModule\Page\PageModel;
+use Anomaly\PostsModule\Post\PostModel;
 
 /**
  * Class VersionsController
@@ -17,6 +17,6 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
      *
      * @var string
      */
-    protected $model = PageModel::class;
+    protected $model = PostModel::class;
 
 }

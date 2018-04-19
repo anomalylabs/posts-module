@@ -26,12 +26,12 @@ class PostsController extends AdminController
     /**
      * Return a tree of existing posts.
      *
-     * @param  PostTableBuilder $tree
-     * @return \Illuminate\Http\Response
+     * @param PostTableBuilder $table
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(PostTableBuilder $tree)
+    public function index(PostTableBuilder $table)
     {
-        return $tree->render();
+        return $table->render();
     }
 
     /**

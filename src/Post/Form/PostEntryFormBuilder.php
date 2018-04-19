@@ -7,9 +7,9 @@ use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 /**
  * Class PostEntryFormBuilder
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class PostEntryFormBuilder extends MultipleFormBuilder
 {
@@ -20,6 +20,7 @@ class PostEntryFormBuilder extends MultipleFormBuilder
      * @var array
      */
     protected $buttons = [
+        'versions',
         'cancel',
         'view' => [
             'enabled' => 'edit',
