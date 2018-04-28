@@ -89,4 +89,7 @@ return [
     'content'          => [
         'name' => 'Content',
     ],
+    'type'             => [
+        'name' => 'Type',
+    ],
 ];
