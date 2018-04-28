@@ -54,6 +54,7 @@ class PostTableBuilder extends TableBuilder
             'heading' => 'anomaly.module.posts::message.status',
             'value'   => 'entry.status_label',
         ],
+        'type',
     ];
 
     /**
