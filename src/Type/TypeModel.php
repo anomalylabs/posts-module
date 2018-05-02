@@ -53,7 +53,7 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
      */
     public function getDescription()
     {
-        return $this->desciption;
+        return $this->description;
     }
 
     /**
