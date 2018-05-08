@@ -78,4 +78,22 @@ class PostCriteria extends EntryCriteria
 
         return $this;
     }
+
+    /**
+     * Return a list of archives.
+     *
+     * @return $this
+     */
+    public function archives()
+    {
+        $this->query
+            ->selectRaw('YEAR(publish_at) as year')
+            ->selectRaw('MONTH(publish_at) as month')
+            ->selectRaw('COUNT(*) AS total')
+            ->groupBy('year')
+            ->groupBy('month');
+
+        return $this;
+    }
+
 }

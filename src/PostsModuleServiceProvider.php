@@ -91,7 +91,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
             'uses' => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index',
         ],
         "posts/archive/{year}/{month?}"       => [
-            'as'   => 'anomaly.module.posts::tags.archive',
+            'as'   => 'anomaly.module.posts::posts.archive',
             'uses' => 'Anomaly\PostsModule\Http\Controller\ArchiveController@index',
         ],
         "posts/{slug}"                        => [
