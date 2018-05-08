@@ -86,6 +86,8 @@ class PostCriteria extends EntryCriteria
      */
     public function archives()
     {
+        $this->live();
+
         $this->query
             ->selectRaw('YEAR(publish_at) as year')
             ->selectRaw('MONTH(publish_at) as month')
