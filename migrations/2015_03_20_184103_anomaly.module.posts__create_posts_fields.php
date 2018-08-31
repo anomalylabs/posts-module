@@ -93,6 +93,7 @@ class AnomalyModulePostsCreatePostsFields extends Migration
         'theme_layout'     => [
             'type'   => 'anomaly.field_type.select',
             'config' => [
+                'mode'    => 'search',
                 'handler' => Layouts::class,
             ],
         ],
