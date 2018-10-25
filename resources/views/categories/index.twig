@@ -14,7 +14,7 @@
 
             </header>
 
-            {% set posts = category.posts().live().paginate() %}
+            {% set posts = category.posts().recent().paginate() %}
 
             {% include "anomaly.module.posts::posts/partials/posts" with {"posts": posts} %}
 
