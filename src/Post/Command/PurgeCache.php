@@ -40,6 +40,10 @@ class PurgeCache
         $cache->purge(
             parse_url($this->post->isLive() ? $this->post->route('view') : $this->post->route('preview'), PHP_URL_PATH)
         );
+
+        $cache->purge(
+            parse_url($this->post->route('posts.index'), PHP_URL_PATH)
+        );
     }
 
 }
