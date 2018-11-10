@@ -2,15 +2,16 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Http\HttpCache;
+use Anomaly\Streams\Platform\Routing\UrlGenerator;
 
 /**
- * Class PurgeCache
+ * Class PurgePostCache
  *
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
  */
-class PurgeCache
+class PurgePostCache
 {
 
     /**
@@ -35,15 +36,15 @@ class PurgeCache
      *
      * @param HttpCache $cache
      */
-    public function handle(HttpCache $cache)
+    public function handle(HttpCache $cache, UrlGenerator $url)
     {
         $cache->purge(
             parse_url($this->post->isLive() ? $this->post->route('view') : $this->post->route('preview'), PHP_URL_PATH)
         );
 
-        $cache->purge(
-            parse_url($this->post->route('posts.index'), PHP_URL_PATH)
-        );
+        foreach ($this->post->getTags() as $tag) {
+            $cache->purge(parse_url($url->route('anomaly.module.posts::tags.view', compact('tag')), PHP_URL_PATH));
+        }
     }
 
 }
