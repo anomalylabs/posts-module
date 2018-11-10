@@ -38,15 +38,20 @@ class PostResponse
     public function make(PostInterface $post)
     {
         if (!$post->getResponse()) {
-            $post->setResponse(
-                $this->response->view(
-                    'anomaly.module.posts::posts.view',
-                    [
-                        'post'    => $post,
-                        'content' => $post->getContent(),
-                    ]
-                )
+
+            $response = $this->response->view(
+                'anomaly.module.posts::posts.view',
+                [
+                    'post'    => $post,
+                    'content' => $post->getContent(),
+                ]
             );
+
+            if (!$post->isLive()) {
+                $response->setTtl(0);
+            }
+
+            $post->setResponse($response);
         }
     }
 }
