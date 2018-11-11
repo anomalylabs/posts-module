@@ -38,10 +38,6 @@ class PurgePostCache
      */
     public function handle(HttpCache $cache, UrlGenerator $url)
     {
-        $cache->purge(
-            parse_url($this->post->isLive() ? $this->post->route('view') : $this->post->route('preview'), PHP_URL_PATH)
-        );
-
         foreach ($this->post->getTags() as $tag) {
             $cache->purge(parse_url($url->route('anomaly.module.posts::tags.view', compact('tag')), PHP_URL_PATH));
         }
