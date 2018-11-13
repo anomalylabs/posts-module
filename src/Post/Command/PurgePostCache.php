@@ -1,8 +1,10 @@
 <?php namespace Anomaly\PostsModule\Post\Command;
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
+use Anomaly\Streams\Platform\Http\Command\PurgeHttpCache;
 use Anomaly\Streams\Platform\Http\HttpCache;
 use Anomaly\Streams\Platform\Routing\UrlGenerator;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class PurgePostCache
@@ -13,6 +15,8 @@ use Anomaly\Streams\Platform\Routing\UrlGenerator;
  */
 class PurgePostCache
 {
+
+    use DispatchesJobs;
 
     /**
      * The post instance.
@@ -36,10 +40,10 @@ class PurgePostCache
      *
      * @param HttpCache $cache
      */
-    public function handle(HttpCache $cache, UrlGenerator $url)
+    public function handle(UrlGenerator $url)
     {
         foreach ($this->post->getTags() as $tag) {
-            $cache->purge(parse_url($url->route('anomaly.module.posts::tags.view', compact('tag')), PHP_URL_PATH));
+            $this->dispatch(new PurgeHttpCache($url->route('anomaly.module.posts::tags.view', compact('tag'))));
         }
     }
 
