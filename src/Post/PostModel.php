@@ -71,8 +71,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     {
         return $query
             ->where('enabled', 1)
-            ->where('publish_at', '<=', date('Y-m-d H:i:s'))
-            ->orderBy('publish_at', 'DESC');
+            ->where('publish_at', '<=', date('Y-m-d H:i:s'));
     }
 
     /**
@@ -83,7 +82,9 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     public function scopeRecent(Builder $query)
     {
-        return $this->scopeLive($query);
+        return $this
+            ->scopeLive($query)
+            ->orderBy('publish_at', 'DESC');
     }
 
     /**
