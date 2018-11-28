@@ -83,7 +83,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     public function scopeRecent(Builder $query)
     {
-        return $query->live();
+        return $this->scopeLive($query);
     }
 
     /**
