@@ -76,6 +76,17 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     }
 
     /**
+     * Restrict to recent posts only.
+     *
+     * @param  Builder $query
+     * @return Builder
+     */
+    public function scopeRecent(Builder $query)
+    {
+        return $query->live();
+    }
+
+    /**
      * Make the page.
      *
      * @return $this
