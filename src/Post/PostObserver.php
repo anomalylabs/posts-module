@@ -53,7 +53,9 @@ class PostObserver extends EntryObserver
         $this->dispatch(new PurgePostCache($entry));
         $this->dispatch(new PurgeIndexCache($entry));
 
-        $this->dispatch(new PurgeCategoryCache($entry->getCategory()));
+        if ($category = $entry->getCategory()) {
+            $this->dispatch(new PurgeCategoryCache($category));
+        }
 
         parent::saved($entry);
     }
