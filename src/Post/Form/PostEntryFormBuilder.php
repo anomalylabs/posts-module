@@ -22,6 +22,12 @@ class PostEntryFormBuilder extends MultipleFormBuilder
     protected $buttons = [
         'versions',
         'cancel',
+        'change' => [
+            'enabled'     => 'edit',
+            'data-toggle' => 'modal',
+            'data-target' => '#modal',
+            'href'        => 'admin/posts/change/{request.route.parameters.id}',
+        ],
         'view' => [
             'enabled' => 'edit',
             'target'  => '_blank',

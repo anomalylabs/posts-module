@@ -100,6 +100,7 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         ],
         'admin/posts'                         => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@index',
         'admin/posts/choose'                  => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@choose',
+        'admin/posts/change/{id}'             => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@change',
         'admin/posts/create'                  => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@create',
         'admin/posts/edit/{id}'               => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@edit',
         'admin/posts/view/{id}'               => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@view',
@@ -116,8 +117,8 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     /**
      * Map the addon.
      *
-     * @param FieldRouter      $fields
-     * @param VersionRouter    $versions
+     * @param FieldRouter $fields
+     * @param VersionRouter $versions
      * @param AssignmentRouter $assignments
      */
     public function map(FieldRouter $fields, VersionRouter $versions, AssignmentRouter $assignments)

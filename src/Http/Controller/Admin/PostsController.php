@@ -46,6 +46,18 @@ class PostsController extends AdminController
     }
 
     /**
+     * Return the modal for changing a post type.
+     *
+     * @param  TypeRepositoryInterface $types
+     * @param $id
+     * @return \Illuminate\View\View
+     */
+    public function change(TypeRepositoryInterface $types, $id)
+    {
+        return $this->view->make('module::admin/posts/change', ['types' => $types->all(), 'post' => $id]);
+    }
+
+    /**
      * Return the form for creating a new post.
      *
      * @param  PostEntryFormBuilder $form
@@ -62,8 +74,8 @@ class PostsController extends AdminController
     /**
      * Return the form for editing an existing post.
      *
-     * @param  PostRepositoryInterface                    $posts
-     * @param  PostEntryFormBuilder                       $form
+     * @param  PostRepositoryInterface $posts
+     * @param  PostEntryFormBuilder $form
      * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -80,8 +92,8 @@ class PostsController extends AdminController
     /**
      * Redirect to a post's URL.
      *
-     * @param  PostRepositoryInterface           $posts
-     * @param  Redirector                        $redirect
+     * @param  PostRepositoryInterface $posts
+     * @param  Redirector $redirect
      * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -100,8 +112,8 @@ class PostsController extends AdminController
     /**
      * Delete a post and go back.
      *
-     * @param  PostRepositoryInterface           $posts
-     * @param  Authorizer                        $authorizer
+     * @param  PostRepositoryInterface $posts
+     * @param  Authorizer $authorizer
      * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */

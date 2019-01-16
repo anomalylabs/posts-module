@@ -3,6 +3,8 @@
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Form\PostEntryFormBuilder;
 use Anomaly\PostsModule\Post\Form\PostFormBuilder;
+use Anomaly\PostsModule\Type\Contract\TypeInterface;
+use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -35,7 +37,7 @@ class AddPostFormFromPost
      * Create a new AddPostFormFromPost instance.
      *
      * @param PostEntryFormBuilder $builder
-     * @param PostInterface        $post
+     * @param PostInterface $post
      */
     public function __construct(PostEntryFormBuilder $builder, PostInterface $post)
     {
@@ -47,10 +49,19 @@ class AddPostFormFromPost
      * Handle the command.
      *
      * @param PostFormBuilder $builder
+     * @param TypeRepositoryInterface $types
      */
-    public function handle(PostFormBuilder $builder)
+    public function handle(PostFormBuilder $builder, TypeRepositoryInterface $types)
     {
         $builder->setEntry($this->post->getId());
+
+        if (request()->has('type')) {
+
+            /* @var TypeInterface $type */
+            $type = $types->find(request('type'));
+
+            $builder->setType($type);
+        }
 
         $this->builder->addForm('post', $builder);
     }
