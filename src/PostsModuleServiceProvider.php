@@ -23,9 +23,9 @@ use Anomaly\Streams\Platform\Version\VersionRouter;
 /**
  * Class PostsModuleServiceProvider
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class PostsModuleServiceProvider extends AddonServiceProvider
 {
@@ -98,20 +98,6 @@ class PostsModuleServiceProvider extends AddonServiceProvider
             'as'   => 'anomaly.module.posts::posts.view',
             'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@view',
         ],
-        'admin/posts'                         => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@index',
-        'admin/posts/choose'                  => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@choose',
-        'admin/posts/change/{id}'             => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@change',
-        'admin/posts/create'                  => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@create',
-        'admin/posts/edit/{id}'               => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@edit',
-        'admin/posts/view/{id}'               => 'Anomaly\PostsModule\Http\Controller\Admin\PostsController@view',
-        'admin/posts/categories'              => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@index',
-        'admin/posts/categories/create'       => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@create',
-        'admin/posts/categories/edit/{id}'    => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@edit',
-        'admin/posts/categories/view/{id}'    => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@view',
-        'admin/posts/categories/assignments'  => 'Anomaly\PostsModule\Http\Controller\Admin\CategoriesController@assignments',
-        'admin/posts/types'                   => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@index',
-        'admin/posts/types/create'            => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@create',
-        'admin/posts/types/edit/{id}'         => 'Anomaly\PostsModule\Http\Controller\Admin\TypesController@edit',
     ];
 
     /**
