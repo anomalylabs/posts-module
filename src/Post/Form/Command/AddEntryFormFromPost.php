@@ -61,6 +61,8 @@ class AddEntryFormFromPost
             $this->builder->setOption('redirect', 'admin/posts/edit/' . $this->post->getId());
         }
 
+        $builder->setOption('locking_enabled', false);
+
         $builder->setModel($type->getEntryModelName());
         $builder->setEntry($this->post->getEntryId());
 

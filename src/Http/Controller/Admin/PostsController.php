@@ -81,12 +81,13 @@ class PostsController extends AdminController
      */
     public function edit(PostRepositoryInterface $posts, PostEntryFormBuilder $form, $id)
     {
+        /* @var PostInterface $post */
         $post = $posts->find($id);
 
         $this->dispatch(new AddEntryFormFromPost($form, $post));
         $this->dispatch(new AddPostFormFromPost($form, $post));
 
-        return $form->render($id);
+        return $form->render($post);
     }
 
     /**

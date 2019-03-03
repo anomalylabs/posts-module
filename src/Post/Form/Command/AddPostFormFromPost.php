@@ -53,7 +53,7 @@ class AddPostFormFromPost
      */
     public function handle(PostFormBuilder $builder, TypeRepositoryInterface $types)
     {
-        $builder->setEntry($this->post->getId());
+        $builder->setEntry($this->post);
 
         if (request()->has('type')) {
 
