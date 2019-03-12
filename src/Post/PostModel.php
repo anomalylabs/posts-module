@@ -70,6 +70,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     public function scopeLive(Builder $query)
     {
         return $query
+            ->fresh()
             ->where('enabled', 1)
             ->where('publish_at', '<=', date('Y-m-d H:i:s'));
     }
