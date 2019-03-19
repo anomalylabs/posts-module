@@ -55,8 +55,8 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     {
         return $this->model
             ->orderBy('created_at', 'DESC')
-            ->join('translations')
             ->where('slug', $slug)
+            ->translate()
             ->first();
     }
 
