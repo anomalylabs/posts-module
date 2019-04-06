@@ -34,6 +34,19 @@ class PostEntryFormBuilder extends MultipleFormBuilder
             'href'    => 'admin/posts/view/{request.route.parameters.id}',
         ],
     ];
+    
+    /**
+     * Fired when the builder is ready to build.
+     */
+    public function onReady()
+    {
+        /* @var FormBuilder $form */
+        $form = $this->forms->get('post');
+        $type = $form->getType();
+
+        $this->setOption('title', $type->getName());
+        $this->setOption('description', $type->getDescription());
+    }
 
     /**
      * Fired after the entry form is saved.
