@@ -24,9 +24,7 @@ class PostObserver extends EntryObserver
      */
     public function creating(EntryInterface $entry)
     {
-        if (!$entry->getStrId()) {
-            $entry->setAttribute('str_id', str_random());
-        }
+        $entry->setAttribute('str_id', str_random());
 
         parent::creating($entry);
     }

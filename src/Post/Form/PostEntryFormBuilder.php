@@ -28,7 +28,7 @@ class PostEntryFormBuilder extends MultipleFormBuilder
             'data-target' => '#modal',
             'href'        => 'admin/posts/change/{request.route.parameters.id}',
         ],
-        'view' => [
+        'view'   => [
             'enabled' => 'edit',
             'target'  => '_blank',
             'href'    => 'admin/posts/view/{request.route.parameters.id}',
