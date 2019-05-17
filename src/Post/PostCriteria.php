@@ -24,7 +24,7 @@ class PostCriteria extends EntryCriteria
         $this->query
             ->fresh()
             ->where('enabled', true)
-            ->where('publish_at', '<=', date('Y-m-d H:i:s'));
+            ->where('publish_at', '<=', gmdate('Y-m-d H:i:s'));
 
         return $this;
     }
