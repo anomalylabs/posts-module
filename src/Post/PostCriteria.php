@@ -22,7 +22,7 @@ class PostCriteria extends EntryCriteria
     public function live()
     {
         $this->query->where('enabled', true);
-        $this->query->where('publish_at', '<=', date('Y-m-d H:i:s'));
+        $this->query->where('publish_at', '<=', gmdate('Y-m-d H:i:s'));
 
         return $this;
     }

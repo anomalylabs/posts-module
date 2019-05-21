@@ -71,7 +71,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
     {
         return $query
             ->where('enabled', 1)
-            ->where('publish_at', '<=', date('Y-m-d H:i:s'));
+            ->where('publish_at', '<=', gmdate('Y-m-d H:i:s'));
     }
 
     /**
