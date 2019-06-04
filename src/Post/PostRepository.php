@@ -64,13 +64,14 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      * Find man posts by tag.
      *
      * @param                  $tag
-     * @param  null            $limit
+     * @param  null $limit
      * @return EntryCollection
      */
     public function findManyByTag($tag, $limit = null)
     {
         return $this->model
             ->live()
+            ->orderBy('publish_at', 'DESC')
             ->where('tags', 'LIKE', '%"' . $tag . '"%')
             ->paginate($limit);
     }
@@ -79,13 +80,14 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      * Find many posts by category.
      *
      * @param  CategoryInterface $category
-     * @param  null              $limit
+     * @param  null $limit
      * @return EntryCollection
      */
     public function findManyByCategory(CategoryInterface $category, $limit = null)
     {
         return $this->model
             ->live()
+            ->orderBy('publish_at', 'DESC')
             ->where('category_id', $category->getId())
             ->paginate($limit);
     }
@@ -94,13 +96,14 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      * Find many posts by type.
      *
      * @param  TypeInterface $type
-     * @param  null          $limit
+     * @param  null $limit
      * @return PostCollection
      */
     public function findManyByType(TypeInterface $type, $limit = null)
     {
         return $this->model
             ->live()
+            ->orderBy('publish_at', 'DESC')
             ->where('type_id', $type->getId())
             ->paginate($limit);
     }
@@ -110,13 +113,14 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      *
      * @param                 $year
      * @param                 $month
-     * @param  null           $limit
+     * @param  null $limit
      * @return PostCollection
      */
     public function findManyByDate($year, $month, $limit = null)
     {
         $query = $this->model
             ->live()
+            ->orderBy('publish_at', 'DESC')
             ->whereYear('publish_at', '=', $year);
 
         if ($month) {
@@ -135,6 +139,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     {
         return $this->model
             ->live()
+            ->orderBy('publish_at', 'DESC')
             ->paginate($limit);
     }
 
@@ -160,6 +165,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     {
         return $this->model
             ->live()
+            ->orderBy('publish_at', 'DESC')
             ->get();
     }
 }
