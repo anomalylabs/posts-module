@@ -151,6 +151,7 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     public function getFeatured($limit = null)
     {
         return $this->model
+            ->orderBy('publish_at', 'DESC')
             ->where('enabled', true)
             ->where('featured', true)
             ->paginate($limit);
