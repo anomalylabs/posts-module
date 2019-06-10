@@ -36,11 +36,11 @@
 
         </header>
 
-        <div class="summary">
-            {% if post.summary %}
+        {% if post.summary.value %}
+            <div class="summary">            
                 <p>{{ post.summary|nl2br|raw }}</p>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
 
     </article>
 {% endfor %}
