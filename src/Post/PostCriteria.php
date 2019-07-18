@@ -3,6 +3,7 @@
 use Anomaly\PostsModule\Type\Command\GetType;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\EntryCriteria;
+use Carbon\Carbon;
 
 /**
  * Class PostCriteria
@@ -24,7 +25,13 @@ class PostCriteria extends EntryCriteria
         $this->query
             ->fresh()
             ->where('enabled', true)
-            ->where('publish_at', '<=', gmdate('Y-m-d H:i:s'));
+            ->where(
+                'publish_at',
+                '<=',
+                (new Carbon(null, config('streams::datetime.default_timezone')))
+                    ->setTimezone(config('streams::datetime.database_timezone'))
+                    ->format('Y-m-d H:i:s')
+            );
 
         return $this;
     }
