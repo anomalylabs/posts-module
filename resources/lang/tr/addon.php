@@ -1,16 +1,14 @@
 <?php
 
 return [
-    "title" => "Mesajlar",
-    "name" => "Mesajlar Modülü",
-    "description" => "Çok yönlü bir makale ve yazı yöneticisi.",
-    "section" => [
-        "posts" => "Mesajlar",
-        "types" => "Türleri",
-        "fields" => "Alanlar",
-        "categories" => "Kategoriler",
-        "assignments" => "Ödevler",
-
+    'title'       => 'Gönderiler',
+    'name'        => 'Gönderi Modulü',
+    'description' => 'Çok yönlü bir makale ve yazı yöneticisi.',
+    'section'     => [
+        'posts'       => 'Gönderiler',
+        'types'       => 'Türleri',
+        'fields'      => 'Alanlar',
+        'categories'  => 'Kategoriler',
+        'assignments' => 'Görevler',
     ],
-
 ];

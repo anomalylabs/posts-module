@@ -1,17 +1,13 @@
 <?php
 
 return [
-    "posts" => [
-        "name" => "Mesajlar",
-
+    'posts'      => [
+        'name' => 'Gönderiler',
     ],
-    "types" => [
-        "name" => "Türleri",
-
+    'types'      => [
+        'name' => 'Türleri',
     ],
-    "categories" => [
-        "name" => "Kategoriler",
-
+    'categories' => [
+        'name' => 'Kategoriler',
     ],
-
 ];
