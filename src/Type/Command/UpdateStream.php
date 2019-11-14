@@ -1,4 +1,6 @@
-<?php namespace Anomaly\PostsModule\Type\Command;
+<?php
+
+namespace Anomaly\PostsModule\Type\Command;
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
@@ -46,7 +48,7 @@ class UpdateStream
     public function handle(StreamRepositoryInterface $streams, TypeRepositoryInterface $types, Repository $config)
     {
         /* @var TypeInterface $type */
-        $type = $types->find($this->type->getId());
+        $type = $types->findWithTrashed($this->type->getId());
 
         /* @var StreamInterface $stream */
         $stream = $type->getEntryStream();
