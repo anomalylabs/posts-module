@@ -1,9 +1,9 @@
 <?php
 
 return [
-    "new_post" => "Yeni posta",
-    "new_category" => "Yeni kategori",
-    "new_type" => "Yeni tip",
-    "new_field" => "Yeni alan",
-    "add_field" => "Alan ekle"
+    'new_post'     => 'Yeni Yazı',
+    'new_category' => 'Yeni Kategori',
+    'new_type'     => 'Yeni Tip',
+    'new_field'    => 'Yeni Alan',
+    'add_field'    => 'Alan Ekle',
 ];
