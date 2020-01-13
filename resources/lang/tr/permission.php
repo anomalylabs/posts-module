@@ -2,7 +2,7 @@
 
 return [
     'posts'      => [
-        'name'   => 'Gönderiler',
+        'name'   => 'Yazılar',
         'option' => [
             'read'    => 'Mesaj bölümüne erişebilir.',
             'write'   => 'Mesajları oluşturabilir ve düzenleyebilir.',

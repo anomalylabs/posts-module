@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'posts'   => 'Gönderiler',
+    'posts'   => 'Yazılar',
     'fields'  => 'Alanlar',
     'archive' => 'Arşiv',
     'tagged'  => 'Tagged ":tag"',

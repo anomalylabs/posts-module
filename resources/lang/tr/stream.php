@@ -2,7 +2,7 @@
 
 return [
     'posts'      => [
-        'name' => 'Gönderiler',
+        'name' => 'Yazılar',
     ],
     'types'      => [
         'name' => 'Türleri',

@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'title'       => 'Gönderiler',
-    'name'        => 'Gönderi Modulü',
+    'title'       => 'Yazılar',
+    'name'        => 'Yazı ve Makale Modulü',
     'description' => 'Çok yönlü bir makale ve yazı yöneticisi.',
     'section'     => [
-        'posts'       => 'Gönderiler',
+        'posts'       => 'Yazılar',
         'types'       => 'Türleri',
         'fields'      => 'Alanlar',
         'categories'  => 'Kategoriler',
