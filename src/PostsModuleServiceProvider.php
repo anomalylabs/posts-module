@@ -37,12 +37,12 @@ class PostsModuleServiceProvider extends AddonServiceProvider
      */
     protected $postsUrlBase = "posts";
 
-    public function setPostUrlBase(string $base)
+    public function setPostsUrlBase(string $base)
     {
         $this->postsUrlBase = $base;
     }
 
-    public function postUrlBase(): string
+    public function postsUrlBase(): string
     {
         return $this->postsUrlBase;
     }
