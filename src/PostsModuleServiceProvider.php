@@ -29,24 +29,6 @@ use Anomaly\Streams\Platform\Version\VersionRouter;
  */
 class PostsModuleServiceProvider extends AddonServiceProvider
 {
-
-    /**
-     * The URL base path for all post type URLs.
-     *
-     * @var string
-     */
-    protected $postsUrlBase = "posts";
-
-    public function setPostsUrlBase(string $base)
-    {
-        $this->postsUrlBase = $base;
-    }
-
-    public function postsUrlBase(): string
-    {
-        return $this->postsUrlBase;
-    }
-
     /**
      * The class bindings.
      *
@@ -83,4 +65,13 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         $assignments->route($this->addon, AssignmentsController::class);
     }
 
+    /**
+     * Get the Post Modules URL base via conig, or default to posts.
+     *
+     * @return string
+     */
+    public function postsUrlBase()
+    {
+        return $this->app->config->get('anomaly.module.posts::permalink.url_base', 'posts');
+    }
 }
