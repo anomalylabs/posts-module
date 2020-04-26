@@ -25,7 +25,7 @@
         "docs": "https://pyrocms.com/documentation/posts-module",
         "forum": "https://pyrocms.com/forum/channels/posts-module",
         "slack": "https://pyrocms.com/slack",
-        "issues": "https://github.com/pyrocms/pyrocms/issues?q=is:issue is:open [posts-module]",
+        "issues": "https://github.com/pyrocms/pyrocms/issues?q=is:issue+is:open+[posts-module]",
         "source": "https://github.com/anomalylabs/posts-module"
     },
     "require": {
