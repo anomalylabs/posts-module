@@ -25,8 +25,4 @@ return [
         'label'        => 'Time to live (TTL)',
         'instructions' => 'How long (in minutes) do you want to cache posts before before serving fresh content?',
     ],
-    'url_base' => [
-        'name' => "Post's URL Base",
-        'instructions' => 'What string will be used as the URL base for Post.',
-    ],
 ];
