@@ -29,7 +29,6 @@ use Anomaly\Streams\Platform\Version\VersionRouter;
  */
 class PostsModuleServiceProvider extends AddonServiceProvider
 {
-
     /**
      * The class bindings.
      *
@@ -53,54 +52,6 @@ class PostsModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * The addon routes.
-     *
-     * @var array
-     */
-    protected $routes = [
-        "posts/rss/categories/{category}.xml" => [
-            'as'   => 'anomaly.module.posts::categories.rss',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\RssController@category',
-        ],
-        "posts/rss/tags/{tag}.xml"            => [
-            'as'   => 'anomaly.module.posts::tags.rss',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\RssController@tag',
-        ],
-        "posts/rss.xml"                       => [
-            'as'   => 'anomaly.module.posts::posts.rss',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\RssController@recent',
-        ],
-        'posts'                               => [
-            'as'   => 'anomaly.module.posts::posts.index',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@index',
-        ],
-        "posts/preview/{str_id}"              => [
-            'as'   => 'anomaly.module.posts::posts.preview',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@preview',
-        ],
-        "posts/tags/{tag}"                    => [
-            'as'   => 'anomaly.module.posts::tags.view',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\TagsController@index',
-        ],
-        "posts/type/{slug}"                   => [
-            'as'   => 'anomaly.module.posts::types.view',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\TypesController@index',
-        ],
-        "posts/categories/{slug}"             => [
-            'as'   => 'anomaly.module.posts::categories.view',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\CategoriesController@index',
-        ],
-        "posts/archive/{year}/{month?}"       => [
-            'as'   => 'anomaly.module.posts::posts.archive',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\ArchiveController@index',
-        ],
-        "posts/{slug}"                        => [
-            'as'   => 'anomaly.module.posts::posts.view',
-            'uses' => 'Anomaly\PostsModule\Http\Controller\PostsController@view',
-        ],
-    ];
-
-    /**
      * Map the addon.
      *
      * @param FieldRouter $fields
@@ -114,4 +65,13 @@ class PostsModuleServiceProvider extends AddonServiceProvider
         $assignments->route($this->addon, AssignmentsController::class);
     }
 
+    /**
+     * Get the Post Modules URL base via conig, or default to posts.
+     *
+     * @return string
+     */
+    public function postsUrlBase()
+    {
+        return $this->app->config->get('anomaly.module.posts::permalink.url_base', 'posts');
+    }
 }
