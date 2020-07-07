@@ -403,11 +403,23 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     public function toSearchableArray()
     {
-        $array = parent::toSearchableArray();
-
-        if ($entry = $this->getEntry()) {
-            $array = array_merge($entry->toSearchableArray(), $array);
+        if (!$this->isLive()) {
+            return [];
         }
+
+        $array = parent::toRoutableArray();
+
+        $array['type']     = $this->getTypeSlug();
+        $array['category'] = $this->getCategorySlug();
+
+        $date = $this->getPublishAt();
+
+        foreach (config('anomaly.module.posts::permalink.format') as $key => $format) {
+            $array['publish_at_' . $key] = $date->format($format);
+        }
+
+        $array['title'] = array_get($array, 'meta_title', array_get($array, 'title'));
+        $array['description'] = array_get($array, 'meta_description', array_get($array, 'summary'));
 
         return $array;
     }
