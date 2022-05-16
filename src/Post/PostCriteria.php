@@ -4,6 +4,8 @@ use Anomaly\PostsModule\Type\Command\GetType;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\EntryCriteria;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 /**
  * Class PostCriteria
@@ -105,6 +107,20 @@ class PostCriteria extends EntryCriteria
             ->groupBy('month');
 
         return $this;
+    }
+
+
+    public function searchInTitle($keyword){
+        $post_ids = $this->searchInTitlePluck($keyword);
+        return $this ->query
+            ->whereIn('posts_posts.id', $post_ids);
+    }
+    public function searchInTitlePluck($keyword){
+        return DB::table('posts_posts_translations')
+            ->where('posts_posts_translations.locale', config('app.locale'))
+            ->where('posts_posts_translations.title', 'LIKE', '%'. $keyword. '%')
+            ->pluck('entry_id')
+            ->toArray();
     }
 
 }
