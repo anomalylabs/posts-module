@@ -169,4 +169,14 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
             ->orderBy('publish_at', 'DESC')
             ->get();
     }
+    
+    /**
+     * Get posts for the sitemap.
+     *
+     * @return PostCollection
+     */
+    public function getSitemap()
+    {
+        return $this->getLive();
+    }
 }
