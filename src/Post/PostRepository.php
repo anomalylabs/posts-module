@@ -171,12 +171,12 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
     }
     
     /**
-     * Get posts for the sitemap.
+     * Return the sitemap entries query.
      *
-     * @return PostCollection
+     * @return Builder
      */
-    public function getSitemap()
+    public function sitemap()
     {
-        return $this->getLive();
+        return $this->model->live();
     }
 }
