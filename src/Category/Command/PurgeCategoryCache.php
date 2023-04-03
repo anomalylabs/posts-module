@@ -38,7 +38,7 @@ class PurgeCategoryCache
      */
     public function handle()
     {
-        $this->dispatch(new PurgeHttpCache($this->category->route('view')));
+        $this->dispatchSync(new PurgeHttpCache($this->category->route('view')));
     }
 
 }

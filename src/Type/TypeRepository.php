@@ -54,7 +54,7 @@ class TypeRepository extends EntryRepository implements TypeRepositoryInterface
 
         foreach ($this->model->all() as $entry)
         {
-            $this->dispatch(new DeleteTypeStream($entry));
+            $this->dispatchSync(new DeleteTypeStream($entry));
         }
 
         return $this;

@@ -51,7 +51,7 @@ class PostBreadcrumb
      */
     public function make(PostInterface $post)
     {
-        $this->dispatch(new AddPostsBreadcrumb());
+        $this->dispatchSync(new AddPostsBreadcrumb());
 
         if ($category = $post->getCategory()) {
             $this->breadcrumbs->add($category->getTitle(), $category->route('view'));

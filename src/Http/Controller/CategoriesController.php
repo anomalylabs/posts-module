@@ -29,9 +29,9 @@ class CategoriesController extends PublicController
             abort(404);
         }
 
-        $this->dispatch(new AddPostsBreadcrumb());
-        $this->dispatch(new AddCategoryBreadcrumb($category));
-        $this->dispatch(new AddCategoryMetadata($category));
+        $this->dispatchSync(new AddPostsBreadcrumb());
+        $this->dispatchSync(new AddCategoryBreadcrumb($category));
+        $this->dispatchSync(new AddCategoryMetadata($category));
 
         return $this->view->make('anomaly.module.posts::categories/index', compact('category'));
     }

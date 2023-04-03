@@ -87,7 +87,7 @@ class TypeModel extends PostsTypesEntryModel implements TypeInterface
      */
     public function getEntryStream()
     {
-        return $this->dispatch(new GetTypeStream($this));
+        return $this->dispatchSync(new GetTypeStream($this));
     }
 
     /**

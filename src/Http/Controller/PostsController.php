@@ -27,8 +27,8 @@ class PostsController extends PublicController
      */
     public function index()
     {
-        $this->dispatch(new AddPostsBreadcrumb());
-        $this->dispatch(new AddPostsMetaTitle());
+        $this->dispatchSync(new AddPostsBreadcrumb());
+        $this->dispatchSync(new AddPostsMetaTitle());
 
         return $this->view->make('anomaly.module.posts::posts/index');
     }
@@ -46,14 +46,14 @@ class PostsController extends PublicController
             abort(404);
         }
 
-        $this->dispatch(new AddPostsBreadcrumb());
-        $this->dispatch(new MakePreviewResponse($post));
+        $this->dispatchSync(new AddPostsBreadcrumb());
+        $this->dispatchSync(new MakePreviewResponse($post));
 
         if ($category = $post->getCategory()) {
-            $this->dispatch(new AddCategoryBreadcrumb($category));
+            $this->dispatchSync(new AddCategoryBreadcrumb($category));
         }
 
-        $this->dispatch(new AddPostBreadcrumb($post));
+        $this->dispatchSync(new AddPostBreadcrumb($post));
 
         return $post->getResponse();
     }
@@ -74,7 +74,7 @@ class PostsController extends PublicController
             abort(404);
         }
 
-        $this->dispatch(new MakePostResponse($post));
+        $this->dispatchSync(new MakePostResponse($post));
 
         return $post->getResponse();
     }

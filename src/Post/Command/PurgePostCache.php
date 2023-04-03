@@ -43,7 +43,7 @@ class PurgePostCache
     public function handle(UrlGenerator $url)
     {
         foreach ($this->post->getTags() as $tag) {
-            $this->dispatch(new PurgeHttpCache($url->route('anomaly.module.posts::tags.view', compact('tag'))));
+            $this->dispatchSync(new PurgeHttpCache($url->route('anomaly.module.posts::tags.view', compact('tag'))));
         }
     }
 

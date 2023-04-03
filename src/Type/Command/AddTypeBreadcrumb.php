@@ -43,7 +43,7 @@ class AddTypeBreadcrumb
     {
         $breadcrumbs->add(
             $this->type->getName(),
-            $this->dispatch(new GetTypePath($this->type))
+            $this->dispatchSync(new GetTypePath($this->type))
         );
     }
 }

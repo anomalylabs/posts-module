@@ -38,7 +38,7 @@ class PurgeIndexCache
      */
     public function handle()
     {
-        $this->dispatch(new PurgeHttpCache($this->post->route('posts.index')));
+        $this->dispatchSync(new PurgeHttpCache($this->post->route('posts.index')));
     }
 
 }
