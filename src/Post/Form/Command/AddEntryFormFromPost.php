@@ -4,7 +4,6 @@ use Anomaly\PostsModule\Entry\Form\EntryFormBuilder;
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Form\PostEntryFormBuilder;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class AddEntryFormFromPost
@@ -15,9 +14,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class AddEntryFormFromPost
 {
-
-    use DispatchesJobs;
-
     /**
      * The multiple form builder.
      *

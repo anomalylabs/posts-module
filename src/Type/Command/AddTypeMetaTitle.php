@@ -2,7 +2,6 @@
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\View\ViewTemplate;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class AddTypeMetaTitle
@@ -13,9 +12,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class AddTypeMetaTitle
 {
-
-    use DispatchesJobs;
-
     /**
      * The type instance.
      *

@@ -25,7 +25,7 @@ class TypeObserver extends EntryObserver
      */
     public function created(EntryInterface $entry)
     {
-        $this->commands->dispatchSync(new CreateTypeStream($entry));
+        dispatch_sync(new CreateTypeStream($entry));
 
         parent::created($entry);
     }
@@ -37,8 +37,8 @@ class TypeObserver extends EntryObserver
      */
     public function updating(EntryInterface $entry)
     {
-        $this->commands->dispatchSync(new UpdateStream($entry));
-        $this->commands->dispatchSync(new UpdatePosts($entry));
+        dispatch_sync(new UpdateStream($entry));
+        dispatch_sync(new UpdatePosts($entry));
 
         parent::updating($entry);
     }
@@ -50,7 +50,7 @@ class TypeObserver extends EntryObserver
      */
     public function deleted(EntryInterface $entry)
     {
-        $this->commands->dispatchSync(new DeleteTypeStream($entry));
+        dispatch_sync(new DeleteTypeStream($entry));
 
         parent::deleted($entry);
     }

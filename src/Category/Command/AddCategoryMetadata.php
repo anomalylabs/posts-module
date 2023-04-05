@@ -2,7 +2,6 @@
 
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\View\ViewTemplate;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class AddCategoryMetadata
@@ -13,9 +12,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class AddCategoryMetadata
 {
-
-    use DispatchesJobs;
-
     /**
      * The category instance.
      *

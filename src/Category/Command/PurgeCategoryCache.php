@@ -2,7 +2,6 @@
 
 use Anomaly\PostsModule\Category\Contract\CategoryInterface;
 use Anomaly\Streams\Platform\Http\Command\PurgeHttpCache;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class PurgeCategoryCache
@@ -13,9 +12,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class PurgeCategoryCache
 {
-
-    use DispatchesJobs;
-
     /**
      * The category instance.
      *
@@ -38,7 +34,7 @@ class PurgeCategoryCache
      */
     public function handle()
     {
-        $this->dispatchSync(new PurgeHttpCache($this->category->route('view')));
+        dispatch_sync(new PurgeHttpCache($this->category->route('view')));
     }
 
 }

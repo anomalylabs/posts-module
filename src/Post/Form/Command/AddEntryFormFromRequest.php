@@ -3,7 +3,6 @@
 use Anomaly\PostsModule\Entry\Form\EntryFormBuilder;
 use Anomaly\PostsModule\Post\Form\PostEntryFormBuilder;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 
 /**
@@ -15,9 +14,6 @@ use Illuminate\Http\Request;
  */
 class AddEntryFormFromRequest
 {
-
-    use DispatchesJobs;
-
     /**
      * The multiple form builder.
      *

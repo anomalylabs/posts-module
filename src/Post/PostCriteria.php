@@ -73,7 +73,7 @@ class PostCriteria extends EntryCriteria
     public function type($identifier)
     {
         /* @var TypeInterface $type */
-        if (!$type = $this->dispatchSync(new GetType($identifier))) {
+        if (!$type = dispatch_sync(new GetType($identifier))) {
             throw new \Exception('Post type [' . $identifier . '] doesn\'t exist!');
         }
 

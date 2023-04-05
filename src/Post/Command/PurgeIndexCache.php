@@ -2,7 +2,6 @@
 
 use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Http\Command\PurgeHttpCache;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class PurgeIndexCache
@@ -13,9 +12,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class PurgeIndexCache
 {
-
-    use DispatchesJobs;
-
     /**
      * The post instance.
      *
@@ -38,7 +34,7 @@ class PurgeIndexCache
      */
     public function handle()
     {
-        $this->dispatchSync(new PurgeHttpCache($this->post->route('posts.index')));
+        dispatch_sync(new PurgeHttpCache($this->post->route('posts.index')));
     }
 
 }

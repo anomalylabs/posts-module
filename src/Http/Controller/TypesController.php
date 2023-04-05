@@ -29,9 +29,9 @@ class TypesController extends PublicController
             abort(404);
         }
 
-        $this->dispatchSync(new AddPostsBreadcrumb());
-        $this->dispatchSync(new AddTypeBreadcrumb($type));
-        $this->dispatchSync(new AddTypeMetadata($type));
+        dispatch_sync(new AddPostsBreadcrumb());
+        dispatch_sync(new AddTypeBreadcrumb($type));
+        dispatch_sync(new AddTypeMetadata($type));
 
         return $this->view->make('anomaly.module.posts::types/index', compact('type'));
     }

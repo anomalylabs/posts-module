@@ -102,7 +102,7 @@ class PostModel extends PostsPostsEntryModel implements PostInterface
      */
     public function make()
     {
-        $this->dispatchSync(new MakePostResponse($this));
+        dispatch_sync(new MakePostResponse($this));
 
         return $this;
     }

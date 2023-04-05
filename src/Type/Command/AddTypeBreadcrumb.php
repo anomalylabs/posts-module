@@ -3,7 +3,6 @@
 use Anomaly\PostsModule\Type\Command\GetTypePath;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Ui\Breadcrumb\BreadcrumbCollection;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class AddTypeBreadcrumb
@@ -14,9 +13,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class AddTypeBreadcrumb
 {
-
-    use DispatchesJobs;
-
     /**
      * The type instance.
      *
@@ -43,7 +39,7 @@ class AddTypeBreadcrumb
     {
         $breadcrumbs->add(
             $this->type->getName(),
-            $this->dispatchSync(new GetTypePath($this->type))
+            dispatch_sync(new GetTypePath($this->type))
         );
     }
 }

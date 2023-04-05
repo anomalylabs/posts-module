@@ -7,7 +7,6 @@ use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Illuminate\Contracts\Config\Repository;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateStream
@@ -18,9 +17,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class UpdateStream
 {
-
-    use DispatchesJobs;
-
     /**
      * The post type instance.
      *

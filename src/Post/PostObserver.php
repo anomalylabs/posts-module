@@ -36,7 +36,7 @@ class PostObserver extends EntryObserver
      */
     public function saving(EntryInterface $entry)
     {
-        $this->dispatchSync(new PurgePostCache($entry));
+        dispatch_sync(new PurgePostCache($entry));
 
         parent::saving($entry);
     }
@@ -48,11 +48,11 @@ class PostObserver extends EntryObserver
      */
     public function saved(EntryInterface $entry)
     {
-        $this->dispatchSync(new PurgePostCache($entry));
-        $this->dispatchSync(new PurgeIndexCache($entry));
+        dispatch_sync(new PurgePostCache($entry));
+        dispatch_sync(new PurgeIndexCache($entry));
 
         if ($category = $entry->getCategory()) {
-            $this->dispatchSync(new PurgeCategoryCache($category));
+            dispatch_sync(new PurgeCategoryCache($category));
         }
 
         parent::saved($entry);

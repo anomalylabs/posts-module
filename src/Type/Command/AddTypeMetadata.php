@@ -2,7 +2,6 @@
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\View\ViewTemplate;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class AddTypeMetadata
@@ -13,9 +12,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class AddTypeMetadata
 {
-
-    use DispatchesJobs;
-
     /**
      * The type instance.
      *

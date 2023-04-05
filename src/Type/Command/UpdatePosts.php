@@ -4,7 +4,6 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\PostsModule\Post\Contract\PostRepositoryInterface;
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
 use Anomaly\PostsModule\Type\Contract\TypeRepositoryInterface;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdatePosts
@@ -15,9 +14,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class UpdatePosts
 {
-
-    use DispatchesJobs;
-
     /**
      * The post type instance.
      *
