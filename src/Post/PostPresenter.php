@@ -4,7 +4,7 @@ use Anomaly\PostsModule\Post\Contract\PostInterface;
 use Anomaly\Streams\Platform\Entry\EntryPresenter;
 use Anomaly\Streams\Platform\Support\Decorator;
 use Carbon\Carbon;
-use Collective\Html\HtmlBuilder;
+use Anomaly\Streams\Platform\Html\HtmlBuilder;
 use Illuminate\Contracts\Config\Repository;
 
 /**
@@ -67,7 +67,7 @@ class PostPresenter extends EntryPresenter
      * Return the tag links.
      *
      * @param  array  $attributes
-     * @return string
+     * @return array
      */
     public function tagLinks(array $attributes = [])
     {
