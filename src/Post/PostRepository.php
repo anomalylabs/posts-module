@@ -69,10 +69,15 @@ class PostRepository extends EntryRepository implements PostRepositoryInterface
      */
     public function findManyByTag($tag, $limit = null)
     {
+        /*
+         * Tags are stored serialized, so the tag is matched
+         * as a quoted substring. Escape the LIKE wildcards
+         * so that the value cannot widen the pattern.
+         */
         return $this->model
             ->live()
             ->orderBy('publish_at', 'DESC')
-            ->where('tags', 'LIKE', '%"' . $tag . '"%')
+            ->where('tags', 'LIKE', '%"' . addcslashes((string)$tag, '%_\\') . '"%')
             ->paginate($limit);
     }
 

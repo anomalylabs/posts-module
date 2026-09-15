@@ -65,6 +65,26 @@ class PostCriteria extends EntryCriteria
     }
 
     /**
+     * Add the tag constraint.
+     *
+     * @param  $tag
+     * @return $this
+     */
+    public function tagged($tag)
+    {
+        $this->recent();
+
+        /*
+         * Tags are stored serialized, so the tag is matched
+         * as a quoted substring. Escape the LIKE wildcards
+         * so that the value cannot widen the pattern.
+         */
+        $this->query->where('tags', 'LIKE', '%"' . addcslashes((string)$tag, '%_\\') . '"%');
+
+        return $this;
+    }
+
+    /**
      * Add the type constraint.
      *
      * @param $identifier
