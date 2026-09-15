@@ -1,5 +1,7 @@
 <?php namespace Anomaly\PostsModule\Http\Controller\Admin;
 
+use Anomaly\Streams\Platform\Support\Authorizer;
+
 /**
  * Class FieldsController
  *
@@ -16,5 +18,25 @@ class FieldsController extends \Anomaly\Streams\Platform\Http\Controller\FieldsC
      * @var string
      */
     protected $namespace = 'posts';
+
+    /**
+     * Create a new FieldsController instance.
+     *
+     * @param Authorizer $authorizer
+     */
+    public function __construct(Authorizer $authorizer)
+    {
+        parent::__construct();
+
+        $this->middleware(
+            function ($request, $next) use ($authorizer) {
+                if (!$authorizer->authorize('anomaly.module.posts::fields.manage')) {
+                    abort(403);
+                }
+
+                return $next($request);
+            }
+        );
+    }
 
 }
