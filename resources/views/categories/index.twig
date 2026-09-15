@@ -9,7 +9,7 @@
                 <h1>{{ category.title }}</h1>
 
                 {% if category.description %}
-                    <p>{{ category.description|raw }}</p>
+                    <p>{{ category.description|nl2br }}</p>
                 {% endif %}
 
             </header>
