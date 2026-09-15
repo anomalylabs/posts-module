@@ -120,9 +120,25 @@ class PostsController extends AdminController
      */
     public function delete(PostRepositoryInterface $posts, Authorizer $authorizer, $id)
     {
-        $authorizer->authorize('anomaly.module.posts::posts.delete');
+        if (!hash_equals((string)csrf_token(), (string)$this->request->get('_token'))) {
 
-        $posts->delete($posts->find($id));
+            $this->messages->error('streams::message.csrf_token_mismatch');
+
+            return $this->redirect->back();
+        }
+
+        if (!$authorizer->authorize('anomaly.module.posts::posts.delete')) {
+
+            $this->messages->error('streams::message.access_denied');
+
+            return $this->redirect->back();
+        }
+
+        if (!$post = $posts->find($id)) {
+            abort(404);
+        }
+
+        $posts->delete($post);
 
         return redirect()->back();
     }
