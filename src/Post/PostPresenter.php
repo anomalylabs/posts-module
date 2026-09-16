@@ -5,7 +5,7 @@ use Anomaly\Streams\Platform\Entry\EntryPresenter;
 use Anomaly\Streams\Platform\Support\Decorator;
 use Carbon\Carbon;
 use Anomaly\Streams\Platform\Html\HtmlBuilder;
-use Illuminate\Contracts\Config\Repository;
+use Illuminate\Routing\UrlGenerator;
 
 /**
  * Class PostPresenter
@@ -32,23 +32,23 @@ class PostPresenter extends EntryPresenter
     protected $object;
 
     /**
-     * The config repository.
+     * The URL generator.
      *
-     * @var Repository
+     * @var UrlGenerator
      */
-    private $config;
+    private $url;
 
     /**
      * Create a new PostPresenter instance.
      *
-     * @param HtmlBuilder $html
-     * @param Repository  $config
-     * @param             $object
+     * @param HtmlBuilder  $html
+     * @param UrlGenerator $url
+     * @param              $object
      */
-    public function __construct(HtmlBuilder $html, Repository $config, $object)
+    public function __construct(HtmlBuilder $html, UrlGenerator $url, $object)
     {
-        $this->html   = $html;
-        $this->config = $config;
+        $this->html = $html;
+        $this->url  = $url;
 
         parent::__construct($object);
     }
@@ -76,15 +76,7 @@ class PostPresenter extends EntryPresenter
         return array_map(
             function ($label) use ($attributes) {
                 return $this->html->link(
-                    implode(
-                        '/',
-                        [
-                            $this->config->get('anomaly.module.posts::paths.module'),
-                            $this->config->get('anomaly.module.posts::paths.tag'),
-                            $label,
-                        ]
-                    )
-                    ,
+                    $this->url->route('anomaly.module.posts::tags.view', ['tag' => $label]),
                     $label,
                     $attributes
                 );

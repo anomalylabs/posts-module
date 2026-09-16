@@ -1,7 +1,7 @@
 <?php namespace Anomaly\PostsModule\Type\Command;
 
 use Anomaly\PostsModule\Type\Contract\TypeInterface;
-use Illuminate\Contracts\Config\Repository;
+use Illuminate\Routing\UrlGenerator;
 
 /**
  * Class GetTypePath
@@ -33,11 +33,11 @@ class GetTypePath
     /**
      * Handle the command.
      *
-     * @param  Repository $config
+     * @param  UrlGenerator $url
      * @return string
      */
-    public function handle(Repository $config)
+    public function handle(UrlGenerator $url)
     {
-        return $config->get('anomaly.module.posts::paths.module') . '/' . $this->category->getSlug();
+        return $url->route('anomaly.module.posts::types.view', ['slug' => $this->category->getSlug()]);
     }
 }
