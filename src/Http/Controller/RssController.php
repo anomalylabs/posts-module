@@ -16,6 +16,32 @@ class RssController extends PublicController
 {
 
     /**
+     * The most items a feed will return.
+     *
+     * @var int
+     */
+    protected $maxLimit = 100;
+
+    /**
+     * Return the requested feed limit.
+     *
+     * Anything that is not a usable page size falls
+     * through to the paginator's own default.
+     *
+     * @return int|null
+     */
+    protected function limit()
+    {
+        $limit = $this->request->get('limit');
+
+        if (!is_numeric($limit) || $limit < 1) {
+            return null;
+        }
+
+        return min((int)$limit, $this->maxLimit);
+    }
+
+    /**
      * Return an RSS feed of recent posts.
      *
      * @param  PostRepositoryInterface $posts
@@ -25,7 +51,7 @@ class RssController extends PublicController
     public function recent(PostRepositoryInterface $posts, ResponseFactory $response)
     {
         $response = $response
-            ->view('module::posts/rss', ['posts' => $posts->getRecent($this->request->get('limit'))])
+            ->view('module::posts/rss', ['posts' => $posts->getRecent($this->limit())])
             ->setTtl(3600);
 
         $response->headers->set('content-type', 'text/xml');
@@ -55,7 +81,7 @@ class RssController extends PublicController
         $response = $response
             ->view(
                 'module::posts/rss',
-                ['posts' => $posts->findManyByCategory($category, $this->request->get('limit'))]
+                ['posts' => $posts->findManyByCategory($category, $this->limit())]
             )
             ->setTtl(3600);
 
@@ -75,7 +101,7 @@ class RssController extends PublicController
     public function tag(PostRepositoryInterface $posts, ResponseFactory $response, $tag)
     {
         $response = $response
-            ->view('module::posts/rss', ['posts' => $posts->findManyByTag($tag, $this->request->get('limit'))])
+            ->view('module::posts/rss', ['posts' => $posts->findManyByTag($tag, $this->limit())])
             ->setTtl(3600);
 
         $response->headers->set('content-type', 'text/xml');
