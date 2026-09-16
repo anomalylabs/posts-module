@@ -38,10 +38,15 @@ class PostsController extends AdminController
      * Return the modal for choosing a post type.
      *
      * @param  TypeRepositoryInterface $types
+     * @param  Authorizer $authorizer
      * @return \Illuminate\View\View
      */
-    public function choose(TypeRepositoryInterface $types)
+    public function choose(TypeRepositoryInterface $types, Authorizer $authorizer)
     {
+        if (!$authorizer->authorize('anomaly.module.posts::posts.write')) {
+            abort(403);
+        }
+
         return $this->view->make('module::admin/posts/choose', ['types' => $types->all()]);
     }
 
@@ -49,11 +54,25 @@ class PostsController extends AdminController
      * Return the modal for changing a post type.
      *
      * @param  TypeRepositoryInterface $types
+     * @param  PostRepositoryInterface $posts
+     * @param  Authorizer $authorizer
      * @param $id
      * @return \Illuminate\View\View
      */
-    public function change(TypeRepositoryInterface $types, $id)
-    {
+    public function change(
+        TypeRepositoryInterface $types,
+        PostRepositoryInterface $posts,
+        Authorizer $authorizer,
+        $id
+    ) {
+        if (!$authorizer->authorize('anomaly.module.posts::posts.write')) {
+            abort(403);
+        }
+
+        if (!$posts->find($id)) {
+            abort(404);
+        }
+
         return $this->view->make('module::admin/posts/change', ['types' => $types->all(), 'post' => $id]);
     }
 
@@ -95,15 +114,34 @@ class PostsController extends AdminController
      *
      * @param  PostRepositoryInterface $posts
      * @param  Redirector $redirect
+     * @param  Authorizer $authorizer
      * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function view(PostRepositoryInterface $posts, Redirector $redirect, $id)
+    public function view(PostRepositoryInterface $posts, Redirector $redirect, Authorizer $authorizer, $id)
     {
+        if (!$authorizer->authorizeAny(
+            [
+                'anomaly.module.posts::posts.read',
+                'anomaly.module.posts::posts.write',
+            ],
+            null,
+            true
+        )) {
+            abort(403);
+        }
+
         /* @var PostInterface $post */
-        $post = $posts->find($id);
+        if (!$post = $posts->find($id)) {
+            abort(404);
+        }
 
         if (!$post->isLive()) {
+
+            if (!$authorizer->authorize('anomaly.module.posts::posts.preview')) {
+                abort(403);
+            }
+
             return $redirect->to($post->route('preview'));
         }
 

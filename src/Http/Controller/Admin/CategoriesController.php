@@ -6,6 +6,7 @@ use Anomaly\PostsModule\Category\Form\CategoryFormBuilder;
 use Anomaly\PostsModule\Category\Table\CategoryTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
+use Anomaly\Streams\Platform\Support\Authorizer;
 
 /**
  * Class CategoriesController
@@ -55,13 +56,20 @@ class CategoriesController extends AdminController
      * Redirect to a category's URL.
      *
      * @param  CategoryRepositoryInterface       $categories
+     * @param  Authorizer                        $authorizer
      * @param                                    $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function view(CategoryRepositoryInterface $categories, $id)
+    public function view(CategoryRepositoryInterface $categories, Authorizer $authorizer, $id)
     {
+        if (!$authorizer->authorize('anomaly.module.posts::categories.read')) {
+            abort(403);
+        }
+
         /* @var CategoryInterface $category */
-        $category = $categories->find($id);
+        if (!$category = $categories->find($id)) {
+            abort(404);
+        }
 
         return $this->redirect->to($category->route('view'));
     }
